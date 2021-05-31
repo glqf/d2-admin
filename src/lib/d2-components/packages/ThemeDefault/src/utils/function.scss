@@ -1,0 +1,7 @@
+// @function --var-color($name, $deep: 500, $alpha: 100) {
+//   @if $alpha == 100 {
+//     @return var(--d2-color-#{$name}-#{$deep});
+//   } @else {
+//     @return var(--d2-color-#{$name}-#{$deep}-alpha-#{$alpha});
+//   }
+// }
