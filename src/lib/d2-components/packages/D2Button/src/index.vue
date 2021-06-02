@@ -42,6 +42,7 @@ export default {
     autofocus: { type: Boolean, default: false },
     text: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false },
+    loading: { type: Boolean, default: false },
     plain: { type: Boolean, default: false },
     round: { type: Boolean, default: false },
     roundLeft: { type: Boolean, default: false },
@@ -78,6 +79,8 @@ export default {
     })
     
     const buttonDisabled = computed(() => props.disabled)
+
+    const buttonLoading = computed(() => props.loading)
     
     const buttonSize = computed(() => props.size || $D2COMPONENT.size)
     
@@ -90,7 +93,8 @@ export default {
         'is-round-right': roundRight.value,
         'is-circle': props.circle,
         'is-ring': props.ring,
-        'is-disabled': props.disabled,
+        'is-disabled': buttonDisabled.value,
+        'is-loading': buttonLoading.value,
         'is-text': props.text,
         'is-icon-right': iconRightActive.value,
         [`d2-button--${buttonSize.value}`]: buttonSize.value,

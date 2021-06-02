@@ -15,6 +15,12 @@
       @include mix-button-color-styles(#{$color}-disabled);
     }
   }
+  @include when(loading) {
+    &,&:hover,&:focus {
+      cursor: not-allowed;
+      @include mix-button-color-styles(#{$color}-loading);
+    }
+  }
   @include when(plain) {
     @include mix-button-color-styles(#{$color}-plain);
     &:hover { @include mix-button-color-styles(#{$color}-plain-hover); }
@@ -23,6 +29,11 @@
     @include when(disabled) {
       &,&:hover,&:focus {
         @include mix-button-color-styles(#{$color}-plain-disabled);
+      }
+    }
+    @include when(loading) {
+      &,&:hover,&:focus {
+        @include mix-button-color-styles(#{$color}-plain-loading);
       }
     }
   }
@@ -38,6 +49,13 @@
         border-color: transparent;
         background-color: transparent;
         color: var(--d2-button-font-color-#{$color}-text-disabled);
+      }
+    }
+    @include when(loading) {
+      &,&:hover,&:focus {
+        border-color: transparent;
+        background-color: transparent;
+        color: var(--d2-button-font-color-#{$color}-text-loading);
       }
     }
   }

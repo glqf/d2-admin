@@ -348,18 +348,21 @@ $--d2-button-status-base: (
   focus: ( font-color: 700, border-color: 300, background-color: 50 ),
   active: ( font-color: 700, border-color: 400, background-color: 50 ),
   disabled: ( font-color: 400, border-color: 200, background-color: 0 ),
+  loading: ( font-color: 400, border-color: 200, background-color: 0 ),
   // plain
   plain: ( font-color: 700, border-color: 300, background-color: 0 ),
   plain-hover: ( font-color: 700, border-color: 400, background-color: 0 ),
   plain-focus: ( font-color: 700, border-color: 400, background-color: 0 ),
   plain-active: ( font-color: 700, border-color: 400, background-color: 50 ),
   plain-disabled: ( font-color: 400, border-color: 200, background-color: 0 ),
+  plain-loading: ( font-color: 400, border-color: 200, background-color: 0 ),
   // text
   text: ( font-color: 700 ),
   text-hover: ( font-color: 600 ),
   text-focus: ( font-color: 600 ),
   text-active: ( font-color: 800 ),
-  text-disabled: ( font-color: 500 )
+  text-disabled: ( font-color: 500 ),
+  text-loading: ( font-color: 500 )
 );
 
 // 'base' must be set before other names
