@@ -1,6 +1,6 @@
 <template>
   <the-section title="toggle">
-    <d2-button @click="toggle">toggle</d2-button>
+    <d2-button @click="toggle" :icon="loading ? 'mdi:toggle-switch' : 'mdi:toggle-switch-off-outline'">toggle</d2-button>
   </the-section>
   <the-section title="loading">
     <d2-button :loading="loading">button</d2-button>
