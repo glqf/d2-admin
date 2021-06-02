@@ -12,6 +12,7 @@ export default {
   name: 'D2ButtonGroup',
   setup () {
     const buttonGroupClassNames = computed(() => classNames('d2-button-group'))
+    
     return {
       buttonGroupClassNames
     }

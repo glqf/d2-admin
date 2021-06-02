@@ -85,7 +85,7 @@ export default {
       'd2-button',
       {
         'is-plain': props.plain,
-        'is-round': props.round,
+        'is-round': round.value,
         'is-round-left': roundLeft.value,
         'is-round-right': roundRight.value,
         'is-circle': props.circle,
