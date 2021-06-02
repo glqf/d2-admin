@@ -5,12 +5,12 @@
     :autofocus="autofocus"
     :type="type"
     @click="handleClick">
-    <d2-icon v-if="iconLeftActive" :icon="iconName"/>
+    <d2-icon v-if="iconLeftActive" :icon="icon"/>
     <d2-icon v-if="buttonLoadingLeft" icon="mdi:loading" spin/>
     <span v-if="slotActive">
       <slot/>
     </span>
-    <d2-icon v-if="iconRightActive" :icon="iconName"/>
+    <d2-icon v-if="iconRightActive" :icon="iconRight"/>
     <d2-icon v-if="buttonLoadingRight" icon="mdi:loading" spin/>
   </button>
 </template>
@@ -24,7 +24,6 @@ import {
   isValidSize,
   isValidButtonTypes,
   isBoolean,
-  isString,
   isValuableString,
   isIntegerAndBetween
 } from '../../../utils/helper.js'
@@ -37,7 +36,7 @@ export default {
   },
   props: {
     icon: { type: String, default: '' },
-    iconRight: { type: [Boolean, String], default: false },
+    iconRight: { type: String, default: '' },
     color: { type: String, default: '', validator: value => !value || isValidColor(value) },
     size: { type: String, default: '', validator: value => !value || isValidSize(value) },
     type: { type: String, default: 'button', validator: value => isValidButtonTypes(value)},
@@ -66,22 +65,25 @@ export default {
     // circle mode and has icon prop
     const slotActive = computed(() => !(!slots.default || props.circle && props.icon))
 
+    // ring
     const buttonRingOffset = computed(() => {
       const offset = props.ringOffset
       return Number.isFinite(offset) ? offset : (offset ? 1 : 0)
     })
     
+    // size
+    const buttonSize = computed(() => props.size || $D2COMPONENT.size)
+    
+    // disabled
     const buttonDisabled = computed(() => props.disabled)
 
+    // loading
     const buttonLoadingLeft = computed(() => props.loading)
     const buttonLoadingRight = computed(() => props.loadingRight)
-    
-    const buttonSize = computed(() => props.size || $D2COMPONENT.size)
 
     // icon name and position
-    const iconName = computed(() => props.icon || (isString(props.iconRight) ? props.iconRight : ''))
-    const iconLeftActive = computed(() => props.icon && !props.iconRight && !buttonLoadingLeft.value)
-    const iconRightActive = computed(() => (props.icon && props.iconRight === true) || isValuableString(props.iconRight) && !buttonLoadingRight.value)
+    const iconLeftActive = computed(() => isValuableString(props.icon) && !buttonLoadingLeft.value)
+    const iconRightActive = computed(() => isValuableString(props.iconRight)  && !buttonLoadingRight.value)
 
     // round and special
     const round = computed(() => props.round && !props.roundLeft && !props.roundRight)
@@ -114,7 +116,6 @@ export default {
     
     return {
       slotActive,
-      iconName,
       iconLeftActive,
       iconRightActive,
       buttonClassNames,

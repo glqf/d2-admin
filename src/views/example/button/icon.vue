@@ -3,9 +3,6 @@
     <d2-button icon="heroicons-solid:menu">Menu</d2-button>
   </the-section>
   <the-section title="icon right">
-    <d2-button icon="heroicons-solid:menu" icon-right>Menu</d2-button>
-  </the-section>
-  <the-section title="icon right way2">
     <d2-button icon-right="heroicons-solid:menu">Menu</d2-button>
   </the-section>
   <the-section title="icon left right">
