@@ -81,7 +81,7 @@ export default {
     // icon name and position
     const iconName = computed(() => props.icon || (isString(props.iconRight) ? props.iconRight : ''))
     const iconLeftActive = computed(() => props.icon && !props.iconRight && !buttonLoadingLeft.value)
-    const iconRightActive = computed(() => (props.icon && props.iconRight === true) || isValuableString(props.iconRight))
+    const iconRightActive = computed(() => (props.icon && props.iconRight === true) || isValuableString(props.iconRight) && !buttonLoadingRight.value)
 
     // round and special
     const round = computed(() => props.round && !props.roundLeft && !props.roundRight)
