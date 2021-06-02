@@ -1,6 +1,6 @@
 <template>
   <the-section title="toggle">
-    <d2-button @click="toggle" :icon="loading ? 'mdi:toggle-switch' : 'mdi:toggle-switch-off-outline'">toggle</d2-button>
+    <d2-button @click="toggle" :icon="loading ? 'mdi:toggle-switch' : 'mdi:toggle-switch-off-outline'" circle/>
   </the-section>
   <the-section title="loading">
     <d2-button :loading="loading">button</d2-button>
@@ -13,6 +13,21 @@
   </the-section>
   <the-section title="right icon is loading">
     <d2-button icon-right="heroicons-solid:menu" :loading-right="loading">button</d2-button>
+  </the-section>
+  <the-section title="circle">
+    <d2-button :loading="loading" circle>button</d2-button>
+  </the-section>
+  <the-section title="disabled">
+    <d2-button :loading="loading" disabled>button</d2-button>
+  </the-section>
+  <the-section title="plain">
+    <d2-button :loading="loading" plain>button</d2-button>
+  </the-section>
+  <the-section title="round">
+    <d2-button :loading="loading" round>button</d2-button>
+  </the-section>
+  <the-section title="text">
+    <d2-button :loading="loading" text>button</d2-button>
   </the-section>
 </template>
 

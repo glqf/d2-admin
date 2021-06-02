@@ -63,7 +63,7 @@ export default {
     // under what circumstances will the slot contents not be displayed
     // slot content is not set
     // circle mode and has icon prop
-    const slotActive = computed(() => !(!slots.default || props.circle && props.icon))
+    const slotActive = computed(() => !((!slots.default) || (props.circle && props.icon) || (props.circle && buttonLoading.value)))
 
     // ring
     const buttonRingOffset = computed(() => {
@@ -80,6 +80,7 @@ export default {
     // loading
     const buttonLoadingLeft = computed(() => props.loading)
     const buttonLoadingRight = computed(() => props.loadingRight)
+    const buttonLoading = computed(() => buttonLoadingLeft.value || buttonLoadingRight.value)
 
     // icon name and position
     const iconLeftActive = computed(() => isValuableString(props.icon) && !buttonLoadingLeft.value)
@@ -100,7 +101,7 @@ export default {
         'is-circle': props.circle,
         'is-ring': props.ring,
         'is-disabled': buttonDisabled.value,
-        'is-loading': buttonLoadingLeft.value || buttonLoadingRight.value,
+        'is-loading': buttonLoading.value,
         'is-text': props.text,
         'is-icon-right': iconRightActive.value,
         [`d2-button--${buttonSize.value}`]: buttonSize.value,
