@@ -1,13 +1,13 @@
 <template>
-  <the-section title="基础">
+  <the-section title="文字">
     <d2-button-group>
-      <d2-button>button</d2-button>
-      <d2-button>button</d2-button>
+      <d2-button text>button</d2-button>
+      <d2-button text>button</d2-button>
     </d2-button-group>
     <d2-button-group>
-      <d2-button>button</d2-button>
-      <d2-button>button</d2-button>
-      <d2-button>button</d2-button>
+      <d2-button text>button</d2-button>
+      <d2-button text>button</d2-button>
+      <d2-button text>button</d2-button>
     </d2-button-group>
   </the-section>
 </template>
