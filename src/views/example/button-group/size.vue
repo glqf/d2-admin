@@ -1,7 +1,7 @@
 <template>
   <the-section title="size">
     <div v-for="size in sizes" :key="size" class="mb-4">
-      <d2-button :size="size" class="mr-4">{{ size }}</d2-button>
+      <d2-button :size="size">{{ size }}</d2-button>
       <d2-button-group>
         <d2-button :size="size">{{ size }}</d2-button>
       </d2-button-group>

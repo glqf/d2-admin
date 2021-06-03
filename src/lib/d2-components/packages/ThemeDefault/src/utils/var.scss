@@ -398,5 +398,6 @@ $--d2-button-sizes: (
     --d2-button-padding-y-#{$_size}: #{--var-space(map-get($_size-setting, padding-y))};
     --d2-button-padding-x-#{$_size}: #{--var-space(map-get($_size-setting, padding-x))};
     --d2-button-space-#{$_size}: #{--var-space(map-get($_size-setting, space))};
+    --d2-button-group-space-#{$_size}: #{--var-space(map-get($_size-setting, space))};
   }
 }

@@ -74,7 +74,8 @@
   font-size: var(--d2-button-font-size-#{$size});
   line-height: var(--d2-button-line-height-#{$size});
   --round-radius: calc((var(--d2-button-line-height-#{$size}) + var(--d2-button-padding-y-#{$size}) * 2) * 0.5);
-  & + & {
+  & + &,
+  & + .#{$namespace}-button-group {
     margin-left: var(--d2-button-space-#{$size});
   }
   @include when(circle) {
@@ -179,12 +180,26 @@
   }
 }
 
+@mixin mix-button-group-size ($size) {
+  & + &,
+  & + .#{$namespace}-button {
+    margin-left: var(--d2-button-group-space-#{$size});
+  }
+}
+
 @include b(button-group) {
   display: inline-block;
   vertical-align: middle;
   @include utils-clearfix;
-  & + & {
-    margin-left: --var-space(4);
+  @each $size, $size-setting in $--d2-button-sizes {
+    @if $size == base {
+      @include mix-button-group-size(base);
+    }
+    @else {
+      @include m($size) {
+        @include mix-button-group-size($size);
+      }
+    }
   }
   & > .#{$namespace}-button {
     position: relative;
