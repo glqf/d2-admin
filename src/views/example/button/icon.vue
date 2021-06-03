@@ -9,6 +9,12 @@
     <d2-button icon="akar-icons:chevron-left">Left</d2-button>
     <d2-button icon-right="akar-icons:chevron-right">Right</d2-button>
   </the-section>
+  <the-section title="icon collection with icon-group">
+    <d2-icon-group collection="akar-icons">
+      <d2-button icon="chevron-left">Left</d2-button>
+      <d2-button icon-right="chevron-right">Right</d2-button>
+    </d2-icon-group>
+  </the-section>
 </template>
 
 <script>
