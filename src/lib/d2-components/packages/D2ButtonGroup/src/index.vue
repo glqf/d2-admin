@@ -7,19 +7,27 @@
 <script>
 import { computed } from 'vue'
 import classNames from 'classnames'
+import { useGlobalConfig } from '../../../utils/config.js'
 import { buttonProps } from '../../D2Button/src/index.vue'
 
 const {
-  color
+  size
 } = buttonProps
 
 export default {
   name: 'D2ButtonGroup',
   props: {
-    color
+    size
   },
-  setup () {
-    const buttonGroupClassNames = computed(() => classNames('d2-button-group'))
+  setup (props) {
+    const $D2COMPONENT = useGlobalConfig()
+
+    // size
+    const buttonGroupSize = computed(() => props.size || $D2COMPONENT.size)
+
+    const buttonGroupClassNames = computed(() => classNames('d2-button-group', {
+      [`d2-button-group--${buttonGroupSize.value}`]: buttonGroupSize.value
+    }))
     
     return {
       buttonGroupClassNames
