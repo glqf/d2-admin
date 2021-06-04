@@ -1,37 +1,4 @@
 <template>
-  <the-section title="尺寸">
-    <div v-for="size in sizes" :key="size" class="mb-4">
-      <d2-button :size="size" class="mr-8">{{ size }} one</d2-button>
-      <d2-button-group>
-        <d2-button :size="size">{{ size }}</d2-button>
-        <d2-button :size="size">{{ size }}</d2-button>
-        <d2-button :size="size">{{ size }}</d2-button>
-      </d2-button-group>
-      <d2-button-group>
-        <d2-button :size="size">{{ size }}</d2-button>
-        <d2-button :size="size">{{ size }}</d2-button>
-      </d2-button-group>
-      <d2-button-group>
-        <d2-button :size="size">{{ size }}</d2-button>
-      </d2-button-group>
-    </div>
-  </the-section>
-  <the-section title="多色">
-    <div v-for="color in colors" :key="color" class="mb-4">
-      <d2-button-group>
-        <d2-button :color="color">item</d2-button>
-        <d2-button :color="color">item</d2-button>
-        <d2-button :color="color">item</d2-button>
-      </d2-button-group>
-      <d2-button-group>
-        <d2-button :color="color">item</d2-button>
-        <d2-button :color="color">item</d2-button>
-      </d2-button-group>
-      <d2-button-group>
-        <d2-button :color="color">item</d2-button>
-      </d2-button-group>
-    </div>
-  </the-section>
   <the-section title="圆角">
     <d2-button-group>
       <d2-button round>item</d2-button>
