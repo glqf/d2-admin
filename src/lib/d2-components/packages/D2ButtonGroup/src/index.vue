@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, provide } from 'vue'
 import classNames from 'classnames'
 import { useGlobalConfig } from '../../../utils/config.js'
 import { buttonProps } from '../../D2Button/src/index.vue'
@@ -21,6 +21,9 @@ export default {
   },
   setup (props) {
     const $D2COMPONENT = useGlobalConfig()
+
+    // provide props
+    provide('d2ButtonGroupSize', computed(() => props.size))
 
     // size
     const buttonGroupSize = computed(() => props.size || $D2COMPONENT.size)
