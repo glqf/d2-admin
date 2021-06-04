@@ -3,16 +3,16 @@
     <div v-for="size in sizes" :key="size" class="mb-4">
       <d2-button :size="size">button</d2-button>
       <d2-button-group :size="size">
-        <d2-button :size="size">Item</d2-button>
+        <d2-button :size="size">item</d2-button>
       </d2-button-group>
       <d2-button-group :size="size">
-        <d2-button :size="size">Item</d2-button>
-        <d2-button :size="size">Item</d2-button>
+        <d2-button :size="size">item</d2-button>
+        <d2-button :size="size">item</d2-button>
       </d2-button-group>
       <d2-button-group :size="size">
-        <d2-button :size="size">Item</d2-button>
-        <d2-button :size="size">Item</d2-button>
-        <d2-button :size="size">Item</d2-button>
+        <d2-button :size="size">item</d2-button>
+        <d2-button :size="size">item</d2-button>
+        <d2-button :size="size">item</d2-button>
       </d2-button-group>
     </div>
   </the-section>
