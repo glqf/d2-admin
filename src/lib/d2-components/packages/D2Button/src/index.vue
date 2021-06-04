@@ -26,7 +26,7 @@ import {
   isBoolean,
   isValuableString,
   isIntegerAndBetween
-} from '../../../utils/helper.js'
+} from '../../../utils/is.js'
 import D2Icon from '../../D2Icon/src/index.vue'
 
 export const buttonProps = {

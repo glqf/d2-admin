@@ -54,8 +54,12 @@ export function isBoolean (value) {
   return value === true || value === false
 }
 
-function _mustFinite (value, label = 'value') {
-  if (!Number.isFinite(value)) throw new Error(`The ${label} passed in should be of numeric type`)
+/**
+ * Check value is a valid number
+ * @param {*} value value to check
+ */
+export function isFinite (value) {
+  return Number.isFinite(value)
 }
 
 /**
@@ -65,8 +69,7 @@ function _mustFinite (value, label = 'value') {
  * @returns boolean
  */
 export function isIntegerAndLessThan (value, max) {
-  _mustFinite(value, 'maximum value')
-  return Number.isInteger(value) && value < max
+  return isFinite(value) && Number.isInteger(value) && value < max
 }
 
 /**
@@ -76,8 +79,7 @@ export function isIntegerAndLessThan (value, max) {
  * @returns boolean
  */
 export function isIntegerAndGreaterThan (value, min) {
-  _mustFinite(value, 'minimum value')
-  return Number.isInteger(value) && value > min
+  return isFinite(value) && Number.isInteger(value) && value > min
 }
 
 /**
@@ -88,12 +90,7 @@ export function isIntegerAndGreaterThan (value, min) {
  * @returns boolean
  */
 export function isIntegerAndBetween (value, min, max) {
-  _mustFinite(value, 'minimum value')
-  _mustFinite(value, 'maximum value')
-  if (min > max) {
-    throw new Error('The minimum value should be less than or equal to the maximum value')
-  }
-  return Number.isInteger(value) && value >= min && value <= max
+  return isFinite(value) && Number.isInteger(value) && value >= min && value <= max
 }
 
 // export function isDOM (item) {
