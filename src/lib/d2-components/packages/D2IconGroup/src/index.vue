@@ -4,6 +4,7 @@
 
 <script>
 import { computed, provide } from 'vue'
+import { camelCase } from 'lodash'
 
 export default {
   name: 'D2IconGroup',
@@ -11,7 +12,7 @@ export default {
     collection: { type: String, default: '' }
   },
   setup (props) {
-    provide('d2IconGroupCollection', computed(() => props.collection))
+    provide(camelCase('D2IconGroup-collection'), computed(() => props.collection))
   }
 }
 </script>

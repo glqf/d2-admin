@@ -6,6 +6,7 @@
 
 <script>
 import { computed, provide } from 'vue'
+import { camelCase } from 'lodash'
 import classNames from 'classnames'
 import { useGlobalConfig } from '../../../utils/config.js'
 import { buttonProps } from '../../D2Button/src/index.vue'
@@ -23,7 +24,7 @@ export default {
     const $D2COMPONENT = useGlobalConfig()
 
     // provide props
-    provide('d2ButtonGroupSize', computed(() => props.size))
+    provide(camelCase('D2ButtonGroup-size'), computed(() => props.size))
 
     // size
     const buttonGroupSize = computed(() => props.size || $D2COMPONENT.size)

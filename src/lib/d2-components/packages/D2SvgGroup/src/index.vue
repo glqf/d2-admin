@@ -4,6 +4,7 @@
 
 <script>
 import { computed, provide } from 'vue'
+import { camelCase } from 'lodash'
 
 export default {
   name: 'D2SvgGroup',
@@ -11,7 +12,7 @@ export default {
     name: { type: String, default: '' }
   },
   setup (props) {
-    provide('d2SvgGroupName', computed(() => props.name))
+    provide(camelCase('D2SvgGroup-name'), computed(() => props.name))
   }
 }
 </script>
