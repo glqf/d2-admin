@@ -10,7 +10,7 @@ import { pascalCase } from './string.js'
 
 /**
  * Format component name
- * @param {string} name simple component name has no prefix, example 'buttonGroup' or 'button-group'
+ * @param {string} name simple component name has no prefix, example 'fooBar' or 'foo-bar'
  */
 export function makeComponentName (name) {
   return pascalCase(`${nameSpace}-${name}`)

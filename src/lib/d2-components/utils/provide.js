@@ -15,7 +15,7 @@ import { pascalCase } from './string.js'
 export function provideGenerator (componentName) {
   /**
    * The value returned should be used for the first parameter of the vue provide method
-   * @param {string} name provide name like 'name' or 'first-name'
+   * @param {string} name provide name like 'foo' or 'foo-bar'
    * @param {value} value vue provide value
    */
   return function (name, value) {
