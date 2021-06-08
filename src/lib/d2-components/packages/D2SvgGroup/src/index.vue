@@ -9,13 +9,15 @@ import { makeComponentName } from '../../../utils/make.js'
 
 const componentName = makeComponentName('svgGroup')
 
+const provideName = provideNameGenerator(componentName)
+
 export default {
   name: componentName,
   props: {
     name: { type: String, default: '' }
   },
   setup (props) {
-    provide(camelCase('D2SvgGroup-name'), computed(() => props.name))
+    provide(provideName('name'), computed(() => props.name))
   }
 }
 </script>
