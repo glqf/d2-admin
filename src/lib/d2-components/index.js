@@ -8,7 +8,7 @@ import D2Popper from './packages/D2Popper/index.js'
 import D2Svg from './packages/D2Svg/index.js'
 import D2SvgGroup from './packages/D2SvgGroup/index.js'
 
-import './packages/ThemeDefault/index.scss'
+import './packages/Theme/index.scss'
 
 const components = [
   D2Button,
