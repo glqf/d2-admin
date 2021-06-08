@@ -4,7 +4,7 @@
 
 <script>
 import { computed, provide } from 'vue'
-import { camelCase } from 'lodash-es'
+import { provideNameGenerator } from '../../../utils/provide.js'
 import { makeComponentName } from '../../../utils/make.js'
 
 const componentName = makeComponentName('iconGroup')
