@@ -13,11 +13,11 @@ import { pascalCase } from './string.js'
  * @param {string} componentName component name should be returned by the makeComponentName function
  * @returns function provide like vue provide
  * @example
- *          const name = makeComponentName('buttonGroup')
+ *          const name = makeComponentName('fooBar')
  *          const provide = provideGenerator(name)
- *          provide('size', computed(() => props.size))
+ *          provide('baz', computed(() => props.baz))
  *          equivalent:
- *          vue.provide('D2ButtonGroupSize', computed(() => props.size))
+ *          vue.provide('D2FooBarBaz', computed(() => props.baz))
  */
 export function provideGenerator (componentName) {
   /**
@@ -32,11 +32,11 @@ export function provideGenerator (componentName) {
 
 /**
  * 
- * @param {string} componentName component name should be returned by the makeComponentName function
+ * @param {string} componentName component name should be returned by the makeComponentName function, recommend to import from other components
  * @param {string} name provide name like 'foo' or 'foo-bar'
  * @param {*} defaultValue vue inject defaultValue
  * @returns same as vue inject function return
- * @example const injectCollectionFromIconGroup = inject(iconGroupName, 'collection', ref('')).value
+ * @example const injectBazFromFooBar = inject(makeComponentName('fooBar'), 'baz', ref('')).value
  */
 export function inject (componentName, name, defaultValue) {
   return vueInject(componentName + pascalCase(name), defaultValue)
