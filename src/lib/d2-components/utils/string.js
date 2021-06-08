@@ -5,7 +5,7 @@
  * It is not applicable to the use environment outside the project
  */
 
-import { camelCase } from 'lodash'
+import { camelCase } from 'lodash-es'
 import { isString } from './is.js'
 
 /**

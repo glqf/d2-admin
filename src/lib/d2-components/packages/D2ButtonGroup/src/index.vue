@@ -6,7 +6,7 @@
 
 <script>
 import { computed, provide } from 'vue'
-import { camelCase } from 'lodash'
+import { camelCase } from 'lodash-es'
 import classNames from 'classnames'
 import { useGlobalConfig } from '../../../utils/config.js'
 import { makeComponentName } from '../../../utils/make.js'
