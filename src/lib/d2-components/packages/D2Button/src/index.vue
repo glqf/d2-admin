@@ -61,6 +61,9 @@ export default {
     // plain
     const buttonPlain = computed(() => props.plain || unref(inject(buttonGroupName, 'plain')))
 
+    // text
+    const buttonText = computed(() => props.text || unref(inject(buttonGroupName, 'text')))
+
     // ring
     const buttonRing = computed(() => props.ring || unref(inject(buttonGroupName, 'ring')))
     const buttonRingWidth = computed(() => findFirstNotEqual(buttonProps.ringWidth.default, props.ringWidth, unref(inject(buttonGroupName, 'ringWidth'))))
@@ -93,7 +96,7 @@ export default {
         'is-ring': buttonRing.value,
         'is-disabled': buttonDisabled.value,
         'is-loading': buttonLoading.value,
-        'is-text': props.text,
+        'is-text': buttonText.value,
         'is-icon-right': iconRightActive.value,
         [`d2-button--${buttonSize.value}`]: buttonSize.value,
         [`d2-button--${buttonColor.value}`]: buttonColor.value,

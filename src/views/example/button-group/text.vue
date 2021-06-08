@@ -1,13 +1,13 @@
 <template>
   <the-section title="文字">
-    <d2-button-group>
-      <d2-button text>item</d2-button>
-      <d2-button text>item</d2-button>
+    <d2-button-group text>
+      <d2-button>item</d2-button>
+      <d2-button>item</d2-button>
     </d2-button-group>
-    <d2-button-group>
-      <d2-button text>item</d2-button>
-      <d2-button text>item</d2-button>
-      <d2-button text>item</d2-button>
+    <d2-button-group text>
+      <d2-button>item</d2-button>
+      <d2-button>item</d2-button>
+      <d2-button>item</d2-button>
     </d2-button-group>
   </the-section>
 </template>
