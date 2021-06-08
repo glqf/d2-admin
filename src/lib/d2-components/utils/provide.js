@@ -16,7 +16,8 @@ import { pascalCase } from './string.js'
  *          const name = makeComponentName('buttonGroup')
  *          const provide = provideGenerator(name)
  *          provide('size', computed(() => props.size))
- *          => vue.provide('D2ButtonGroupSize', computed(() => props.size))
+ *          equivalent:
+ *          vue.provide('D2ButtonGroupSize', computed(() => props.size))
  */
 export function provideGenerator (componentName) {
   /**
