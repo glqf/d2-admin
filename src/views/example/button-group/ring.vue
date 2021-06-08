@@ -14,17 +14,17 @@
     </d2-button-group>
   </the-section>
   <the-section title="ring width">
-    <d2-button-group ring>
-      <d2-button :color="color" :ring-width="4">item</d2-button>
+    <d2-button-group ring :ring-width="4">
+      <d2-button>item</d2-button>
     </d2-button-group>
-    <d2-button-group ring>
-      <d2-button :color="color" :ring-width="4">item</d2-button>
-      <d2-button :color="color" :ring-width="4">item</d2-button>
+    <d2-button-group ring :ring-width="4">
+      <d2-button>item</d2-button>
+      <d2-button>item</d2-button>
     </d2-button-group>
-    <d2-button-group ring>
-      <d2-button :color="color" :ring-width="4">item</d2-button>
-      <d2-button :color="color" :ring-width="4">item</d2-button>
-      <d2-button :color="color" :ring-width="4">item</d2-button>
+    <d2-button-group ring :ring-width="4">
+      <d2-button>item</d2-button>
+      <d2-button>item</d2-button>
+      <d2-button>item</d2-button>
     </d2-button-group>
   </the-section>
 </template>

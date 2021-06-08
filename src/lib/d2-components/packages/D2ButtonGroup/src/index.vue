@@ -18,7 +18,8 @@ const propsName = [
   'color',
   'disabled',
   'plain',
-  'ring'
+  'ring',
+  'ringWidth'
 ]
 
 export const name = makeComponentName('buttonGroup')
