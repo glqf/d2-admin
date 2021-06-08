@@ -9,9 +9,12 @@ import { ref, unref, onMounted, watch, nextTick, computed, inject } from 'vue'
 import Iconify from '@iconify/iconify'
 import classNames from 'classnames'
 import { useGlobalConfig } from '../../../utils/config.js'
+import { makeComponentName } from '../../../utils/make.js'
+
+const componentName = makeComponentName('icon')
 
 export default {
-  name: 'D2Icon',
+  name: componentName,
   props: {
     collection: { type: String, default: '' },
     icon: { type: String, default: '' },

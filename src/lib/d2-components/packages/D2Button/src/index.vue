@@ -19,6 +19,7 @@
 import { computed } from 'vue'
 import classNames from 'classnames'
 import { useGlobalConfig } from '../../../utils/config.js'
+import { makeComponentName } from '../../../utils/make.js'
 import {
   isValidColor,
   isValidSize,
@@ -50,8 +51,10 @@ export const buttonProps = {
   ringWidth: { type: Number, default: 2 }
 }
 
+const componentName = makeComponentName('button')
+
 export default {
-  name: 'D2Button',
+  name: componentName,
   components: {
     D2Icon
   },

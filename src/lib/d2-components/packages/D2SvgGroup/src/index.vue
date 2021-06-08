@@ -5,9 +5,12 @@
 <script>
 import { computed, provide } from 'vue'
 import { camelCase } from 'lodash'
+import { makeComponentName } from '../../../utils/make.js'
+
+const componentName = makeComponentName('svgGroup')
 
 export default {
-  name: 'D2SvgGroup',
+  name: componentName,
   props: {
     name: { type: String, default: '' }
   },

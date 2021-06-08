@@ -9,14 +9,17 @@ import { computed, provide } from 'vue'
 import { camelCase } from 'lodash'
 import classNames from 'classnames'
 import { useGlobalConfig } from '../../../utils/config.js'
+import { makeComponentName } from '../../../utils/make.js'
 import { buttonProps } from '../../D2Button/src/index.vue'
 
 const {
   size
 } = buttonProps
 
+const componentName = makeComponentName('buttonGroup')
+
 export default {
-  name: 'D2ButtonGroup',
+  name: componentName,
   props: {
     size
   },

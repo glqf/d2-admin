@@ -7,9 +7,12 @@
 <script>
 import { computed, inject, ref } from 'vue'
 import { configGet } from '../../../utils/config.js'
+import { makeComponentName } from '../../../utils/make.js'
+
+const componentName = makeComponentName('svg')
 
 export default {
-  name: 'D2Svg',
+  name: componentName,
   props: {
     name: { type: String, required: true }
   },

@@ -5,9 +5,12 @@
 <script>
 import { computed, provide } from 'vue'
 import { camelCase } from 'lodash'
+import { makeComponentName } from '../../../utils/make.js'
+
+const componentName = makeComponentName('iconGroup')
 
 export default {
-  name: 'D2IconGroup',
+  name: componentName,
   props: {
     collection: { type: String, default: '' }
   },

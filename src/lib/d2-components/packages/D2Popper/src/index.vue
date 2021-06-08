@@ -19,12 +19,13 @@
 
 <script>
 import { onMounted } from 'vue'
-
-// https://popper.js.org/
 import { createPopper } from '@popperjs/core'
+import { makeComponentName } from '../../../utils/make.js'
+
+const componentName = makeComponentName('popper')
 
 export default {
-  name: 'D2Popper',
+  name: componentName,
   props: {
     arrow: { type: Boolean, default: false }
   },
