@@ -16,12 +16,12 @@ const {
   size
 } = buttonProps
 
-export const componentName = makeComponentName('buttonGroup')
+export const name = makeComponentName('buttonGroup')
 
-const provideName = provideNameGenerator(componentName)
+const provideName = provideNameGenerator(name)
 
 export default {
-  name: componentName,
+  name,
   props: {
     size
   },

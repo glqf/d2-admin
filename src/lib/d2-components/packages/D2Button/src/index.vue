@@ -51,10 +51,10 @@ export const buttonProps = {
   ringWidth: { type: Number, default: 2 }
 }
 
-export const componentName = makeComponentName('button')
+export const name = makeComponentName('button')
 
 export default {
-  name: componentName,
+  name,
   components: {
     D2Icon
   },

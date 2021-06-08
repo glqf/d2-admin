@@ -7,12 +7,12 @@ import { computed, provide } from 'vue'
 import { provideNameGenerator } from '../../../utils/provide.js'
 import { makeComponentName } from '../../../utils/make.js'
 
-export const componentName = makeComponentName('svgGroup')
+export const name = makeComponentName('svgGroup')
 
-const provideName = provideNameGenerator(componentName)
+const provideName = provideNameGenerator(name)
 
 export default {
-  name: componentName,
+  name,
   props: {
     name: { type: String, default: '' }
   },

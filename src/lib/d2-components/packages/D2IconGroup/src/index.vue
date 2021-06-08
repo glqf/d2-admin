@@ -7,12 +7,12 @@ import { computed, provide } from 'vue'
 import { provideNameGenerator } from '../../../utils/provide.js'
 import { makeComponentName } from '../../../utils/make.js'
 
-export const componentName = makeComponentName('iconGroup')
+export const name = makeComponentName('iconGroup')
 
-const provideName = provideNameGenerator(componentName)
+const provideName = provideNameGenerator(name)
 
 export default {
-  name: componentName,
+  name,
   props: {
     collection: { type: String, default: '' }
   },

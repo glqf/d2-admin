@@ -22,10 +22,10 @@ import { onMounted } from 'vue'
 import { createPopper } from '@popperjs/core'
 import { makeComponentName } from '../../../utils/make.js'
 
-export const componentName = makeComponentName('popper')
+export const name = makeComponentName('popper')
 
 export default {
-  name: componentName,
+  name,
   props: {
     arrow: { type: Boolean, default: false }
   },

@@ -1,5 +1,5 @@
 // component name space
-export const componentNameSpace = 'd2'
+export const nameSpace = 'd2'
 
 // Color names
 // From tailwindcss basic color names

@@ -5,7 +5,7 @@
  * It is not applicable to the use environment outside the project
  */
 
-import { componentNameSpace } from './const.js'
+import { nameSpace } from './const.js'
 import { pascalCase } from './string.js'
 
 /**
@@ -13,5 +13,5 @@ import { pascalCase } from './string.js'
  * @param {string} name simple component name has no prefix, example 'buttonGroup' or 'button-group'
  */
 export function makeComponentName (name) {
-  return pascalCase(`${componentNameSpace}-${name}`)
+  return pascalCase(`${nameSpace}-${name}`)
 }

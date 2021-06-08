@@ -9,18 +9,18 @@ import { computed, inject, ref } from 'vue'
 import { configGet } from '../../../utils/config.js'
 import { makeComponentName } from '../../../utils/make.js'
 import { injectName } from '../../../utils/provide.js'
-import { componentName as svgGroupComponentName } from '../../D2SvgGroup/src/index.vue'
+import { name as svgGroupName } from '../../D2SvgGroup/src/index.vue'
 
-export const componentName = makeComponentName('svg')
+export const name = makeComponentName('svg')
 
 export default {
-  name: componentName,
+  name,
   props: {
     name: { type: String, required: true }
   },
   setup (props) {
     const prefix = configGet('svgPrefix')
-    const group = inject(injectName(svgGroupComponentName, 'name'), ref('')).value
+    const group = inject(injectName(svgGroupName, 'name'), ref('')).value
     const name = props.name.replace(/\//g, '-')
     const href = computed(() => `#${prefix}${group}${name}`)
     return {
