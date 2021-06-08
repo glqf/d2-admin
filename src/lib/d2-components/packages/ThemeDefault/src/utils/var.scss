@@ -1,5 +1,20 @@
 // All functions starting with '--var-' return CSS: var(--d2-xxx)
 
+$namespace: 'd2';
+
+$bem-element-separator: '__';
+$bem-modifier-separator: '--';
+$bem-state-prefix: 'is-';
+
+
+
+
+
+
+
+
+
+
 // --------+---------------------
 // => base | breakpoints
 // --------+---------------------

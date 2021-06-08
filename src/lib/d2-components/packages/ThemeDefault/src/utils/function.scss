@@ -1,7 +1,39 @@
-// @function --var-color($name, $deep: 500, $alpha: 100) {
-//   @if $alpha == 100 {
-//     @return var(--d2-color-#{$name}-#{$deep});
-//   } @else {
-//     @return var(--d2-color-#{$name}-#{$deep}-alpha-#{$alpha});
-//   }
-// }
+// --------+---------------------
+// => BEM
+// --------+---------------------
+@function selectorToString($selector) {
+  $selector: inspect($selector);
+  $selector: str-slice($selector, 2, -2);
+  @return $selector;
+}
+
+@function containsModifier($selector) {
+  $selector: selectorToString($selector);
+  @if str-index($selector, $bem-modifier-separator) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+@function containWhenFlag($selector) {
+  $selector: selectorToString($selector);
+  @if str-index($selector, '.' + $bem-state-prefix) {
+    @return true
+  } @else {
+    @return false
+  }
+}
+
+@function containPseudoClass($selector) {
+  $selector: selectorToString($selector);
+  @if str-index($selector, ':') {
+    @return true
+  } @else {
+    @return false
+  }
+}
+
+@function hitAllSpecialNestRule($selector) {
+  @return containsModifier($selector) or containWhenFlag($selector) or containPseudoClass($selector);
+}
