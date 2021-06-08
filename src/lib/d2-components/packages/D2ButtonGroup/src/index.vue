@@ -10,11 +10,9 @@ import classNames from 'classnames'
 import { useGlobalConfig } from '../../../utils/config.js'
 import { makeComponentName } from '../../../utils/make.js'
 import { provideGenerator } from '../../../utils/provide.js'
-import { buttonProps } from '../../D2Button/src/index.vue'
+import buttonProps from '../../D2Button/src/props.js'
 
-const {
-  size
-} = buttonProps
+const { size } = buttonProps
 
 export const name = makeComponentName('buttonGroup')
 
