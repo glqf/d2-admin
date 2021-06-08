@@ -13,7 +13,10 @@ import { makeComponentName } from '../../../utils/make.js'
 import { provideGenerator } from '../../../utils/provide.js'
 import buttonProps from '../../D2Button/src/props.js'
 
-const propsName = ['size']
+const propsName = [
+  'size',
+  'color'
+]
 
 export const name = makeComponentName('buttonGroup')
 

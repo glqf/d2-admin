@@ -53,6 +53,9 @@ export default {
     
     // size
     const buttonSize = computed(() => props.size || unref(inject(buttonGroupName, 'size')) || $D2COMPONENT.size)
+
+    // color
+    const buttonColor = computed(() => props.color || unref(inject(buttonGroupName, 'color')))
     
     // disabled
     const buttonDisabled = computed(() => props.disabled)
@@ -85,7 +88,7 @@ export default {
         'is-text': props.text,
         'is-icon-right': iconRightActive.value,
         [`d2-button--${buttonSize.value}`]: buttonSize.value,
-        [`d2-button--${props.color}`]: props.color,
+        [`d2-button--${buttonColor.value}`]: buttonColor.value,
         [`is-ring-offset-width-${buttonRingOffset.value}`]: props.ring,
         [`is-ring-width-${props.ringWidth}`]: props.ring
       }
