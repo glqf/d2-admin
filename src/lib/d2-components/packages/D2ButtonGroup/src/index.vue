@@ -21,6 +21,7 @@ const propsName = [
   'ring',
   'ringWidth',
   'round',
+  'circle',
   'text'
 ]
 

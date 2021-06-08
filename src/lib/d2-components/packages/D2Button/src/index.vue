@@ -44,7 +44,7 @@ export default {
     // under what circumstances will the slot contents not be displayed
     // slot content is not set
     // circle mode and has icon prop
-    const slotActive = computed(() => !((!slots.default) || (props.circle && props.icon) || (props.circle && buttonLoading.value)))
+    const slotActive = computed(() => !((!slots.default) || (buttonCircle.value && props.icon) || (buttonCircle.value && buttonLoading.value)))
 
     // ring
     const buttonRingOffset = computed(() => {
@@ -63,6 +63,9 @@ export default {
 
     // text
     const buttonText = computed(() => props.text || unref(inject(buttonGroupName, 'text')))
+
+    // circle
+    const buttonCircle = computed(() => props.circle || unref(inject(buttonGroupName, 'circle')))
 
     // ring
     const buttonRing = computed(() => props.ring || unref(inject(buttonGroupName, 'ring')))
@@ -92,7 +95,7 @@ export default {
         'is-round': round.value,
         'is-round-left': roundLeft.value,
         'is-round-right': roundRight.value,
-        'is-circle': props.circle,
+        'is-circle': buttonCircle.value,
         'is-ring': buttonRing.value,
         'is-disabled': buttonDisabled.value,
         'is-loading': buttonLoading.value,
