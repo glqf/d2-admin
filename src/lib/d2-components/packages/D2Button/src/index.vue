@@ -22,8 +22,8 @@ import { useGlobalConfig } from '../../../utils/config.js'
 import { makeComponentName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
 import { isValuableString } from '../../../utils/is.js'
-import D2Icon from '../../D2Icon/src/index.vue'
 import { name as buttonGroupName } from '../../D2ButtonGroup/src/index.vue'
+import D2Icon from '../../D2Icon/src/index.vue'
 import buttonProps from './props.js'
 
 export const name = makeComponentName('button')
