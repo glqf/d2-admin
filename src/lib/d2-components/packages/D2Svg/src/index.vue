@@ -20,9 +20,13 @@ export default {
   },
   setup (props) {
     const prefix = configGet('svgPrefix')
+
     const group = inject(injectName(svgGroupName, 'name'), ref('')).value
+
     const name = props.name.replace(/\//g, '-')
+    
     const href = computed(() => `#${prefix}${group}${name}`)
+
     return {
       href
     }
