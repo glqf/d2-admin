@@ -5,12 +5,12 @@
     :autofocus="autofocus"
     :type="type"
     @click="handleClick">
-    <d2-icon v-if="iconLeftActive" :icon="icon"/>
+    <d2-icon v-if="buttonIconLeftActive" :icon="icon"/>
     <d2-icon v-if="buttonLoadingLeft" icon="mdi:loading" spin/>
     <span v-if="slotActive">
       <slot/>
     </span>
-    <d2-icon v-if="iconRightActive" :icon="iconRight"/>
+    <d2-icon v-if="buttonIconRightActive" :icon="iconRight"/>
     <d2-icon v-if="buttonLoadingRight" icon="mdi:loading" spin/>
   </button>
 </template>
@@ -79,28 +79,28 @@ export default {
     const buttonLoadingRight = computed(() => props.loadingRight)
     const buttonLoading = computed(() => buttonLoadingLeft.value || buttonLoadingRight.value)
 
-    // icon name and position
-    const iconLeftActive = computed(() => isValuableString(props.icon) && !buttonLoadingLeft.value)
-    const iconRightActive = computed(() => isValuableString(props.iconRight)  && !buttonLoadingRight.value)
-
     // round and special
-    const round = computed(() => (props.round || unref(inject(buttonGroupName, 'round'))) && !props.roundLeft && !props.roundRight)
-    const roundLeft = computed(() => props.roundLeft)
-    const roundRight = computed(() => props.roundRight)
+    const buttonRound = computed(() => (props.round || unref(inject(buttonGroupName, 'round'))) && !props.roundLeft && !props.roundRight)
+    const buttonRoundLeft = computed(() => props.roundLeft)
+    const buttonRoundRight = computed(() => props.roundRight)
+
+    // icon name and position
+    const buttonIconLeftActive = computed(() => isValuableString(props.icon) && !buttonLoadingLeft.value)
+    const buttonIconRightActive = computed(() => isValuableString(props.iconRight)  && !buttonLoadingRight.value)
     
     const buttonClassNames = computed(() => classNames(
       makeComponentClassName('button'),
       { 
         'is-plain': buttonPlain.value,
-        'is-round': round.value,
-        'is-round-left': roundLeft.value,
-        'is-round-right': roundRight.value,
+        'is-round': buttonRound.value,
+        'is-round-left': buttonRoundLeft.value,
+        'is-round-right': buttonRoundRight.value,
         'is-circle': buttonCircle.value,
         'is-ring': buttonRing.value,
         'is-disabled': buttonDisabled.value,
         'is-loading': buttonLoading.value,
         'is-text': buttonText.value,
-        'is-icon-right': iconRightActive.value,
+        'is-icon-right': buttonIconRightActive.value,
         [`d2-button--${buttonSize.value}`]: buttonSize.value,
         [`d2-button--${buttonColor.value}`]: buttonColor.value,
         [`is-ring-offset-width-${buttonRingOffset.value}`]: buttonRing.value,
@@ -114,8 +114,8 @@ export default {
     
     return {
       slotActive,
-      iconLeftActive,
-      iconRightActive,
+      buttonIconLeftActive,
+      buttonIconRightActive,
       buttonClassNames,
       buttonDisabled,
       buttonLoadingLeft,
