@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import { computed, inject, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { configGet } from '../../../utils/config.js'
 import { makeComponentName } from '../../../utils/make.js'
-import { injectName } from '../../../utils/provide.js'
+import { inject } from '../../../utils/provide.js'
 import { name as svgGroupName } from '../../D2SvgGroup/src/index.vue'
 
 export const name = makeComponentName('svg')
@@ -21,7 +21,7 @@ export default {
   setup (props) {
     const prefix = configGet('svgPrefix')
 
-    const injectNameFromSvgGroup = inject(injectName(svgGroupName, 'name'), ref('')).value
+    const injectNameFromSvgGroup = inject(svgGroupName, 'name', ref('')).value
 
     const name = props.name.replace(/\//g, '-')
     

@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import { ref, unref, onMounted, watch, nextTick, computed, inject } from 'vue'
+import { ref, unref, onMounted, watch, nextTick, computed } from 'vue'
 import Iconify from '@iconify/iconify'
 import classNames from 'classnames'
 import { useGlobalConfig } from '../../../utils/config.js'
 import { makeComponentName } from '../../../utils/make.js'
-import { injectName } from '../../../utils/provide.js'
+import { inject } from '../../../utils/provide.js'
 import { name as iconGroupName } from '../../D2IconGroup/src/index.vue'
 
 export const name = makeComponentName('icon')
@@ -26,7 +26,7 @@ export default {
     const $D2COMPONENT = useGlobalConfig()
 
     // collection setting from group component
-    const injectCollectionFromIconGroup = inject(injectName(iconGroupName, 'collection'), ref('')).value
+    const injectCollectionFromIconGroup = inject(iconGroupName, 'collection', ref('')).value
 
     // icon container ref
     const container = ref(null)

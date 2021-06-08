@@ -5,12 +5,12 @@
  * It is not applicable to the use environment outside the project
  */
 
-import { provide } from 'vue'
+import { provide as vueProvide, inject as vueInject } from 'vue'
 import { pascalCase } from './string.js'
 
 /**
  * Generate provide based on the component name
- * @param {string} componentName component name should be returned by the makecomponentname function
+ * @param {string} componentName component name should be returned by the makeComponentName function
  * @returns function provide like vue provide
  * @example
  *          const name = makeComponentName('buttonGroup')
@@ -25,17 +25,19 @@ export function provideGenerator (componentName) {
    * @param {string} name provide name like 'foo' or 'foo-bar'
    * @param {value} value vue provide value
    */
-  return function (name, value) {
-    provide(componentName + pascalCase(name), value)
+  return function provide (name, value) {
+    vueProvide(componentName + pascalCase(name), value)
   }
 }
 
 /**
  * 
- * @param {string} componentName component name should be returned by the makecomponentname function
- * @param {*} name 
- * @returns 
+ * @param {string} componentName component name should be returned by the makeComponentName function
+ * @param {string} name provide name like 'foo' or 'foo-bar'
+ * @param {*} defaultValue vue inject defaultValue
+ * @returns same as vue inject function return
+ * @example const injectCollectionFromIconGroup = inject(iconGroupName, 'collection', ref('')).value
  */
-export function injectName (componentName, name) {
-  return componentName + pascalCase(name)
+export function inject (componentName, name, defaultValue) {
+  return vueInject(componentName + pascalCase(name), defaultValue)
 }
