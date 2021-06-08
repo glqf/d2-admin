@@ -58,7 +58,7 @@ export default {
     const buttonColor = computed(() => props.color || unref(inject(buttonGroupName, 'color')))
     
     // disabled
-    const buttonDisabled = computed(() => props.disabled)
+    const buttonDisabled = computed(() => props.disabled || unref(inject(buttonGroupName, 'disabled')))
 
     // loading
     const buttonLoadingLeft = computed(() => props.loading)
