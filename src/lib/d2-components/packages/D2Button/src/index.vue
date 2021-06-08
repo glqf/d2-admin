@@ -51,7 +51,7 @@ export const buttonProps = {
   ringWidth: { type: Number, default: 2 }
 }
 
-const componentName = makeComponentName('button')
+export const componentName = makeComponentName('button')
 
 export default {
   name: componentName,

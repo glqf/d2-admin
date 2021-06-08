@@ -10,8 +10,10 @@ import Iconify from '@iconify/iconify'
 import classNames from 'classnames'
 import { useGlobalConfig } from '../../../utils/config.js'
 import { makeComponentName } from '../../../utils/make.js'
+import { injectName } from '../../../utils/provide.js'
+import { componentName as iconGroupComponentName } from '../../D2IconGroup/src/index.vue'
 
-const componentName = makeComponentName('icon')
+export const componentName = makeComponentName('icon')
 
 export default {
   name: componentName,
@@ -24,7 +26,7 @@ export default {
     const $D2COMPONENT = useGlobalConfig()
 
     // collection setting from group component
-    const iconGroupCollection = inject('d2IconGroupCollection', ref('')).value
+    const iconGroupCollection = inject(injectName(iconGroupComponentName, 'collection'), ref('')).value
 
     // icon container ref
     const container = ref(null)

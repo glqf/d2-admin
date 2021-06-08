@@ -16,7 +16,7 @@ const {
   size
 } = buttonProps
 
-const componentName = makeComponentName('buttonGroup')
+export const componentName = makeComponentName('buttonGroup')
 
 const provideName = provideNameGenerator(componentName)
 

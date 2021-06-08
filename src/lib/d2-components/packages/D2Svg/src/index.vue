@@ -8,8 +8,10 @@
 import { computed, inject, ref } from 'vue'
 import { configGet } from '../../../utils/config.js'
 import { makeComponentName } from '../../../utils/make.js'
+import { injectName } from '../../../utils/provide.js'
+import { componentName as svgGroupComponentName } from '../../D2SvgGroup/src/index.vue'
 
-const componentName = makeComponentName('svg')
+export const componentName = makeComponentName('svg')
 
 export default {
   name: componentName,
@@ -18,7 +20,7 @@ export default {
   },
   setup (props) {
     const prefix = configGet('svgPrefix')
-    const group = inject('d2SvgGroupName', ref('')).value
+    const group = inject(injectName(svgGroupComponentName, 'name'), ref('')).value
     const name = props.name.replace(/\//g, '-')
     const href = computed(() => `#${prefix}${group}${name}`)
     return {

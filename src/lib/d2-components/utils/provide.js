@@ -1,4 +1,5 @@
 import { pascalCase } from './string.js'
+import { makeComponentName } from './make.js'
 
 /**
  * Generate a new function based on the component name
@@ -14,4 +15,8 @@ export function provideNameGenerator (componentName) {
   return function provideName (name) {
     return componentName + pascalCase(name)
   }
+}
+
+export function injectName (componentName, name) {
+  return componentName + pascalCase(name)
 }
