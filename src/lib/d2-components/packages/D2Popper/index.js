@@ -1,4 +1,4 @@
-import D2Popper from './src/index.vue'
+import D2Popper from './src/D2Popper.vue'
 
 D2Popper.install = app => {
   app.component(D2Popper.name, D2Popper)
