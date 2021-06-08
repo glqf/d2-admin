@@ -1,7 +1,7 @@
-import Iconify from './src/index.vue'
+import D2Icon from './src/D2Icon.vue'
 
-Iconify.install = app => {
-  app.component(Iconify.name, Iconify)
+D2Icon.install = app => {
+  app.component(D2Icon.name, D2Icon)
 }
 
-export default Iconify
+export default D2Icon

@@ -1,7 +1,7 @@
-import Svg from './src/index.vue'
+import D2Svg from './src/D2Svg.vue'
 
-Svg.install = app => {
-  app.component(Svg.name, Svg)
+D2Svg.install = app => {
+  app.component(D2Svg.name, D2Svg)
 }
 
-export default Svg
+export default D2Svg

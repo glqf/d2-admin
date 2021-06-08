@@ -1,7 +1,7 @@
-import ButtonGroup from '../D2Button/src/D2ButtonGroup.vue'
+import D2ButtonGroup from '../D2Button/src/D2ButtonGroup.vue'
 
-ButtonGroup.install = app => {
-  app.component(ButtonGroup.name, ButtonGroup)
+D2ButtonGroup.install = app => {
+  app.component(D2ButtonGroup.name, D2ButtonGroup)
 }
 
-export default ButtonGroup
+export default D2ButtonGroup
