@@ -1,4 +1,4 @@
-import Button from './src/index.vue'
+import Button from './src/D2Button.vue'
 
 Button.install = app => {
   app.component(Button.name, Button)

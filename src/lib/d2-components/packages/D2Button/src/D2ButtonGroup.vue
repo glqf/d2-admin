@@ -11,7 +11,7 @@ import { pick } from 'lodash-es'
 import { useGlobalConfig } from '../../../utils/config.js'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { provideGenerator } from '../../../utils/provide.js'
-import buttonProps from '../../D2Button/src/props.js'
+import buttonProps from './props.js'
 
 const propsName = [
   'size',

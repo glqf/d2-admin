@@ -23,7 +23,7 @@ import { makeComponentName, makeComponentClassName } from '../../../utils/make.j
 import { inject } from '../../../utils/provide.js'
 import { isValuableString, isFinite } from '../../../utils/is.js'
 import { findFirstDifferent } from '../../../utils/tool.js'
-import { name as buttonGroupName } from '../../D2ButtonGroup/src/index.vue'
+import { name as buttonGroupName } from './index.vue'
 import D2Icon from '../../D2Icon/src/index.vue'
 import buttonProps from './props.js'
 
