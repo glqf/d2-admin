@@ -19,7 +19,7 @@
 import { computed, unref } from 'vue'
 import classNames from 'classnames'
 import { useGlobalConfig } from '../../../utils/config.js'
-import { makeComponentName } from '../../../utils/make.js'
+import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
 import { isValuableString, isFinite } from '../../../utils/is.js'
 import { findFirstNotEqual } from '../../../utils/tool.js'
@@ -89,8 +89,8 @@ export default {
     const roundRight = computed(() => props.roundRight)
     
     const buttonClassNames = computed(() => classNames(
-      'd2-button',
-      {
+      makeComponentClassName('button'),
+      { 
         'is-plain': buttonPlain.value,
         'is-round': round.value,
         'is-round-left': roundLeft.value,

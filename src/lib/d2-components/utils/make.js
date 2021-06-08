@@ -5,6 +5,7 @@
  * It is not applicable to the use environment outside the project
  */
 
+import { kebabCase } from 'lodash-es'
 import { nameSpace } from './const.js'
 import { pascalCase } from './string.js'
 
@@ -14,4 +15,12 @@ import { pascalCase } from './string.js'
  */
 export function makeComponentName (name) {
   return pascalCase(`${nameSpace}-${name}`)
+}
+
+/**
+ * Format component class name
+ * @param {string} name simple component name has no prefix, example 'fooBar' or 'foo-bar'
+ */
+export function makeComponentClassName (name) {
+  return `${nameSpace}-${kebabCase(name)}`
 }

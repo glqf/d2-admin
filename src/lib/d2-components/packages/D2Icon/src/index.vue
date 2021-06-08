@@ -9,7 +9,7 @@ import { ref, unref, onMounted, watch, nextTick, computed } from 'vue'
 import Iconify from '@iconify/iconify'
 import classNames from 'classnames'
 import { useGlobalConfig } from '../../../utils/config.js'
-import { makeComponentName } from '../../../utils/make.js'
+import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
 import { name as iconGroupName } from '../../D2IconGroup/src/index.vue'
 
@@ -48,9 +48,12 @@ export default {
     })
 
     // class names for container
-    const iconClassNames = computed(() => classNames('d2-icon', {
-      'd2-animate-spin': props.spin
-    }))
+    const iconClassNames = computed(() => classNames(
+      makeComponentClassName('icon'),
+      {
+        'd2-animate-spin': props.spin
+      }
+    ))
 
     /**
      * get icon name from slot default
