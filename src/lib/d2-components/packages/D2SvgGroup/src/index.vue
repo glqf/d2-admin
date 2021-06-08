@@ -3,13 +3,13 @@
 </template>
 
 <script>
-import { computed, provide } from 'vue'
-import { provideNameGenerator } from '../../../utils/provide.js'
+import { computed } from 'vue'
+import { provideGenerator } from '../../../utils/provide.js'
 import { makeComponentName } from '../../../utils/make.js'
 
 export const name = makeComponentName('svgGroup')
 
-const provideName = provideNameGenerator(name)
+const provide = provideGenerator(name)
 
 export default {
   name,
@@ -17,7 +17,7 @@ export default {
     name: { type: String, default: '' }
   },
   setup (props) {
-    provide(provideName('name'), computed(() => props.name))
+    provide('name', computed(() => props.name))
   }
 }
 </script>

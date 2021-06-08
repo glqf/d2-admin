@@ -3,13 +3,13 @@
 </template>
 
 <script>
-import { computed, provide } from 'vue'
-import { provideNameGenerator } from '../../../utils/provide.js'
+import { computed } from 'vue'
+import { provideGenerator } from '../../../utils/provide.js'
 import { makeComponentName } from '../../../utils/make.js'
 
 export const name = makeComponentName('iconGroup')
 
-const provideName = provideNameGenerator(name)
+const provide = provideGenerator(name)
 
 export default {
   name,
@@ -17,7 +17,7 @@ export default {
     collection: { type: String, default: '' }
   },
   setup (props) {
-    provide(provideName('collection'), computed(() => props.collection))
+    provide('collection', computed(() => props.collection))
   }
 }
 </script>

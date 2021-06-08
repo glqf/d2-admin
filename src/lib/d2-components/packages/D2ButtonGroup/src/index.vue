@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import { computed, provide } from 'vue'
+import { computed } from 'vue'
 import classNames from 'classnames'
 import { useGlobalConfig } from '../../../utils/config.js'
 import { makeComponentName } from '../../../utils/make.js'
-import { provideNameGenerator } from '../../../utils/provide.js'
+import { provideGenerator } from '../../../utils/provide.js'
 import { buttonProps } from '../../D2Button/src/index.vue'
 
 const {
@@ -18,7 +18,7 @@ const {
 
 export const name = makeComponentName('buttonGroup')
 
-const provideName = provideNameGenerator(name)
+const provide = provideGenerator(name)
 
 export default {
   name,
@@ -29,7 +29,7 @@ export default {
     const $D2COMPONENT = useGlobalConfig()
 
     // provide props
-    provide(provideName('size'), computed(() => props.size))
+    provide('size', computed(() => props.size))
 
     // size
     const buttonGroupSize = computed(() => props.size || $D2COMPONENT.size)
