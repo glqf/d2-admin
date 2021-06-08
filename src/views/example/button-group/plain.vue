@@ -1,16 +1,16 @@
 <template>
   <the-section title="plain">
-    <d2-button-group>
-      <d2-button plain>item</d2-button>
+    <d2-button-group plain>
+      <d2-button>item</d2-button>
     </d2-button-group>
-    <d2-button-group>
-      <d2-button plain>item</d2-button>
-      <d2-button plain>item</d2-button>
+    <d2-button-group plain>
+      <d2-button>item</d2-button>
+      <d2-button>item</d2-button>
     </d2-button-group>
-    <d2-button-group>
-      <d2-button plain>item</d2-button>
-      <d2-button plain>item</d2-button>
-      <d2-button plain>item</d2-button>
+    <d2-button-group plain>
+      <d2-button>item</d2-button>
+      <d2-button>item</d2-button>
+      <d2-button>item</d2-button>
     </d2-button-group>
   </the-section>
 </template>

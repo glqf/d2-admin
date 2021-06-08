@@ -56,6 +56,9 @@ export default {
 
     // color
     const buttonColor = computed(() => props.color || unref(inject(buttonGroupName, 'color')))
+
+    // plain
+    const buttonPlain = computed(() => props.plain || unref(inject(buttonGroupName, 'plain')))
     
     // disabled
     const buttonDisabled = computed(() => props.disabled || unref(inject(buttonGroupName, 'disabled')))
@@ -77,7 +80,7 @@ export default {
     const buttonClassNames = computed(() => classNames(
       'd2-button',
       {
-        'is-plain': props.plain,
+        'is-plain': buttonPlain.value,
         'is-round': round.value,
         'is-round-left': roundLeft.value,
         'is-round-right': roundRight.value,

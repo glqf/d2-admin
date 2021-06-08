@@ -16,7 +16,8 @@ import buttonProps from '../../D2Button/src/props.js'
 const propsName = [
   'size',
   'color',
-  'disabled'
+  'disabled',
+  'plain'
 ]
 
 export const name = makeComponentName('buttonGroup')
