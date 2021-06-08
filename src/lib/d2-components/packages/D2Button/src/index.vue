@@ -59,6 +59,9 @@ export default {
 
     // plain
     const buttonPlain = computed(() => props.plain || unref(inject(buttonGroupName, 'plain')))
+
+    // ring
+    const buttonRing = computed(() => props.ring || unref(inject(buttonGroupName, 'ring')))
     
     // disabled
     const buttonDisabled = computed(() => props.disabled || unref(inject(buttonGroupName, 'disabled')))
@@ -85,15 +88,15 @@ export default {
         'is-round-left': roundLeft.value,
         'is-round-right': roundRight.value,
         'is-circle': props.circle,
-        'is-ring': props.ring,
+        'is-ring': buttonRing.value,
         'is-disabled': buttonDisabled.value,
         'is-loading': buttonLoading.value,
         'is-text': props.text,
         'is-icon-right': iconRightActive.value,
         [`d2-button--${buttonSize.value}`]: buttonSize.value,
         [`d2-button--${buttonColor.value}`]: buttonColor.value,
-        [`is-ring-offset-width-${buttonRingOffset.value}`]: props.ring,
-        [`is-ring-width-${props.ringWidth}`]: props.ring
+        [`is-ring-offset-width-${buttonRingOffset.value}`]: buttonRing.value,
+        [`is-ring-width-${props.ringWidth}`]: buttonRing.value
       }
     ))
 
