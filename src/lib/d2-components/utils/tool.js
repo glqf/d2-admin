@@ -14,6 +14,6 @@
  * @example (1, 0, 2, 3) => 0
  * @example (1, 1, 1, 1) => 1
  */
-export function findFirstNotEqual (target, ...value) {
+export function findFirstDifferent (target, ...value) {
   return value.find(e => e !== target) || target
 }

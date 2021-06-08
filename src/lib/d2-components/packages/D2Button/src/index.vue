@@ -22,7 +22,7 @@ import { useGlobalConfig } from '../../../utils/config.js'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
 import { isValuableString, isFinite } from '../../../utils/is.js'
-import { findFirstNotEqual } from '../../../utils/tool.js'
+import { findFirstDifferent } from '../../../utils/tool.js'
 import { name as buttonGroupName } from '../../D2ButtonGroup/src/index.vue'
 import D2Icon from '../../D2Icon/src/index.vue'
 import buttonProps from './props.js'
@@ -69,7 +69,7 @@ export default {
 
     // ring
     const buttonRing = computed(() => props.ring || unref(inject(buttonGroupName, 'ring')))
-    const buttonRingWidth = computed(() => findFirstNotEqual(buttonProps.ringWidth.default, props.ringWidth, unref(inject(buttonGroupName, 'ringWidth'))))
+    const buttonRingWidth = computed(() => findFirstDifferent(buttonProps.ringWidth.default, props.ringWidth, unref(inject(buttonGroupName, 'ringWidth'))))
     
     // disabled
     const buttonDisabled = computed(() => props.disabled || unref(inject(buttonGroupName, 'disabled')))
