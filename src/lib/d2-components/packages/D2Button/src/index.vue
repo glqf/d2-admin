@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { computed, ref } from 'vue'
+import { computed, ref, unref } from 'vue'
 import classNames from 'classnames'
 import { useGlobalConfig } from '../../../utils/config.js'
 import { makeComponentName } from '../../../utils/make.js'
@@ -52,8 +52,7 @@ export default {
     })
     
     // size
-    const injectSizeFromButtonGroup = inject(buttonGroupName, 'size', ref('')).value
-    const buttonSize = computed(() => props.size || injectSizeFromButtonGroup || $D2COMPONENT.size)
+    const buttonSize = computed(() => props.size || unref(inject(buttonGroupName, 'size')) || $D2COMPONENT.size)
     
     // disabled
     const buttonDisabled = computed(() => props.disabled)
