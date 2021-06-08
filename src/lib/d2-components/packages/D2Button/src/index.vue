@@ -16,12 +16,12 @@
 </template>
 
 <script>
-import { computed, ref, unref } from 'vue'
+import { computed, unref } from 'vue'
 import classNames from 'classnames'
 import { useGlobalConfig } from '../../../utils/config.js'
 import { makeComponentName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
-import { isValuableString } from '../../../utils/is.js'
+import { isValuableString, isFinite } from '../../../utils/is.js'
 import { name as buttonGroupName } from '../../D2ButtonGroup/src/index.vue'
 import D2Icon from '../../D2Icon/src/index.vue'
 import buttonProps from './props.js'
@@ -48,7 +48,7 @@ export default {
     // ring
     const buttonRingOffset = computed(() => {
       const offset = props.ringOffset
-      return Number.isFinite(offset) ? offset : (offset ? 1 : 0)
+      return isFinite(offset) ? offset : (offset ? 1 : 0)
     })
     
     // size
