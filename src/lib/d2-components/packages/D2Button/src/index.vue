@@ -78,7 +78,7 @@ export default {
     const iconRightActive = computed(() => isValuableString(props.iconRight)  && !buttonLoadingRight.value)
 
     // round and special
-    const round = computed(() => props.round && !props.roundLeft && !props.roundRight)
+    const round = computed(() => (props.round || unref(inject(buttonGroupName, 'round'))) && !props.roundLeft && !props.roundRight)
     const roundLeft = computed(() => props.roundLeft)
     const roundRight = computed(() => props.roundRight)
     
