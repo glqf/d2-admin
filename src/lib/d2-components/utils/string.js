@@ -24,6 +24,7 @@ export function pascalCase (value) {
  */
 export function titleCase (value) {
   if (!isString(value)) return ''
-  if (value.length < 2) return value.toLocaleUpperCase()
-  return value[0].toLocaleUpperCase() + value.slice(1)
+  let _value = value.trim()
+  if (_value.length < 2) return _value.toLocaleUpperCase()
+  return _value[0].toLocaleUpperCase() + _value.slice(1)
 }
