@@ -7,7 +7,7 @@ import { computed } from 'vue'
 import { provideGenerator } from '../../../utils/provide.js'
 import { makeComponentName } from '../../../utils/make.js'
 
-export const name = makeComponentName('svgGroup')
+export const name = makeComponentName('svg-group')
 
 const provide = provideGenerator(name)
 

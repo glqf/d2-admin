@@ -13,7 +13,7 @@ import { pascalCase } from './string.js'
  * @param {string} componentName component name should be returned by the makeComponentName function
  * @returns function provide like vue provide
  * @example
- *          const name = makeComponentName('fooBar')
+ *          const name = makeComponentName('foo-bar')
  *          const provide = provideGenerator(name)
  *          provide('baz', computed(() => props.baz))
  *          equivalent:
@@ -36,7 +36,7 @@ export function provideGenerator (componentName) {
  * @param {string} name provide name like 'foo' or 'foo-bar'
  * @param {*} defaultValue vue inject defaultValue
  * @returns same as vue inject function return
- * @example const injectBazFromFooBar = inject(makeComponentName('fooBar'), 'baz', ref('')).value
+ * @example const injectBazFromFooBar = inject(makeComponentName('foo-bar'), 'baz', ref('')).value
  */
 export function inject (componentName, name, defaultValue) {
   return vueInject(componentName + pascalCase(name), defaultValue)

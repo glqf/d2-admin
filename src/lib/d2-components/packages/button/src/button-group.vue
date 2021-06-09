@@ -25,7 +25,7 @@ const propsName = [
   'text'
 ]
 
-export const name = makeComponentName('buttonGroup')
+export const name = makeComponentName('button-group')
 
 const provide = provideGenerator(name)
 
@@ -42,7 +42,7 @@ export default {
     const buttonGroupSize = computed(() => props.size || $D2COMPONENT.size)
 
     const buttonGroupClassNames = computed(() => classNames(
-      makeComponentClassName('buttonGroup'),
+      makeComponentClassName('button-group'),
       {
         [`d2-button-group--${buttonGroupSize.value}`]: buttonGroupSize.value
       }
