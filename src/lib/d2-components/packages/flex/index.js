@@ -1,4 +1,4 @@
-import flex from './src/flex.vue'
+import flex from './src/flex.jsx'
 
 flex.install = app => {
   app.component(flex.name, flex)

@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
+// https://github.com/vitejs/vite/tree/main/packages/plugin-vue-jsx
+import jsx from '@vitejs/plugin-vue-jsx'
+
 // https://github.com/rollup/plugins/tree/master/packages/dsv
 import dsv from '@rollup/plugin-dsv'
 
@@ -18,6 +21,7 @@ import path from 'path'
 export default defineConfig({
   plugins: [
     vue(),
+    jsx(),
     dsv(),
     pages({
       pagesDir: 'src/views',

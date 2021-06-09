@@ -20,6 +20,7 @@
     "@iconify/json": "^1.1.330",
     "@rollup/plugin-dsv": "^2.0.1",
     "@vitejs/plugin-vue": "^1.2.1",
+    "@vitejs/plugin-vue-jsx": "^1.1.5",
     "@vue/compiler-sfc": "^3.0.5",
     "autoprefixer": "^10.2.5",
     "miragejs": "^0.1.41",
