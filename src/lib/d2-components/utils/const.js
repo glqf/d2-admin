@@ -1,8 +1,7 @@
 // component name space
 export const nameSpace = 'd2'
 
-// Color names
-// From tailwindcss basic color names
+// color names from tailwindcss basic color names
 export const colors = [
   'gray',
   'red',
@@ -14,16 +13,42 @@ export const colors = [
   'pink'
 ]
 
-// Size names
 export const sizes = [
   'mini',
   'small',
   'large'
 ]
 
-// Valid Button types
 export const buttonTypes = [
   'button',
   'submit',
   'reset'
 ]
+
+export const flex = {
+  dir: [
+    'top',
+    'right',
+    'bottom',
+    'left'
+  ],
+  main: [
+    'right',
+    'left',
+    'justify',
+    'center'
+  ],
+  cross: [
+    'top',
+    'bottom',
+    'baseline',
+    'center',
+    'stretch'
+  ],
+  box: [
+    'mean',
+    'first',
+    'last',
+    'justify'
+  ]
+}
