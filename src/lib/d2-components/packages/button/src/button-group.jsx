@@ -1,11 +1,4 @@
-<template>
-  <div :class="buttonGroupClassNames">
-    <slot/>
-  </div>
-</template>
-
-<script>
-import { computed } from 'vue'
+import { defineComponent, computed } from 'vue'
 import classNames from 'classnames'
 import { pick } from 'lodash-es'
 import { useGlobalConfig } from '../../../utils/config.js'
@@ -19,10 +12,10 @@ export const name = makeComponentName('button-group')
 
 const provide = provideGenerator(name)
 
-export default {
+export default defineComponent({
   name,
   props: pick(buttonProps, propsName),
-  setup (props) {
+  setup (props, { slots }) {
     const $D2COMPONENT = useGlobalConfig()
 
     // All props are provide to the button component
@@ -38,9 +31,9 @@ export default {
       }
     ))
     
-    return {
-      buttonGroupClassNames
-    }
+    return () =>
+      <div class={ buttonGroupClassNames.value }>
+        { slots.default?.() }
+      </div>
   }
-}
-</script>
+})

@@ -2,7 +2,7 @@
   <the-section title="切换数据">
     <d2-button @click="toggle">Toggle arrow</d2-button>
   </the-section>
-  <the-section title="基础">
+  <the-section title="base">
     <d2-icon icon="mdi:account-circle"/>
     <d2-icon icon="mdi:arrow-left"/>
     <d2-icon :icon="`mdi:arrow-${ arrow }`"/>

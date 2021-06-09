@@ -1,5 +1,5 @@
 <template>
-  <the-section title="基础">
+  <the-section title="base">
     <d2-button-group>
       <d2-button>item</d2-button>
       <d2-button>item</d2-button>
