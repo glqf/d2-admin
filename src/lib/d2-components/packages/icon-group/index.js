@@ -1,7 +1,7 @@
-import D2IconGroup from '../icon/src/icon-group.vue'
+import iconGroup from '../icon/src/icon-group.vue'
 
-D2IconGroup.install = app => {
-  app.component(D2IconGroup.name, D2IconGroup)
+iconGroup.install = app => {
+  app.component(iconGroup.name, iconGroup)
 }
 
-export default D2IconGroup
+export default iconGroup

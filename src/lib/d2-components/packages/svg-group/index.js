@@ -1,7 +1,7 @@
-import D2SvgGroup from '../svg/src/svg-group.vue'
+import svgGroup from '../svg/src/svg-group.vue'
 
-D2SvgGroup.install = app => {
-  app.component(D2SvgGroup.name, D2SvgGroup)
+svgGroup.install = app => {
+  app.component(svgGroup.name, svgGroup)
 }
 
-export default D2SvgGroup
+export default svgGroup

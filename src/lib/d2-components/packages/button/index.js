@@ -1,7 +1,7 @@
-import D2Button from './src/button.vue'
+import button from './src/button.vue'
 
-D2Button.install = app => {
-  app.component(D2Button.name, D2Button)
+button.install = app => {
+  app.component(button.name, button)
 }
 
-export default D2Button
+export default button

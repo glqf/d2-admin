@@ -1,7 +1,7 @@
-import D2Popper from './src/popper.vue'
+import popper from './src/popper.vue'
 
-D2Popper.install = app => {
-  app.component(D2Popper.name, D2Popper)
+popper.install = app => {
+  app.component(popper.name, popper)
 }
 
-export default D2Popper
+export default popper

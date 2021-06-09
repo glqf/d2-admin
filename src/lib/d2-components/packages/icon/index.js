@@ -1,7 +1,7 @@
-import D2Icon from './src/icon.vue'
+import icon from './src/icon.vue'
 
-D2Icon.install = app => {
-  app.component(D2Icon.name, D2Icon)
+icon.install = app => {
+  app.component(icon.name, icon)
 }
 
-export default D2Icon
+export default icon
