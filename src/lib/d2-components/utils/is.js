@@ -5,10 +5,20 @@
  * It is not applicable to the use environment outside the project
  */
 
-import { colors, sizes, buttonTypes } from './const.js'
+import { colors, sizes, buttonTypes, flex } from './const.js'
 
 /**
- * Check a color name is within the specified range
+ * Check a flex property is available
+ * @param {string} type flex property type
+ * @param {string} value flex property
+ * @returns boolean
+ */
+export function isValidFlex (type, value) {
+  return flex[type] && flex[type].includes(value)
+}
+
+/**
+ * Check a color name is available
  * @param {string} color color name
  * @returns boolean
  */
@@ -17,7 +27,7 @@ export function isValidColor (color) {
 }
 
 /**
- * Check a size name is within the specified range
+ * Check a size name is available
  * @param {string} size size name
  * @returns boolean
  */
@@ -26,7 +36,7 @@ export function isValidColor (color) {
 }
 
 /**
- * Check a button type is within the specified range
+ * Check a button type is available
  * @param {string} type type name
  * @returns boolean
  */

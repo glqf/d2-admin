@@ -101,10 +101,10 @@ export default {
         'is-loading': buttonLoading.value,
         'is-text': buttonText.value,
         'is-icon-right': buttonIconRightActive.value,
-        [`d2-button--${buttonSize.value}`]: buttonSize.value,
-        [`d2-button--${buttonColor.value}`]: buttonColor.value,
         [`is-ring-offset-width-${buttonRingOffset.value}`]: buttonRing.value,
-        [`is-ring-width-${buttonRingWidth.value}`]: buttonRing.value
+        [`is-ring-width-${buttonRingWidth.value}`]: buttonRing.value,
+        [`d2-button--${buttonSize.value}`]: buttonSize.value,
+        [`d2-button--${buttonColor.value}`]: buttonColor.value
       }
     ))
 
