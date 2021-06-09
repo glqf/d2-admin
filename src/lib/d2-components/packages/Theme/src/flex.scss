@@ -1,54 +1,19 @@
 @include b(flex) {
   display: flex;
 
-  @include m(dir-top) {
-    flex-direction: column;
-  }
-  @include m(dir-bottom) {
-    flex-direction: column-reverse;
-    box-pack: end;
-  }
-  @include m(dir-left) {
-    flex-direction: row;
-  }
-  @include m(dir-right) {
-    flex-direction: row-reverse;
-    box-pack: end;
-  }
+  @include m(dir-top) { flex-direction: column; }
+  @include m(dir-bottom) { flex-direction: column-reverse; box-pack: end; }
+  @include m(dir-left) { flex-direction: row; }
+  @include m(dir-right) { flex-direction: row-reverse; box-pack: end; }
 
-  @include m(main-left) {
-    justify-content: flex-start;
-  }
+  @include m(main-left) { justify-content: flex-start; }
+  @include m(main-right) { justify-content: flex-end; }
+  @include m(main-justify) { justify-content: space-between; }
+  @include m(main-center) { justify-content: center; }
 
-  @include m(main-right) {
-    justify-content: flex-end;
-  }
-
-  @include m(main-justify) {
-    justify-content: space-between;
-  }
-
-  @include m(main-center) {
-    justify-content: center;
-  }
-
-  @include m(cross-top) {
-    align-items: flex-start;
-  }
-
-  @include m(cross-bottom) {
-    align-items: flex-end;
-  }
-
-  @include m(cross-center) {
-    align-items: center;
-  }
-
-  @include m(cross-baseline) {
-    align-items: baseline;
-  }
-
-  @include m(cross-stretch) {
-    align-items: stretch;
-  }
+  @include m(cross-top) { align-items: flex-start; }
+  @include m(cross-bottom) { align-items: flex-end; }
+  @include m(cross-center) { align-items: center; }
+  @include m(cross-baseline) { align-items: baseline; }
+  @include m(cross-stretch) { align-items: stretch; }
 }
