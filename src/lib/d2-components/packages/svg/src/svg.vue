@@ -9,7 +9,7 @@ import { computed, ref } from 'vue'
 import { configGet } from '../../../utils/config.js'
 import { makeComponentName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
-import { name as svgGroupName } from './D2SvgGroup.vue'
+import { name as svgGroupName } from './svg-group.vue'
 
 export const name = makeComponentName('svg')
 

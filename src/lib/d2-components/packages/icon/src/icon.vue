@@ -11,7 +11,7 @@ import classNames from 'classnames'
 import { useGlobalConfig } from '../../../utils/config.js'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
-import { name as iconGroupName } from './D2IconGroup.vue'
+import { name as iconGroupName } from './icon-group.vue'
 
 export const name = makeComponentName('icon')
 
