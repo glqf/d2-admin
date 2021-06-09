@@ -18,10 +18,10 @@ export default defineComponent({
     const flexClassNames = computed(() => classNames(
       baseClassName,
       {
-        [`${baseClassName}--dir-${props.dir}`]: props.dir,
-        [`${baseClassName}--main-${props.main}`]: props.main,
-        [`${baseClassName}--cross-${props.cross}`]: props.cross,
-        [`${baseClassName}--box-${props.box}`]: props.box
+        [`is-dir-${props.dir}`]: props.dir,
+        [`is-main-${props.main}`]: props.main,
+        [`is-cross-${props.cross}`]: props.cross,
+        [`is-box-${props.box}`]: props.box
       }
     ))
     
