@@ -4,6 +4,7 @@ import { makeComponentName, makeComponentClassName } from '../../../utils/make.j
 import { isValidFlex } from '../../../utils/is.js'
 
 export const name = makeComponentName('flex')
+export const baseClassName = makeComponentClassName('flex')
 
 export default defineComponent({
   name,
@@ -15,12 +16,12 @@ export default defineComponent({
   },
   setup (props, { slots }) {
     const flexClassNames = computed(() => classNames(
-      makeComponentClassName('flex'),
+      baseClassName,
       {
-        [`d2-flex--dir-${props.dir}`]: props.dir,
-        [`d2-flex--main-${props.main}`]: props.main,
-        [`d2-flex--cross-${props.cross}`]: props.cross,
-        [`d2-flex--box-${props.box}`]: props.box
+        [`${baseClassName}--dir-${props.dir}`]: props.dir,
+        [`${baseClassName}--main-${props.main}`]: props.main,
+        [`${baseClassName}--cross-${props.cross}`]: props.cross,
+        [`${baseClassName}--box-${props.box}`]: props.box
       }
     ))
     

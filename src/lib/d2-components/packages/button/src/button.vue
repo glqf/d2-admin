@@ -28,6 +28,7 @@ import D2Icon from '../../icon/src/icon.vue'
 import buttonProps from './props.js'
 
 export const name = makeComponentName('button')
+export const baseClassName = makeComponentClassName('button')
 
 export default {
   name,
@@ -89,8 +90,8 @@ export default {
     const buttonIconRightActive = computed(() => isValuableString(props.iconRight)  && !buttonLoadingRight.value)
     
     const buttonClassNames = computed(() => classNames(
-      makeComponentClassName('button'),
-      { 
+      baseClassName,
+      {
         'is-plain': buttonPlain.value,
         'is-round': buttonRound.value,
         'is-round-left': buttonRoundLeft.value,
@@ -103,8 +104,8 @@ export default {
         'is-icon-right': buttonIconRightActive.value,
         [`is-ring-offset-width-${buttonRingOffset.value}`]: buttonRing.value,
         [`is-ring-width-${buttonRingWidth.value}`]: buttonRing.value,
-        [`d2-button--${buttonSize.value}`]: buttonSize.value,
-        [`d2-button--${buttonColor.value}`]: buttonColor.value
+        [`${baseClassName}--${buttonSize.value}`]: buttonSize.value,
+        [`${baseClassName}--${buttonColor.value}`]: buttonColor.value
       }
     ))
 
