@@ -13,17 +13,7 @@ import { makeComponentName, makeComponentClassName } from '../../../utils/make.j
 import { provideGenerator } from '../../../utils/provide.js'
 import buttonProps from './props.js'
 
-const propsName = [
-  'size',
-  'color',
-  'disabled',
-  'plain',
-  'ring',
-  'ringWidth',
-  'round',
-  'circle',
-  'text'
-]
+const propsName = ['size', 'color', 'disabled', 'plain', 'ring', 'ringWidth', 'round', 'circle', 'text']
 
 export const name = makeComponentName('button-group')
 
