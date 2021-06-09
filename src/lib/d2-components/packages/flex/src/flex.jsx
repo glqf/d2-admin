@@ -6,9 +6,11 @@ export const name = makeComponentName('flex')
 
 export default defineComponent({
   name,
-  setup () {
+  setup (props, { slots }) {
     const flexClassNames = computed(() => classNames(makeComponentClassName('flex')))
     
-    return () => <div class={ flexClassNames.value }>123</div>
+    return () => <div class={ flexClassNames.value }>
+      { slots.default?.() }
+    </div>
   }
 })
