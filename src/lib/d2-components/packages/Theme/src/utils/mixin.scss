@@ -1,7 +1,7 @@
 @import './function.scss';
 
 // ------------------------------
-// => BEM
+// => BEM from ElementUI
 // ------------------------------
 @mixin b($block) {
   $B: $namespace+'-'+$block !global;
