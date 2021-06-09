@@ -1,6 +1,8 @@
 <template>
   <the-section title="flex">
-    <d2-flex>flex</d2-flex>
+    <d2-flex>
+      <div>inner</div>
+    </d2-flex>
   </the-section>
 </template>
 
