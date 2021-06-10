@@ -10,10 +10,10 @@
                 <div v-for="n in 3" :key="n" class="flex__item"/>
               </d2-flex>
               <div class="row__code">
-                <span class="code__prop">dir="<span class="prop__highlight">{{ d }}</span>"</span>
-                <span class="code__prop">main="<span class="prop__highlight">{{ m }}</span>"</span>
-                <span class="code__prop">cross="<span class="prop__highlight">{{ c }}</span>"</span>
-                <span class="code__prop">box="<span class="prop__highlight">{{ b }}</span>"</span>
+                <span class="code__prop" :class="{ 'code__prop--empty': !d }">dir="<span class="prop__highlight">{{ d }}</span>"</span>
+                <span class="code__prop" :class="{ 'code__prop--empty': !m }">main="<span class="prop__highlight">{{ m }}</span>"</span>
+                <span class="code__prop" :class="{ 'code__prop--empty': !c }">cross="<span class="prop__highlight">{{ c }}</span>"</span>
+                <span class="code__prop" :class="{ 'code__prop--empty': !b }">box="<span class="prop__highlight">{{ b }}</span>"</span>
               </div>
             </d2-flex>
             <!-- item end -->
@@ -58,15 +58,18 @@ export default {
     }
   }
   .row__flex {
-    @apply w-24 h-24 mr-12 bg-gray-50;
+    @apply w-24 h-24 p-1 mr-12 bg-gray-50;
     .flex__item {
       @apply p-1 m-1 transition-all bg-indigo-400 rounded-sm;
     }
   }
   .row__code {
-    @apply text-gray-300;
+    @apply text-gray-500;
     .code__prop {
       @apply mr-2;
+      &.code__prop--empty {
+        @apply text-gray-200;
+      }
       .prop__highlight {
         @apply mx-1 text-indigo-500;
       }
