@@ -67,7 +67,7 @@ export function isValuableString (value) {
 }
 
 /**
- * Check if it is empty String
+ * Check if it is empty string
  * @param {*} value value to check
  * @returns boolean
  */
@@ -76,7 +76,7 @@ export function isEmptyString (value) {
 }
 
 /**
- * Check if it is Boolean
+ * Check if it is boolean
  * @param {*} value value to check
  * @returns boolean
  */
