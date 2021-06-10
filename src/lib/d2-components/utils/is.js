@@ -72,7 +72,7 @@ export function isValuableString (value) {
  * @returns boolean
  */
 export function isEmptyString (value) {
-  return isEmptyString(value)
+  return value === ''
 }
 
 /**
