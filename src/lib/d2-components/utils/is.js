@@ -11,41 +11,45 @@ import { colors, sizes, buttonTypes, flex } from './const.js'
  * Check a flex property is available
  * @param {string} type flex property type
  * @param {string} value flex property
+ * @param {boolean} empty allow empty string
  * @returns boolean
  */
-export function isValidFlex (type, value) {
-  return flex[type] && flex[type].includes(value)
+export function isValidFlex (type, value, empty) {
+  return empty && isEmptyString(value) || flex[type] && flex[type].includes(value)
 }
 
 /**
  * Check a color name is available
- * @param {string} color color name
+ * @param {string} value color name
+ * @param {boolean} empty allow empty string
  * @returns boolean
  */
-export function isValidColor (color) {
-  return colors.includes(color)
+export function isValidColor (value, empty) {
+  return empty && isEmptyString(value) || colors.includes(value)
 }
 
 /**
  * Check a size name is available
- * @param {string} size size name
+ * @param {string} value size name
+ * @param {boolean} empty allow empty string
  * @returns boolean
  */
- export function isValidSize (size) {
-  return sizes.includes(size)
+export function isValidSize (value, empty) {
+  return empty && isEmptyString(value) || sizes.includes(value)
 }
 
 /**
  * Check a button type is available
- * @param {string} type type name
+ * @param {string} value type name
+ * @param {boolean} empty allow empty string
  * @returns boolean
  */
- export function isValidButtonTypes (type) {
-  return buttonTypes.includes(type)
+export function isValidButtonTypes (value, empty) {
+  return empty && isEmptyString(value) || buttonTypes.includes(value)
 }
 
 /**
- * Check if it is String
+ * Check if it is string
  * @param {*} value value to check
  * @returns boolean
  */
@@ -54,12 +58,21 @@ export function isString (value) {
 }
 
 /**
- * Check if it is String and not empty
+ * Check if it is string and not empty
  * @param {*} value value to check
  * @returns boolean
  */
- export function isValuableString (value) {
-  return isString(value) && value !== ''
+export function isValuableString (value) {
+  return isString(value) && !isEmptyString(value)
+}
+
+/**
+ * Check if it is empty String
+ * @param {*} value value to check
+ * @returns boolean
+ */
+export function isEmptyString (value) {
+  return isEmptyString(value)
 }
 
 /**
@@ -110,7 +123,7 @@ export function isIntegerAndBetween (value, min, max) {
   return isFinite(value) && Number.isInteger(value) && value >= min && value <= max
 }
 
-// export function isDOM (item) {
+//export function isDOM (item) {
 //   return (typeof HTMLElement === 'function')
 //     ? (item instanceof HTMLElement)
 //     : (

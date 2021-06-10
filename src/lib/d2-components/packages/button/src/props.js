@@ -9,7 +9,7 @@ import {
 export default {
   icon: { type: String, default: '' },
   iconRight: { type: String, default: '' },
-  color: { type: String, default: '', validator: value => !value || isValidColor(value) },
+  color: { type: String, default: '', validator: value => isValidColor(value, true) },
   size: { type: String, default: '', validator: value => !value || isValidSize(value) },
   type: { type: String, default: 'button', validator: value => isValidButtonTypes(value)},
   autofocus: { type: Boolean, default: false },
