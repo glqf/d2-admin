@@ -9,9 +9,9 @@ export const baseClassName = makeComponentClassName('flex')
 export default defineComponent({
   name,
   props: {
-    dir: { type: String, default: 'left', validator: value => isValidFlex('dir', value) },
-    main: { type: String, default: 'left', validator: value => isValidFlex('main', value) },
-    cross: { type: String, default: 'top', validator: value => isValidFlex('cross', value) },
+    dir: { type: String, default: '', validator: value => !value || isValidFlex('dir', value) },
+    main: { type: String, default: '', validator: value => !value || isValidFlex('main', value) },
+    cross: { type: String, default: '', validator: value => !value || isValidFlex('cross', value) },
     box: { type: String, default: '', validator: value => !value || isValidFlex('box', value) }
   },
   setup (props, { slots }) {
