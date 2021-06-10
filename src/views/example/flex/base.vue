@@ -6,8 +6,8 @@
           <template v-for="b in box" :key="b">
             <!-- item -->
             <d2-flex dir="left" cross="center" class="row">
-              <d2-flex :dir="d" :main="m" :cross="c" :box="b" class="row__box">
-                <div v-for="n in 3" :key="n" class="box__item"/>
+              <d2-flex :dir="d" :main="m" :cross="c" :box="b" class="row__flex">
+                <div v-for="n in 3" :key="n" class="flex__item"/>
               </d2-flex>
               <div class="row__code">
                 <span class="code__prop">dir="<span class="prop__highlight">{{ d }}</span>"</span>
@@ -51,15 +51,15 @@ export default {
   @apply mb-4 transition-all rounded-sm;
   &:hover {
     @apply bg-gray-50;
-    .row__box {
-      .box__item {
+    .row__flex {
+      .flex__item {
         @apply bg-indigo-500;
       }
     }
   }
-  .row__box {
+  .row__flex {
     @apply w-24 h-24 mr-12 bg-gray-50;
-    .box__item {
+    .flex__item {
       @apply p-1 m-1 transition-all bg-indigo-400 rounded-sm;
     }
   }
