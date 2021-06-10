@@ -7,7 +7,7 @@
             <!-- item -->
             <d2-flex dir="left" cross="center" class="row">
               <d2-flex :dir="d" :main="m" :cross="c" :box="b" class="row__flex">
-                <div v-for="n in 3" :key="n" class="flex__item"/>
+                <div class="flex__item" :class="`flex__item--${n}`" v-for="n in 3" :key="n"/>
               </d2-flex>
               <div class="row__code">
                 <span class="code__prop" :class="{ 'code__prop--empty': !d }">dir="<span class="prop__highlight">{{ d }}</span>"</span>
@@ -51,16 +51,14 @@ export default {
   @apply mb-4 transition-all rounded-sm;
   &:hover {
     @apply bg-gray-50;
-    .row__flex {
-      .flex__item {
-        @apply bg-indigo-500;
-      }
-    }
   }
   .row__flex {
     @apply w-24 h-24 p-1 mr-12 bg-gray-50;
     .flex__item {
-      @apply p-1 m-1 transition-all bg-indigo-400 rounded-sm;
+      @apply p-1 m-1 rounded-sm;
+      &.flex__item--1 { @apply bg-indigo-600; }
+      &.flex__item--2 { @apply bg-indigo-300; }
+      &.flex__item--3 { @apply bg-indigo-100; }
     }
   }
   .row__code {
