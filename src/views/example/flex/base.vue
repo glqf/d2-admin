@@ -4,25 +4,19 @@
       <template v-for="m in main" :key="m">
         <template v-for="c in cross" :key="c">
           <template v-for="b in box" :key="b">
-            <d2-flex dir="left" cross="center" class="mb-4 group">
-              <d2-flex
-                class="w-36 h-36 p-1 bg-gray-100 rounded"
-                :dir="d"
-                :main="m"
-                :cross="c"
-                :box="b">
-                <div
-                  v-for="n in 3"
-                  :key="n"
-                  class="m-1 p-1 bg-gray-200 group-hover:bg-indigo-500 text-white rounded text-center"/>
+            <!-- item -->
+            <d2-flex dir="left" cross="center" class="row">
+              <d2-flex :dir="d" :main="m" :cross="c" :box="b" class="row__box">
+                <div v-for="n in 3" :key="n" class="box__item"/>
               </d2-flex>
-              <p class="ml-4 text-lg bg-gray-100 group-hover:bg-indigo-500 text-gray-400 group-hover:text-indigo-300 px-4 py-1 rounded">
-                <span class="mr-4">dir="<span class="text-indigo-500 group-hover:text-white mx-1">{{ d }}</span>"</span>
-                <span class="mr-4">main="<span class="text-indigo-500 group-hover:text-white mx-1">{{ m }}</span>"</span>
-                <span class="mr-4">cross="<span class="text-indigo-500 group-hover:text-white mx-1">{{ c }}</span>"</span>
-                <span>box="<span class="text-indigo-500 group-hover:text-white mx-1">{{ b }}</span>"</span>
-              </p>
+              <div class="row__code">
+                <span class="code__prop">dir="<span class="prop__highlight">{{ d }}</span>"</span>
+                <span class="code__prop">main="<span class="prop__highlight">{{ m }}</span>"</span>
+                <span class="code__prop">cross="<span class="prop__highlight">{{ c }}</span>"</span>
+                <span class="code__prop">box="<span class="prop__highlight">{{ b }}</span>"</span>
+              </div>
             </d2-flex>
+            <!-- item end -->
           </template>
         </template>
       </template>
@@ -51,3 +45,32 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.row {
+  @apply mb-4 transition-all rounded-sm;
+  &:hover {
+    @apply bg-gray-50;
+    .row__box {
+      .box__item {
+        @apply bg-indigo-500;
+      }
+    }
+  }
+  .row__box {
+    @apply w-24 h-24 mr-12 bg-gray-50;
+    .box__item {
+      @apply p-1 m-1 transition-all bg-indigo-400 rounded-sm;
+    }
+  }
+  .row__code {
+    @apply text-gray-300;
+    .code__prop {
+      @apply mr-2;
+      .prop__highlight {
+        @apply mx-1 text-indigo-500;
+      }
+    }
+  }
+}
+</style>
