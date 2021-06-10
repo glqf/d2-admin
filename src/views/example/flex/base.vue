@@ -10,9 +10,10 @@
               :main="mainValue"
               :cross="crossValue"
               :box="boxValue">
-              <div class="m-1 p-1 bg-indigo-500 text-white rounded text-center"/>
-              <div class="m-1 p-1 bg-indigo-500 text-white rounded text-center"/>
-              <div class="m-1 p-1 bg-indigo-500 text-white rounded text-center"/>
+              <div
+                v-for="n in 3"
+                :key="n"
+                class="m-1 p-1 bg-indigo-500 text-white rounded text-center"/>
             </d2-flex>
           </the-section>
         </template>
