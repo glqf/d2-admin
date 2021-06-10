@@ -1,9 +1,9 @@
 <template>
   <the-section title="flex">
-    <template v-for="d in flex.dir" :key="d">
-      <template v-for="m in flex.main" :key="m">
-        <template v-for="c in flex.cross" :key="c">
-          <template v-for="b in flex.box" :key="b">
+    <template v-for="d in dir" :key="d">
+      <template v-for="m in main" :key="m">
+        <template v-for="c in cross" :key="c">
+          <template v-for="b in box" :key="b">
             <d2-flex dir="left" cross="center" class="mb-4 group">
               <d2-flex
                 class="w-36 h-36 p-1 bg-gray-100 rounded"
@@ -34,13 +34,19 @@
 import { flex } from 'd2-components/utils/const.js'
 import TheSection from '../components/the-section.vue'
 
+const { dir, main, cross, box } = flex
+
 export default {
   components: {
     TheSection
   },
   setup () {
     return {
-      flex
+      flex,
+      dir: ['', ...dir],
+      main: ['', ...main],
+      cross: ['', ...cross],
+      box: ['', ...box]
     }
   }
 }
