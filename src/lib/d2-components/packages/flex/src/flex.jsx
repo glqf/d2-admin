@@ -9,12 +9,13 @@ export const baseClassName = makeComponentClassName('flex')
 export default defineComponent({
   name,
   props: {
+    center: { type: Boolean },
+    inline: { type: Boolean },
     tag: { type: String, default: 'div' },
     dir: { type: String, default: '', validator: value => isValidFlex('dir', value, true) },
     main: { type: String, default: '', validator: value => isValidFlex('main', value, true) },
     cross: { type: String, default: '', validator: value => isValidFlex('cross', value, true) },
-    box: { type: String, default: '', validator: value => isValidFlex('box', value, true) },
-    center: { type: Boolean }
+    box: { type: String, default: '', validator: value => isValidFlex('box', value, true) }
   },
   setup (props, { slots }) {
     const flexCenter = computed(() => props.center ? 'center' : '')
@@ -26,6 +27,7 @@ export default defineComponent({
     const flexClassNames = computed(() => classNames(
       baseClassName,
       {
+        'is-inline': props.inline,
         [`is-dir-${props.dir}`]: props.dir,
         [`is-main-${flexMain.value}`]: flexMain.value,
         [`is-cross-${flexCross.value}`]: flexCross.value,

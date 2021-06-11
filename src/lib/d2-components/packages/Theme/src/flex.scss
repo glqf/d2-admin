@@ -7,6 +7,8 @@
     display: flex;
   }
 
+  &.is-inline { display: inline-flex; }
+
   &.is-dir-top { flex-direction: column; }
   &.is-dir-bottom { flex-direction: column-reverse; box-pack: end; }
   &.is-dir-left { flex-direction: row; }
