@@ -1,19 +1,19 @@
 <template>
   <the-section title="flex">
-    <template v-for="d in dir" :key="d">
-      <template v-for="m in main" :key="m">
-        <template v-for="c in cross" :key="c">
-          <template v-for="b in box" :key="b">
+    <template v-for="_dir in dir" :key="_dir">
+      <template v-for="_main in main" :key="_main">
+        <template v-for="_cross in cross" :key="_cross">
+          <template v-for="_box in box" :key="_box">
             <!-- item -->
             <d2-flex dir="left" cross="center" class="row">
-              <d2-flex :dir="d" :main="m" :cross="c" :box="b" class="row__flex">
+              <d2-flex :dir="_dir" :main="_main" :cross="_cross" :box="_box" class="row__flex">
                 <div class="flex__item" :class="`flex__item--${n}`" v-for="n in 3" :key="n"/>
               </d2-flex>
               <div class="row__code">
-                <span class="code__prop" :class="{ 'code__prop--empty': !d }">dir="<span class="prop__highlight">{{ d }}</span>"</span>
-                <span class="code__prop" :class="{ 'code__prop--empty': !m }">main="<span class="prop__highlight">{{ m }}</span>"</span>
-                <span class="code__prop" :class="{ 'code__prop--empty': !c }">cross="<span class="prop__highlight">{{ c }}</span>"</span>
-                <span class="code__prop" :class="{ 'code__prop--empty': !b }">box="<span class="prop__highlight">{{ b }}</span>"</span>
+                <span class="code__prop" :class="{ 'code__prop--empty': !_dir }">dir="<span class="prop__highlight">{{ _dir }}</span>"</span>
+                <span class="code__prop" :class="{ 'code__prop--empty': !_main }">main="<span class="prop__highlight">{{ _main }}</span>"</span>
+                <span class="code__prop" :class="{ 'code__prop--empty': !_cross }">cross="<span class="prop__highlight">{{ _cross }}</span>"</span>
+                <span class="code__prop" :class="{ 'code__prop--empty': !_box }">box="<span class="prop__highlight">{{ _box }}</span>"</span>
               </div>
             </d2-flex>
             <!-- item end -->
