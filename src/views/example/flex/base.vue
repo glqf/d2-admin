@@ -36,7 +36,6 @@ export default {
   },
   setup () {
     return {
-      flex,
       dir: ['', ...dir],
       main: ['', ...main],
       cross: ['', ...cross],
