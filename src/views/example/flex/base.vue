@@ -6,8 +6,8 @@
           <template v-for="_box in box" :key="_box">
             <!-- item -->
             <d2-flex dir="left" cross="center" class="row">
-              <d2-flex :dir="_dir" :main="_main" :cross="_cross" :box="_box" class="row__flex">
-                <div class="flex__item" :class="`flex__item--${n}`" v-for="n in 3" :key="n"/>
+              <d2-flex :dir="_dir" :main="_main" :cross="_cross" :box="_box" class="flex-example">
+                <div class="flex-example__item" :class="`flex-example__item--${n}`" v-for="n in 3" :key="n"/>
               </d2-flex>
               <div class="row__code">
                 <span class="code__prop" :class="{ 'code__prop--empty': !_dir }">dir="<span class="prop__highlight">{{ _dir }}</span>"</span>
@@ -51,13 +51,13 @@ export default {
   &:hover {
     @apply bg-gray-50;
   }
-  .row__flex {
+  .flex-example {
     @apply w-24 h-24 p-1 mr-12 bg-gray-50;
-    .flex__item {
+    .flex-example__item {
       @apply p-1 m-1 rounded-sm;
-      &.flex__item--1 { @apply bg-indigo-600; }
-      &.flex__item--2 { @apply bg-indigo-300; }
-      &.flex__item--3 { @apply bg-indigo-100; }
+      &.flex-example__item--1 { @apply bg-indigo-600; }
+      &.flex-example__item--2 { @apply bg-indigo-300; }
+      &.flex-example__item--3 { @apply bg-indigo-100; }
     }
   }
   .row__code {

@@ -9,6 +9,7 @@ export const baseClassName = makeComponentClassName('flex')
 export default defineComponent({
   name,
   props: {
+    tag: { type: String, default: 'div' },
     dir: { type: String, default: '', validator: value => isValidFlex('dir', value, true) },
     main: { type: String, default: '', validator: value => isValidFlex('main', value, true) },
     cross: { type: String, default: '', validator: value => isValidFlex('cross', value, true) },
@@ -25,8 +26,8 @@ export default defineComponent({
       }
     ))
     
-    return () => <div class={ flexClassNames.value }>
+    return () => <props.tag class={ flexClassNames.value }>
       { slots.default?.() }
-    </div>
+    </props.tag>
   }
 })
