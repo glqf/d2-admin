@@ -47,14 +47,14 @@ export default {
 
 <style lang="scss" scoped>
 .row {
-  @apply mb-4 transition-all rounded-sm;
+  @apply mb-4 transition-all rounded;
   &:hover {
-    @apply bg-gray-50;
+    @apply bg-gray-100;
   }
   .flex-example {
-    @apply w-24 h-24 p-1 mr-12 bg-gray-50;
+    @apply w-24 h-24 p-1 mr-4 bg-gray-100 rounded;
     .flex-example__item {
-      @apply p-1 m-1 rounded-sm;
+      @apply p-1 m-1 rounded;
       &.flex-example__item--1 { @apply bg-indigo-600; }
       &.flex-example__item--2 { @apply bg-indigo-300; }
       &.flex-example__item--3 { @apply bg-indigo-100; }

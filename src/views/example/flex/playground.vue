@@ -62,7 +62,7 @@ export default {
 .view {
   @apply mr-4;
   .flex-example {
-    @apply w-64 h-64 p-1 bg-gray-50;
+    @apply w-64 h-64 p-1 bg-gray-100;
     .flex-example__item {
       @apply p-1 m-1 transition-all rounded-sm;
       &.flex-example__item--1 { @apply bg-indigo-600; }

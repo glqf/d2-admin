@@ -18,7 +18,7 @@ export default {
 
 <style lang="scss" scoped>
 .flex-example {
-  @apply w-24 h-24 p-1 mr-12 bg-gray-50;
+  @apply w-24 h-24 p-1 mb-4 mr-4 bg-gray-100 rounded;
   .flex-example__item {
     @apply p-1 m-1 rounded-sm;
     &.flex-example__item--1 { @apply bg-indigo-600; }
