@@ -13,15 +13,20 @@ export default defineComponent({
     dir: { type: String, default: '', validator: value => isValidFlex('dir', value, true) },
     main: { type: String, default: '', validator: value => isValidFlex('main', value, true) },
     cross: { type: String, default: '', validator: value => isValidFlex('cross', value, true) },
-    box: { type: String, default: '', validator: value => isValidFlex('box', value, true) }
+    box: { type: String, default: '', validator: value => isValidFlex('box', value, true) },
+    center: { type: Boolean }
   },
   setup (props, { slots }) {
+    const flexMain = computed(() => props.center ? 'center' : props.main)
+
+    const flexCross = computed(() => props.center ? 'center' : props.cross)
+
     const flexClassNames = computed(() => classNames(
       baseClassName,
       {
         [`is-dir-${props.dir}`]: props.dir,
-        [`is-main-${props.main}`]: props.main,
-        [`is-cross-${props.cross}`]: props.cross,
+        [`is-main-${flexMain.value}`]: flexMain.value,
+        [`is-cross-${flexCross.value}`]: flexCross.value,
         [`is-box-${props.box}`]: props.box
       }
     ))
