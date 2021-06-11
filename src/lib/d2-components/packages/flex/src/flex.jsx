@@ -17,9 +17,11 @@ export default defineComponent({
     center: { type: Boolean }
   },
   setup (props, { slots }) {
-    const flexMain = computed(() => props.center ? 'center' : props.main)
+    const flexCenter = computed(() => props.center ? 'center' : '')
 
-    const flexCross = computed(() => props.center ? 'center' : props.cross)
+    const flexMain = computed(() => flexCenter.value || props.main)
+
+    const flexCross = computed(() => flexCenter.value || props.cross)
 
     const flexClassNames = computed(() => classNames(
       baseClassName,
