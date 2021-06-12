@@ -3,9 +3,13 @@
   & > * {
     display: block;
   }
-  & > .#{$namespace}-flex.is-flex {
+  & > .#{$namespace}-flex {
     display: flex;
   }
+
+  &.is-display-block { display: block; }
+  &.is-display-inline { display: inline; }
+  &.is-display-inline-block { display: inline-block; }
 
   &.is-inline { display: inline-flex; }
 
