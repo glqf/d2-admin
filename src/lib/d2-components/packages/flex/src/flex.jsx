@@ -22,9 +22,9 @@ export default defineComponent({
     box: { type: String, default: '', validator: value => isFlex('box', value, true) },
     content: { type: String, default: '', validator: value => isFlex('content', value, true) },
     // flex child attributes
-    order: { type: Number },
-    grow: { type: Number },
-    shrink: { type: Number },
+    order: { type: [String, Number] },
+    grow: { type: [String, Number] },
+    shrink: { type: [String, Number] },
     self: { type: String, default: '', validator: value => isFlex('self', value, true) },
     // helper
     center: { type: Boolean },
