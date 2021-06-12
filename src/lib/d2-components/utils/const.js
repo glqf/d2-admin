@@ -58,5 +58,13 @@ export const flex = {
     'between',
     'around',
     'stretch'
+  ],
+  self: [
+    'auto',
+    'top',
+    'bottom',
+    'baseline',
+    'center',
+    'stretch'
   ]
 }

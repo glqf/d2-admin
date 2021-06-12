@@ -28,6 +28,12 @@
   &.is-cross-baseline { align-items: baseline; }
   &.is-cross-stretch { align-items: stretch; }
 
+  &.is-self-auto { align-self: auto; }
+  &.is-self-top { align-self: flex-start; }
+  &.is-self-bottom { align-self: flex-end; }
+  &.is-self-center { align-self: center; }
+  &.is-self-baseline { align-self: baseline; }
+  &.is-self-stretch { align-self: stretch; }
 
   &.is-content-start { align-content: flex-start; }
   &.is-content-end { align-content: flex-end; }
