@@ -5,6 +5,7 @@
  * It is not applicable to the use environment outside the project
  */
 
+import { isString } from 'lodash-es'
 import { colors, sizes, buttonTypes, flex } from './const.js'
 
 /**
@@ -46,15 +47,6 @@ export function isSize (value, empty) {
  */
 export function isButtonTypes (value, empty) {
   return empty && isEmptyString(value) || buttonTypes.includes(value)
-}
-
-/**
- * Check if it is string
- * @param {*} value value to check
- * @returns boolean
- */
-export function isString (value) {
-  return typeof(value) === 'string'
 }
 
 /**

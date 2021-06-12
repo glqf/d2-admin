@@ -6,7 +6,7 @@
  */
 
 import { camelCase } from 'lodash-es'
-import { isString } from './is.js'
+import { isString } from 'lodash-es'
 
 /**
  * Convert string to pascalcase
