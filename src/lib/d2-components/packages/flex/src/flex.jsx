@@ -11,6 +11,8 @@ export default defineComponent({
   props: {
     center: { type: Boolean },
     inline: { type: Boolean },
+    wrap: { type: Boolean },
+    wrapReverse: { type: Boolean },
     tag: { type: String, default: 'div' },
     dir: { type: String, default: '', validator: value => isValidFlex('dir', value, true) },
     main: { type: String, default: '', validator: value => isValidFlex('main', value, true) },
@@ -28,6 +30,8 @@ export default defineComponent({
       baseClassName,
       {
         'is-inline': props.inline,
+        'is-wrap': props.wrap,
+        'is-wrap-reverse': props.wrapReverse,
         [`is-dir-${props.dir}`]: props.dir,
         [`is-main-${flexMain.value}`]: flexMain.value,
         [`is-cross-${flexCross.value}`]: flexCross.value,

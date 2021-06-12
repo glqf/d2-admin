@@ -9,6 +9,9 @@
 
   &.is-inline { display: inline-flex; }
 
+  &.is-wrap { flex-wrap: wrap; }
+  &.is-wrap-reverse { flex-wrap: wrap-reverse; }
+
   &.is-dir-top { flex-direction: column; }
   &.is-dir-bottom { flex-direction: column-reverse; box-pack: end; }
   &.is-dir-left { flex-direction: row; }
