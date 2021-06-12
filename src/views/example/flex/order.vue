@@ -1,12 +1,8 @@
 <template>
   <the-section title="order">
     <d2-flex>
-      <d2-flex
-        v-for="n in orders.length"
-        :key="n"
-        :order="orders[n]"
-      >
-        {{ orders[n] }}
+      <d2-flex v-for="n in orders.length" :key="n" :order="orders[n - 1]">
+        {{ orders[n - 1] }}
       </d2-flex>
     </d2-flex>
   </the-section>
@@ -21,7 +17,7 @@ export default {
   },
   setup () {
     return {
-      orders: [1, 2, 3, 4, 5, 6]
+      orders: [1, 4, 3, -2, 2, -1, 0]
     }
   }
 }
