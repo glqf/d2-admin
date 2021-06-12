@@ -9,6 +9,15 @@ export const baseClassName = makeComponentClassName('flex')
 export default defineComponent({
   name,
   props: {
+    // flex toggle
+    // <d2-flex>                          <-    flex
+    //   <d2-flex>...</d2-flex>           <-    block
+    //   <d2-flex flex>                   <-    flex
+    //     <d2-flex>...</d2-flex>         <-    block
+    //     <d2-flex flex>...</d2-flex>    <-    flex
+    //   </d2-flex>
+    // </d2-flex>
+    flex: { type: Boolean },
     // flex attributes
     inline: { type: Boolean },
     wrap: { type: Boolean },
@@ -32,6 +41,7 @@ export default defineComponent({
     const flexClassNames = computed(() => classNames(
       baseClassName,
       {
+        'is-flex': props.flex,
         'is-inline': props.inline,
         'is-wrap': props.wrap,
         'is-wrap-r': props.wrapR,
