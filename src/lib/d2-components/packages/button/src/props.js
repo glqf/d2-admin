@@ -1,7 +1,7 @@
 import {
-  isValidColor,
-  isValidSize,
-  isValidButtonTypes,
+  isColor,
+  isSize,
+  isButtonTypes,
   isBoolean,
   isIntegerAndBetween
 } from '../../../utils/is.js'
@@ -9,9 +9,9 @@ import {
 export default {
   icon: { type: String, default: '' },
   iconRight: { type: String, default: '' },
-  color: { type: String, default: '', validator: value => isValidColor(value, true) },
-  size: { type: String, default: '', validator: value => isValidSize(value, true) },
-  type: { type: String, default: 'button', validator: value => isValidButtonTypes(value)},
+  color: { type: String, default: '', validator: value => isColor(value, true) },
+  size: { type: String, default: '', validator: value => isSize(value, true) },
+  type: { type: String, default: 'button', validator: value => isButtonTypes(value)},
   autofocus: { type: Boolean, default: false },
   text: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },

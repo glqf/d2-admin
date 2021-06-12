@@ -14,7 +14,7 @@ import { colors, sizes, buttonTypes, flex } from './const.js'
  * @param {boolean} empty allow empty string
  * @returns boolean
  */
-export function isValidFlex (type, value, empty) {
+export function isFlex (type, value, empty) {
   return empty && isEmptyString(value) || flex[type] && flex[type].includes(value)
 }
 
@@ -24,7 +24,7 @@ export function isValidFlex (type, value, empty) {
  * @param {boolean} empty allow empty string
  * @returns boolean
  */
-export function isValidColor (value, empty) {
+export function isColor (value, empty) {
   return empty && isEmptyString(value) || colors.includes(value)
 }
 
@@ -34,7 +34,7 @@ export function isValidColor (value, empty) {
  * @param {boolean} empty allow empty string
  * @returns boolean
  */
-export function isValidSize (value, empty) {
+export function isSize (value, empty) {
   return empty && isEmptyString(value) || sizes.includes(value)
 }
 
@@ -44,7 +44,7 @@ export function isValidSize (value, empty) {
  * @param {boolean} empty allow empty string
  * @returns boolean
  */
-export function isValidButtonTypes (value, empty) {
+export function isButtonTypes (value, empty) {
   return empty && isEmptyString(value) || buttonTypes.includes(value)
 }
 

@@ -1,7 +1,7 @@
 import { defineComponent, computed } from 'vue'
 import classNames from 'classnames'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
-import { isValidFlex } from '../../../utils/is.js'
+import { isFlex } from '../../../utils/is.js'
 
 export const name = makeComponentName('flex')
 export const baseClassName = makeComponentClassName('flex')
@@ -14,10 +14,10 @@ export default defineComponent({
     wrap: { type: Boolean },
     wrapR: { type: Boolean },
     tag: { type: String, default: 'div' },
-    dir: { type: String, default: '', validator: value => isValidFlex('dir', value, true) },
-    main: { type: String, default: '', validator: value => isValidFlex('main', value, true) },
-    cross: { type: String, default: '', validator: value => isValidFlex('cross', value, true) },
-    box: { type: String, default: '', validator: value => isValidFlex('box', value, true) }
+    dir: { type: String, default: '', validator: value => isFlex('dir', value, true) },
+    main: { type: String, default: '', validator: value => isFlex('main', value, true) },
+    cross: { type: String, default: '', validator: value => isFlex('cross', value, true) },
+    box: { type: String, default: '', validator: value => isFlex('box', value, true) }
   },
   setup (props, { slots }) {
     const flexCenter = computed(() => props.center ? 'center' : '')
