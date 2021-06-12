@@ -2,7 +2,7 @@ import { defineComponent, computed } from 'vue'
 import classNames from 'classnames'
 import { pickBy, isUndefined } from 'lodash-es'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
-import { isFlex } from '../../../utils/is.js'
+import { isFlex, isNumberLike } from '../../../utils/is.js'
 
 export const name = makeComponentName('flex')
 export const mainClassName = makeComponentClassName('flex')
@@ -22,9 +22,9 @@ export default defineComponent({
     box: { type: String, default: '', validator: value => isFlex('box', value, true) },
     content: { type: String, default: '', validator: value => isFlex('content', value, true) },
     // flex child attributes
-    order: { type: [String, Number] },
-    grow: { type: [String, Number] },
-    shrink: { type: [String, Number] },
+    order: { type: [String, Number], validator: value => isNumberLike(value) },
+    grow: { type: [String, Number], validator: value => isNumberLike(value) },
+    shrink: { type: [String, Number], validator: value => isNumberLike(value) },
     self: { type: String, default: '', validator: value => isFlex('self', value, true) },
     // helper
     center: { type: Boolean },

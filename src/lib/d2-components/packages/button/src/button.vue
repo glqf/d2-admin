@@ -17,11 +17,12 @@
 
 <script>
 import { computed, unref } from 'vue'
+import { isNumber } from 'lodash-es'
 import classNames from 'classnames'
 import { useGlobalConfig } from '../../../utils/config.js'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
-import { isValuableString, isFinite } from '../../../utils/is.js'
+import { isValuableString } from '../../../utils/is.js'
 import { findFirstDifferent } from '../../../utils/tool.js'
 import { name as buttonGroupName } from './button-group.jsx'
 import D2Icon from '../../icon/src/icon.vue'
@@ -50,7 +51,7 @@ export default {
     // ring
     const buttonRingOffset = computed(() => {
       const offset = props.ringOffset
-      return isFinite(offset) ? offset : (offset ? 1 : 0)
+      return isNumber(offset) ? offset : (offset ? 1 : 0)
     })
     
     // size
