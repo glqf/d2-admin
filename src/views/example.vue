@@ -6,24 +6,21 @@
       :key="group"
       :color="groupActiveIndex === groupIndex ? 'indigo' : ''"
       size="mini"
-      @click="groupActiveIndex = groupIndex">
+      @click="onClickGroup(groupIndex)">
       {{ group }}
     </d2-button>
   </div>
   <hr class="my-4">
   <div>
-    <router-link
+    <d2-button
       v-for="item in groupActiveMenu"
       :key="item"
-      :to="item"
-      class="mr-2">
-      <d2-button
-        :color="$route.path === item ? 'indigo' : ''"
-        size="mini"
-        class="mb-2">
-        {{ label(item) }}
-      </d2-button>
-    </router-link>
+      :color="$route.path === item ? 'indigo' : ''"
+      size="mini"
+      class="mb-2"
+      @click="onClickLink(item)">
+      {{ label(item) }}
+    </d2-button>
   </div>
   <hr class="mt-2">
   <router-view/>
@@ -33,7 +30,7 @@
 import routes from 'virtual:generated-pages'
 import { groupBy } from 'lodash-es'
 import { computed, ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 function make (source, path = '') {
   const _path = (path ? `${path}/` : '') + source.path
@@ -64,6 +61,7 @@ const groupNames = Object.keys(group).sort()
 export default {
   setup () {
     const route = useRoute()
+    const router = useRouter()
 
     const groupActiveNameInRoute = route.path.replace(new RegExp('/example/'), '').split('/')[0] || ''
 
@@ -76,12 +74,23 @@ export default {
     function label (text) {
       return text.replace(new RegExp(`/example/${groupActiveName.value}/`), '')
     }
+
+    function onClickGroup (groupIndex) {
+      groupActiveIndex.value = groupIndex
+      onClickLink(groupActiveMenu.value[0])
+    }
+
+    function onClickLink (to) {
+      router.push(to)
+    }
     
     return {
       groupNames,
       groupActiveIndex,
       groupActiveMenu,
-      label
+      label,
+      onClickGroup,
+      onClickLink
     }
   }
 }
