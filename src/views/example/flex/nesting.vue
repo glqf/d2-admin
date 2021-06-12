@@ -23,9 +23,9 @@ export default {
 
 <style lang="scss" scoped>
 .outer {
-  @apply w-36 h-36 p-1 bg-gray-100 rounded;
+  @apply w-36 h-36 p-1 bg-indigo-500 rounded;
   .inner {
-    @apply text-center m-1 p-1 bg-gray-200 rounded;
+    @apply text-center m-1 p-1 bg-white text-indigo-500 rounded;
   }
 }
 </style>
