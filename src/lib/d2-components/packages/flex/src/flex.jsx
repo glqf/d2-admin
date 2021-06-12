@@ -9,15 +9,17 @@ export const baseClassName = makeComponentClassName('flex')
 export default defineComponent({
   name,
   props: {
-    center: { type: Boolean },
+    // flex attributes
     inline: { type: Boolean },
     wrap: { type: Boolean },
     wrapR: { type: Boolean },
-    tag: { type: String, default: 'div' },
     dir: { type: String, default: '', validator: value => isFlex('dir', value, true) },
     main: { type: String, default: '', validator: value => isFlex('main', value, true) },
     cross: { type: String, default: '', validator: value => isFlex('cross', value, true) },
-    box: { type: String, default: '', validator: value => isFlex('box', value, true) }
+    box: { type: String, default: '', validator: value => isFlex('box', value, true) },
+    // helper
+    center: { type: Boolean },
+    tag: { type: String, default: 'div' }
   },
   setup (props, { slots }) {
     const flexCenter = computed(() => props.center ? 'center' : '')
