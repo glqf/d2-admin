@@ -1,7 +1,7 @@
 <template>
   <the-section title="order">
-    <d2-flex>
-      <d2-flex v-for="n in orders.length" :key="n" :order="orders[n - 1]">
+    <d2-flex class="group" center>
+      <d2-flex class="item" v-for="n in orders.length" :key="n" :order="orders[n - 1]">
         {{ orders[n - 1] }}
       </d2-flex>
     </d2-flex>
@@ -22,3 +22,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.group {
+  @apply w-72 h-16 bg-indigo-500 rounded;
+  .item {
+    @apply py-1 px-2 m-1 bg-white text-indigo-500 rounded;
+  }
+}
+</style>
