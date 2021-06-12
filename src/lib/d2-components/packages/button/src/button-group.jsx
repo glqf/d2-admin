@@ -9,7 +9,7 @@ import buttonProps from './props.js'
 const propsName = ['size', 'color', 'disabled', 'plain', 'ring', 'ringWidth', 'round', 'circle', 'text']
 
 export const name = makeComponentName('button-group')
-export const baseClassName = makeComponentClassName('button-group')
+export const mainClassName = makeComponentClassName('button-group')
 
 const provide = provideGenerator(name)
 
@@ -26,9 +26,9 @@ export default defineComponent({
     const buttonGroupSize = computed(() => props.size || $D2COMPONENT.size)
 
     const buttonGroupClassName = computed(() => classNames(
-      baseClassName,
+      mainClassName,
       {
-        [`${baseClassName}--${buttonGroupSize.value}`]: buttonGroupSize.value
+        [`${mainClassName}--${buttonGroupSize.value}`]: buttonGroupSize.value
       }
     ))
     

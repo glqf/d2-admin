@@ -14,7 +14,7 @@ import { inject } from '../../../utils/provide.js'
 import { name as iconGroupName } from './icon-group.vue'
 
 export const name = makeComponentName('icon')
-export const baseClassName = makeComponentClassName('icon')
+export const mainClassName = makeComponentClassName('icon')
 
 export default {
   name,
@@ -50,7 +50,7 @@ export default {
 
     // class names for container
     const iconClassName = computed(() => classNames(
-      baseClassName,
+      mainClassName,
       {
         'd2-animate-spin': props.spin
       }

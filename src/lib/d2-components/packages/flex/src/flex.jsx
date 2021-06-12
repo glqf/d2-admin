@@ -5,7 +5,7 @@ import { makeComponentName, makeComponentClassName } from '../../../utils/make.j
 import { isFlex } from '../../../utils/is.js'
 
 export const name = makeComponentName('flex')
-export const baseClassName = makeComponentClassName('flex')
+export const mainClassName = makeComponentClassName('flex')
 
 export default defineComponent({
   name,
@@ -44,7 +44,7 @@ export default defineComponent({
     const flexCross = computed(() => flexCenter.value || props.cross)
 
     const flexClassName = computed(() => classNames(
-      baseClassName,
+      mainClassName,
       {
         'is-flex': props.flex,
         'is-inline': props.inline,
