@@ -17,6 +17,7 @@ export default defineComponent({
     main: { type: String, default: '', validator: value => isFlex('main', value, true) },
     cross: { type: String, default: '', validator: value => isFlex('cross', value, true) },
     box: { type: String, default: '', validator: value => isFlex('box', value, true) },
+    content: { type: String, default: '', validator: value => isFlex('content', value, true) },
     // helper
     center: { type: Boolean },
     tag: { type: String, default: 'div' }
@@ -37,7 +38,8 @@ export default defineComponent({
         [`is-dir-${props.dir}`]: props.dir,
         [`is-main-${flexMain.value}`]: flexMain.value,
         [`is-cross-${flexCross.value}`]: flexCross.value,
-        [`is-box-${props.box}`]: props.box
+        [`is-box-${props.box}`]: props.box,
+        [`is-content-${props.content}`]: props.content
       }
     ))
     

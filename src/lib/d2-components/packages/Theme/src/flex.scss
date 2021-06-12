@@ -28,6 +28,14 @@
   &.is-cross-baseline { align-items: baseline; }
   &.is-cross-stretch { align-items: stretch; }
 
+
+  &.is-content-start { align-content: flex-start; }
+  &.is-content-end { align-content: flex-end; }
+  &.is-content-center { align-content: center; }
+  &.is-content-between { align-content: space-between; }
+  &.is-content-around { align-content: space-around; }
+  &.is-content-stretch { align-content: stretch; }
+
   &.is-box-mean > *,
   &.is-box-first > *,
   &.is-box-last > *,

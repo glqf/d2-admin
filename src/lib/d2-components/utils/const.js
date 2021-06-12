@@ -50,5 +50,13 @@ export const flex = {
     'first',
     'last',
     'justify'
+  ],
+  content: [
+    'start',
+    'end',
+    'center',
+    'between',
+    'around',
+    'stretch'
   ]
 }
