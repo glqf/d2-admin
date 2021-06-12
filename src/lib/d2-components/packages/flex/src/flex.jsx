@@ -1,5 +1,6 @@
 import { defineComponent, computed } from 'vue'
 import classNames from 'classnames'
+import { isUndefined } from 'lodash-es'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { isFlex } from '../../../utils/is.js'
 
@@ -59,7 +60,7 @@ export default defineComponent({
 
     const flexStyles = computed(() => {
       const styles = {}
-      if (props.order !== undefined) {
+      if (!isUndefined(props.order)) {
         styles.order = props.order
       }
       return styles
