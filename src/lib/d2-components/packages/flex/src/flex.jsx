@@ -60,8 +60,8 @@ export default defineComponent({
 
     const flexStyle = computed(() => pickBy({
       order: props.order,
-      grow: props.grow,
-      shrink: props.shrink
+      flexGrow: props.grow,
+      flexShrink: props.shrink
     }, value => !isUndefined(value)))
     
     return () =>
