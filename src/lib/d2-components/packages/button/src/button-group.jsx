@@ -25,7 +25,7 @@ export default defineComponent({
     // size
     const buttonGroupSize = computed(() => props.size || $D2COMPONENT.size)
 
-    const buttonGroupClassNames = computed(() => classNames(
+    const buttonGroupClassName = computed(() => classNames(
       baseClassName,
       {
         [`${baseClassName}--${buttonGroupSize.value}`]: buttonGroupSize.value
@@ -33,7 +33,7 @@ export default defineComponent({
     ))
     
     return () =>
-      <div class={ buttonGroupClassNames.value }>
+      <div class={ buttonGroupClassName.value }>
         { slots.default?.() }
       </div>
   }

@@ -43,7 +43,7 @@ export default defineComponent({
 
     const flexCross = computed(() => flexCenter.value || props.cross)
 
-    const flexClassNames = computed(() => classNames(
+    const flexClassName = computed(() => classNames(
       baseClassName,
       {
         'is-flex': props.flex,
@@ -58,14 +58,14 @@ export default defineComponent({
       }
     ))
 
-    const flexStyles = computed(() => pickBy({
+    const flexStyle = computed(() => pickBy({
       order: props.order,
       grow: props.grow,
       shrink: props.shrink
     }, value => !isUndefined(value)))
     
     return () =>
-      <props.tag class={ flexClassNames.value } style={ flexStyles.value }>
+      <props.tag class={ flexClassName.value } style={ flexStyle.value }>
         { slots.default?.() }
       </props.tag>
   }

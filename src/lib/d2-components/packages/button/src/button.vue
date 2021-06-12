@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="buttonClassNames"
+    :class="buttonClassName"
     :disabled="buttonDisabled"
     :autofocus="autofocus"
     :type="type"
@@ -89,7 +89,7 @@ export default {
     const buttonIconLeftActive = computed(() => isValuableString(props.icon) && !buttonLoadingLeft.value)
     const buttonIconRightActive = computed(() => isValuableString(props.iconRight)  && !buttonLoadingRight.value)
     
-    const buttonClassNames = computed(() => classNames(
+    const buttonClassName = computed(() => classNames(
       baseClassName,
       {
         'is-plain': buttonPlain.value,
@@ -117,7 +117,7 @@ export default {
       slotActive,
       buttonIconLeftActive,
       buttonIconRightActive,
-      buttonClassNames,
+      buttonClassName,
       buttonDisabled,
       buttonLoadingLeft,
       buttonLoadingRight,

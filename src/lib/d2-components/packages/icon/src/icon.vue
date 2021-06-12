@@ -1,5 +1,5 @@
 <template>
-  <span :class="iconClassNames" ref="container">
+  <span :class="iconClassName" ref="container">
     <slot/>
   </span>
 </template>
@@ -49,7 +49,7 @@ export default {
     })
 
     // class names for container
-    const iconClassNames = computed(() => classNames(
+    const iconClassName = computed(() => classNames(
       baseClassName,
       {
         'd2-animate-spin': props.spin
@@ -112,7 +112,7 @@ export default {
 
     return {
       container,
-      iconClassNames
+      iconClassName
     }
   }
 }
