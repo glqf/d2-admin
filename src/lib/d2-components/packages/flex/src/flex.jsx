@@ -18,7 +18,7 @@ export default defineComponent({
     //   </d2-flex>
     // </d2-flex>
     flex: { type: Boolean },
-    // flex attributes
+    // flex parent attributes
     inline: { type: Boolean },
     wrap: { type: Boolean },
     wrapR: { type: Boolean },
@@ -27,6 +27,10 @@ export default defineComponent({
     cross: { type: String, default: '', validator: value => isFlex('cross', value, true) },
     box: { type: String, default: '', validator: value => isFlex('box', value, true) },
     content: { type: String, default: '', validator: value => isFlex('content', value, true) },
+    // flex child attributes
+    order: { type: Number },
+    grow: { type: Number },
+    shrink: { type: Number },
     // helper
     center: { type: Boolean },
     tag: { type: String, default: 'div' }
@@ -52,9 +56,18 @@ export default defineComponent({
         [`is-content-${props.content}`]: props.content
       }
     ))
+
+    const flexStyles = computed(() => {
+      const styles = {}
+      if (props.order !== undefined) {
+        styles.order = props.order
+      }
+      return styles
+    })
     
-    return () => <props.tag class={ flexClassNames.value }>
-      { slots.default?.() }
-    </props.tag>
+    return () =>
+      <props.tag class={ flexClassNames.value } style={ flexStyles.value }>
+        { slots.default?.() }
+      </props.tag>
   }
 })
