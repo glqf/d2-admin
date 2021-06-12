@@ -1,5 +1,5 @@
 <template>
-  <the-section title="order">
+  <the-section title="grow">
     <d2-flex class="group" center>
       <d2-flex class="item" :grow="1" flex center>1</d2-flex>
       <d2-flex class="item" :grow="2" flex center>2</d2-flex>
