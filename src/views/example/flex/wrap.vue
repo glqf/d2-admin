@@ -5,7 +5,8 @@
         class="flex-example__item flex-example__item--size"
         :class="`flex-example__item--${n}`"
         v-for="n in 6"
-        :key="n"/>
+        :key="n"
+      />
     </d2-flex>
   </the-section>
   <the-section title="wrap">
@@ -14,7 +15,8 @@
         class="flex-example__item flex-example__item--size"
         :class="`flex-example__item--${n}`"
         v-for="n in 6"
-        :key="n"/>
+        :key="n"
+      />
     </d2-flex>
   </the-section>
   <the-section title="wrap-r">
@@ -23,7 +25,8 @@
         class="flex-example__item flex-example__item--size"
         :class="`flex-example__item--${n}`"
         v-for="n in 6"
-        :key="n"/>
+        :key="n"
+      />
     </d2-flex>
   </the-section>
 </template>
