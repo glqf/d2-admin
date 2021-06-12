@@ -1,6 +1,6 @@
 <template>
-  <the-section title="tag">
-    <d2-flex class="flex-example" tag="section">
+  <the-section v-for="tag in tags" :key="tag" :title="tag">
+    <d2-flex class="flex-example" :tag="tag">
       <div class="flex-example__item" :class="`flex-example__item--${n}`" v-for="n in 3" :key="n"/>
     </d2-flex>
   </the-section>
@@ -12,6 +12,15 @@ import TheSection from '../components/the-section.vue'
 export default {
   components: {
     TheSection
+  },
+  setup () {
+    return {
+      tags: [
+        'span',
+        'p',
+        'section'
+      ]
+    }
   }
 }
 </script>
