@@ -48,7 +48,7 @@ export default {
     const mainValue = ref('')
     const crossValue = ref('')
     const boxValue = ref('')
-    const spaceValue = ref('')
+    const spaceValue = ref('base')
     return {
       dir: ['', ...dir],
       dirValue,
@@ -58,7 +58,7 @@ export default {
       crossValue,
       box: ['', ...box],
       boxValue,
-      space: ['', ...spaceSizeNames],
+      space: [false, ...spaceSizeNames],
       spaceValue
     }
   }
