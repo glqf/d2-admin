@@ -9,23 +9,63 @@
       <div class="control">
         <div class="control__row">
           <p>dir</p>
-          <d2-button v-for="_dir in dir" :key="_dir" :color="dirValue === _dir ? 'indigo' : ''" size="mini" @click="dirValue = _dir">{{ _dir || 'default' }}</d2-button>
+          <d2-button
+            v-for="_dir in dir"
+            :key="_dir"
+            :color="dirValue === _dir ? 'indigo' : ''"
+            size="mini"
+            @click="dirValue = _dir"
+          >
+            {{ _dir || 'default' }}
+          </d2-button>
         </div>
         <div class="control__row">
           <p>main</p>
-          <d2-button v-for="_main in main" :key="_main" :color="mainValue === _main ? 'indigo' : ''" size="mini" @click="mainValue = _main">{{ _main || 'default' }}</d2-button>
+          <d2-button
+            v-for="_main in main"
+            :key="_main"
+            :color="mainValue === _main ? 'indigo' : ''"
+            size="mini"
+            @click="mainValue = _main"
+          >
+            {{ _main || 'default' }}
+          </d2-button>
         </div>
         <div class="control__row">
           <p>cross</p>
-          <d2-button v-for="_cross in cross" :key="_cross" :color="crossValue === _cross ? 'indigo' : ''" size="mini" @click="crossValue = _cross">{{ _cross || 'default' }}</d2-button>
+          <d2-button
+            v-for="_cross in cross"
+            :key="_cross"
+            :color="crossValue === _cross ? 'indigo' : ''"
+            size="mini"
+            @click="crossValue = _cross"
+          >
+            {{ _cross || 'default' }}
+          </d2-button>
         </div>
         <div class="control__row">
           <p>box</p>
-          <d2-button v-for="_box in box" :key="_box" :color="boxValue === _box ? 'indigo' : ''" size="mini" @click="boxValue = _box">{{ _box || 'default' }}</d2-button>
+          <d2-button
+            v-for="_box in box"
+            :key="_box"
+            :color="boxValue === _box ? 'indigo' : ''"
+            size="mini"
+            @click="boxValue = _box"
+          >
+            {{ _box || 'default' }}
+          </d2-button>
         </div>
         <div class="control__row">
           <p>space</p>
-          <d2-button v-for="_space in space" :key="_space" :color="spaceValue === _space ? 'indigo' : ''" size="mini" @click="spaceValue = _space">{{ _space || 'default' }}</d2-button>
+          <d2-button
+            v-for="_space in space"
+            :key="_space"
+            :color="spaceValue === _space ? 'indigo' : ''"
+            size="mini"
+            @click="spaceValue = _space"
+          >
+            {{ _space || 'default' }}
+          </d2-button>
         </div>
       </div>
     </d2-flex>
