@@ -1,7 +1,5 @@
-// component name space
 export const nameSpace = 'd2'
 
-// color names from tailwindcss basic color names
 export const colorNames = ['gray', 'red', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink']
 
 export const spaceSizeNames = ['mini', 'small', 'large']
