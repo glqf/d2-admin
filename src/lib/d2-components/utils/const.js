@@ -11,7 +11,7 @@ export const sizeNames = ['mini', 'small', 'large']
 
 export const buttonTypes = ['button', 'submit', 'reset']
 
-export const flexProperties = {
+export const flexProps = {
   dir: ['top', 'right', 'bottom', 'left'],
   main: ['right', 'left', 'justify', 'center'],
   cross: ['top', 'bottom', 'baseline', 'center', 'stretch'],

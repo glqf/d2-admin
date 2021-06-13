@@ -11,10 +11,10 @@
 </template>
 
 <script>
-import { flexProperties } from 'd2-components/utils/const.js'
+import { flexProps } from 'd2-components/utils/const.js'
 import TheSection from '../components/the-section.vue'
 
-const { self } = flexProperties
+const { self } = flexProps
 
 export default {
   components: {

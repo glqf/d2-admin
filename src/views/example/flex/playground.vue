@@ -30,10 +30,10 @@
 
 <script>
 import { ref } from 'vue'
-import { flexProperties } from 'd2-components/utils/const.js'
+import { flexProps } from 'd2-components/utils/const.js'
 import TheSection from '../components/the-section.vue'
 
-const { dir, main, cross, box } = flexProperties
+const { dir, main, cross, box } = flexProps
 
 export default {
   components: {
