@@ -2,7 +2,7 @@ import { defineComponent, computed } from 'vue'
 import classNames from 'classnames'
 import { pickBy, isUndefined } from 'lodash-es'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
-import { isFlex, isNumberLike, isButtonSize, isValuableString } from '../../../utils/is.js'
+import { isFlex, isNumberLike, isSpaceSize, isValuableString } from '../../../utils/is.js'
 
 export const name = makeComponentName('flex')
 export const mainClassName = makeComponentClassName('flex')
@@ -40,7 +40,7 @@ export default defineComponent({
 
     const flexSpace = computed(() => {
       if (props.space === true) return 'base'
-      if (isButtonSize(props.space)) return props.space
+      if (isSpaceSize(props.space)) return props.space
       return ''
     })
 

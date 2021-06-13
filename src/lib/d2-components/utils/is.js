@@ -30,7 +30,17 @@ export function isColor (value, empty) {
 }
 
 /**
- * Check a size name is available
+ * Check a space size name is available
+ * @param {string} value size name
+ * @param {boolean} empty allow empty string
+ * @returns boolean
+ */
+ export function isSpaceSize (value, empty) {
+  return empty && isEmptyString(value) || spaceSizeNames.includes(value)
+}
+
+/**
+ * Check a button size name is available
  * @param {string} value size name
  * @param {boolean} empty allow empty string
  * @returns boolean
