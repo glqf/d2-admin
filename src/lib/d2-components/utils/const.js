@@ -2,7 +2,7 @@ export const nameSpace = 'd2'
 
 export const colorNames = ['gray', 'red', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink']
 
-export const spaceSizeNames = ['mini', 'small', 'large']
+export const spaceSizeNames = ['mini', 'base', 'small', 'large']
 
 export const buttonSizeNames = ['mini', 'small', 'large']
 

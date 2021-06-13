@@ -2,7 +2,7 @@
   <the-section title="playground">
     <d2-flex dir="left" box="first">
       <d2-flex main="center" cross="center" class="view">
-        <d2-flex class="flex-example" :dir="dirValue" :main="mainValue" :cross="crossValue" :box="boxValue">
+        <d2-flex class="flex-example" :dir="dirValue" :main="mainValue" :cross="crossValue" :box="boxValue" :space="spaceValue">
           <div class="flex-example__item" :class="`flex-example__item--${n}`" v-for="n in 5" :key="n"/>
         </d2-flex>
       </d2-flex>
@@ -23,6 +23,10 @@
           <p>box</p>
           <d2-button v-for="_box in box" :key="_box" :color="boxValue === _box ? 'indigo' : ''" size="mini" @click="boxValue = _box">{{ _box || 'default' }}</d2-button>
         </div>
+        <div class="control__row">
+          <p>space</p>
+          <d2-button v-for="_space in space" :key="_space" :color="spaceValue === _space ? 'indigo' : ''" size="mini" @click="spaceValue = _space">{{ _space || 'default' }}</d2-button>
+        </div>
       </div>
     </d2-flex>
   </the-section>
@@ -30,7 +34,7 @@
 
 <script>
 import { ref } from 'vue'
-import { flexProps } from 'd2-components/utils/const.js'
+import { flexProps, spaceSizeNames } from 'd2-components/utils/const.js'
 import TheSection from '../components/the-section.vue'
 
 const { dir, main, cross, box } = flexProps
@@ -44,6 +48,7 @@ export default {
     const mainValue = ref('')
     const crossValue = ref('')
     const boxValue = ref('')
+    const spaceValue = ref('')
     return {
       dir: ['', ...dir],
       dirValue,
@@ -52,7 +57,9 @@ export default {
       cross: ['', ...cross],
       crossValue,
       box: ['', ...box],
-      boxValue
+      boxValue,
+      space: ['', ...spaceSizeNames],
+      spaceValue
     }
   }
 }
@@ -64,7 +71,7 @@ export default {
   .flex-example {
     @apply w-64 h-64 p-1 bg-gray-100;
     .flex-example__item {
-      @apply p-1 m-1 transition-all rounded-sm;
+      @apply p-1 transition-all rounded-sm;
       &.flex-example__item--1 { @apply bg-indigo-600; }
       &.flex-example__item--2 { @apply bg-indigo-500; }
       &.flex-example__item--3 { @apply bg-indigo-400; }
