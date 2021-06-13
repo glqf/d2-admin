@@ -10,12 +10,15 @@
           :box="boxValue"
           :space="spaceValue"
         >
-          <div
+          <d2-flex
             class="flex-example__item"
             :class="`flex-example__item--${n}`"
             v-for="n in 5"
             :key="n"
-          />
+            center
+          >
+            {{ n }}
+          </d2-flex>
         </d2-flex>
       </d2-flex>
       <div class="control">
@@ -101,6 +104,7 @@ export default {
     const crossValue = ref('')
     const boxValue = ref('')
     const spaceValue = ref('base')
+
     return {
       dir: ['', ...dir],
       dirValue,
@@ -123,12 +127,12 @@ export default {
   .flex-example {
     @apply w-64 h-64 p-1 bg-gray-100;
     .flex-example__item {
-      @apply p-1 transition-all rounded-sm;
-      &.flex-example__item--1 { @apply bg-indigo-600; }
-      &.flex-example__item--2 { @apply bg-indigo-500; }
-      &.flex-example__item--3 { @apply bg-indigo-400; }
-      &.flex-example__item--4 { @apply bg-indigo-300; }
-      &.flex-example__item--5 { @apply bg-indigo-200; }
+      @apply p-2 transition-all text-white rounded-sm;
+      &.flex-example__item--1 { @apply bg-indigo-700; }
+      &.flex-example__item--2 { @apply bg-indigo-600; }
+      &.flex-example__item--3 { @apply bg-indigo-500; }
+      &.flex-example__item--4 { @apply bg-indigo-400; }
+      &.flex-example__item--5 { @apply bg-indigo-300; }
     }
   }
 }
