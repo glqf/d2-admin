@@ -29,6 +29,7 @@ export default defineComponent({
     // helper
     center: { type: Boolean },
     tag: { type: String, default: 'div' },
+    // when the flex order attribute causes display disorder, please try not to use the space prop to set the space
     space: { type: [Boolean, String] }
   },
   setup (props, { slots }) {
