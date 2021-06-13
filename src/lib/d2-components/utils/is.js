@@ -79,15 +79,6 @@ export function isEmptyString (value) {
 }
 
 /**
- * Check if it is boolean
- * @param {*} value value to check
- * @returns boolean
- */
-export function isBoolean (value) {
-  return value === true || value === false
-}
-
-/**
  * Check whether a value is an integer and less than the given value
  * @param {*} value value to check
  * @param {number} max max value

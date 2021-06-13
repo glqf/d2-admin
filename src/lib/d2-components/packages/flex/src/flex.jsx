@@ -1,8 +1,8 @@
 import { defineComponent, computed } from 'vue'
 import classNames from 'classnames'
-import { pickBy, isUndefined } from 'lodash-es'
+import { pickBy, isUndefined, isBoolean } from 'lodash-es'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
-import { isFlex, isNumberLike } from '../../../utils/is.js'
+import { isFlex, isNumberLike, isSize, isValuableString } from '../../../utils/is.js'
 
 export const name = makeComponentName('flex')
 export const mainClassName = makeComponentClassName('flex')
@@ -28,7 +28,8 @@ export default defineComponent({
     self: { type: String, default: '', validator: value => isFlex('self', value, true) },
     // helper
     center: { type: Boolean },
-    tag: { type: String, default: 'div' }
+    tag: { type: String, default: 'div' },
+    space: { type: [Boolean, String] }
   },
   setup (props, { slots }) {
     const flexCenter = computed(() => props.center ? 'center' : '')
@@ -37,10 +38,17 @@ export default defineComponent({
 
     const flexCross = computed(() => flexCenter.value || props.cross)
 
+    const flexSpace = computed(() => {
+      if (isBoolean(props.space)) return 'base'
+      if (isSize(props.space)) return props.space
+      return ''
+    })
+
     const flexClassName = computed(() => classNames(
       mainClassName,
       {
         [`is-display-${props.display}`]: props.display,
+        [`is-space-${props.dir || 'left'}-${flexSpace.value}`]: flexSpace.value,
         'is-inline': props.inline,
         'is-wrap': props.wrap,
         'is-wrap-r': props.wrapR,

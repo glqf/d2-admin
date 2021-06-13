@@ -1,8 +1,8 @@
+import { isBoolean } from 'lodash-es'
 import {
   isColor,
   isSize,
   isButtonTypes,
-  isBoolean,
   isIntegerAndBetween
 } from '../../../utils/is.js'
 
