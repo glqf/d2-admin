@@ -2,8 +2,20 @@
   <the-section title="playground">
     <d2-flex dir="left" box="first">
       <d2-flex main="center" cross="center" class="view">
-        <d2-flex class="flex-example" :dir="dirValue" :main="mainValue" :cross="crossValue" :box="boxValue" :space="spaceValue">
-          <div class="flex-example__item" :class="`flex-example__item--${n}`" v-for="n in 5" :key="n"/>
+        <d2-flex
+          class="flex-example"
+          :dir="dirValue"
+          :main="mainValue"
+          :cross="crossValue"
+          :box="boxValue"
+          :space="spaceValue"
+        >
+          <div
+            class="flex-example__item"
+            :class="`flex-example__item--${n}`"
+            v-for="n in 5"
+            :key="n"
+          />
         </d2-flex>
       </d2-flex>
       <div class="control">
