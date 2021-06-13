@@ -1,3 +1,9 @@
+@mixin flex-space ($space) {
+  &.is-space-left-#{$space} > * + * {
+    margin-left: var(--d2-space-#{$space});
+  }
+}
+
 @include b(flex) {
   display: flex;
   & > * {
@@ -5,6 +11,11 @@
   }
   & > .#{$namespace}-flex {
     display: flex;
+  }
+
+  @include flex-space(base);
+  @each $_space, $_setting in $--d2-space {
+    @include flex-space($_space);
   }
 
   &.is-display-block { display: block; }
