@@ -101,7 +101,7 @@
 // ------------------------------
 // => helper
 // ------------------------------
-@mixin utils-clearfix {
+@mixin clearfix {
   $selector: &;
 
   @at-root {

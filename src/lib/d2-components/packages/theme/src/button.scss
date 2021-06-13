@@ -190,7 +190,7 @@
 @include b(button-group) {
   display: inline-block;
   vertical-align: middle;
-  @include utils-clearfix;
+  @include clearfix;
   @each $size, $size-setting in $--d2-button-sizes {
     @if $size == base {
       @include mix-button-group-size(base);
