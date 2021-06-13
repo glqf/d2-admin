@@ -42,7 +42,7 @@ export default {
 
 <style lang="scss" scoped>
 .layout {
-  @apply text-lg w-96 h-64 p-1 bg-gray-900 rounded overflow-hidden;
+  @apply text-lg w-96 h-64 p-1 bg-gray-700 rounded overflow-hidden;
   .layout__side {
     @apply w-24 text-white bg-gray-500;
   }
