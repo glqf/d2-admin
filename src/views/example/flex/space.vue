@@ -24,10 +24,10 @@
 </template>
 
 <script>
-import { sizeNames, flex } from 'd2-components/utils/const.js'
+import { sizeNames, flexProperties } from 'd2-components/utils/const.js'
 import TheSection from '../components/the-section.vue'
 
-const { dir } = flex
+const { dir } = flexProperties
 
 export default {
   components: {
