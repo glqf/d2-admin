@@ -4,10 +4,9 @@ export const nameSpace = 'd2'
 // color names from tailwindcss basic color names
 export const colorNames = ['gray', 'red', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink']
 
-// space size
-// button size
-// button group size
-export const sizeNames = ['mini', 'small', 'large']
+export const spaceSizeNames = ['mini', 'small', 'large']
+
+export const buttonSizeNames = ['mini', 'small', 'large']
 
 export const buttonTypes = ['button', 'submit', 'reset']
 

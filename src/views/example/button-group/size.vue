@@ -1,6 +1,6 @@
 <template>
   <the-section title="size and space">
-    <div v-for="size in sizeNames" :key="size" class="mb-4">
+    <div v-for="size in buttonSizeNames" :key="size" class="mb-4">
       <d2-button :size="size">button</d2-button>
       <d2-button-group :size="size">
         <d2-button>item</d2-button>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { sizeNames } from 'd2-components/utils/const.js'
+import { buttonSizeNames } from 'd2-components/utils/const.js'
 import TheSection from '../components/the-section.vue'
 
 export default {
@@ -28,7 +28,7 @@ export default {
   },
   setup () {
     return {
-      sizeNames
+      buttonSizeNames
     }
   }
 }

@@ -6,7 +6,7 @@
  */
 
 import { isString, isNaN, isNumber } from 'lodash-es'
-import { colorNames, sizeNames, buttonTypes, flexProps } from './const.js'
+import { colorNames, buttonSizeNames, buttonTypes, flexProps } from './const.js'
 
 /**
  * Check a flex property is available
@@ -36,7 +36,7 @@ export function isColor (value, empty) {
  * @returns boolean
  */
 export function isSize (value, empty) {
-  return empty && isEmptyString(value) || sizeNames.includes(value)
+  return empty && isEmptyString(value) || buttonSizeNames.includes(value)
 }
 
 /**
