@@ -6,7 +6,7 @@
  */
 
 import { isString, isNaN, isNumber } from 'lodash-es'
-import { colorNames, buttonSizeNames, buttonTypes, flexProps } from './const.js'
+import { colorNames, buttonSizeNames, spaceSizeNames, buttonTypes, flexProps } from './const.js'
 
 /**
  * Check a flex property is available
