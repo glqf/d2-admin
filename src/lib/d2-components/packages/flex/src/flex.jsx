@@ -1,6 +1,6 @@
 import { defineComponent, computed } from 'vue'
 import classNames from 'classnames'
-import { pickBy, isUndefined, isBoolean } from 'lodash-es'
+import { pickBy, isUndefined } from 'lodash-es'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { isFlex, isNumberLike, isSize, isValuableString } from '../../../utils/is.js'
 
@@ -39,7 +39,7 @@ export default defineComponent({
     const flexCross = computed(() => flexCenter.value || props.cross)
 
     const flexSpace = computed(() => {
-      if (isBoolean(props.space)) return 'base'
+      if (props.space === true) return 'base'
       if (isSize(props.space)) return props.space
       return ''
     })

@@ -1,15 +1,15 @@
 <template>
   <the-section title="space off">
-    <d2-flex class="flex-example">
+    <d2-flex class="flex-example" box="mean">
       <div class="flex-example__item" v-for="n in 3" :key="n"/>
     </d2-flex>
   </the-section>
   <the-section title="space">
     <d2-flex space="large">
       <d2-flex class="flex-example" space>
-        <div class="flex-example__item" v-for="n in 3" :key="n"/>
+        <div class="flex-example__item" v-for="n in 3" :key="n" box="mean"/>
       </d2-flex>
-      <d2-flex v-for="size in sizes" :key="size" class="flex-example" :space="size">
+      <d2-flex v-for="size in sizes" :key="size" class="flex-example" :space="size" box="mean">
         <div class="flex-example__item" v-for="n in 3" :key="n"/>
       </d2-flex>
     </d2-flex>
