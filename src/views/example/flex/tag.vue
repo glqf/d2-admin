@@ -1,6 +1,6 @@
 <template>
   <the-section v-for="tag in tags" :key="tag" :title="tag">
-    <d2-flex class="flex-example" :tag="tag">
+    <d2-flex class="flex-example" :tag="tag" space>
       <div class="flex-example__item" :class="`flex-example__item--${n}`" v-for="n in 3" :key="n"/>
     </d2-flex>
   </the-section>

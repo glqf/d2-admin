@@ -1,17 +1,17 @@
 <template>
   <the-section title="inline off">
-    <d2-flex class="flex-example">
+    <d2-flex class="flex-example" space>
       <div class="flex-example__item" :class="`flex-example__item--${n}`" v-for="n in 3" :key="n"/>
     </d2-flex>
-    <d2-flex class="flex-example">
+    <d2-flex class="flex-example" space>
       <div class="flex-example__item" :class="`flex-example__item--${n}`" v-for="n in 3" :key="n"/>
     </d2-flex>
   </the-section>
   <the-section title="inline on">
-    <d2-flex class="flex-example" inline>
+    <d2-flex class="flex-example" inline space>
       <div class="flex-example__item" :class="`flex-example__item--${n}`" v-for="n in 3" :key="n"/>
     </d2-flex>
-    <d2-flex class="flex-example" inline>
+    <d2-flex class="flex-example" inline space>
       <div class="flex-example__item" :class="`flex-example__item--${n}`" v-for="n in 3" :key="n"/>
     </d2-flex>
   </the-section>

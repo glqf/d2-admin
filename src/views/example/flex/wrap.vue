@@ -1,16 +1,16 @@
 <template>
   <the-section title="default">
-    <d2-flex class="flex-example" cross="top">
+    <d2-flex class="flex-example" cross="top" space>
       <div class="flex-example__item flex-example__item--size" :class="`flex-example__item--${n}`" v-for="n in 6" :key="n"/>
     </d2-flex>
   </the-section>
   <the-section title="wrap">
-    <d2-flex class="flex-example" cross="top" wrap>
+    <d2-flex class="flex-example" cross="top" wrap space>
       <div class="flex-example__item flex-example__item--size" :class="`flex-example__item--${n}`" v-for="n in 6" :key="n"/>
     </d2-flex>
   </the-section>
   <the-section title="wrap-r">
-    <d2-flex class="flex-example" cross="top" wrap-r>
+    <d2-flex class="flex-example" cross="top" wrap-r space>
       <div class="flex-example__item flex-example__item--size" :class="`flex-example__item--${n}`" v-for="n in 6" :key="n"/>
     </d2-flex>
   </the-section>

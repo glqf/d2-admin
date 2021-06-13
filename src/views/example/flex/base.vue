@@ -6,7 +6,7 @@
           <template v-for="_box in box" :key="_box">
             <!-- item -->
             <d2-flex dir="left" cross="center" class="row">
-              <d2-flex :dir="_dir" :main="_main" :cross="_cross" :box="_box" class="flex-example">
+              <d2-flex :dir="_dir" :main="_main" :cross="_cross" :box="_box" class="flex-example" space>
                 <div class="flex-example__item" :class="`flex-example__item--${n}`" v-for="n in 3" :key="n"/>
               </d2-flex>
               <div class="row__code">

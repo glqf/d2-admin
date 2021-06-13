@@ -1,7 +1,7 @@
 <template>
   <template v-for="_content in content" :key="_content">
     <the-section :title="_content || 'default'">
-      <d2-flex class="flex-example" :content="_content" wrap>
+      <d2-flex class="flex-example" :content="_content" wrap space>
         <div class="flex-example__item flex-example__item--size" :class="`flex-example__item--${n}`" v-for="n in 6" :key="n"/>
       </d2-flex>
     </the-section>

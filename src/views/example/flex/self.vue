@@ -1,6 +1,6 @@
 <template>
   <the-section v-for="_self in self" :key="_self" :title="_self || 'default'">
-    <d2-flex class="flex-example" box="mean">
+    <d2-flex class="flex-example" box="mean" space>
       <d2-flex class="flex-example__item"/>
       <d2-flex class="flex-example__item"/>
       <d2-flex class="flex-example__item" :self="_self"/>
