@@ -189,6 +189,27 @@ $--d2-space: (
 
 
 // --------+---------------------
+// => base | flex
+// --------+---------------------
+
+$--d2-flex-dir: top, right, bottom, left;
+
+:root {
+  @each $_space, $_setting in $--d2-space {
+    --d2-flex-space-#{$_space}: var(--d2-space-#{$_space});
+  }
+}
+
+
+
+
+
+
+
+
+
+
+// --------+---------------------
 // => base | font
 // --------+---------------------
 

@@ -1,6 +1,6 @@
 @mixin flex-space ($space, $position) {
   &.is-space-#{$position}-#{$space} > * + * {
-    margin-#{$position}: var(--d2-space-#{$space});
+    margin-#{$position}: var(--d2-flex-space-#{$space});
   }
 }
 
@@ -13,12 +13,10 @@
     display: flex;
   }
 
-  $flex-dir: top, right, bottom, left;
-
-  @each $_dir in $flex-dir {
-    @include flex-space(base, $_dir);
+  @each $_flex-dir in $--d2-flex-dir {
+    @include flex-space(base, $_flex-dir);
     @each $_space, $_setting in $--d2-space {
-      @include flex-space($_space, $_dir);
+      @include flex-space($_space, $_flex-dir);
     }
   }
 
