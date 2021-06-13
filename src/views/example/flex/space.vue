@@ -14,11 +14,20 @@
       </d2-flex>
     </d2-flex>
   </the-section>
+  <the-section v-for="_dir in dir" :key="_dir" :title="`dir:${_dir}`">
+    <d2-flex space="large">
+      <d2-flex class="flex-example" :dir="_dir" space>
+        <div class="flex-example__item" v-for="n in 3" :key="n" box="mean"/>
+      </d2-flex>
+    </d2-flex>
+  </the-section>
 </template>
 
 <script>
-import { sizes } from 'd2-components/utils/const.js'
+import { sizes, flex } from 'd2-components/utils/const.js'
 import TheSection from '../components/the-section.vue'
+
+const { dir } = flex
 
 export default {
   components: {
@@ -26,7 +35,8 @@ export default {
   },
   setup () {
     return {
-      sizes
+      sizes,
+      dir
     }
   }
 }
