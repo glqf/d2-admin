@@ -9,7 +9,7 @@
       <d2-flex class="flex-example" space>
         <div class="flex-example__item" v-for="n in 3" :key="n" box="mean"/>
       </d2-flex>
-      <d2-flex v-for="size in sizes" :key="size" class="flex-example" :space="size" box="mean">
+      <d2-flex v-for="size in sizeNames" :key="size" class="flex-example" :space="size" box="mean">
         <div class="flex-example__item" v-for="n in 3" :key="n"/>
       </d2-flex>
     </d2-flex>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { sizes, flex } from 'd2-components/utils/const.js'
+import { sizeNames, flex } from 'd2-components/utils/const.js'
 import TheSection from '../components/the-section.vue'
 
 const { dir } = flex
@@ -35,7 +35,7 @@ export default {
   },
   setup () {
     return {
-      sizes,
+      sizeNames,
       dir
     }
   }

@@ -7,7 +7,7 @@ export const colors = ['gray', 'red', 'yellow', 'green', 'blue', 'indigo', 'purp
 // space size
 // button size
 // button group size
-export const sizes = ['mini', 'small', 'large']
+export const sizeNames = ['mini', 'small', 'large']
 
 export const buttonTypes = ['button', 'submit', 'reset']
 
