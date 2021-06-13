@@ -27,7 +27,7 @@ export default {
 .group {
   @apply w-72 h-16 bg-indigo-500 rounded;
   .item {
-    @apply py-1 px-2 m-1 bg-white text-indigo-500 rounded;
+    @apply py-1 px-2 bg-white text-indigo-500 rounded;
   }
 }
 </style>

@@ -59,7 +59,7 @@ export default {
     @apply w-96;
   }
   .item {
-    @apply p-1 m-1 h-10 bg-gray-500 text-white rounded;
+    @apply p-1 h-10 bg-gray-500 text-white rounded;
     &.item--grow {
       @apply w-10;
     }

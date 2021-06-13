@@ -35,7 +35,7 @@ export default {
 .outer {
   @apply w-36 h-36 p-1 bg-indigo-500 rounded;
   .inner {
-    @apply text-center m-1 p-1 bg-white text-indigo-500 rounded;
+    @apply text-center p-1 bg-white text-indigo-500 rounded;
   }
 }
 </style>

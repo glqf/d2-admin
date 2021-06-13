@@ -54,7 +54,7 @@ export default {
   .flex-example {
     @apply w-24 h-24 p-1 mr-4 bg-gray-100 rounded;
     .flex-example__item {
-      @apply p-1 m-1 rounded;
+      @apply p-1 rounded;
       &.flex-example__item--1 { @apply bg-indigo-600; }
       &.flex-example__item--2 { @apply bg-indigo-300; }
       &.flex-example__item--3 { @apply bg-indigo-100; }
