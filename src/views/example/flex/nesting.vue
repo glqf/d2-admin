@@ -11,7 +11,7 @@
   </the-section>
   <the-section title="nesting by d2-flex and has special settings">
     <d2-flex class="outer" cross="center" box="mean" space>
-      <d2-flex class="inner" order="2" self="bottom" display="block">
+      <d2-flex class="inner" self="bottom" display="block">
         <div v-for="n in 3" :key="n">{{ n }}</div>
       </d2-flex>
       <d2-flex class="inner" cross="center" box="mean" flex>
