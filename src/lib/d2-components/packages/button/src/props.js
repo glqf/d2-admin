@@ -1,7 +1,7 @@
 import { isBoolean } from 'lodash-es'
 import {
   isColor,
-  isSize,
+  isButtonSize,
   isButtonTypes,
   isIntegerAndBetween
 } from '../../../utils/is.js'
@@ -10,7 +10,7 @@ export default {
   icon: { type: String, default: '' },
   iconRight: { type: String, default: '' },
   color: { type: String, default: '', validator: value => isColor(value, true) },
-  size: { type: String, default: '', validator: value => isSize(value, true) },
+  size: { type: String, default: '', validator: value => isButtonSize(value, true) },
   type: { type: String, default: 'button', validator: value => isButtonTypes(value)},
   autofocus: { type: Boolean, default: false },
   text: { type: Boolean, default: false },

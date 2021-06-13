@@ -35,7 +35,7 @@ export function isColor (value, empty) {
  * @param {boolean} empty allow empty string
  * @returns boolean
  */
-export function isSize (value, empty) {
+export function isButtonSize (value, empty) {
   return empty && isEmptyString(value) || buttonSizeNames.includes(value)
 }
 
