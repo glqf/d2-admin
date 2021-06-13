@@ -433,7 +433,7 @@ $--d2-button-sizes: (
     --d2-button-font-weight-#{$_size}: #{--var-font-weight(map-get($_size-setting, font-weight))};
     --d2-button-padding-y-#{$_size}: #{--var-space(map-get($_size-setting, padding-y))};
     --d2-button-padding-x-#{$_size}: #{--var-space(map-get($_size-setting, padding-x))};
-    --d2-button-space-#{$_size}: --d2-space-#{$_size};
-    --d2-button-group-space-#{$_size}: --d2-space-#{$_size};
+    --d2-button-space-#{$_size}: var(--d2-space-#{$_size});
+    --d2-button-group-space-#{$_size}: var(--d2-space-#{$_size});
   }
 }
