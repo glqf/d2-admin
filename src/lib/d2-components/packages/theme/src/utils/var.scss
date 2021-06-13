@@ -154,8 +154,10 @@ $--d2-shadow: (
 // => base | space
 // --------+---------------------
 
-// --var-space(0.5) => var(--d2-space-1) => 0.125rem => tw:m-0.5/p-0.5
-// --var-space(1)   => var(--d2-space-2) => 0.25rem  => tw:m-1/p-1
+// --var-space(0.5) => var(--d2-space-1) => css:0.125rem => tw:m-0.5 | p-0.5 | space-x-0.5 | space-y-0.5
+// --var-space(1)   => var(--d2-space-2) => css:0.25rem  => tw:m-1   | p-1   | space-x-1   | space-y-1
+
+// use scss function --var-space() to corresponding to tailwind class name
 
 @function --var-space ($lv) {
   @return var(--d2-space-#{$lv * 2});
