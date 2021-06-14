@@ -1,7 +1,9 @@
 <template>
-  <the-section title="button">
-    <p>width: {{ width }}</p>
-    <p>height: {{ height }}</p>
+  <the-section title="window size">
+    <d2-button-group>
+      <d2-button>width: {{ width }}</d2-button>
+      <d2-button>height: {{ height }}</d2-button>
+    </d2-button-group>
   </the-section>
 </template>
 
