@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { computed, ref } from 'vue'
+import { computed, ref, unref } from 'vue'
 import { useGlobalConfig } from '../../../utils/config.js'
 import { makeComponentName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
@@ -23,11 +23,11 @@ export default {
 
     const prefix = $D2COMPONENT.svgPrefix
 
-    const injectNameFromSvgGroup = inject(svgGroupName, 'name', ref('')).value
-
     const name = props.name.replace(/\//g, '-')
+
+    const injectNameFromSvgGroup = inject(svgGroupName, 'name')
     
-    const href = computed(() => `#${prefix}${injectNameFromSvgGroup}${name}`)
+    const href = computed(() => `#${prefix}${unref(injectNameFromSvgGroup)}${name}`)
 
     return {
       href

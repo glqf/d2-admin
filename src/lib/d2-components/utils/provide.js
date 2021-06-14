@@ -36,7 +36,8 @@ export function provideGenerator (componentName) {
  * @param {string} name provide name like 'foo' or 'foo-bar'
  * @param {*} defaultValue vue inject defaultValue
  * @returns same as vue inject function return
- * @example const injectBazFromFooBar = inject(makeComponentName('foo-bar'), 'baz', ref('')).value
+ * @example const injectBazFromFooBar = inject(makeComponentName('foo-bar'), 'baz')
+ * @example const injectBazFromFooBar = unref(inject(makeComponentName('foo-bar'), 'baz'))
  */
 export function inject (componentName, name, defaultValue) {
   return vueInject(componentName + pascalCase(name), defaultValue)

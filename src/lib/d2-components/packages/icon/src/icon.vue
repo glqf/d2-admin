@@ -26,8 +26,7 @@ export default {
   setup (props, { slots }) {
     const $D2COMPONENT = useGlobalConfig()
 
-    // collection setting from group component
-    const injectCollectionFromIconGroup = inject(iconGroupName, 'collection', ref('')).value
+    const injectCollectionFromIconGroup = inject(iconGroupName, 'collection')
 
     // icon container ref
     const container = ref(null)
@@ -42,7 +41,7 @@ export default {
       if (_icon.indexOf(':') < 0) {
         // The icon name does not contain the icon collection name
         // Try to get it from another way
-        const collection = props.collection || injectCollectionFromIconGroup || $D2COMPONENT.iconCollection
+        const collection = props.collection || unref(injectCollectionFromIconGroup) || $D2COMPONENT.iconCollection
         return collection ? `${collection}:${_icon}` : _icon
       }
       return _icon
