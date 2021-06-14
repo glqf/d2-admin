@@ -1,7 +1,17 @@
+import { ref, watch } from 'vue'
+import { keys, values } from 'lodash-es'
+import { useWindowSize } from './window-size.js'
+
 export function useBreakPoint ({ config = {}, wait } = {}) {
-  console.log(config)
-  console.log(wait)
+  const { width } = useWindowSize()
+  
+  const breakPoint = ref('')
+
+  watch(() => {
+    console.log(width.value)
+  })
+  
   return {
-    breakPoint: ''
+    breakPoint
   }
 }
