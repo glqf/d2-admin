@@ -6,11 +6,26 @@
   </the-section>
   <the-section title="data">
     <div class="group">
-      <p :class="{ active: sm }"><span>sm</span><span>{{ sm }}</span></p>
-      <p :class="{ active: md }"><span>md</span><span>{{ md }}</span></p>
-      <p :class="{ active: lg }"><span>lg</span><span>{{ lg }}</span></p>
-      <p :class="{ active: xl }"><span>xl</span><span>{{ xl }}</span></p>
-      <p :class="{ active: xxl }"><span>xxl</span><span>{{ xxl }}</span></p>
+      <p :class="{ active: sm }">
+        <span>sm</span>
+        <span>{{ sm }}</span>
+      </p>
+      <p :class="{ active: md }">
+        <span>md</span>
+        <span>{{ md }}</span>
+      </p>
+      <p :class="{ active: lg }">
+        <span>lg</span>
+        <span>{{ lg }}</span>
+      </p>
+      <p :class="{ active: xl }">
+        <span>xl</span>
+        <span>{{ xl }}</span>
+      </p>
+      <p :class="{ active: xxl }">
+        <span>xxl</span>
+        <span>{{ xxl }}</span>
+      </p>
     </div>
   </the-section>
 </template>
