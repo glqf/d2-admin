@@ -28,6 +28,7 @@ function install (app, option) {
   const optionMixed = Object.assign({}, configDefault, option)
 
   // getCurrentInstance().appContext.config.globalProperties.$D2COM
+  // getCurrentInstance().proxy.$D2COM
   app.config.globalProperties.$D2COM = optionMixed
 
   components.forEach(component => {

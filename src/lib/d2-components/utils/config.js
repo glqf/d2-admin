@@ -17,7 +17,3 @@ export const configDefault = {
   breakPointWait: 100,
   breakPointMin: 'min'
 }
-
-export function useConfig () {
-  return getCurrentInstance()?.proxy?.$D2COM || {}
-}

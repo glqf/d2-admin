@@ -1,5 +1,5 @@
 import { defineComponent, computed, unref } from 'vue'
-import { useConfig } from '../../../utils/config.js'
+import { useConfigForD2Components } from '../../../use/config.js'
 import { provideGenerator } from '../../../utils/provide.js'
 import { makeComponentName } from '../../../utils/make.js'
 import { useBreakPoint } from '../../../use/break-point.js'
@@ -16,7 +16,7 @@ export default defineComponent({
     min: { type: String }
   },
   setup (props, { slots }) {
-    const $D2COM = useConfig()
+    const $D2COM = useConfigForD2Components()
 
     const breakPointConfig = computed(() => props.config || $D2COM.breakPoints)
 
