@@ -12,10 +12,15 @@ export function useBreakPoint ({ config = {}, wait, min = 'min' } = {}) {
 
   const status = fromPairs(names.map(e => [e, ref(false)]))
 
+  const isMin = ref(false)
+
   function statusUpdate (name) {
     mapKeys(status, e => e.value = false)
+    isMin.value = false
     if (names.includes(name)) {
       status[name].value = true
+    } else {
+      isMin.value = true
     }
   }
 
@@ -23,12 +28,13 @@ export function useBreakPoint ({ config = {}, wait, min = 'min' } = {}) {
 
   watch(width, () => {
     const value = numbers.reduce((r, e) => width.value >= e ? e : r, 0)
-    breakPoint.value = dict[value] || ''
+    breakPoint.value = dict[value] || min
     statusUpdate(breakPoint.value)
   })
 
   return {
     breakPoint,
-    ...status
+    ...status,
+    [min]: isMin
   }
 }
