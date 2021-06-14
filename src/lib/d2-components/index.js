@@ -1,4 +1,4 @@
-import { configDefault, configSet } from './utils/config.js'
+import { configDefault } from './utils/config.js'
 
 import breakPoint from './packages/break-point/index.js'
 import button from './packages/button/index.js'
@@ -26,8 +26,6 @@ const components = [
 
 function install (app, option) {
   const optionMixed = Object.assign({}, configDefault, option)
-
-  configSet(optionMixed)
 
   // getCurrentInstance().appContext.config.globalProperties.$D2COMPONENT
   app.config.globalProperties.$D2COMPONENT = optionMixed

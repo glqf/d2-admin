@@ -6,7 +6,7 @@
 
 <script>
 import { computed, ref } from 'vue'
-import { configGet } from '../../../utils/config.js'
+import { useGlobalConfig } from '../../../utils/config.js'
 import { makeComponentName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
 import { name as svgGroupName } from './svg-group.vue'
@@ -19,7 +19,9 @@ export default {
     name: { type: String, required: true }
   },
   setup (props) {
-    const prefix = configGet('svgPrefix')
+    const $D2COMPONENT = useGlobalConfig()
+
+    const prefix = $D2COMPONENT.svgPrefix
 
     const injectNameFromSvgGroup = inject(svgGroupName, 'name', ref('')).value
 
