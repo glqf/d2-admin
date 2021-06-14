@@ -6,12 +6,14 @@
  */
 
 import { getCurrentInstance } from 'vue'
+import {  breakPoints } from '../utils/const.js'
 
 export const configDefault = {
   svgPrefix: '',
   svgNames: [],
   size: '',
-  iconCollection: ''
+  iconCollection: '',
+   breakPoints
 }
 
 let $D2COMPONENT = {}

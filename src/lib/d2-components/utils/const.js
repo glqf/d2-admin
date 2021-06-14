@@ -23,7 +23,7 @@ export const breakPointNames = ['sm', 'md', 'lg', 'xl', '2xl']
 
 export const breakPointsMinWidth = [640, 768, 1024, 1280, 1536]
 
-export const breakPointsConfig = fromPairs(
+export const  breakPoints = fromPairs(
   breakPointNames.map((name, index) => [
     name,
     breakPointsMinWidth[index]

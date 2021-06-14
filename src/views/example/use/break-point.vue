@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { breakPointsConfig } from 'd2-components/utils/const.js'
+import {  breakPoints } from 'd2-components/utils/const.js'
 import { useBreakPoint } from 'd2-use/break-point.js'
 import TheSection from '../components/the-section.vue'
 
@@ -16,7 +16,7 @@ export default {
     TheSection
   },
   setup () {
-    const { breakPoint } = useBreakPoint({ config: breakPointsConfig })
+    const { breakPoint } = useBreakPoint({ config:  breakPoints })
     return {
       breakPoint
     }
