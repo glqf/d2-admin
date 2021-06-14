@@ -6,7 +6,7 @@ export function useBreakPoint ({ config = {}, wait } = {}) {
   const { width } = useWindowSize({ wait })
 
   const configKeys = keys(config)
-  const configValues = values(config)
+  const configValues = values(config).sort((a, b) => a - b)
 
   const dict = fromPairs(configValues.map((value, index) => [value, configKeys[index]]))
   
