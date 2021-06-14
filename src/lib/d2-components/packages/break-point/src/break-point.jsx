@@ -11,14 +11,20 @@ const provide = provideGenerator(name)
 export default defineComponent({
   name,
   props: {
-    config: { type: Object }
+    config: { type: Object },
+    wait: { type: Number }
   },
   setup (props, { slots }) {
     const $D2COMPONENT = useGlobalConfig()
 
-    const config = props.config || $D2COMPONENT.breakPoints
+    const breakPointConfig = props.config || $D2COMPONENT.breakPoints
 
-    const { breakPoint } = useBreakPoint({ config })
+    const breakPointWait = props.wait || $D2COMPONENT.breakPointsWait
+
+    const { breakPoint } = useBreakPoint({
+      config: breakPointConfig,
+      wait: breakPointWait
+    })
 
     provide('name', computed(() => breakPoint))
     

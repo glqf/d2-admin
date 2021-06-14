@@ -13,7 +13,8 @@ export const configDefault = {
   svgNames: [],
   size: '',
   iconCollection: '',
-   breakPoints
+  breakPoints,
+  breakPointsWait: 100
 }
 
 let $D2COMPONENT = {}
