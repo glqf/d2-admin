@@ -4,11 +4,15 @@
       breakPoint {{ breakPoint }}
     </d2-button>
   </the-section>
-  <p>sm {{ sm }}</p>
-  <p>md {{ md }}</p>
-  <p>lg {{ lg }}</p>
-  <p>xl {{ xl }}</p>
-  <p>xxl {{ xxl }}</p>
+  <the-section title="data">
+    <div class="group">
+      <p :class="{ active: sm }"><span>sm</span><span>{{ sm }}</span></p>
+      <p :class="{ active: md }"><span>md</span><span>{{ md }}</span></p>
+      <p :class="{ active: lg }"><span>lg</span><span>{{ lg }}</span></p>
+      <p :class="{ active: xl }"><span>xl</span><span>{{ xl }}</span></p>
+      <p :class="{ active: xxl }"><span>xxl</span><span>{{ xxl }}</span></p>
+    </div>
+  </the-section>
 </template>
 
 <script>
@@ -41,3 +45,24 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.group {
+  p {
+    @apply mb-1 text-gray-300;
+    span {
+      &:first-child {
+        @apply inline-block w-8;
+      }
+    }
+    &.active {
+      @apply text-gray-500;
+      span {
+        &:last-child {
+          @apply text-indigo-500;
+        }
+      }
+    }
+  }
+}
+</style>
