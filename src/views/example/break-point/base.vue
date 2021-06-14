@@ -1,7 +1,9 @@
 <template>
   <the-section title="break point">
     <d2-break-point v-slot="{ breakPoint }">
-      <d2-button :color="getColor(breakPoint)">{{ breakPoint || 'minimum' }}</d2-button>
+      <d2-button :color="getBreakPointColor(breakPoint)">
+        {{ breakPoint || 'minimum' }}
+      </d2-button>
     </d2-break-point>
   </the-section>
 </template>
@@ -22,12 +24,12 @@ export default {
       '2xl': 'indigo'
     }
 
-    function getColor (breakPoint) {
+    function getBreakPointColor (breakPoint) {
       return breakPointColor[breakPoint] || 'gray'
     }
 
     return {
-      getColor
+      getBreakPointColor
     }
   }
 }
