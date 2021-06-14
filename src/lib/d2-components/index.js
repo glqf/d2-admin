@@ -29,6 +29,7 @@ function install (app, option) {
 
   configSet(optionMixed)
 
+  // getCurrentInstance().appContext.config.globalProperties.$D2COMPONENT
   app.config.globalProperties.$D2COMPONENT = optionMixed
 
   components.forEach(component => {

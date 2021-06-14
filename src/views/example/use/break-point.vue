@@ -6,6 +6,9 @@
   </the-section>
   <the-section title="data">
     <div class="group">
+      <p :class="{ active: min }">
+        <span>min</span><span>{{ min }}</span>
+      </p>
       <p :class="{ active: sm }">
         <span>sm</span><span>{{ sm }}</span>
       </p>
@@ -35,9 +38,9 @@ export default {
     TheSection
   },
   setup () {
-    const { breakPoint, sm, md, lg, xl, xxl } = useBreakPoint({ config: breakPoints })
+    const { breakPoint, sm, md, lg, xl, xxl, min } = useBreakPoint({ config: breakPoints })
 
-    return { breakPoint, sm, md, lg, xl, xxl }
+    return { breakPoint, sm, md, lg, xl, xxl, min }
   }
 }
 </script>
