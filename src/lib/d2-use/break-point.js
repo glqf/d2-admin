@@ -24,7 +24,7 @@ export function useBreakPoint ({ config = {}, wait } = {}) {
   const dict = fromPairs(numbers.map((e, i) => [e, names[i]]))
 
   watch(width, () => {
-    const value = numbers.reduce((result, e) => width.value > e ? e : result, 0)
+    const value = numbers.reduce((r, e) => width.value > e ? e : r, 0)
     breakPoint.value = dict[value] || ''
     statusUpdate(breakPoint.value)
   })
