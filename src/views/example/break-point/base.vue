@@ -1,6 +1,8 @@
 <template>
   <the-section title="break point">
-    123
+    <break-point>
+      xxxx
+    </break-point>
   </the-section>
 </template>
 
