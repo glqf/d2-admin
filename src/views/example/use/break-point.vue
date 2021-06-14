@@ -40,23 +40,9 @@ export default {
     TheSection
   },
   setup () {
-    const {
-      breakPoint,
-      sm,
-      md,
-      lg,
-      xl,
-      xxl
-    } = useBreakPoint({ config: breakPoints })
+    const { breakPoint, sm, md, lg, xl, xxl } = useBreakPoint({ config: breakPoints })
 
-    return {
-      breakPoint,
-      sm,
-      md,
-      lg,
-      xl,
-      xxl
-    }
+    return { breakPoint, sm, md, lg, xl, xxl }
   }
 }
 </script>
