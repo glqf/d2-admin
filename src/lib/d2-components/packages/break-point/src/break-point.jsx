@@ -2,7 +2,7 @@ import { defineComponent, computed, unref } from 'vue'
 import { useConfig } from '../../../utils/config.js'
 import { provideGenerator } from '../../../utils/provide.js'
 import { makeComponentName } from '../../../utils/make.js'
-import { useBreakPoint } from 'd2-use/break-point.js'
+import { useBreakPoint } from '../../../use/break-point.js'
 
 export const name = makeComponentName('break-point')
 

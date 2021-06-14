@@ -30,7 +30,7 @@
 
 <script>
 import { breakPoints } from 'd2-components/utils/const.js'
-import { useBreakPoint } from 'd2-use/break-point.js'
+import { useBreakPoint } from 'd2-components/use/break-point.js'
 import TheSection from '../components/the-section.vue'
 
 export default {

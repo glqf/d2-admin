@@ -41,7 +41,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': '/src',
-      'd2-use': '/src/lib/d2-use',
       'd2-components': '/src/lib/d2-components',
       'd2-admin-server-mock': '/src/lib/d2-admin-server-mock'
     }

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { useWindowSize } from 'd2-use/window-size.js'
+import { useWindowSize } from 'd2-components/use/window-size.js'
 import TheSection from '../components/the-section.vue'
 
 export default {
