@@ -1,17 +1,16 @@
 <template>
   <h2 class="mb-4 text-lg text-gray-500 select-none">Example</h2>
-  <div>
+  <d2-button-group size="mini">
     <d2-button
       v-for="(group, groupIndex) in groupNames"
       :key="group"
       :color="groupActiveIndex === groupIndex ? 'indigo' : ''"
-      size="mini"
       @click="onClickGroup(groupIndex)">
       {{ group }}
     </d2-button>
-  </div>
+  </d2-button-group>
   <hr class="my-4">
-  <div>
+  <d2-button-group size="mini">
     <d2-button
       v-for="item in groupActiveMenu"
       :key="item"
@@ -21,7 +20,7 @@
       @click="onClickLink(item)">
       {{ label(item) }}
     </d2-button>
-  </div>
+  </d2-button-group>
   <hr class="mt-2">
   <router-view/>
 </template>
