@@ -18,6 +18,6 @@ export const configDefault = {
   breakPointMin: 'min'
 }
 
-export function useD2ComponentsConfig () {
+export function useConfig () {
   return getCurrentInstance()?.proxy?.$D2COM || {}
 }
