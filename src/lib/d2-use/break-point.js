@@ -12,7 +12,7 @@ export function useBreakPoint ({ config = {}, wait } = {}) {
 
   const status = fromPairs(names.map(e => [e, ref(false)]))
 
-  function updateStatus (activeName) {
+  function statusUpdate (activeName) {
     mapKeys(status, (e, k) => {
       status[k].value = false
     })
@@ -26,13 +26,11 @@ export function useBreakPoint ({ config = {}, wait } = {}) {
   watch(width, () => {
     const value = numbers.reduce((result, e) => width.value > e ? e : result, 0)
     breakPoint.value = dict[value] || ''
-    updateStatus(breakPoint.value)
+    statusUpdate(breakPoint.value)
   })
 
-  const result = {
+  return {
     breakPoint,
     ...status
   }
-
-  return result
 }
