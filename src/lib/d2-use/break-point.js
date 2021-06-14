@@ -1,16 +1,22 @@
 import { ref, watch } from 'vue'
-import { keys, values } from 'lodash-es'
+import { keys, values, fromPairs } from 'lodash-es'
 import { useWindowSize } from './window-size.js'
 
 export function useBreakPoint ({ config = {}, wait } = {}) {
-  const { width } = useWindowSize()
+  const { width } = useWindowSize({ wait })
+
+  const configKeys = keys(config)
+  const configValues = values(config)
+
+  const configDict = fromPairs(configValues.map((value, index) => [value, configKeys[index]]))
   
   const breakPoint = ref('')
 
   watch(() => {
-    console.log(width.value)
+    const value = configValues.reduce((result, value) => width.value > value ? value : result, 0)
+    breakPoint.value = configDict[value] || ''
   })
-  
+
   return {
     breakPoint
   }
