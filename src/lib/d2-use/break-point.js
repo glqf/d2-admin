@@ -2,7 +2,7 @@ import { ref, watch } from 'vue'
 import { keys, values, fromPairs, mapKeys } from 'lodash-es'
 import { useWindowSize } from './window-size.js'
 
-export function useBreakPoint ({ config = {}, wait, minName = 'min' } = {}) {
+export function useBreakPoint ({ config = {}, wait, min = 'min' } = {}) {
   const names = keys(config)
   const numbers = values(config).sort((a, b) => a - b)
 

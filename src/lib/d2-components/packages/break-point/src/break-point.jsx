@@ -12,18 +12,22 @@ export default defineComponent({
   name,
   props: {
     config: { type: Object },
-    wait: { type: Number }
+    wait: { type: Number },
+    min: { type: String }
   },
   setup (props, { slots }) {
     const $D2COMPONENT = useGlobalConfig()
 
-    const breakPointConfig = props.config || $D2COMPONENT.breakPoints
+    const breakPointConfig = computed(() => props.config || $D2COMPONENT.breakPoints)
 
-    const breakPointWait = props.wait || $D2COMPONENT.breakPointsWait
+    const breakPointWait = computed(() => props.wait || $D2COMPONENT.breakPointWait)
+
+    const breakPointMin = computed(() => props.min || $D2COMPONENT.breakPointMin)
 
     const { breakPoint } = useBreakPoint({
-      config: breakPointConfig,
-      wait: breakPointWait
+      config: breakPointConfig.value,
+      wait: breakPointWait.value,
+      min: breakPointMin.value
     })
 
     provide('name', computed(() => breakPoint))

@@ -14,7 +14,8 @@ export const configDefault = {
   size: '',
   iconCollection: '',
   breakPoints,
-  breakPointsWait: 100
+  breakPointWait: 100,
+  breakPointMin: 'min'
 }
 
 let $D2COMPONENT = {}
