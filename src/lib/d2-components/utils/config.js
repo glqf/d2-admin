@@ -6,7 +6,7 @@
  */
 
 import { getCurrentInstance } from 'vue'
-import {  breakPoints } from '../utils/const.js'
+import { breakPoints } from '../utils/const.js'
 
 export const configDefault = {
   svgPrefix: '',

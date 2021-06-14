@@ -4,10 +4,12 @@
       breakPoint {{ breakPoint }}
     </d2-button>
   </the-section>
+  <p>sm {{ sm }}</p>
+  <p>md {{ md }}</p>
 </template>
 
 <script>
-import {  breakPoints } from 'd2-components/utils/const.js'
+import { breakPoints } from 'd2-components/utils/const.js'
 import { useBreakPoint } from 'd2-use/break-point.js'
 import TheSection from '../components/the-section.vue'
 
@@ -16,9 +18,14 @@ export default {
     TheSection
   },
   setup () {
-    const { breakPoint } = useBreakPoint({ config:  breakPoints })
+    const result = useBreakPoint({ config: breakPoints })
+
+    console.log(result)
+
     return {
-      breakPoint
+      breakPoint: result.breakPoint,
+      sm: result.sm,
+      md: result.md
     }
   }
 }
