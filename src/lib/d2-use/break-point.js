@@ -13,9 +13,7 @@ export function useBreakPoint ({ config = {}, wait } = {}) {
   const status = fromPairs(names.map(e => [e, ref(false)]))
 
   function statusUpdate (activeName) {
-    mapKeys(status, (e, k) => {
-      status[k].value = false
-    })
+    mapKeys(status, e => e.value = false)
     if (names.includes(activeName)) {
       status[activeName].value = true
     }
