@@ -1,12 +1,17 @@
 import { ref, watch } from 'vue'
 import { keys, values, fromPairs, mapKeys } from 'lodash-es'
 import { useWindowSize } from './window-size.js'
+import { useConfigForD2Components } from './config.js'
 
-export function useBreakPoint ({ config = {}, wait, min = 'min' } = {}) {
+export function useBreakPoint (config) {
+  const $D2COM = useConfigForD2Components()
+
+  console.log($D2COM)
+
   const names = keys(config)
   const numbers = values(config).sort((a, b) => a - b)
 
-  const { width } = useWindowSize({ wait })
+  const { width } = useWindowSize()
   
   const breakPoint = ref('')
 
@@ -28,13 +33,13 @@ export function useBreakPoint ({ config = {}, wait, min = 'min' } = {}) {
 
   watch(width, () => {
     const value = numbers.reduce((r, e) => width.value >= e ? e : r, 0)
-    breakPoint.value = dict[value] || min
+    breakPoint.value = dict[value] || 'min'
     statusUpdate(breakPoint.value)
   })
 
   return {
     breakPoint,
     ...status,
-    [min]: isMin
+    min: isMin
   }
 }

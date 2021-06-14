@@ -11,24 +11,14 @@ const provide = provideGenerator(name)
 export default defineComponent({
   name,
   props: {
-    config: { type: Object },
-    wait: { type: Number },
-    min: { type: String }
+    config: { type: Object }
   },
   setup (props, { slots }) {
     const $D2COM = useConfigForD2Components()
 
     const breakPointConfig = computed(() => props.config || $D2COM.breakPoints)
 
-    const breakPointWait = computed(() => props.wait || $D2COM.breakPointWait)
-
-    const breakPointMin = computed(() => props.min || $D2COM.breakPointMin)
-
-    const { breakPoint } = useBreakPoint({
-      config: breakPointConfig.value,
-      wait: breakPointWait.value,
-      min: breakPointMin.value
-    })
+    const { breakPoint } = useBreakPoint(breakPointConfig.value)
 
     provide('name', computed(() => breakPoint))
     

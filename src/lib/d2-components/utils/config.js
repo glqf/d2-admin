@@ -5,7 +5,6 @@
  * It is not applicable to the use environment outside the project
  */
 
-import { getCurrentInstance } from 'vue'
 import { breakPoints } from '../utils/const.js'
 
 export const configDefault = {
@@ -13,7 +12,6 @@ export const configDefault = {
   svgNames: [],
   size: '',
   iconCollection: '',
-  breakPoints,
-  breakPointWait: 100,
-  breakPointMin: 'min'
+  windowResizeThrottleWait: 100,
+  breakPoints
 }
