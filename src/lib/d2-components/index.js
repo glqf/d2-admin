@@ -1,5 +1,6 @@
 import { configDefault, configSet } from './utils/config.js'
 
+import breakPoint from './packages/break-point/index.js'
 import button from './packages/button/index.js'
 import buttonGroup from './packages/button-group/index.js'
 import flex from './packages/flex/index.js'
@@ -12,6 +13,7 @@ import svgGroup from './packages/svg-group/index.js'
 import './packages/Theme/index.scss'
 
 const components = [
+  breakPoint,
   button,
   buttonGroup,
   flex,
