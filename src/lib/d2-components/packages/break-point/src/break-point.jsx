@@ -13,7 +13,7 @@ export default defineComponent({
   setup (props, { slots }) {
     const $D2COMPONENT = useGlobalConfig()
 
-    const config = $D2COMPONENT. breakPoints
+    const config = $D2COMPONENT.breakPoints
 
     const { breakPoint } = useBreakPoint({ config })
 
