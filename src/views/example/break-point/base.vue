@@ -1,8 +1,8 @@
 <template>
   <the-section title="break point">
-    <break-point>
-      xxxx
-    </break-point>
+    <d2-break-point v-slot="{ breakPoint }">
+      {{ breakPoint }}
+    </d2-break-point>
   </the-section>
 </template>
 

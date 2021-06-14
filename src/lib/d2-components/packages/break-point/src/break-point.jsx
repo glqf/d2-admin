@@ -14,6 +14,6 @@ export default defineComponent({
 
     provide('name', computed(() => 'hhh'))
     
-    return () => slots.default?.()
+    return () => slots.default?.({ breakPoint: 'oooo' })
   }
 })
