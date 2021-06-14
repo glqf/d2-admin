@@ -20,7 +20,7 @@ export default defineComponent({
     provide('name', computed(() => 'hhh'))
     
     return () => slots.default?.({
-      breakPoint: breakPoint
+      breakPoint: unref(breakPoint)
     })
   }
 })
