@@ -19,7 +19,7 @@ export const flexProps = {
   self: ['auto', 'top', 'bottom', 'baseline', 'center', 'stretch']
 }
 
-export const breakPointNames = ['sm', 'md', 'lg', 'xl', '2xl']
+export const breakPointNames = ['sm', 'md', 'lg', 'xl', 'xxl']
 
 export const breakPointsMinWidth = [640, 768, 1024, 1280, 1536]
 

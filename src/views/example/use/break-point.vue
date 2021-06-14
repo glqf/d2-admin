@@ -6,6 +6,9 @@
   </the-section>
   <p>sm {{ sm }}</p>
   <p>md {{ md }}</p>
+  <p>lg {{ lg }}</p>
+  <p>xl {{ xl }}</p>
+  <p>xxl {{ xxl }}</p>
 </template>
 
 <script>
@@ -18,14 +21,22 @@ export default {
     TheSection
   },
   setup () {
-    const result = useBreakPoint({ config: breakPoints })
-
-    console.log(result)
+    const {
+      breakPoint,
+      sm,
+      md,
+      lg,
+      xl,
+      xxl
+    } = useBreakPoint({ config: breakPoints })
 
     return {
-      breakPoint: result.breakPoint,
-      sm: result.sm,
-      md: result.md
+      breakPoint,
+      sm,
+      md,
+      lg,
+      xl,
+      xxl
     }
   }
 }

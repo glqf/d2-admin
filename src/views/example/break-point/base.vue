@@ -21,7 +21,7 @@ export default {
       'md': 'yellow',
       'lg': 'green',
       'xl': 'blue',
-      '2xl': 'indigo'
+      'xxl': 'indigo'
     }
 
     function getBreakPointColor (breakPoint) {
