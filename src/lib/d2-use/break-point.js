@@ -8,13 +8,13 @@ export function useBreakPoint ({ config = {}, wait } = {}) {
   const configKeys = keys(config)
   const configValues = values(config)
 
-  const configDict = fromPairs(configValues.map((value, index) => [value, configKeys[index]]))
+  const dict = fromPairs(configValues.map((value, index) => [value, configKeys[index]]))
   
   const breakPoint = ref('')
 
   watch(() => {
     const value = configValues.reduce((result, value) => width.value > value ? value : result, 0)
-    breakPoint.value = configDict[value] || ''
+    breakPoint.value = dict[value] || ''
   })
 
   return {
