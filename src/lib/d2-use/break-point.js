@@ -5,15 +5,15 @@ import { useWindowSize } from './window-size.js'
 export function useBreakPoint ({ config = {}, wait } = {}) {
   const { width } = useWindowSize({ wait })
 
-  const configKeys = keys(config)
-  const configValues = values(config).sort((a, b) => a - b)
+  const names = keys(config)
+  const numbers = values(config).sort((a, b) => a - b)
 
-  const dict = fromPairs(configValues.map((value, index) => [value, configKeys[index]]))
+  const dict = fromPairs(numbers.map((e, i) => [e, names[i]]))
   
   const breakPoint = ref('')
 
   watch(width, () => {
-    const value = configValues.reduce((result, value) => width.value > value ? value : result, 0)
+    const value = numbers.reduce((result, e) => width.value > e ? e : result, 0)
     breakPoint.value = dict[value] || ''
   })
 
