@@ -41,7 +41,7 @@ export default {
     'click'
   ],
   setup (props, { emit, slots }) {
-    const $D2COMPONENT = useD2ComponentsConfig()
+    const $D2COM = useD2ComponentsConfig()
 
     // under what circumstances will the slot contents not be displayed
     // slot content is not set
@@ -55,7 +55,7 @@ export default {
     })
     
     // size
-    const buttonSize = computed(() => props.size || unref(inject(buttonGroupName, 'size')) || $D2COMPONENT.size)
+    const buttonSize = computed(() => props.size || unref(inject(buttonGroupName, 'size')) || $D2COM.size)
 
     // color
     const buttonColor = computed(() => props.color || unref(inject(buttonGroupName, 'color')))

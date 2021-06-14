@@ -16,13 +16,13 @@ export default defineComponent({
     min: { type: String }
   },
   setup (props, { slots }) {
-    const $D2COMPONENT = useD2ComponentsConfig()
+    const $D2COM = useD2ComponentsConfig()
 
-    const breakPointConfig = computed(() => props.config || $D2COMPONENT.breakPoints)
+    const breakPointConfig = computed(() => props.config || $D2COM.breakPoints)
 
-    const breakPointWait = computed(() => props.wait || $D2COMPONENT.breakPointWait)
+    const breakPointWait = computed(() => props.wait || $D2COM.breakPointWait)
 
-    const breakPointMin = computed(() => props.min || $D2COMPONENT.breakPointMin)
+    const breakPointMin = computed(() => props.min || $D2COM.breakPointMin)
 
     const { breakPoint } = useBreakPoint({
       config: breakPointConfig.value,

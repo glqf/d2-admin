@@ -27,8 +27,8 @@ const components = [
 function install (app, option) {
   const optionMixed = Object.assign({}, configDefault, option)
 
-  // getCurrentInstance().appContext.config.globalProperties.$D2COMPONENT
-  app.config.globalProperties.$D2COMPONENT = optionMixed
+  // getCurrentInstance().appContext.config.globalProperties.$D2COM
+  app.config.globalProperties.$D2COM = optionMixed
 
   components.forEach(component => {
     app.component(component.name, component)

@@ -24,7 +24,7 @@ export default {
     spin: { type: Boolean, default: false }
   },
   setup (props, { slots }) {
-    const $D2COMPONENT = useD2ComponentsConfig()
+    const $D2COM = useD2ComponentsConfig()
 
     const injectCollectionFromIconGroup = inject(iconGroupName, 'collection')
 
@@ -41,7 +41,7 @@ export default {
       if (_icon.indexOf(':') < 0) {
         // The icon name does not contain the icon collection name
         // Try to get it from another way
-        const collection = props.collection || unref(injectCollectionFromIconGroup) || $D2COMPONENT.iconCollection
+        const collection = props.collection || unref(injectCollectionFromIconGroup) || $D2COM.iconCollection
         return collection ? `${collection}:${_icon}` : _icon
       }
       return _icon

@@ -17,13 +17,13 @@ export default defineComponent({
   name,
   props: pick(buttonProps, propsName),
   setup (props, { slots }) {
-    const $D2COMPONENT = useD2ComponentsConfig()
+    const $D2COM = useD2ComponentsConfig()
 
     // All props are provide to the button component
     propsName.forEach(name => provide(name, computed(() => props[name])))
 
     // size
-    const buttonGroupSize = computed(() => props.size || $D2COMPONENT.size)
+    const buttonGroupSize = computed(() => props.size || $D2COM.size)
 
     const buttonGroupClassName = computed(() => classNames(
       mainClassName,

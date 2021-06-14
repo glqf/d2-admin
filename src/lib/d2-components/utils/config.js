@@ -19,5 +19,5 @@ export const configDefault = {
 }
 
 export function useD2ComponentsConfig () {
-  return getCurrentInstance()?.proxy?.$D2COMPONENT || {}
+  return getCurrentInstance()?.proxy?.$D2COM || {}
 }

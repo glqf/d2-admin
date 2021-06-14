@@ -19,9 +19,9 @@ export default {
     name: { type: String, required: true }
   },
   setup (props) {
-    const $D2COMPONENT = useD2ComponentsConfig()
+    const $D2COM = useD2ComponentsConfig()
 
-    const prefix = $D2COMPONENT.svgPrefix
+    const prefix = $D2COM.svgPrefix
 
     const name = props.name.replace(/\//g, '-')
 
