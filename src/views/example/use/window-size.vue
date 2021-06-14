@@ -1,8 +1,12 @@
 <template>
   <the-section title="window size">
     <d2-button-group>
-      <d2-button>width: {{ width }}</d2-button>
-      <d2-button>height: {{ height }}</d2-button>
+      <d2-button icon="ant-design:column-width-outlined">
+        width {{ width }}
+      </d2-button>
+      <d2-button icon="ant-design:column-height-outlined">
+        height {{ height }}
+      </d2-button>
     </d2-button-group>
   </the-section>
 </template>
