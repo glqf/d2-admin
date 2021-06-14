@@ -1,8 +1,14 @@
 <template>
   
   <the-section title="iconify">
-    <a href="https://iconify.design/icon-sets/">
-      <d2-button>Browse Icons</d2-button>
+    <a href="https://iconify.design/icon-sets/" target="_blank">
+      <d2-button
+        icon="akar-icons:link-chain"
+        icon-right="akar-icons:arrow-right"
+        round-right
+      >
+        Browse Icons
+      </d2-button>
     </a>
   </the-section>
   <the-section title="toggle">
