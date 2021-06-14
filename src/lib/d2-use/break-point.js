@@ -12,7 +12,7 @@ export function useBreakPoint ({ config = {}, wait } = {}) {
   
   const breakPoint = ref('')
 
-  watch(() => {
+  watch(width, () => {
     const value = configValues.reduce((result, value) => width.value > value ? value : result, 0)
     breakPoint.value = dict[value] || ''
   })

@@ -1,7 +1,8 @@
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, unref } from 'vue'
 import { useGlobalConfig } from '../../../utils/config.js'
 import { provideGenerator } from '../../../utils/provide.js'
 import { makeComponentName } from '../../../utils/make.js'
+import { useBreakPoint } from 'd2-use/break-point.js'
 
 export const name = makeComponentName('break-point')
 
@@ -12,8 +13,12 @@ export default defineComponent({
   setup (props, { slots }) {
     const $D2COMPONENT = useGlobalConfig()
 
+    const { breakPoint } = useBreakPoint()
+
     provide('name', computed(() => 'hhh'))
     
-    return () => slots.default?.({ breakPoint: 'oooo' })
+    return () => slots.default?.({
+      breakPoint: unref(breakPoint)
+    })
   }
 })
