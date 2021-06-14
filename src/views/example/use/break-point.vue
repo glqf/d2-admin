@@ -1,5 +1,5 @@
 <template>
-  <the-section title="window size">
+  <the-section title="break points">
     <d2-button icon="gg:arrows-breake-h">
       breakPoint {{ breakPoint }}
     </d2-button>
