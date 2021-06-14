@@ -19,7 +19,7 @@
 import { computed, unref } from 'vue'
 import { isNumber } from 'lodash-es'
 import classNames from 'classnames'
-import { useGlobalConfig } from '../../../utils/config.js'
+import { useD2ComponentsConfig } from '../../../utils/config.js'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
 import { isValuableString } from '../../../utils/is.js'
@@ -41,7 +41,7 @@ export default {
     'click'
   ],
   setup (props, { emit, slots }) {
-    const $D2COMPONENT = useGlobalConfig()
+    const $D2COMPONENT = useD2ComponentsConfig()
 
     // under what circumstances will the slot contents not be displayed
     // slot content is not set

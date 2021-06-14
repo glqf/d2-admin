@@ -8,7 +8,7 @@
 import { ref, unref, onMounted, watch, nextTick, computed } from 'vue'
 import Iconify from '@iconify/iconify'
 import classNames from 'classnames'
-import { useGlobalConfig } from '../../../utils/config.js'
+import { useD2ComponentsConfig } from '../../../utils/config.js'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
 import { name as iconGroupName } from './icon-group.vue'
@@ -24,7 +24,7 @@ export default {
     spin: { type: Boolean, default: false }
   },
   setup (props, { slots }) {
-    const $D2COMPONENT = useGlobalConfig()
+    const $D2COMPONENT = useD2ComponentsConfig()
 
     const injectCollectionFromIconGroup = inject(iconGroupName, 'collection')
 

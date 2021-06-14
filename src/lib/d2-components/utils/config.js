@@ -18,10 +18,6 @@ export const configDefault = {
   breakPointMin: 'min'
 }
 
-export function useGlobalConfig () {
-  const vm = getCurrentInstance()
-  if ('$D2COMPONENT' in vm.proxy) {
-    return vm.proxy.$D2COMPONENT
-  }
-  return {}
+export function useD2ComponentsConfig () {
+  return getCurrentInstance()?.proxy?.$D2COMPONENT || {}
 }
