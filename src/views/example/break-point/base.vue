@@ -2,7 +2,7 @@
   <the-section title="break point">
     <d2-break-point v-slot="{ breakPoint }">
       <d2-button :color="getBreakPointColor(breakPoint)">
-        {{ breakPoint || 'minimum' }}
+        {{ breakPoint || 'min' }}
       </d2-button>
     </d2-break-point>
   </the-section>

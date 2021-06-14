@@ -2,7 +2,7 @@ import { ref, watch } from 'vue'
 import { keys, values, fromPairs, mapKeys } from 'lodash-es'
 import { useWindowSize } from './window-size.js'
 
-export function useBreakPoint ({ config = {}, wait } = {}) {
+export function useBreakPoint ({ config = {}, wait, minName = 'min' } = {}) {
   const names = keys(config)
   const numbers = values(config).sort((a, b) => a - b)
 
@@ -22,7 +22,7 @@ export function useBreakPoint ({ config = {}, wait } = {}) {
   const dict = fromPairs(numbers.map((e, i) => [e, names[i]]))
 
   watch(width, () => {
-    const value = numbers.reduce((r, e) => width.value > e ? e : r, 0)
+    const value = numbers.reduce((r, e) => width.value >= e ? e : r, 0)
     breakPoint.value = dict[value] || ''
     statusUpdate(breakPoint.value)
   })
