@@ -15,6 +15,13 @@ export default {
   components: {
     TheSection,
     BreakPointsDisplay
+  },
+  setup () {
+    const status = useBreakPoint()
+
+    return {
+      status
+    }
   }
 }
 </script>
