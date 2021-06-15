@@ -16,25 +16,30 @@ export function useBreakPoint (breakPoints) {
   const config = breakPoints || $D2COM.breakPoints
 
   const names = keys(config)
-  const numbers = values(config).sort((a, b) => a - b)
-  const dict = fromPairs(numbers.map((e, i) => [e, names[i]]))
+  const widths = values(config).sort((a, b) => a - b)
+  const dict = fromPairs(widths.map((e, i) => [e, names[i]]))
 
   const { width } = useWindowSize()
 
-  const breakPointWidthActive = computed(() => {
-    return numbers.reduce((r, e) => width.value >= e ? e : r, 0)
+  const widthActive = computed(() => {
+    return widths.reduce((r, e) => width.value >= e ? e : r, 0)
   })
 
   const breakPoint = computed(() => {
-    return dict[breakPointWidthActive.value] || 'min'
+    return dict[widthActive.value] || 'min'
   })
 
   const isMin = computed(() => breakPoint.value === 'min')
 
   const status = fromPairs(names.map(e => [e, computed(() => breakPoint.value === e)]))
 
-  function filter (minValue, breakPointsValue = {}) {
-    return computed(() => breakPoint.value)
+  function filter (defaultValue, breakPointsValue = {}) {
+    return computed(() => {
+      if (isMin.value) {
+        return defaultValue
+      }
+      return breakPointsValue[breakPoint.value]
+    })
   }
 
   return {
