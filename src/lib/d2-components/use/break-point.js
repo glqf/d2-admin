@@ -25,9 +25,7 @@ export function useBreakPoint (breakPoints) {
     return widths.reduce((r, e) => width.value >= e ? e : r, 0)
   })
 
-  const breakPoint = computed(() => {
-    return dict[widthActive.value] || 'min'
-  })
+  const breakPoint = computed(() => dict[widthActive.value] || 'min')
 
   const isMin = computed(() => breakPoint.value === 'min')
 
