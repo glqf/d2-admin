@@ -26,7 +26,8 @@ export default {
 
     const want = filter(0, {
       sm: 1,
-      md: 2
+      md: 2,
+      xxl: 4
     })
 
     return {

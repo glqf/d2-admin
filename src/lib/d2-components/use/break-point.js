@@ -33,12 +33,16 @@ export function useBreakPoint (breakPoints) {
 
   const status = fromPairs(names.map(e => [e, computed(() => breakPoint.value === e)]))
 
-  function filter (defaultValue, breakPointsValue = {}) {
+  function filter (valueDefault, valueBreakPoints = {}) {
     return computed(() => {
-      if (isMin.value) {
-        return defaultValue
-      }
-      return breakPointsValue[breakPoint.value]
+      const k = dict[
+        Math.max(
+          ...keys(valueBreakPoints)
+            .map(e => config[e])
+            .filter(e => e <= widthActive.value)
+        )
+      ]
+      return valueBreakPoints[k] || valueDefault
     })
   }
 
