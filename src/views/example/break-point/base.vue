@@ -8,7 +8,7 @@
           <d2-icon v-else class="item__icon" icon="akar-icons:circle-x"/>
           <span class="item__label">min</span>
         </d2-flex>
-        <d2-flex v-for="name in breakPointNames" :key="name" dir="top" class="data__item">
+        <d2-flex v-for="name in breakPointsName" :key="name" dir="top" class="data__item">
           <d2-icon v-if="status[name]" class="item__icon item__icon--active" icon="akar-icons:circle-check-fill"/>
           <d2-icon v-else class="item__icon" icon="akar-icons:circle-x"/>
           <span class="item__label">{{ name }}</span>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { breakPointNames } from 'd2-components/utils/const.js'
+import { breakPointsName } from 'd2-components/utils/const.js'
 import TheSection from '../components/the-section.vue'
 
 export default {
@@ -28,7 +28,7 @@ export default {
   },
   setup () {
     return {
-      breakPointNames
+      breakPointsName
     }
   }
 }

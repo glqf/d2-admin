@@ -19,13 +19,13 @@ export const flexProps = {
   self: ['auto', 'top', 'bottom', 'baseline', 'center', 'stretch']
 }
 
-export const breakPointNames = ['sm', 'md', 'lg', 'xl', 'xxl']
+export const breakPointsName = ['sm', 'md', 'lg', 'xl', 'xxl']
 
-export const breakPointMinWidth = [640, 768, 1024, 1280, 1536]
+export const breakPointsWidth = [640, 768, 1024, 1280, 1536]
 
 export const breakPoints = fromPairs(
-  breakPointNames.map((name, index) => [
+  breakPointsName.map((name, index) => [
     name,
-    breakPointMinWidth[index]
+    breakPointsWidth[index]
   ])
 )
