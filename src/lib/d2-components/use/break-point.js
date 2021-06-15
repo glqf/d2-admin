@@ -23,7 +23,7 @@ export function useBreakPoint (breakPoints) {
 
   const status = fromPairs(names.map(e => [e, ref(false)]))
 
-  const isMin = ref(false)
+  const isMin = computed(() => breakPoint.value === 'min')
 
   const breakPointWidthActive = computed(() => {
     return numbers.reduce((r, e) => width.value >= e ? e : r, 0)
@@ -35,11 +35,8 @@ export function useBreakPoint (breakPoints) {
 
   function statusUpdate (name) {
     mapKeys(status, e => e.value = false)
-    isMin.value = false
     if (names.includes(name)) {
       status[name].value = true
-    } else {
-      isMin.value = true
     }
   }
 
