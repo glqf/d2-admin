@@ -12,7 +12,7 @@ import { useConfigForD2Components } from './config.js'
  */
 export function useBreakPoint (breakPoints) {
   const $D2COM = useConfigForD2Components()
-
+  
   const config = breakPoints || $D2COM.breakPoints
 
   const names = keys(config)
