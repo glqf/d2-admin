@@ -3,13 +3,20 @@ import { keys, values, fromPairs, mapKeys } from 'lodash-es'
 import { useWindowSize } from './window-size.js'
 import { useConfigForD2Components } from './config.js'
 
-export function useBreakPoint (config) {
+/**
+ * Get breakpoint status
+ * @param {Object} breakPoints break point setting, if do not set this parameter, use global config
+ * @returns {Object} status {String} breakPoint now active break point name
+ * @returns {Object} status {String} ...breakPoints.keys active state of each breakpoint
+ * @returns {Object} status {String} min less than the minimum breakpoint
+ */
+export function useBreakPoint (breakPoints) {
   const $D2COM = useConfigForD2Components()
 
-  const _config = config || $D2COM.breakPoints
+  const config = breakPoints || $D2COM.breakPoints
 
-  const names = keys(_config)
-  const numbers = values(_config).sort((a, b) => a - b)
+  const names = keys(config)
+  const numbers = values(config).sort((a, b) => a - b)
 
   const { width } = useWindowSize()
   
