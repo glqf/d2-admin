@@ -29,7 +29,6 @@
 </template>
 
 <script>
-import { breakPoints } from 'd2-components/utils/const.js'
 import { useBreakPoint } from 'd2-components/use/break-point.js'
 import TheSection from '../components/the-section.vue'
 
@@ -38,7 +37,7 @@ export default {
     TheSection
   },
   setup () {
-    const { breakPoint, sm, md, lg, xl, xxl, min } = useBreakPoint(breakPoints)
+    const { breakPoint, sm, md, lg, xl, xxl, min } = useBreakPoint()
 
     return { breakPoint, sm, md, lg, xl, xxl, min }
   }
