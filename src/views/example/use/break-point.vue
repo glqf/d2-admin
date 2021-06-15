@@ -4,6 +4,9 @@
       <break-points-display :status="status"/>
     </d2-break-point>
   </the-section>
+  <the-section title="filter">
+    {{ want }}
+  </the-section>
 </template>
 
 <script>
@@ -19,8 +22,16 @@ export default {
   setup () {
     const status = useBreakPoint()
 
+    const filter = status.filter
+
+    const want = filter(0, {
+      sm: 1,
+      md: 2
+    })
+
     return {
-      status
+      status,
+      want
     }
   }
 }

@@ -1,4 +1,4 @@
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { keys, values, fromPairs, mapKeys } from 'lodash-es'
 import { useWindowSize } from './window-size.js'
 import { useConfigForD2Components } from './config.js'
@@ -17,14 +17,21 @@ export function useBreakPoint (breakPoints) {
 
   const names = keys(config)
   const numbers = values(config).sort((a, b) => a - b)
+  const dict = fromPairs(numbers.map((e, i) => [e, names[i]]))
 
   const { width } = useWindowSize()
-  
-  const breakPoint = ref('')
 
   const status = fromPairs(names.map(e => [e, ref(false)]))
 
   const isMin = ref(false)
+
+  const breakPointWidthActive = computed(() => {
+    return numbers.reduce((r, e) => width.value >= e ? e : r, 0)
+  })
+
+  const breakPoint = computed(() => {
+    return dict[breakPointWidthActive.value] || 'min'
+  })
 
   function statusUpdate (name) {
     mapKeys(status, e => e.value = false)
@@ -36,15 +43,16 @@ export function useBreakPoint (breakPoints) {
     }
   }
 
-  const dict = fromPairs(numbers.map((e, i) => [e, names[i]]))
+  function filter (minValue, breakPointsValue = {}) {
+    return computed(() => breakPoint.value)
+  }
 
-  watch(width, () => {
-    const value = numbers.reduce((r, e) => width.value >= e ? e : r, 0)
-    breakPoint.value = dict[value] || 'min'
+  watch(breakPoint, () => {
     statusUpdate(breakPoint.value)
   })
 
   return {
+    filter,
     breakPoint,
     min: isMin,
     ...status
