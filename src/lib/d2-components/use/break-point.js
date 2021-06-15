@@ -46,7 +46,7 @@ export function useBreakPoint (breakPoints) {
 
   return {
     breakPoint,
-    ...status,
-    min: isMin
+    min: isMin,
+    ...status
   }
 }

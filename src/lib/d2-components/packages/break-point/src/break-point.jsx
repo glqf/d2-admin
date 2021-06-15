@@ -1,7 +1,9 @@
 import { defineComponent, computed, unref } from 'vue'
+import { fromPairs, keys } from 'lodash-es'
 import { provideGenerator } from '../../../utils/provide.js'
 import { makeComponentName } from '../../../utils/make.js'
 import { useBreakPoint } from '../../../use/break-point.js'
+import { useConfigForD2Components } from 'd2-components/use/config.js'
 
 export const name = makeComponentName('break-point')
 
@@ -10,14 +12,22 @@ const provide = provideGenerator(name)
 export default defineComponent({
   name,
   setup (props, { slots }) {
-    const { breakPoint } = useBreakPoint()
+    const $D2COM = useConfigForD2Components()
 
-    provide('name', computed(() => breakPoint))
+    const config = $D2COM.breakPoints
 
-    console.log(slots)
+    const names = keys(config)
+
+    const status = useBreakPoint()
+
+    provide('name', computed(() => status.breakPoint))
+
+    const data = computed(() => ({
+      breakPoint: unref(status.breakPoint),
+      min: unref(status.min),
+      ...fromPairs(names.map(e => [e, unref(status[e])]))
+    }))
     
-    return () => slots.default?.({
-      breakPoint: unref(breakPoint)
-    })
+    return () => slots.default?.(unref(data))
   }
 })
