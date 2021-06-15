@@ -13,6 +13,8 @@ export default defineComponent({
     const { breakPoint } = useBreakPoint()
 
     provide('name', computed(() => breakPoint))
+
+    console.log(slots)
     
     return () => slots.default?.({
       breakPoint: unref(breakPoint)
