@@ -1,7 +1,13 @@
 import { onMounted, onUnmounted, ref, onBeforeMount } from 'vue'
 import { throttle } from 'lodash-es'
 
-export function useWindowSize({ wait = 30 } = {}) {
+/**
+ * Get window size status
+ * @param {Number} wait throttle wait
+ * @returns {Object} status {String} height window height
+ * @returns {Object} status {String} width window width
+ */
+export function useWindowSize(wait = 30) {
 
   const width = ref(0)
   const height = ref(0)
