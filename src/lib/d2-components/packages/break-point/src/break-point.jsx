@@ -28,6 +28,12 @@ export default defineComponent({
       ...fromPairs(names.map(e => [e, unref(status[e])]))
     }))
     
-    return () => slots.default?.(unref(data))
+    return () => {
+      return [
+        slots.default?.(unref(data)),
+        slots.min?.(unref(data)),
+        ...names.map(e => slots?.[e]?.(unref(data)))
+      ]
+    }
   }
 })
