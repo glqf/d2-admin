@@ -41,7 +41,7 @@ export default {
       @apply text-gray-500;
     }
     .item__icon {
-      @apply text-gray-300;
+      @apply text-2xl text-gray-300;
       &.item__icon--active {
         @apply text-green-500;
       }
