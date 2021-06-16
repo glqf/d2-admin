@@ -21,9 +21,7 @@ export function useBreakPoint (breakPoints) {
 
   const { width } = useWindowSize()
 
-  const widthActive = computed(() => {
-    return widths.reduce((r, e) => width.value >= e ? e : r, 0)
-  })
+  const widthActive = computed(() => widths.reduce((r, e) => width.value >= e ? e : r, 0))
 
   const breakPoint = computed(() => dict[widthActive.value] || 'min')
 
@@ -33,14 +31,14 @@ export function useBreakPoint (breakPoints) {
 
   function filter (valueDefault, valueBreakPoints = {}) {
     return computed(() => {
-      const k = dict[
+      const matched = dict[
         Math.max(
           ...keys(valueBreakPoints)
             .map(e => config[e])
             .filter(e => e <= widthActive.value)
         )
       ]
-      return valueBreakPoints[k] || valueDefault
+      return valueBreakPoints[matched] || valueDefault
     })
   }
 
