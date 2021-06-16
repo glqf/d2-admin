@@ -29,21 +29,27 @@ export function useBreakPoint (breakPoints) {
 
   const status = fromPairs(names.map(e => [e, computed(() => breakPoint.value === e)]))
 
-  function filter (valueDefault, valueBreakPoints = {}) {
+  /**
+   * match values based on breakpoints
+   * @param {*} value default value
+   * @param {*} valueSet set of values matched by breakpoints
+   * @returns a matched value
+   */
+  function responsive (value, valueSet = {}) {
     return computed(() => {
-      const matched = dict[
+      const point = dict[
         Math.max(
-          ...keys(valueBreakPoints)
+          ...keys(valueSet)
             .map(e => config[e])
             .filter(e => e <= widthActive.value)
         )
       ]
-      return valueBreakPoints[matched] || valueDefault
+      return valueSet[point] || value
     })
   }
 
   return {
-    filter,
+    responsive,
     breakPoint,
     min: isMin,
     ...status

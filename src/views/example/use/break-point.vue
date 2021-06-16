@@ -4,7 +4,7 @@
       <break-points-display :status="status"/>
     </d2-break-point>
   </the-section>
-  <the-section title="filter">
+  <the-section title="responsive">
     {{ want }}
   </the-section>
 </template>
@@ -22,9 +22,9 @@ export default {
   setup () {
     const status = useBreakPoint()
 
-    const filter = status.filter
+    const responsive = status.responsive
 
-    const want = filter(0, {
+    const want = responsive(0, {
       sm: 1,
       md: 2,
       xxl: 4
