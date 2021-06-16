@@ -10,14 +10,14 @@
         v-for="(data, index) in data"
         :key="index"
         dir="top"
-        cross="center"
-        main="center"
+        cross="justify"
         space="large"
         grow="1"
         shrink="0"
         class="mb-4"
       >
-        <span class="text-xl text-gray-600 font-bold">{{ data }}</span>
+        <span class="text-xl text-center text-gray-600 font-bold">{{ data }}</span>
+        <pre class="px-4 py-2 bg-gray-100 text-gray-600 rounded">min: {{ config[index][0] }}</pre>
         <pre class="px-4 py-2 bg-gray-100 text-gray-600 rounded">{{ config[index][1] }}</pre>
       </d2-flex>
     </d2-flex>
