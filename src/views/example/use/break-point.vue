@@ -5,11 +5,27 @@
     </d2-break-point>
   </the-section>
   <the-section title="responsive">
-    {{ want }}
+    <d2-flex space="large" cross="top" wrap>
+      <d2-flex
+        v-for="(data, index) in data"
+        :key="index"
+        dir="top"
+        cross="center"
+        main="center"
+        space="large"
+        grow="1"
+        shrink="0"
+        class="mb-4"
+      >
+        <span class="text-xl text-gray-600 font-bold">{{ data }}</span>
+        <pre class="px-4 py-2 bg-gray-100 text-gray-600 rounded">{{ config[index][1] }}</pre>
+      </d2-flex>
+    </d2-flex>
   </the-section>
 </template>
 
 <script>
+import { computed, unref } from 'vue'
 import { useBreakPoint } from 'd2-components/use/break-point.js'
 import TheSection from '../components/the-section.vue'
 import BreakPointsDisplay from '../components/break-points-display.vue'
@@ -24,15 +40,22 @@ export default {
 
     const responsive = status.responsive
 
-    const want = responsive(0, {
-      sm: 1,
-      md: 2,
-      xxl: 4
-    })
+    const config = [
+      [0, { sm: 1, md: 2, xxl: 5 }],
+      [0, { sm: 1, xxl: 5, md: 2, lg: 3 }],
+      [0, { sm: 1, md: 2, lg: 3, xl: 4, xxl: 5 }],
+      ['gray', { sm: 'red', md: 'yellow', lg: 'green', xl: 'blue', xxl: 'indigo' }],
+      ['mb-4', { lg: 'mb-8' }],
+      ['min', { sm: 'sm', md: 'md', lg: 'lg', xl: 'xl', xxl: 'xxl' }],
+      ['<640', { sm: '>=640', md: '>=768', lg: '>=1024', xl: '>=1280', xxl: '>=1536' }]
+    ]
+
+    const data = computed(() => config.map(c => unref(responsive(c[0], c[1]))))
 
     return {
       status,
-      want
+      config,
+      data
     }
   }
 }

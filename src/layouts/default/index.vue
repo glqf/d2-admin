@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-8 md:mx-auto my-8">
+  <div class="container mx-auto px-8 py-8">
     <router-view/>
   </div>
 </template>
