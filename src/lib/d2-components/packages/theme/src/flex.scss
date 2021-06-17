@@ -24,7 +24,10 @@
   &.is-display-inline { display: inline; }
   &.is-display-inline-block { display: inline-block; }
 
-  &.is-inline { display: inline-flex; }
+  &.is-inline-flex { display: inline-flex; }
+  &.is-block { display: block; }
+  &.is-inline { display: inline; }
+  &.is-inline-block { display: inline-block; }
 
   &.is-wrap { flex-wrap: wrap; }
   &.is-wrap-r { flex-wrap: wrap-reverse; }

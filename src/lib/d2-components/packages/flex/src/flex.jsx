@@ -10,10 +10,13 @@ export const mainClassName = makeComponentClassName('flex')
 export default defineComponent({
   name,
   props: {
-    // other display
+    // display
     display: { type: String },
-    // flex parent attributes
+    inlineFlex: { type: Boolean },
+    block: { type: Boolean },
     inline: { type: Boolean },
+    inlineBlock: { type: Boolean },
+    // flex parent attributes
     wrap: { type: Boolean },
     wrapR: { type: Boolean },
     dir: { type: String, default: '', validator: value => isFlex('dir', value, true) },
@@ -50,7 +53,10 @@ export default defineComponent({
       {
         [`is-display-${props.display}`]: props.display,
         [`is-space-${props.dir || 'left'}-${flexSpace.value}`]: flexSpace.value,
+        'is-inline-flex': props.inlineFlex,
+        'is-block': props.block,
         'is-inline': props.inline,
+        'is-inline-block': props.inlineBlock,
         'is-wrap': props.wrap,
         'is-wrap-r': props.wrapR,
         [`is-dir-${props.dir}`]: props.dir,
