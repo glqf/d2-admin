@@ -115,3 +115,21 @@
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+// ------------------------------
+// => turn on gpu
+// ------------------------------
+@mixin gpu {
+  perspective: 1000px;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
