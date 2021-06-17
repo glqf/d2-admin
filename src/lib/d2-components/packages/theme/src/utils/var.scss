@@ -2,6 +2,8 @@
 
 // All functions starting with '--var-' return CSS: var(--d2-xxx)
 
+@use 'sass:math';
+
 $namespace: 'd2';
 
 $bem-element-separator: '__';
@@ -90,7 +92,7 @@ $--d2-color-alpha: 10, 30; // can be array like 0, 20, ... 100
     @each $_level, $_color in $_setting {
       --d2-color-#{"" + $_name}-#{$_level}: #{$_color};
       @each $alpha in $--d2-color-alpha {
-        --d2-color-#{"" + $_name}-#{$_level}-alpha-#{$alpha}: #{rgba($_color, $alpha / 100)};
+        --d2-color-#{"" + $_name}-#{$_level}-alpha-#{$alpha}: #{rgba($_color, math.div($alpha, 100))};
       }
     }
   }

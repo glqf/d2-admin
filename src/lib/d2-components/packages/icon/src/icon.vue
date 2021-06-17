@@ -69,36 +69,25 @@ export default {
      * refresh icon
      */
     async function reload () {
-      const _icon = unref(icon)
-      // check
-      if (!_icon) return innerHTML()
+      // check container
       const dom = unref(container)
       if (!dom) return
+      // check icon
+      const _icon = unref(icon)
+      if (!_icon) return dom.innerHTML = ''
       // render
       await nextTick()
-      const svg = Iconify.getSVG(_icon, {})
+      const svg = Iconify.renderSVG(_icon, {})
       if (svg) {
-        innerHTML(svg)
+        dom.appendChild(svg)
         // console.info(`Load icon named ${ _icon } from cache`)
       } else {
         const span = document.createElement('span')
         span.className = 'iconify'
         span.dataset.icon = _icon
-        innerHTML()
+        dom.innerHTML = ''
         dom.appendChild(span)
         // console.info(`Can't find svg named ${ _icon } from cache, created span:`, span)
-      }
-    }
-
-    /**
-     * Set the icon content
-     * If do not pass parameters, the effect is equivalent to empty the content
-     * @param {string} html innerHTML
-     */
-    function innerHTML (html = '') {
-      const dom = unref(container)
-      if (dom) {
-        dom.innerHTML = html
       }
     }
 
