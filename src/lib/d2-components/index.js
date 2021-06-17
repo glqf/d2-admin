@@ -11,7 +11,7 @@ import popper from './packages/popper/index.js'
 import svg from './packages/svg/index.js'
 import svgGroup from './packages/svg-group/index.js'
 
-import './packages/Theme/index.scss'
+import './packages/theme/index.scss'
 
 const components = [
   breakPoint,
