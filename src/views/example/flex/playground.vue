@@ -3,7 +3,7 @@
     <d2-flex dir="left" box="first">
       <d2-flex main="center" cross="center" class="view">
         <d2-flex
-          class="flex-example"
+          class="flex"
           :dir="dirValue"
           :main="mainValue"
           :cross="crossValue"
@@ -11,8 +11,8 @@
           :space="spaceValue"
         >
           <d2-flex
-            class="flex-example__item"
-            :class="`flex-example__item--${n}`"
+            class="flex__item"
+            :class="`flex__item--${n}`"
             v-for="n in 5"
             :key="n"
             center
@@ -124,15 +124,15 @@ export default {
 <style lang="scss" scoped>
 .view {
   @apply mr-4;
-  .flex-example {
+  .flex {
     @apply w-64 h-64 p-1 bg-gray-100;
-    .flex-example__item {
+    .flex__item {
       @apply p-2 transition-all text-white rounded-sm;
-      &.flex-example__item--1 { @apply bg-indigo-700; }
-      &.flex-example__item--2 { @apply bg-indigo-600; }
-      &.flex-example__item--3 { @apply bg-indigo-500; }
-      &.flex-example__item--4 { @apply bg-indigo-400; }
-      &.flex-example__item--5 { @apply bg-indigo-300; }
+      &.flex__item--1 { @apply bg-indigo-700; }
+      &.flex__item--2 { @apply bg-indigo-600; }
+      &.flex__item--3 { @apply bg-indigo-500; }
+      &.flex__item--4 { @apply bg-indigo-400; }
+      &.flex__item--5 { @apply bg-indigo-300; }
     }
   }
 }
