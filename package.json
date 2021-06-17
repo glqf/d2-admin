@@ -27,7 +27,7 @@
     "postcss": "^8.2.10",
     "sass": "^1.32.11",
     "tailwindcss": "^2.1.1",
-    "vite": "^2.1.5",
+    "vite": "^2.3.7",
     "vite-plugin-pages": "^0.12.1",
     "vite-plugin-purge-icons": "^0.7.0",
     "vite-plugin-svg-icons": "^0.4.3"

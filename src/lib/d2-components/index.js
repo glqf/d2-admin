@@ -6,6 +6,7 @@ import buttonGroup from './packages/button-group/index.js'
 import flex from './packages/flex/index.js'
 import icon from './packages/icon/index.js'
 import iconGroup from './packages/icon-group/index.js'
+import input from './packages/input/index.js'
 import popper from './packages/popper/index.js'
 import svg from './packages/svg/index.js'
 import svgGroup from './packages/svg-group/index.js'
@@ -19,6 +20,7 @@ const components = [
   flex,
   icon,
   iconGroup,
+  input,
   popper,
   svg,
   svgGroup
