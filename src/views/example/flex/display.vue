@@ -3,15 +3,24 @@
     <d2-flex class="flex" space>
       <div class="flex__item" v-for="n in 3" :key="n"/>
     </d2-flex>
-    <d2-flex class="flex" space>
-      <div class="flex__item" v-for="n in 3" :key="n"/>
-    </d2-flex>
   </the-section>
   <the-section title="inline-flex">
     <d2-flex class="flex" inline-flex space>
       <div class="flex__item" v-for="n in 3" :key="n"/>
     </d2-flex>
-    <d2-flex class="flex" inline-flex space>
+  </the-section>
+  <the-section title="inline">
+    <d2-flex class="flex" inline>
+      <span class="flex__item" v-for="n in 3" :key="n">{{ n }}</span>
+    </d2-flex>
+  </the-section>
+  <the-section title="inline-block">
+    <d2-flex class="flex" inline-block>
+      <span class="flex__item" v-for="n in 3" :key="n">{{ n }}</span>
+    </d2-flex>
+  </the-section>
+  <the-section title="block">
+    <d2-flex class="flex" block>
       <div class="flex__item" v-for="n in 3" :key="n"/>
     </d2-flex>
   </the-section>

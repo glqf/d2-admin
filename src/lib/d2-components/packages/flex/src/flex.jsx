@@ -11,7 +11,6 @@ export default defineComponent({
   name,
   props: {
     // display
-    display: { type: String },
     inlineFlex: { type: Boolean },
     block: { type: Boolean },
     inline: { type: Boolean },
@@ -51,7 +50,6 @@ export default defineComponent({
     const flexClassName = computed(() => classNames(
       mainClassName,
       {
-        [`is-display-${props.display}`]: props.display,
         [`is-space-${props.dir || 'left'}-${flexSpace.value}`]: flexSpace.value,
         'is-inline-flex': props.inlineFlex,
         'is-block': props.block,

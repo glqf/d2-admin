@@ -6,12 +6,6 @@
 
 @include b(flex) {
   display: flex;
-  & > * {
-    display: block;
-  }
-  & > .#{$namespace}-flex {
-    display: flex;
-  }
 
   @each $_flex-dir in $--d2-flex-dir {
     @include flex-space(base, $_flex-dir);
@@ -19,10 +13,6 @@
       @include flex-space($_space, $_flex-dir);
     }
   }
-
-  &.is-display-block { display: block; }
-  &.is-display-inline { display: inline; }
-  &.is-display-inline-block { display: inline-block; }
 
   &.is-inline-flex { display: inline-flex; }
   &.is-block { display: block; }
