@@ -40,7 +40,7 @@ export default {
 .flex {
   @apply w-24 h-24 p-1 mb-4 mr-4 bg-gray-100 rounded;
   .flex__item {
-    @apply p-1 bg-indigo-500 rounded-sm;
+    @apply p-1 text-white bg-indigo-500 rounded-sm;
   }
 }
 </style>
