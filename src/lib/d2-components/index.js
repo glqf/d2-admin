@@ -10,6 +10,7 @@ import input from './packages/input/index.js'
 import popper from './packages/popper/index.js'
 import svg from './packages/svg/index.js'
 import svgGroup from './packages/svg-group/index.js'
+import test from './packages/test/index.js'
 
 import './packages/theme/index.scss'
 
@@ -23,7 +24,8 @@ const components = [
   input,
   popper,
   svg,
-  svgGroup
+  svgGroup,
+  test
 ]
 
 function install (app, option) {
