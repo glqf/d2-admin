@@ -1,4 +1,4 @@
-import { defineComponent, computed } from 'vue'
+import { defineComponent, computed, renderSlot, Fragment } from 'vue'
 import classNames from 'classnames'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 
@@ -13,10 +13,18 @@ export default defineComponent({
       mainClassName,
       {}
     ))
+
+    const slotDefault = renderSlot(slots, 'default')
+
+    slotDefault.children.forEach(child => {
+      console.log(child)
+      console.log('type', child.type)
+      console.log('type === Fragment', child.type === Fragment)
+    })
     
     return () =>
       <div class={ flexClassName.value }>
-        { slots.default?.() }
+        { slotDefault.children }
       </div>
   }
 })
