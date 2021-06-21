@@ -1,5 +1,5 @@
 import { isBoolean } from 'lodash-es'
-import { isColor, isButtonSize, isButtonTypes } from '../../../utils/is.js'
+import { isColor, isButtonSize, isButtonTypes } from '../../../utils/const.js'
 import { isIntegerAndBetween } from '../../../utils/number.js'
 
 export default {
