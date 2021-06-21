@@ -2,7 +2,8 @@ import { defineComponent, computed } from 'vue'
 import classNames from 'classnames'
 import { pickBy, isUndefined } from 'lodash-es'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
-import { isFlex, isNumberLike, isSpaceSize, isValuableString } from '../../../utils/is.js'
+import { isFlex, isSpaceSize } from '../../../utils/is.js'
+import { isNumberLike } from '../../../utils/number.js'
 
 export const name = makeComponentName('flex')
 export const mainClassName = makeComponentClassName('flex')
