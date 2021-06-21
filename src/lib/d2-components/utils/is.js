@@ -118,14 +118,3 @@ export function isIntegerAndGreaterThan (value, min) {
 export function isIntegerAndBetween (value, min, max) {
   return isNumber(value) && Number.isInteger(value) && value >= min && value <= max
 }
-
-//export function isDOM (item) {
-//   return (typeof HTMLElement === 'function')
-//     ? (item instanceof HTMLElement)
-//     : (
-//       item
-//         && (typeof item === 'object')
-//         && (item.nodeType === 1)
-//         && (typeof item.nodeName === 'string')
-//     )
-// }
