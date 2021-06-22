@@ -1,6 +1,7 @@
 import { defineComponent, computed, renderSlot, Fragment } from 'vue'
 import classNames from 'classnames'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
+import { isFragment } from '../../../utils/vnode.js'
 
 export const name = makeComponentName('test')
 export const mainClassName = makeComponentClassName('test')
@@ -19,7 +20,7 @@ export default defineComponent({
     slotDefault.children.forEach(child => {
       console.log(child)
       console.log('type', child.type)
-      console.log('type === Fragment', child.type === Fragment)
+      console.log('type === Fragment', isFragment(child))
     })
     
     return () =>
