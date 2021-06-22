@@ -5,8 +5,25 @@
  * It is not applicable to the use environment outside the project
  */
 
-import { camelCase } from 'lodash-es'
-import { isString } from 'lodash-es'
+import { isString, camelCase } from 'lodash-es'
+
+/**
+ * Check if it is string and not empty
+ * @param {*} value value to check
+ * @returns boolean
+ */
+export function isValuableString (value) {
+  return isString(value) && !isEmptyString(value)
+}
+
+/**
+ * Check if it is empty string
+ * @param {*} value value to check
+ * @returns boolean
+ */
+export function isEmptyString (value) {
+  return value === ''
+}
 
 /**
  * Convert string to pascalcase

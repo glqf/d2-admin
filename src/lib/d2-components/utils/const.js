@@ -1,5 +1,5 @@
 import { fromPairs } from 'lodash-es'
-import { isEmptyString } from './is.js'
+import { isEmptyString } from './string.js'
 
 export const nameSpace = 'd2'
 
