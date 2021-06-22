@@ -16,7 +16,8 @@ export default defineComponent({
     
     return () =>
       <div class={ testItemClassName.value }>
-        { slots?.default?.() }
+        <div>{ name }</div>
+        <div>{ slots?.default?.() }</div>
       </div>
   }
 })
