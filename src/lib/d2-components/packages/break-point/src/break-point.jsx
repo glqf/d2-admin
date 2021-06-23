@@ -1,5 +1,5 @@
 import { defineComponent, computed, unref, watch } from 'vue'
-import { fromPairs, keys, mapValues } from 'lodash-es'
+import { keys, mapValues } from 'lodash-es'
 import { provideGenerator } from '../../../utils/provide.js'
 import { makeComponentName } from '../../../utils/make.js'
 import { useBreakPoint } from '../../../use/break-point.js'
@@ -37,7 +37,7 @@ export default defineComponent({
     const data = computed(() => ({
       breakPoint: unref(status.breakPoint),
       min: unref(status.min),
-      ...fromPairs(names.map(e => [e, unref(status[e])])),
+      ...mapValues(config, (v, k) => unref(status[k])),
       responsive: mapValues(props.responsive, (v, k) => unref(status.responsive(...props.responsive[k])))
     }))
     
