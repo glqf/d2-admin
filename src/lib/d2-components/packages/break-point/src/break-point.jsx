@@ -18,9 +18,12 @@ export default defineComponent({
     //   bar: ['bar min', { sm: 'bar sm', lg: 'bar lg' }]
     // }
     // return
-    // if breakpoint is min: { foo: 'foo min', bar: 'bar min' }
-    // if breakpoint is md: { foo: 'foo md', bar: 'bar sm' }
-    // if breakpoint is xl: { foo: 'foo md', bar: 'bar lg' }
+    // min:
+    // { foo: 'foo min', bar: 'bar min' }
+    // md:
+    // { foo: 'foo md', bar: 'bar sm' }
+    // xl:
+    // { foo: 'foo md', bar: 'bar lg' }
     responsive: { type: Object, default: () => ({}) }
   },
   setup (props, { slots }) {

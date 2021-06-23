@@ -1,7 +1,11 @@
 <template>
   <the-section title="break point">
     <d2-break-point :responsive="config" v-slot="status">
-      {{ status.responsive }}
+      <span
+        class="text-white inline-block rounded-full text-center text-4xl px-8 py-4"
+        :style="{ backgroundColor: status.responsive.color }">
+        {{ status.responsive.color }}
+      </span>
     </d2-break-point>
   </the-section>
 </template>
@@ -18,7 +22,16 @@ export default {
   setup () {
     return {
       config: {
-        name: ['MIN', { sm: 'SM', lg: 'LG' }]
+        color: [
+          '#6B7280',
+          {
+            sm: '#EF4444',
+            md: '#F59E0B',
+            lg: '#10B981',
+            xl: '#3B82F6',
+            xxl: '#6366F1'
+          }
+        ]
       }
     }
   }
