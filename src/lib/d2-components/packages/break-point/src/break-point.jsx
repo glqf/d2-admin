@@ -11,6 +11,18 @@ const provide = provideGenerator(name)
 
 export default defineComponent({
   name,
+  props: {
+    // example
+    // {
+    //   foo: ['foo min', { sm: 'foo sm', md: 'foo md' }],
+    //   bar: ['bar min', { sm: 'bar sm', lg: 'bar lg' }]
+    // }
+    // return
+    // if breakpoint is min: { foo: 'foo min', bar: 'bar min' }
+    // if breakpoint is md: { foo: 'foo md', bar: 'bar sm' }
+    // if breakpoint is xl: { foo: 'foo md', bar: 'bar lg' }
+    responsive: { type: Object, default: () => ({}) }
+  },
   setup (props, { slots }) {
     const $D2COM = useConfigForD2Components()
 
@@ -19,6 +31,10 @@ export default defineComponent({
     const names = keys(config)
 
     const status = useBreakPoint()
+
+    const responsiveFunction = status.responsive
+
+    
 
     provide('name', computed(() => status.breakPoint))
 
