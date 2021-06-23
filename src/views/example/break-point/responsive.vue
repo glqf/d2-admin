@@ -1,9 +1,7 @@
 <template>
   <the-section title="break point">
     <d2-break-point :responsive="config" v-slot="status">
-      <span
-        class="text-white inline-block rounded-full text-center text-4xl px-8 py-4"
-        :style="{ backgroundColor: status.responsive.color }">
+      <span class="box" :style="{ backgroundColor: status.responsive.color }">
         {{ status.responsive.color }}
       </span>
     </d2-break-point>
@@ -37,3 +35,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.box {
+  @apply inline-block px-8 py-4 text-4xl text-center text-white rounded-full;
+}
+</style>
