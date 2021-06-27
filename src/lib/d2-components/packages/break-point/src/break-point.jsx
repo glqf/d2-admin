@@ -13,17 +13,17 @@ export default defineComponent({
   name,
   props: {
     // example
-    // {
-    //   foo: ['foo min', { sm: 'foo sm', md: 'foo md' }],
-    //   bar: ['bar min', { sm: 'bar sm', lg: 'bar lg' }]
-    // }
+    //   {
+    //     foo: ['foo min', { sm: 'foo sm', md: 'foo md' }],
+    //     bar: ['bar min', { sm: 'bar sm', lg: 'bar lg' }]
+    //   }
     // return
-    // min:
-    // { foo: 'foo min', bar: 'bar min' }
-    // md:
-    // { foo: 'foo md', bar: 'bar sm' }
-    // xl:
-    // { foo: 'foo md', bar: 'bar lg' }
+    //   on min status:
+    //     { foo: 'foo min', bar: 'bar min' }
+    //   on md status:
+    //     { foo: 'foo md', bar: 'bar sm' }
+    //   on xl status:
+    //     { foo: 'foo md', bar: 'bar lg' }
     responsive: { type: Object, default: () => ({}) }
   },
   setup (props, { slots }) {
