@@ -10,7 +10,7 @@
         v-for="(data, index) in data"
         :key="index"
         dir="top"
-        cross="justify"
+        cross="stretch"
         space="large"
         grow="1"
         shrink="0"
