@@ -2,6 +2,9 @@
   <the-section title="button">
     <d2-button>button</d2-button>
   </the-section>
+  <the-section title="chinese">
+    <d2-button>按钮</d2-button>
+  </the-section>
   <the-section title="slot">
     <d2-button>
       <p class="text-lg text-left">Title</p>
