@@ -8,7 +8,7 @@
   @include mix-button-color-styles(#{$color}-base);
   &:hover { @include mix-button-color-styles(#{$color}-hover); }
   &:focus { @include mix-button-color-styles(#{$color}-focus); }
-  &:active { @include mix-button-color-styles(#{$color}-active); }
+  &:active, &.is-active { @include mix-button-color-styles(#{$color}-active); }
   @include when(disabled) {
     &,&:hover,&:focus {
       cursor: not-allowed;
@@ -25,7 +25,7 @@
     @include mix-button-color-styles(#{$color}-plain);
     &:hover { @include mix-button-color-styles(#{$color}-plain-hover); }
     &:focus { @include mix-button-color-styles(#{$color}-plain-focus); }
-    &:active { @include mix-button-color-styles(#{$color}-plain-active); }
+    &:active, &.is-active { @include mix-button-color-styles(#{$color}-plain-active); }
     @include when(disabled) {
       &,&:hover,&:focus {
         @include mix-button-color-styles(#{$color}-plain-disabled);
@@ -43,7 +43,7 @@
     color: var(--d2-button-font-color-#{$color}-text);
     &:hover { color: var(--d2-button-font-color-#{$color}-text-hover); }
     &:focus { color: var(--d2-button-font-color-#{$color}-text-focus); }
-    &:active { color: var(--d2-button-font-color-#{$color}-text-active); }
+    &:active, &.is-active { color: var(--d2-button-font-color-#{$color}-text-active); }
     @include when(disabled) {
       &,&:hover,&:focus {
         border-color: transparent;
