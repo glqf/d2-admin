@@ -4,7 +4,8 @@
     <d2-button
       v-for="(group, groupIndex) in groupNames"
       :key="group"
-      color="indigo"
+      color="gray"
+      :active="groupActiveIndex === groupIndex"
       @click="onClickGroup(groupIndex)"
       plain
     >
@@ -16,9 +17,10 @@
     <d2-button
       v-for="item in groupActiveMenu"
       :key="item"
-      color="indigo"
+      color="gray"
       size="mini"
       class="mb-2"
+      :active="$route.path === item"
       @click="onClickLink(item)"
       plain
     >
