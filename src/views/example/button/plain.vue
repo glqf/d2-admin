@@ -1,6 +1,9 @@
 <template>
   <the-section title="plain">
-    <d2-button plain>button</d2-button>
+    <d2-button color="indigo" plain>button</d2-button>
+  </the-section>
+  <the-section title="plain off">
+    <d2-button color="indigo">button</d2-button>
   </the-section>
 </template>
 
