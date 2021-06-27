@@ -72,8 +72,8 @@
   padding: var(--d2-button-padding-y-#{$size}) var(--d2-button-padding-x-#{$size});
   border-radius: var(--d2-button-border-radius-#{$size});
   font-size: var(--d2-button-font-size-#{$size});
-  line-height: var(--d2-button-line-height-#{$size});
-  --round-radius: calc((var(--d2-button-line-height-#{$size}) + var(--d2-button-padding-y-#{$size}) * 2) * 0.5);
+  line-height: var(--d2-button-font-size-#{$size});
+  --round-radius: calc((var(--d2-button-font-size-#{$size}) + var(--d2-button-padding-y-#{$size}) * 2) * 0.5);
   & + &,
   & + .#{$namespace}-button-group {
     margin-left: var(--d2-button-space-#{$size});
@@ -88,11 +88,15 @@
     // in order to keep it round, also need to set it to clip overflow content
     & > span {
       display: block;
-      width: var(--d2-button-line-height-#{$size});
-      height: var(--d2-button-line-height-#{$size});
+      width: var(--d2-button-font-size-#{$size});
+      height: var(--d2-button-font-size-#{$size});
       overflow: hidden;
       text-overflow: ellipsis;
     }
+  }
+  & > .#{$namespace}-icon {
+    width: var(--d2-button-font-size-#{$size});
+    height: var(--d2-button-font-size-#{$size});
   }
   & > .#{$namespace}-icon:not(:last-child) {
     margin-right: calc(var(--d2-button-padding-x-#{$size}) * 0.5);
@@ -122,6 +126,10 @@
   &:focus,
   &:active {
     outline: none;
+  }
+  & > span {
+    display: inline-block;
+    vertical-align: middle;
   }
   @include when(text) {
     box-shadow: #{--var-shadow(none)};
