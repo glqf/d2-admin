@@ -11,6 +11,7 @@ export default {
   autofocus: { type: Boolean, default: false },
   text: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
+  active: { type: Boolean, default: false },
   loading: { type: Boolean, default: false },
   loadingRight: { type: Boolean, default: false },
   plain: { type: Boolean, default: false },

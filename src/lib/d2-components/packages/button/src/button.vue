@@ -76,6 +76,9 @@ export default {
     // disabled
     const buttonDisabled = computed(() => props.disabled || unref(inject(buttonGroupName, 'disabled')))
 
+    // active
+    const buttonActive = computed(() => props.active || unref(inject(buttonGroupName, 'active')))
+
     // loading
     const buttonLoadingLeft = computed(() => props.loading)
     const buttonLoadingRight = computed(() => props.loadingRight)
@@ -100,6 +103,7 @@ export default {
         'is-circle': buttonCircle.value,
         'is-ring': buttonRing.value,
         'is-disabled': buttonDisabled.value,
+        'is-active': buttonActive.value,
         'is-loading': buttonLoading.value,
         'is-text': buttonText.value,
         'is-icon-right': buttonIconRightActive.value,
