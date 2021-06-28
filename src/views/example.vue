@@ -1,6 +1,6 @@
 <template>
   <h2 class="mb-4 text-lg text-gray-500 select-none">Example</h2>
-  <d2-button-group size="mini">
+  <d2-button-group>
     <d2-button
       v-for="(group, groupIndex) in groupNames"
       :key="group"
@@ -13,12 +13,11 @@
     </d2-button>
   </d2-button-group>
   <hr class="my-4">
-  <d2-button-group size="mini">
+  <d2-button-group>
     <d2-button
       v-for="item in groupActiveMenu"
       :key="item"
       color="gray"
-      size="mini"
       class="mb-2"
       :active="$route.path === item"
       @click="onClickLink(item)"
