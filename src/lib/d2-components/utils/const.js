@@ -38,7 +38,7 @@ export const breakPoints = fromPairs(
  * @param {boolean} empty allow empty string
  * @returns boolean
  */
- export function isFlex (type, value, empty) {
+export function isFlex (type, value, empty) {
   return empty && isEmptyString(value) || flexProps[type] && flexProps[type].includes(value)
 }
 
@@ -58,7 +58,7 @@ export function isColor (value, empty) {
  * @param {boolean} empty allow empty string
  * @returns boolean
  */
- export function isSpaceSize (value, empty) {
+export function isSpaceSize (value, empty) {
   return empty && isEmptyString(value) || spaceSizeNames.includes(value)
 }
 
