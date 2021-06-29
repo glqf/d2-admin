@@ -88,15 +88,15 @@
     // in order to keep it round, also need to set it to clip overflow content
     & > span {
       display: block;
-      width: var(--d2-button-font-size-#{$size});
-      height: var(--d2-button-font-size-#{$size});
+      width: var(--d2-button-line-height-#{$size});
+      height: var(--d2-button-line-height-#{$size});
       overflow: hidden;
       text-overflow: ellipsis;
     }
   }
   & > .#{$namespace}-icon {
-    width: var(--d2-button-font-size-#{$size});
-    height: var(--d2-button-font-size-#{$size});
+    width: var(--d2-button-line-height-#{$size});
+    height: var(--d2-button-line-height-#{$size});
   }
   & > .#{$namespace}-icon:not(:last-child) {
     margin-right: calc(var(--d2-button-padding-x-#{$size}) * 0.5);
@@ -129,7 +129,6 @@
   }
   & > span {
     display: inline-block;
-    vertical-align: middle;
   }
   @include when(text) {
     box-shadow: #{--var-shadow(none)};
