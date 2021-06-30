@@ -65,16 +65,22 @@ export default {
       return ''
     }
 
+    function clear () {
+      const dom = unref(container)
+      if (dom) dom.innerHTML = ''
+    }
+
     /**
      * refresh icon
      */
     async function reload () {
+      clear()
       // check container
       const dom = unref(container)
       if (!dom) return
       // check icon
       const _icon = unref(icon)
-      if (!_icon) return dom.innerHTML = ''
+      if (!_icon) return clear()
       // render
       await nextTick()
       const svg = Iconify.renderSVG(_icon, {})
@@ -85,7 +91,6 @@ export default {
         const span = document.createElement('span')
         span.className = 'iconify'
         span.dataset.icon = _icon
-        dom.innerHTML = ''
         dom.appendChild(span)
         // console.info(`Can't find svg named ${ _icon } from cache, created span:`, span)
       }
