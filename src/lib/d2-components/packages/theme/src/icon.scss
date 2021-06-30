@@ -1,5 +1,6 @@
 @include b(icon) {
   display: inline-block;
+  line-height: 0;
   svg {
     display: inline-block;
   }

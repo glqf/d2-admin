@@ -1,5 +1,4 @@
 <template>
-  
   <the-section title="iconify">
     <a href="https://iconify.design/icon-sets/" target="_blank">
       <d2-button
