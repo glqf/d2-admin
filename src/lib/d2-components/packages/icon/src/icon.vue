@@ -65,6 +65,9 @@ export default {
       return ''
     }
 
+    /**
+     * try clear container
+     */
     function clear () {
       const dom = unref(container)
       if (dom) dom.innerHTML = ''
