@@ -19,6 +19,11 @@
     <d2-icon icon="mdi:arrow-left"/>
     <d2-icon :icon="`mdi:arrow-${ arrow }`"/>
   </the-section>
+  <the-section title="text">
+    <p class="text-2xl">
+      text<d2-icon icon="mdi:account-circle"/>text
+    </p>
+  </the-section>
   <the-section title="color by class">
     <d2-icon class="text-indigo-500" icon="mdi:account-circle"/>
     <d2-icon class="text-indigo-500" icon="mdi:arrow-left"/>
