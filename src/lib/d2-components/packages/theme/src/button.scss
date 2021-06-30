@@ -128,7 +128,8 @@
     outline: none;
   }
   & > span {
-    display: inline-block;
+    display: block;
+    float: left;
   }
   @include when(text) {
     box-shadow: #{--var-shadow(none)};
