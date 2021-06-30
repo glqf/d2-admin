@@ -89,13 +89,11 @@ export default {
       const svg = Iconify.renderSVG(_icon, {})
       if (svg) {
         dom.appendChild(svg)
-        // console.info(`Load icon named ${ _icon } from cache`)
       } else {
         const span = document.createElement('span')
         span.className = 'iconify'
         span.dataset.icon = _icon
         dom.appendChild(span)
-        // console.info(`Can't find svg named ${ _icon } from cache, created span:`, span)
       }
     }
 
