@@ -98,10 +98,12 @@
     height: var(--d2-button-line-height-#{$size});
   }
   & > .#{$namespace}-icon:not(:last-child) {
-    margin-right: calc(var(--d2-button-padding-x-#{$size}) * 0.5);
+    margin-right: calc(var(--d2-button-padding-x-#{$size}) * 0.25);
+    margin-left: calc(var(--d2-button-padding-x-#{$size}) * -0.5);
   }
   & > .#{$namespace}-icon:not(:first-child) {
-    margin-left: calc(var(--d2-button-padding-x-#{$size}) * 0.5);
+    margin-left: calc(var(--d2-button-padding-x-#{$size}) * 0.25);
+    margin-right: calc(var(--d2-button-padding-x-#{$size}) * -0.5);
   }
 }
 
