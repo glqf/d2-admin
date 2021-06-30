@@ -87,7 +87,6 @@
     // only slot in span
     // in order to keep it round, also need to set it to clip overflow content
     & > span {
-      display: block;
       width: var(--d2-button-line-height-#{$size});
       height: var(--d2-button-line-height-#{$size});
       overflow: hidden;
@@ -130,6 +129,11 @@
   & > span {
     display: block;
     float: left;
+  }
+  & > .#{$namespace}-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   @include when(text) {
     box-shadow: #{--var-shadow(none)};
