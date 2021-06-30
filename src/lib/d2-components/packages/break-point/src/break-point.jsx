@@ -24,7 +24,7 @@ export default defineComponent({
     //     { foo: 'foo md', bar: 'bar sm' }
     //   on xl status:
     //     { foo: 'foo md', bar: 'bar lg' }
-    responsive: { type: Object, default: () => ({}) }
+    data: { type: Object, default: () => ({}) }
   },
   setup (props, { slots }) {
     const $D2COM = useConfigForD2Components()
@@ -41,7 +41,7 @@ export default defineComponent({
       breakPoint: unref(status.breakPoint),
       min: unref(status.min),
       ...mapValues(config, (v, k) => unref(status[k])),
-      responsive: mapValues(props.responsive, (v, k) => unref(status.responsive(...props.responsive[k])))
+      data: mapValues(props.data, (v, k) => unref(status.responsive(...props.data[k])))
     }))
     
     return () => {

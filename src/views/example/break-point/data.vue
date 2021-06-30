@@ -1,8 +1,8 @@
 <template>
   <the-section title="break point">
-    <d2-break-point :responsive="config" v-slot="status">
-      <p class="view" :style="{ color: status.responsive.color }">
-        {{ status.responsive.color }}
+    <d2-break-point :data="config" v-slot="status">
+      <p class="view" :style="{ color: status.data.color }">
+        {{ status.data.color }}
       </p>
     </d2-break-point>
   </the-section>
