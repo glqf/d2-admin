@@ -73,7 +73,7 @@
   border-radius: var(--d2-button-border-radius-#{$size});
   font-size: var(--d2-button-font-size-#{$size});
   line-height: var(--d2-button-line-height-#{$size});
-  --round-radius: calc((var(--d2-button-font-size-#{$size}) + var(--d2-button-padding-y-#{$size}) * 2) * 0.5);
+  --round-radius: calc((var(--d2-button-line-height-#{$size}) + var(--d2-button-padding-y-#{$size}) * 2) * 0.5);
   & + &,
   & + .#{$namespace}-button-group {
     margin-left: var(--d2-button-space-#{$size});
