@@ -12,9 +12,7 @@
   </the-section>
   <the-section title="inline el-button">
     <p class="align-middle">
-      text
-      <button type="button" class="el-button">123</button>
-      text
+      text<button type="button" class="el-button">123</button>text
     </p>
   </the-section>
   <the-section title="slot">
