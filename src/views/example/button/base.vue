@@ -6,12 +6,15 @@
     <d2-button>按钮</d2-button>
   </the-section>
   <the-section title="inline">
-    <p class="align-middle">
+    <p>
       text<d2-button>button</d2-button>text
+    </p>
+    <p>
+      text<d2-button icon="heroicons-solid:menu">button</d2-button>text
     </p>
   </the-section>
   <the-section title="inline el-button">
-    <p class="align-middle">
+    <p>
       text<button type="button" class="el-button">123</button>text
     </p>
   </the-section>

@@ -100,10 +100,12 @@
   & > .#{$namespace}-icon:not(:last-child) {
     margin-right: calc(var(--d2-button-padding-x-#{$size}) * 0.25);
     margin-left: calc(var(--d2-button-padding-x-#{$size}) * -0.5);
+    float: left;
   }
   & > .#{$namespace}-icon:not(:first-child) {
     margin-left: calc(var(--d2-button-padding-x-#{$size}) * 0.25);
     margin-right: calc(var(--d2-button-padding-x-#{$size}) * -0.5);
+    float: right;
   }
 }
 
@@ -126,10 +128,6 @@
   &:focus,
   &:active {
     outline: none;
-  }
-  & > span {
-    // display: block;
-    float: left;
   }
   & > .#{$namespace}-icon {
     display: flex;
