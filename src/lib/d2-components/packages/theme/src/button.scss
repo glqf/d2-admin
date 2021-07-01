@@ -109,7 +109,6 @@
 
 @include b(button) {
   display: inline-block;
-  vertical-align: middle;
   white-space: nowrap;
   cursor: pointer;
   border-width: var(--d2-border-width);
@@ -217,6 +216,7 @@
   }
   & > .#{$namespace}-button {
     position: relative;
+    vertical-align: middle;
     & + .#{$namespace}-button {
       margin-left: 0;
     }
