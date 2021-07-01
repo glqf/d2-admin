@@ -61,13 +61,6 @@
   }
 }
 
-@mixin mix-button-size-radius-every ($size) {
-  border-top-right-radius: var(--d2-button-border-radius-#{$size});
-  border-bottom-right-radius: var(--d2-button-border-radius-#{$size});
-  border-top-left-radius: var(--d2-button-border-radius-#{$size});
-  border-bottom-left-radius: var(--d2-button-border-radius-#{$size});
-}
-
 @mixin mix-button-size($size) {
   padding: var(--d2-button-padding-y-#{$size}) var(--d2-button-padding-x-#{$size});
   border-radius: var(--d2-button-border-radius-#{$size});
