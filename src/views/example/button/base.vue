@@ -13,11 +13,6 @@
       text<d2-button icon="heroicons-solid:menu">button</d2-button>text
     </p>
   </the-section>
-  <the-section title="inline el-button">
-    <p>
-      text<button type="button" class="el-button">123</button>text
-    </p>
-  </the-section>
   <the-section title="slot">
     <d2-button>
       <p class="text-lg text-left">Title</p>
