@@ -25,30 +25,42 @@ export default {
 
 <style lang="scss">
 .css-button {
+  line-height: 1.499;
+  position: relative;
   display: inline-block;
-  box-sizing: border-box;
-  background: #fff;
+  font-weight: 400;
+  white-space: nowrap;
   text-align: center;
-  margin: 0;
-  padding: 2px 4px;
+  background-image: none;
+  box-shadow: 0 2px 0 rgb(0 0 0 / 2%);
+  cursor: pointer;
+  transition: all .3s cubic-bezier(.645,.045,.355,1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  height: 32px;
+  padding: 0 15px;
   font-size: 14px;
-  line-height: 1;
-  border: 1px solid #dcdfe6;
-  overflow: hidden;
-  vertical-align: text-bottom;
+  border-radius: 4px;
+  color: rgba(0,0,0,.65);
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
   span {
     display: inline-block;
-    background-color: #666666;
-    vertical-align: middle;
   }
   .d2-icon {
-    display: inline-block;
-    height: 1em;
     line-height: 1;
-    background-color: #CCCCCC;
+    color: inherit;
+    font-style: normal;
+    text-align: center;
+    text-transform: none;
+    vertical-align: -.125em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
     svg {
       display: inline-block;
-      background-color: red;
     }
   }
 }
