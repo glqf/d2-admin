@@ -62,41 +62,22 @@
 }
 
 @mixin mix-button-size($size) {
-  padding: var(--d2-button-padding-y-#{$size}) var(--d2-button-padding-x-#{$size});
+  padding: 0 var(--d2-button-padding-x-#{$size});
   border-radius: var(--d2-button-border-radius-#{$size});
   font-size: var(--d2-button-font-size-#{$size});
   line-height: var(--d2-button-line-height-#{$size});
-  --round-radius: calc((var(--d2-button-line-height-#{$size}) + var(--d2-button-padding-y-#{$size}) * 2) * 0.5);
+  --round-radius: calc(var(--d2-button-line-height-#{$size}) * 0.5);
   & + &,
   & + .#{$namespace}-button-group {
     margin-left: var(--d2-button-space-#{$size});
   }
   @include when(circle) {
-    padding: var(--d2-button-padding-y-#{$size});
-    // why only set styles for span
-    // when the circle property on the component is set to true
-    // there are only two situations inside the button
-    // only one icon in span
-    // only slot in span
-    // in order to keep it round, also need to set it to clip overflow content
     & > span {
       width: var(--d2-button-line-height-#{$size});
       height: var(--d2-button-line-height-#{$size});
       overflow: hidden;
       text-overflow: ellipsis;
     }
-  }
-  & > .#{$namespace}-icon {
-    width: var(--d2-button-line-height-#{$size});
-    height: var(--d2-button-line-height-#{$size});
-  }
-  & > .#{$namespace}-icon:not(:last-child) {
-    margin-right: calc(var(--d2-button-padding-x-#{$size}) * 0.25);
-    margin-left: calc(var(--d2-button-padding-x-#{$size}) * -0.5);
-  }
-  & > .#{$namespace}-icon:not(:first-child) {
-    margin-left: calc(var(--d2-button-padding-x-#{$size}) * 0.25);
-    margin-right: calc(var(--d2-button-padding-x-#{$size}) * -0.5);
   }
 }
 
@@ -124,11 +105,6 @@
   & > span {
     display: block;
     float: left;
-  }
-  & > .#{$namespace}-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
   @include when(text) {
     box-shadow: #{--var-shadow(none)};
