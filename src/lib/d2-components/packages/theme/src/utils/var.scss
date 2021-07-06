@@ -350,11 +350,11 @@ $--d2-ring-offset-width: 0, 4;
 // -------------+----------------
 
 $--d2-button-status-colorful: (
-  base:     ( font-color: 0,   border-color: 500, background-color: 500 ),
-  hover:    ( font-color: 100, border-color: 500, background-color: 500 ),
-  focus:    ( font-color: 100, border-color: 500, background-color: 500 ),
-  active:   ( font-color: 0,   border-color: 600, background-color: 600 ),
-  disabled: ( font-color: 0,   border-color: 300, background-color: 300 ),
+  base:           ( font-color: 0,   border-color: 500, background-color: 500 ),
+  hover:          ( font-color: 100, border-color: 500, background-color: 500 ),
+  focus:          ( font-color: 100, border-color: 500, background-color: 500 ),
+  active:         ( font-color: 0,   border-color: 600, background-color: 600 ),
+  disabled:       ( font-color: 0,   border-color: 300, background-color: 300 ),
   // plain
   plain:          ( font-color: 500, border-color: 300, background-color: 50 ),
   plain-hover:    ( font-color: 50,  border-color: 500, background-color: 500 ),
@@ -362,20 +362,20 @@ $--d2-button-status-colorful: (
   plain-active:   ( font-color: 50,  border-color: 600, background-color: 600 ),
   plain-disabled: ( font-color: 300, border-color: 200, background-color: 50 ),
   // text
-  text:          ( font-color: 500 ),
-  text-hover:    ( font-color: 400 ),
-  text-focus:    ( font-color: 400 ),
-  text-active:   ( font-color: 600 ),
-  text-disabled: ( font-color: 300 )
+  text:           ( font-color: 500 ),
+  text-hover:     ( font-color: 400 ),
+  text-focus:     ( font-color: 400 ),
+  text-active:    ( font-color: 600 ),
+  text-disabled:  ( font-color: 300 )
 );
 
 $--d2-button-status-base: (
-  base:     ( font-color: 700, border-color: 300, background-color: 0 ),
-  hover:    ( font-color: 700, border-color: 300, background-color: 50 ),
-  focus:    ( font-color: 700, border-color: 300, background-color: 50 ),
-  active:   ( font-color: 700, border-color: 400, background-color: 50 ),
-  disabled: ( font-color: 400, border-color: 200, background-color: 0 ),
-  loading:  ( font-color: 400, border-color: 200, background-color: 0 ),
+  base:           ( font-color: 700, border-color: 300, background-color: 0 ),
+  hover:          ( font-color: 700, border-color: 300, background-color: 50 ),
+  focus:          ( font-color: 700, border-color: 300, background-color: 50 ),
+  active:         ( font-color: 700, border-color: 400, background-color: 50 ),
+  disabled:       ( font-color: 400, border-color: 200, background-color: 0 ),
+  loading:        ( font-color: 400, border-color: 200, background-color: 0 ),
   // plain
   plain:          ( font-color: 700, border-color: 300, background-color: 0 ),
   plain-hover:    ( font-color: 700, border-color: 400, background-color: 0 ),
@@ -384,12 +384,12 @@ $--d2-button-status-base: (
   plain-disabled: ( font-color: 400, border-color: 200, background-color: 0 ),
   plain-loading:  ( font-color: 400, border-color: 200, background-color: 0 ),
   // text
-  text:          ( font-color: 700 ),
-  text-hover:    ( font-color: 600 ),
-  text-focus:    ( font-color: 600 ),
-  text-active:   ( font-color: 800 ),
-  text-disabled: ( font-color: 500 ),
-  text-loading:  ( font-color: 500 )
+  text:           ( font-color: 700 ),
+  text-hover:     ( font-color: 600 ),
+  text-focus:     ( font-color: 600 ),
+  text-active:    ( font-color: 800 ),
+  text-disabled:  ( font-color: 500 ),
+  text-loading:   ( font-color: 500 )
 );
 
 // 'base' must be set before other names
