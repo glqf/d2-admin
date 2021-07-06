@@ -2,6 +2,14 @@
   <the-section title="icon">
     <d2-button icon="heroicons-solid:menu">Menu</d2-button>
   </the-section>
+  <the-section title="icon + text">
+    <p>
+      text
+      <d2-button icon="heroicons-solid:menu">Menu</d2-button>
+      text
+    </p>
+    <p>text<d2-button icon="heroicons-solid:menu">Menu</d2-button>text</p>
+  </the-section>
   <the-section title="icon right">
     <d2-button icon-right="heroicons-solid:menu">Menu</d2-button>
   </the-section>

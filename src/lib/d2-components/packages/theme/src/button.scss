@@ -62,13 +62,16 @@
 }
 
 @mixin mix-button-size($size) {
-  padding: 0 var(--d2-button-padding-x-#{$size});
+  padding: var(--d2-button-padding-y-#{$size}) var(--d2-button-padding-x-#{$size});
   border-radius: var(--d2-button-border-radius-#{$size});
   font-size: var(--d2-button-font-size-#{$size});
-  line-height: var(--d2-button-line-height-#{$size});
   --round-radius: calc(var(--d2-button-line-height-#{$size}) * 0.5);
   & + &,
   & + .#{$namespace}-button-group {
+    margin-left: var(--d2-button-space-#{$size});
+  }
+  & > .#{$namespace}-icon + span,
+  & > span + .#{$namespace}-icon {
     margin-left: var(--d2-button-space-#{$size});
   }
   @include when(circle) {
@@ -82,20 +85,21 @@
 }
 
 @include b(button) {
+  line-height: 1.5715;
   display: inline-block;
-  vertical-align: middle;
   white-space: nowrap;
   cursor: pointer;
-  border-width: var(--d2-border-width);
-  border-style: var(--d2-border-style);
+  user-select: none;
+  touch-action: manipulation;
   -webkit-appearance: none;
   text-align: center;
   box-sizing: border-box;
   outline: none;
   margin: 0;
+  border-width: var(--d2-border-width);
+  border-style: var(--d2-border-style);
   transition: --var-transition-speed(fast);
   font-weight: var(--d2-button-font-weight-base);
-  user-select: none;
   --ring-color: #{--var-color('gray', 500, 10)};
   box-shadow: #{--var-shadow(sm)};
   &:focus,
@@ -103,8 +107,11 @@
     outline: none;
   }
   & > span {
-    display: block;
-    float: left;
+    display: inline-block;
+    pointer-events: none;
+  }
+  & > .#{$namespace}-icon {
+    line-height: 1;
   }
   @include when(text) {
     box-shadow: #{--var-shadow(none)};

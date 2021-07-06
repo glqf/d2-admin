@@ -396,10 +396,10 @@ $--d2-button-status-base: (
 // Because the generation of styles is based on the order of setting
 // 'base' as the default style should appear first in the style sheet so that it can be overridden by other styles
 $--d2-button-sizes: (
-  base: ( border-radius: md, font-size: base, font-weight: 500, padding-x: 2.5 ),
-  mini: ( border-radius: base, font-size: sm, font-weight: 400, padding-x: 1.5 ),
-  small: ( border-radius: base, font-size: sm, font-weight: 400, padding-x: 2 ),
-  large: ( border-radius: lg, font-size: lg, font-weight: 600, padding-x: 5 )
+  base: ( border-radius: md, font-size: base, font-weight: 500, padding-y: 0, padding-x: 2.5 ),
+  mini: ( border-radius: base, font-size: sm, font-weight: 400, padding-y: 0, padding-x: 1.5 ),
+  small: ( border-radius: base, font-size: sm, font-weight: 400, padding-y: 0, padding-x: 2 ),
+  large: ( border-radius: lg, font-size: lg, font-weight: 600, padding-y: 0, padding-x: 5 )
 );
 
 :root {
@@ -420,8 +420,8 @@ $--d2-button-sizes: (
   @each $_size, $_size-setting in $--d2-button-sizes {
     --d2-button-border-radius-#{$_size}: #{--var-radius(map-get($_size-setting, border-radius))};
     --d2-button-font-size-#{$_size}: #{--var-font-size(map-get($_size-setting, font-size))};
-    --d2-button-line-height-#{$_size}: #{--var-line-height(map-get($_size-setting, font-size))};
     --d2-button-font-weight-#{$_size}: #{--var-font-weight(map-get($_size-setting, font-weight))};
+    --d2-button-padding-y-#{$_size}: #{--var-space(map-get($_size-setting, padding-y))};
     --d2-button-padding-x-#{$_size}: #{--var-space(map-get($_size-setting, padding-x))};
     --d2-button-space-#{$_size}: var(--d2-space-#{$_size});
     --d2-button-group-space-#{$_size}: var(--d2-space-#{$_size});
