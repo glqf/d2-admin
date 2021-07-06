@@ -29,25 +29,25 @@ $--lg: 1200px;
 $--xl: 1920px;
 
 $--breakpoints: (
-  'xs' : '(max-width: #{$--sm})',
-  'sm' : '(min-width: #{$--sm})',
-  'md' : '(min-width: #{$--md})',
-  'lg' : '(min-width: #{$--lg})',
-  'xl' : '(min-width: #{$--xl})'
+  'xs': '(max-width: #{$--sm})',
+  'sm': '(min-width: #{$--sm})',
+  'md': '(min-width: #{$--md})',
+  'lg': '(min-width: #{$--lg})',
+  'xl': '(min-width: #{$--xl})'
 );
 
 $--breakpoints-spec: (
-  'xs-only' : '(max-width: #{$--sm})',
-  'sm-and-up' : '(min-width: #{$--sm})',
-  'sm-only': '(min-width: #{$--sm}) and (max-width: #{$--md})',
+  'xs-only':     '(max-width: #{$--sm})',
+  'sm-and-up':   '(min-width: #{$--sm})',
+  'sm-only':     '(min-width: #{$--sm}) and (max-width: #{$--md})',
   'sm-and-down': '(max-width: #{$--md})',
-  'md-and-up' : '(min-width: #{$--md})',
-  'md-only': '(min-width: #{$--md}) and (max-width: #{$--lg})',
+  'md-and-up':   '(min-width: #{$--md})',
+  'md-only':     '(min-width: #{$--md}) and (max-width: #{$--lg})',
   'md-and-down': '(max-width: #{$--lg})',
-  'lg-and-up' : '(min-width: #{$--lg})',
-  'lg-only': '(min-width: #{$--lg}) and (max-width: #{$--xl})',
+  'lg-and-up':   '(min-width: #{$--lg})',
+  'lg-only':     '(min-width: #{$--lg}) and (max-width: #{$--xl})',
   'lg-and-down': '(max-width: #{$--xl})',
-  'xl-only' : '(min-width: #{$--xl})',
+  'xl-only':     '(min-width: #{$--xl})',
 );
 
 
@@ -64,14 +64,14 @@ $--breakpoints-spec: (
 // --------+---------------------
 
 $--d2-color: (
-  gray: ( 50: #F9FAFB, 100: #F3F4F6, 200: #E5E7EB, 300: #D1D5DB, 400: #9CA3AF, 500: #6B7280, 600: #4B5563, 700: #374151, 800: #1F2937, 900: #111827 ),
-  red: ( 50: #FEF2F2, 100: #FEE2E2, 200: #FECACA, 300: #FCA5A5, 400: #F87171, 500: #EF4444, 600: #DC2626, 700: #B91C1C, 800: #991B1B, 900: #7F1D1D ),
+  gray:   ( 50: #F9FAFB, 100: #F3F4F6, 200: #E5E7EB, 300: #D1D5DB, 400: #9CA3AF, 500: #6B7280, 600: #4B5563, 700: #374151, 800: #1F2937, 900: #111827 ),
+  red:    ( 50: #FEF2F2, 100: #FEE2E2, 200: #FECACA, 300: #FCA5A5, 400: #F87171, 500: #EF4444, 600: #DC2626, 700: #B91C1C, 800: #991B1B, 900: #7F1D1D ),
   yellow: ( 50: #FFFBEB, 100: #FEF3C7, 200: #FDE68A, 300: #FCD34D, 400: #FBBF24, 500: #F59E0B, 600: #D97706, 700: #B45309, 800: #92400E, 900: #78350F ),
-  green: ( 50: #ECFDF5, 100: #D1FAE5, 200: #A7F3D0, 300: #6EE7B7, 400: #34D399, 500: #10B981, 600: #059669, 700: #047857, 800: #065F46, 900: #064E3B ),
-  blue: ( 50: #EFF6FF, 100: #DBEAFE, 200: #BFDBFE, 300: #93C5FD, 400: #60A5FA, 500: #3B82F6, 600: #2563EB, 700: #1D4ED8, 800: #1E40AF, 900: #1E3A8A ),
+  green:  ( 50: #ECFDF5, 100: #D1FAE5, 200: #A7F3D0, 300: #6EE7B7, 400: #34D399, 500: #10B981, 600: #059669, 700: #047857, 800: #065F46, 900: #064E3B ),
+  blue:   ( 50: #EFF6FF, 100: #DBEAFE, 200: #BFDBFE, 300: #93C5FD, 400: #60A5FA, 500: #3B82F6, 600: #2563EB, 700: #1D4ED8, 800: #1E40AF, 900: #1E3A8A ),
   indigo: ( 50: #EEF2FF, 100: #E0E7FF, 200: #C7D2FE, 300: #A5B4FC, 400: #818CF8, 500: #6366F1, 600: #4F46E5, 700: #4338CA, 800: #3730A3, 900: #312E81 ),
   purple: ( 50: #F5F3FF, 100: #EDE9FE, 200: #DDD6FE, 300: #C4B5FD, 400: #A78BFA, 500: #8B5CF6, 600: #7C3AED, 700: #6D28D9, 800: #5B21B6, 900: #4C1D95 ),
-  pink: ( 50: #FDF2F8, 100: #FCE7F3, 200: #FBCFE8, 300: #F9A8D4, 400: #F472B6, 500: #EC4899, 600: #DB2777, 700: #BE185D, 800: #9D174D, 900: #831843 )
+  pink:   ( 50: #FDF2F8, 100: #FCE7F3, 200: #FBCFE8, 300: #F9A8D4, 400: #F472B6, 500: #EC4899, 600: #DB2777, 700: #BE185D, 800: #9D174D, 900: #831843 )
 );
 $--d2-color-alpha: 10, 30; // can be array like 0, 20, ... 100
 
@@ -112,14 +112,14 @@ $--d2-color-alpha: 10, 30; // can be array like 0, 20, ... 100
 // --------+---------------------
 
 $--d2-shadow: (
-  sm: (0 1px 2px 0 rgba(0, 0, 0, 0.05)),
-  base: (0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)),
-  md: (0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)),
-  lg: (0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)),
-  xl: (0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)),
-  xxl: (0 25px 50px -12px rgba(0, 0, 0, 0.25)),
+  sm:    (0 1px 2px 0 rgba(0, 0, 0, 0.05)),
+  base:  (0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)),
+  md:    (0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)),
+  lg:    (0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)),
+  xl:    (0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)),
+  xxl:   (0 25px 50px -12px rgba(0, 0, 0, 0.25)),
   inner: (inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)),
-  none: (0 0 #0000)
+  none:  (0 0 #0000)
 );
 
 @function --var-shadow ($size) {
@@ -205,19 +205,19 @@ $--d2-flex-dir: top, right, bottom, left;
 // --------+---------------------
 
 $--d2-font-size: (
-  xs: ( size: 0.75rem, height: 1rem ),
-  sm: ( size: 0.875rem, height: 1.25rem ),
+  xs:   ( size: 0.75rem, height: 1rem ),
+  sm:   ( size: 0.875rem, height: 1.25rem ),
   base: ( size: 1rem, height: 1.5rem ),
-  lg: ( size: 1.125rem, height: 1.75rem ),
-  xl: ( size: 1.25rem, height: 1.75rem ),
-  xxl: ( size: 1.5rem, height: 2rem ),
-  3xl: ( size: 1.875rem, height: 2.25rem ),
-  4xl: ( size: 2.25rem, height: 2.5rem ),
-  5xl: ( size: 3rem, height: 1 ),
-  6xl: ( size: 3.75rem, height: 1 ),
-  7xl: ( size: 4.5rem, height: 1 ),
-  8xl: ( size: 6rem, height: 1 ),
-  9xl: ( size: 8rem, height: 1 )
+  lg:   ( size: 1.125rem, height: 1.75rem ),
+  xl:   ( size: 1.25rem, height: 1.75rem ),
+  xxl:  ( size: 1.5rem, height: 2rem ),
+  3xl:  ( size: 1.875rem, height: 2.25rem ),
+  4xl:  ( size: 2.25rem, height: 2.5rem ),
+  5xl:  ( size: 3rem, height: 1 ),
+  6xl:  ( size: 3.75rem, height: 1 ),
+  7xl:  ( size: 4.5rem, height: 1 ),
+  8xl:  ( size: 6rem, height: 1 ),
+  9xl:  ( size: 8rem, height: 1 )
 );
 
 @function --var-font-weight ($value) {
@@ -287,13 +287,13 @@ $--d2-transition-speed: (
 
 $--d2-border-radius: (
   none: 0px,
-  sm: 0.125rem,
+  sm:   0.125rem,
   base: 0.25rem,
-  md: 0.375rem,
-  lg: 0.5rem,
-  xl: 0.75rem,
-  xxl: 1rem,
-  3xl: 1.5rem,
+  md:   0.375rem,
+  lg:   0.5rem,
+  xl:   0.75rem,
+  xxl:  1rem,
+  3xl:  1.5rem,
   full: 9999px
 );
 
@@ -350,46 +350,46 @@ $--d2-ring-offset-width: 0, 4;
 // -------------+----------------
 
 $--d2-button-status-colorful: (
-  base: ( font-color: 0, border-color: 500, background-color: 500 ),
-  hover: ( font-color: 100, border-color: 500, background-color: 500 ),
-  focus: ( font-color: 100, border-color: 500, background-color: 500 ),
-  active: ( font-color: 0, border-color: 600, background-color: 600 ),
-  disabled: ( font-color: 0, border-color: 300, background-color: 300 ),
+  base:     ( font-color: 0,   border-color: 500, background-color: 500 ),
+  hover:    ( font-color: 100, border-color: 500, background-color: 500 ),
+  focus:    ( font-color: 100, border-color: 500, background-color: 500 ),
+  active:   ( font-color: 0,   border-color: 600, background-color: 600 ),
+  disabled: ( font-color: 0,   border-color: 300, background-color: 300 ),
   // plain
-  plain: ( font-color: 500, border-color: 300, background-color: 50 ),
-  plain-hover: ( font-color: 50, border-color: 500, background-color: 500 ),
-  plain-focus: ( font-color: 200, border-color: 500, background-color: 500 ),
-  plain-active: ( font-color: 50, border-color: 600, background-color: 600 ),
+  plain:          ( font-color: 500, border-color: 300, background-color: 50 ),
+  plain-hover:    ( font-color: 50,  border-color: 500, background-color: 500 ),
+  plain-focus:    ( font-color: 200, border-color: 500, background-color: 500 ),
+  plain-active:   ( font-color: 50,  border-color: 600, background-color: 600 ),
   plain-disabled: ( font-color: 300, border-color: 200, background-color: 50 ),
   // text
-  text: ( font-color: 500 ),
-  text-hover: ( font-color: 400 ),
-  text-focus: ( font-color: 400 ),
-  text-active: ( font-color: 600 ),
+  text:          ( font-color: 500 ),
+  text-hover:    ( font-color: 400 ),
+  text-focus:    ( font-color: 400 ),
+  text-active:   ( font-color: 600 ),
   text-disabled: ( font-color: 300 )
 );
 
 $--d2-button-status-base: (
-  base: ( font-color: 700, border-color: 300, background-color: 0 ),
-  hover: ( font-color: 700, border-color: 300, background-color: 50 ),
-  focus: ( font-color: 700, border-color: 300, background-color: 50 ),
-  active: ( font-color: 700, border-color: 400, background-color: 50 ),
+  base:     ( font-color: 700, border-color: 300, background-color: 0 ),
+  hover:    ( font-color: 700, border-color: 300, background-color: 50 ),
+  focus:    ( font-color: 700, border-color: 300, background-color: 50 ),
+  active:   ( font-color: 700, border-color: 400, background-color: 50 ),
   disabled: ( font-color: 400, border-color: 200, background-color: 0 ),
-  loading: ( font-color: 400, border-color: 200, background-color: 0 ),
+  loading:  ( font-color: 400, border-color: 200, background-color: 0 ),
   // plain
-  plain: ( font-color: 700, border-color: 300, background-color: 0 ),
-  plain-hover: ( font-color: 700, border-color: 400, background-color: 0 ),
-  plain-focus: ( font-color: 700, border-color: 400, background-color: 0 ),
-  plain-active: ( font-color: 700, border-color: 400, background-color: 50 ),
+  plain:          ( font-color: 700, border-color: 300, background-color: 0 ),
+  plain-hover:    ( font-color: 700, border-color: 400, background-color: 0 ),
+  plain-focus:    ( font-color: 700, border-color: 400, background-color: 0 ),
+  plain-active:   ( font-color: 700, border-color: 400, background-color: 50 ),
   plain-disabled: ( font-color: 400, border-color: 200, background-color: 0 ),
-  plain-loading: ( font-color: 400, border-color: 200, background-color: 0 ),
+  plain-loading:  ( font-color: 400, border-color: 200, background-color: 0 ),
   // text
-  text: ( font-color: 700 ),
-  text-hover: ( font-color: 600 ),
-  text-focus: ( font-color: 600 ),
-  text-active: ( font-color: 800 ),
+  text:          ( font-color: 700 ),
+  text-hover:    ( font-color: 600 ),
+  text-focus:    ( font-color: 600 ),
+  text-active:   ( font-color: 800 ),
   text-disabled: ( font-color: 500 ),
-  text-loading: ( font-color: 500 )
+  text-loading:  ( font-color: 500 )
 );
 
 // 'base' must be set before other names
