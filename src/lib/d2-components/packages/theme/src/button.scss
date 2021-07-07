@@ -67,10 +67,6 @@
   font-size: var(--d2-button-font-size-#{$size});
   line-height: var(--d2-button-font-line-height-#{$size});
   --round-radius: calc((var(--d2-button-font-line-height-#{$size}) + var(--d2-button-padding-y-#{$size}) * 2) * 0.5);
-  // vertical align of the icon component in the button is calculated based on the line height
-  & > .#{$namespace}-icon {
-    // vertical-align: calc(var(--d2-button-font-line-height-#{$size}) * -0.125);
-  }
   // space between button and button, button and button group
   & + &,
   & + .#{$namespace}-button-group {
