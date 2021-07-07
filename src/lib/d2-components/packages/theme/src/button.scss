@@ -66,7 +66,7 @@
   border-radius: var(--d2-button-border-radius-#{$size});
   font-size: var(--d2-button-font-size-#{$size});
   line-height: var(--d2-button-font-line-height-#{$size});
-  --round-radius: calc((var(--d2-button-font-size-#{$size}) * 1.5715 + var(--d2-button-padding-y-#{$size}) * 2) * 0.5);
+  --round-radius: calc((var(--d2-button-font-line-height-#{$size}) + var(--d2-button-padding-y-#{$size}) * 2) * 0.5);
   // vertical align of the icon component in the button is calculated based on the line height
   & > .#{$namespace}-icon {
     vertical-align: calc(var(--d2-button-font-line-height-#{$size}) * -0.125);
@@ -79,7 +79,7 @@
   // space between the icon and the text inside the button
   & > .#{$namespace}-icon + span,
   & > span + .#{$namespace}-icon {
-    margin-left: var(--d2-button-space-#{$size});
+    margin-left: calc(var(--d2-button-padding-x-#{$size}) * 0.5);
   }
   @include when(circle) {
     padding: var(--d2-button-padding-y-#{$size});
