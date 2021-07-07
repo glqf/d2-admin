@@ -1,24 +1,24 @@
 <template>
   <the-section title="icon">
     <d2-button-group>
-      <d2-button icon="heroicons-solid:menu">item</d2-button>
-      <d2-button icon="heroicons-solid:menu">item</d2-button>
+      <d2-button icon="fluent:auto-fit-height-24-regular">item</d2-button>
+      <d2-button icon="fluent:auto-fit-height-24-regular">item</d2-button>
     </d2-button-group>
     <d2-button-group>
-      <d2-button icon="heroicons-solid:menu">item</d2-button>
-      <d2-button icon="heroicons-solid:menu">item</d2-button>
-      <d2-button icon="heroicons-solid:menu">item</d2-button>
+      <d2-button icon="fluent:auto-fit-height-24-regular">item</d2-button>
+      <d2-button icon="fluent:auto-fit-height-24-regular">item</d2-button>
+      <d2-button icon="fluent:auto-fit-height-24-regular">item</d2-button>
     </d2-button-group>
   </the-section>
   <the-section title="icon right">
     <d2-button-group>
-      <d2-button icon-right="heroicons-solid:menu">item</d2-button>
-      <d2-button icon-right="heroicons-solid:menu">item</d2-button>
+      <d2-button icon-right="fluent:auto-fit-height-24-regular">item</d2-button>
+      <d2-button icon-right="fluent:auto-fit-height-24-regular">item</d2-button>
     </d2-button-group>
     <d2-button-group>
-      <d2-button icon-right="heroicons-solid:menu">item</d2-button>
-      <d2-button icon-right="heroicons-solid:menu">item</d2-button>
-      <d2-button icon-right="heroicons-solid:menu">item</d2-button>
+      <d2-button icon-right="fluent:auto-fit-height-24-regular">item</d2-button>
+      <d2-button icon-right="fluent:auto-fit-height-24-regular">item</d2-button>
+      <d2-button icon-right="fluent:auto-fit-height-24-regular">item</d2-button>
     </d2-button-group>
   </the-section>
 </template>

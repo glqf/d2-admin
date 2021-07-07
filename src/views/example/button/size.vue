@@ -1,11 +1,15 @@
 <template>
   <the-section title="size">
-    <d2-button>base</d2-button>
-    <d2-button v-for="size in buttonSizeNames" :key="size" :size="size">{{ size }}</d2-button>
+    <d2-button>Button</d2-button>
+    <d2-button v-for="size in buttonSizeNames" :key="size" :size="size">Button</d2-button>
   </the-section>
   <the-section title="round">
-    <d2-button round>base</d2-button>
-    <d2-button v-for="size in buttonSizeNames" :key="size" :size="size" round>{{ size }}</d2-button>
+    <d2-button round>Button</d2-button>
+    <d2-button v-for="size in buttonSizeNames" :key="size" :size="size" round>Button</d2-button>
+  </the-section>
+  <the-section title="icon">
+    <d2-button icon="fluent:auto-fit-height-24-regular">Button</d2-button>
+    <d2-button v-for="size in buttonSizeNames" :key="size" icon="fluent:auto-fit-height-24-regular" :size="size">Button</d2-button>
   </the-section>
   <the-section title="round half">
     <span class="mr-4">
@@ -19,11 +23,11 @@
   </the-section>
   <the-section title="circle">
     <d2-button circle>B</d2-button>
-    <d2-button v-for="size in buttonSizeNames" :key="size" :size="size" circle>{{ size[0].toUpperCase() }}</d2-button>
+    <d2-button v-for="size in buttonSizeNames" :key="size" :size="size" circle>Button</d2-button>
   </the-section>
   <the-section title="text">
-    <d2-button text>base</d2-button>
-    <d2-button v-for="size in buttonSizeNames" :key="size" :size="size" text>{{ size }}</d2-button>
+    <d2-button text>Button</d2-button>
+    <d2-button v-for="size in buttonSizeNames" :key="size" :size="size" text>Button</d2-button>
   </the-section>
 </template>
 

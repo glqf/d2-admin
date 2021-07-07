@@ -9,7 +9,7 @@
     </d2-button>
   </the-section>
   <the-section title="icon">
-    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="heroicons-solid:menu">Menu</d2-button>
+    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular">Button</d2-button>
   </the-section>
   <the-section title="disabled">
     <d2-button v-for="color in colorNames" :key="color" :color="color" disabled>{{ color }}</d2-button>
@@ -21,10 +21,10 @@
     <d2-button v-for="color in colorNames" :key="color" :color="color" plain disabled>{{ color }}</d2-button>
   </the-section>
   <the-section title="plain icon">
-    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="heroicons-solid:menu" plain>Menu</d2-button>
+    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" plain>Button</d2-button>
   </the-section>
   <the-section title="plain icon disabled">
-    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="heroicons-solid:menu" plain disabled>Menu</d2-button>
+    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" plain disabled>Button</d2-button>
   </the-section>
   <the-section title="ring">
     <d2-button v-for="color in colorNames" :key="color" :color="color" ring>{{ color }}</d2-button>
@@ -39,10 +39,10 @@
     <d2-button v-for="color in colorNames" :key="color" :color="color" text disabled>{{ color }}</d2-button>
   </the-section>
   <the-section title="text icon">
-    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="heroicons-solid:menu" text>Menu</d2-button>
+    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" text>Button</d2-button>
   </the-section>
   <the-section title="text icon disabled">
-    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="heroicons-solid:menu" text disabled>Menu</d2-button>
+    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" text disabled>Button</d2-button>
   </the-section>
   <the-section title="round">
     <d2-button v-for="color in colorNames" :key="color" :color="color" round>{{ color }}</d2-button>
@@ -54,13 +54,13 @@
     <d2-button v-for="color in colorNames" :key="color" :color="color" round plain disabled>{{ color }}</d2-button>
   </the-section>
   <the-section title="icon round">
-    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="heroicons-solid:menu" round>{{ color }}</d2-button>
+    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" round>{{ color }}</d2-button>
   </the-section>
   <the-section title="icon round plain">
-    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="heroicons-solid:menu" round plain>{{ color }}</d2-button>
+    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" round plain>{{ color }}</d2-button>
   </the-section>
   <the-section title="icon round plain disabled">
-    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="heroicons-solid:menu" round plain disabled>{{ color }}</d2-button>
+    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" round plain disabled>{{ color }}</d2-button>
   </the-section>
   <the-section title="circle">
     <d2-button v-for="color in colorNames" :key="color" :color="color" circle>{{ color[0].toUpperCase() }}</d2-button>
@@ -72,13 +72,13 @@
     <d2-button v-for="color in colorNames" :key="color" :color="color" circle plain disabled>{{ color[0].toUpperCase() }}</d2-button>
   </the-section>
   <the-section title="icon circle">
-    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="heroicons-solid:menu" circle>{{ color[0].toUpperCase() }}</d2-button>
+    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" circle>{{ color[0].toUpperCase() }}</d2-button>
   </the-section>
   <the-section title="icon circle plain">
-    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="heroicons-solid:menu" circle plain>{{ color[0].toUpperCase() }}</d2-button>
+    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" circle plain>{{ color[0].toUpperCase() }}</d2-button>
   </the-section>
   <the-section title="icon circle plain disabled">
-    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="heroicons-solid:menu" circle plain disabled>{{ color[0].toUpperCase() }}</d2-button>
+    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" circle plain disabled>{{ color[0].toUpperCase() }}</d2-button>
   </the-section>
 </template>
 

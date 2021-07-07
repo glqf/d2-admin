@@ -6,7 +6,7 @@
     <d2-button circle>content</d2-button>
   </the-section>
   <the-section title="icon and slot">
-    <d2-button icon="heroicons-solid:menu" circle>content</d2-button>
+    <d2-button icon="fluent:auto-fit-height-24-regular" circle>content</d2-button>
   </the-section>
 </template>
 

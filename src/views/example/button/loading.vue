@@ -9,10 +9,10 @@
     <d2-button :loading-right="loading">button</d2-button>
   </the-section>
   <the-section title="left icon is loading">
-    <d2-button icon="heroicons-solid:menu" :loading="loading">button</d2-button>
+    <d2-button icon="fluent:auto-fit-height-24-regular" :loading="loading">button</d2-button>
   </the-section>
   <the-section title="right icon is loading">
-    <d2-button icon-right="heroicons-solid:menu" :loading-right="loading">button</d2-button>
+    <d2-button icon-right="fluent:auto-fit-height-24-regular" :loading-right="loading">button</d2-button>
   </the-section>
   <the-section title="circle">
     <d2-button :loading="loading" icon="mdi:hand-right" circle/>

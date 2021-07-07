@@ -1,17 +1,17 @@
 <template>
   <the-section title="icon">
-    <d2-button icon="heroicons-solid:menu">Menu</d2-button>
+    <d2-button icon="fluent:auto-fit-height-24-regular">Button</d2-button>
   </the-section>
   <the-section title="icon + text">
     <p>
       text
-      <d2-button icon="heroicons-solid:menu">Menu</d2-button>
+      <d2-button icon="fluent:auto-fit-height-24-regular">Button</d2-button>
       text
     </p>
-    <p>text<d2-button icon="heroicons-solid:menu">Menu</d2-button>text</p>
+    <p>text<d2-button icon="fluent:auto-fit-height-24-regular">Button</d2-button>text</p>
   </the-section>
   <the-section title="icon right">
-    <d2-button icon-right="heroicons-solid:menu">Menu</d2-button>
+    <d2-button icon-right="fluent:auto-fit-height-24-regular">Button</d2-button>
   </the-section>
   <the-section title="icon left right">
     <d2-button icon="akar-icons:chevron-left">Left</d2-button>
