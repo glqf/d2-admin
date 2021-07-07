@@ -65,21 +65,21 @@
   padding: var(--d2-button-padding-y-#{$size}) var(--d2-button-padding-x-#{$size});
   border-radius: var(--d2-button-border-radius-#{$size});
   font-size: var(--d2-button-font-size-#{$size});
-  --round-radius: calc(var(--d2-button-line-height-#{$size}) * 0.5);
+  --round-radius: calc((var(--d2-button-font-size-#{$size}) * 1.5715 + var(--d2-button-padding-y-#{$size}) * 2) * 0.5);
+  // space between button and button, button and button group
   & + &,
   & + .#{$namespace}-button-group {
     margin-left: var(--d2-button-space-#{$size});
   }
+  // space between the icon and the text inside the button
   & > .#{$namespace}-icon + span,
   & > span + .#{$namespace}-icon {
     margin-left: var(--d2-button-space-#{$size});
   }
   @include when(circle) {
+    padding: var(--d2-button-padding-y-#{$size});
     & > span {
       width: var(--d2-button-line-height-#{$size});
-      height: var(--d2-button-line-height-#{$size});
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
   }
 }
