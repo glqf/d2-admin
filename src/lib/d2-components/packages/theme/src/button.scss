@@ -65,7 +65,12 @@
   padding: var(--d2-button-padding-y-#{$size}) var(--d2-button-padding-x-#{$size});
   border-radius: var(--d2-button-border-radius-#{$size});
   font-size: var(--d2-button-font-size-#{$size});
+  line-height: var(--d2-button-font-line-height-#{$size});
   --round-radius: calc((var(--d2-button-font-size-#{$size}) * 1.5715 + var(--d2-button-padding-y-#{$size}) * 2) * 0.5);
+  // vertical align of the icon component in the button is calculated based on the line height
+  & > .#{$namespace}-icon {
+    vertical-align: calc(var(--d2-button-font-line-height-#{$size}) * -0.125);
+  }
   // space between button and button, button and button group
   & + &,
   & + .#{$namespace}-button-group {
@@ -85,7 +90,7 @@
 }
 
 @include b(button) {
-  line-height: 1.5715;
+  // line-height: 1.5715;
   display: inline-block;
   white-space: nowrap;
   cursor: pointer;
