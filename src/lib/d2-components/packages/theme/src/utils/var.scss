@@ -150,16 +150,16 @@ $--d2-shadow: (
 
 // use scss function --var-space() to corresponding to tailwind class name
 
-@function --var-space ($lv) {
-  @return var(--d2-space-#{$lv * 2});
-}
-
 $--d2-space: (
-  mini: 1,
-  base: 1.5,
+  mini:  1,
+  base:  1.5,
   small: 1,
   large: 2
 );
+
+@function --var-space ($lv) {
+  @return var(--d2-space-#{$lv * 2});
+}
 
 :root {
   @for $lv from 0 through 20 {
