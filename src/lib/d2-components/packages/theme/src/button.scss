@@ -67,6 +67,15 @@
   font-size: var(--d2-button-font-size-#{$size});
   line-height: var(--d2-button-font-line-height-#{$size});
   --round-radius: calc((var(--d2-button-font-line-height-#{$size}) + var(--d2-button-padding-y-#{$size}) * 2) * 0.5);
+  // no better solution has yet been found
+  & > .#{$namespace}-icon {
+    @if $size == base {
+      vertical-align: -.15em;
+    }
+    @else {
+      vertical-align: -.125em;
+    }
+  }
   // space between button and button, button and button group
   & + &,
   & + .#{$namespace}-button-group {

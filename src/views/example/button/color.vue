@@ -9,7 +9,7 @@
     </d2-button>
   </the-section>
   <the-section title="icon">
-    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular">Button</d2-button>
+    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular">Apple</d2-button>
   </the-section>
   <the-section title="disabled">
     <d2-button v-for="color in colorNames" :key="color" :color="color" disabled>{{ color }}</d2-button>
@@ -21,10 +21,10 @@
     <d2-button v-for="color in colorNames" :key="color" :color="color" plain disabled>{{ color }}</d2-button>
   </the-section>
   <the-section title="plain icon">
-    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" plain>Button</d2-button>
+    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" plain>Apple</d2-button>
   </the-section>
   <the-section title="plain icon disabled">
-    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" plain disabled>Button</d2-button>
+    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" plain disabled>Apple</d2-button>
   </the-section>
   <the-section title="ring">
     <d2-button v-for="color in colorNames" :key="color" :color="color" ring>{{ color }}</d2-button>
@@ -39,10 +39,10 @@
     <d2-button v-for="color in colorNames" :key="color" :color="color" text disabled>{{ color }}</d2-button>
   </the-section>
   <the-section title="text icon">
-    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" text>Button</d2-button>
+    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" text>Apple</d2-button>
   </the-section>
   <the-section title="text icon disabled">
-    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" text disabled>Button</d2-button>
+    <d2-button v-for="color in colorNames" :key="color" :color="color" icon="fluent:auto-fit-height-24-regular" text disabled>Apple</d2-button>
   </the-section>
   <the-section title="round">
     <d2-button v-for="color in colorNames" :key="color" :color="color" round>{{ color }}</d2-button>

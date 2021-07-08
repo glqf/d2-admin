@@ -5,10 +5,10 @@
   <the-section title="button + text">
     <p>
       button
-      <d2-button>button</d2-button>
+      <d2-button>Apple</d2-button>
       button
     </p>
-    <p>button<d2-button>button</d2-button>button</p>
+    <p>button<d2-button>Apple</d2-button>button</p>
   </the-section>
   <the-section title="chinese">
     <d2-button>按钮</d2-button>
