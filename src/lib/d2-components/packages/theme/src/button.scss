@@ -91,6 +91,9 @@
     & > span {
       @include text-ellipsis;
       width: var(--d2-button-line-height-#{$size});
+      &.#{$namespace}-icon {
+        line-height: var(--d2-button-line-height-#{$size});
+      }
       &:not(.#{$namespace}-icon) {
         vertical-align: bottom;
       }
@@ -99,7 +102,6 @@
 }
 
 @include b(button) {
-  // line-height: 1.5715;
   display: inline-block;
   white-space: nowrap;
   cursor: pointer;
