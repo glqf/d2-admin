@@ -93,6 +93,7 @@
       width: var(--d2-button-line-height-#{$size});
       &.#{$namespace}-icon {
         line-height: var(--d2-button-line-height-#{$size});
+        vertical-align: -.125em;
       }
       &:not(.#{$namespace}-icon) {
         vertical-align: bottom;
