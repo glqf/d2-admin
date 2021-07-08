@@ -76,6 +76,15 @@
   }
 }
 
+
+
+
+
+
+
+
+
+
 // ------------------------------
 // => Break Points
 // ------------------------------
@@ -132,4 +141,22 @@
   perspective: 1000px;
   backface-visibility: hidden;
   transform: translateZ(0);
+}
+
+
+
+
+
+
+
+
+
+
+// ------------------------------
+// => text
+// ------------------------------
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

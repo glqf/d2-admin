@@ -89,7 +89,11 @@
   @include when(circle) {
     padding: var(--d2-button-padding-y-#{$size});
     & > span {
+      @include text-ellipsis;
       width: var(--d2-button-line-height-#{$size});
+      &:not(.#{$namespace}-icon) {
+        vertical-align: bottom;
+      }
     }
   }
 }
