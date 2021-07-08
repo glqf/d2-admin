@@ -228,8 +228,8 @@ $--d2-font-size: (
   @return var(--d2-font-size-#{$size});
 }
 
-@function --var-font-line-height ($size) {
-  @return var(--d2-font-line-height-#{$size});
+@function --var-line-height ($size) {
+  @return var(--d2-line-height-#{$size});
 }
 
 :root {
@@ -239,10 +239,10 @@ $--d2-font-size: (
 
   @each $_name, $_setting in $--d2-font-size {
     --d2-font-size-#{$_name}: #{map-get($_setting, size)};
-    --d2-font-line-height-#{$_name}: #{map-get($_setting, height)};
+    --d2-line-height-#{$_name}: #{map-get($_setting, height)};
   }
 
-  // --d2-font-line-height: 1.5715;
+  // --d2-line-height: 1.5715;
 }
 
 
@@ -422,7 +422,7 @@ $--d2-button-sizes: (
   @each $_size, $_size-setting in $--d2-button-sizes {
     --d2-button-border-radius-#{$_size}: #{--var-radius(map-get($_size-setting, border-radius))};
     --d2-button-font-size-#{$_size}: #{--var-font-size(map-get($_size-setting, font-size))};
-    --d2-button-font-line-height-#{$_size}: #{--var-font-line-height(map-get($_size-setting, font-size))};
+    --d2-button-line-height-#{$_size}: #{--var-line-height(map-get($_size-setting, font-size))};
     --d2-button-font-weight-#{$_size}: #{--var-font-weight(map-get($_size-setting, font-weight))};
     --d2-button-padding-y-#{$_size}: #{--var-space(map-get($_size-setting, padding-y))};
     --d2-button-padding-x-#{$_size}: #{--var-space(map-get($_size-setting, padding-x))};
