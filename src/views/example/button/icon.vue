@@ -3,7 +3,7 @@
     <d2-button icon="fluent:auto-fit-height-24-regular">Apple</d2-button>
   </the-section>
   <the-section title="icon + text">
-    <p>
+    <p class="mb-4">
       text
       <d2-button icon="fluent:auto-fit-height-24-regular">Apple</d2-button>
       text

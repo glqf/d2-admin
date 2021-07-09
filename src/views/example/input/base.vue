@@ -1,7 +1,7 @@
 <template>
   <the-section title="input">
     <p class="mb-4">{{ value }}</p>
-    <d2-input v-model:value="value"/>
+    <d2-input v-model:value="value" class="mb-4"/>
     <d2-input v-model:value="value"/>
   </the-section>
 </template>

@@ -3,7 +3,7 @@
     <d2-button>button</d2-button>
   </the-section>
   <the-section title="button + text">
-    <p>
+    <p class="mb-4">
       button
       <d2-button>Apple</d2-button>
       button

@@ -31,14 +31,12 @@ export default defineComponent({
       emit('update:value', value)
     }
     
-    return () => <div>
-      <p>{ currentValue.value }</p>
+    return () =>
       <input
         class={ inputClassName.value }
         value={ currentValue.value }
         onInput={ handleChange }
         onChange={ handleChange }
       />
-    </div>
   }
 })
