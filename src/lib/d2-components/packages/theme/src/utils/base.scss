@@ -528,3 +528,7 @@ video {
   max-width: 100%;
   height: auto;
 }
+
+*, ::before, ::after {
+  border-color: var(--d2-border-color);
+}
