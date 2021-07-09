@@ -1,6 +1,6 @@
 <template>
   <h1 class="title">{{ status.breakPoint }}</h1>
-  <d2-flex center>
+  <d2-flex class="main" center>
     <break-points-display-item
       :value="status.min"
       name="min"
@@ -37,6 +37,9 @@ export default {
 <style lang="scss" scoped>
 .title {
   @apply mb-4 text-center text-gray-500 text-9xl;
+}
+.main {
+  @apply mb-4;
 }
 .code {
   @apply p-4 text-gray-500 border border-gray-100 rounded bg-gray-50;
