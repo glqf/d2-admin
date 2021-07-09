@@ -1,9 +1,15 @@
 <template>
   <the-section title="break point">
-    <d2-break-point :data="config" v-slot="{ data: { color } }">
-      <p class="view" :style="{ color: color }">
-        {{ color }}
+    <d2-break-point :data="config" v-slot="status">
+      <p class="label">
+        <span
+          class="text-white px-4 py-2 rounded-full"
+          :style="{ backgroundColor: status.data.color }"
+        >
+          {{ status.data.color }}
+        </span>
       </p>
+      <break-points-display :status="status"/>
     </d2-break-point>
   </the-section>
 </template>
@@ -36,8 +42,8 @@ export default {
 }
 </script>
 
-<style scoped>
-.view {
-  @apply text-xl text-center;
+<style lang="scss" scoped>
+.label {
+  @apply p-4 mb-8 text-center border border-gray-100 rounded bg-gray-50;
 }
 </style>

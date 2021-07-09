@@ -36,10 +36,10 @@ export default {
 
 <style lang="scss" scoped>
 .title {
-  @apply mb-4 text-center text-gray-500 text-9xl;
+  @apply mb-8 text-center text-gray-500 text-9xl;
 }
 .main {
-  @apply mb-4;
+  @apply mb-8;
 }
 .code {
   @apply p-4 text-gray-500 border border-gray-100 rounded bg-gray-50;
