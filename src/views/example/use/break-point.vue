@@ -17,8 +17,8 @@
         class="mb-4"
       >
         <span class="text-xl text-center text-gray-600 font-bold">{{ data }}</span>
-        <pre class="px-4 py-2 bg-gray-100 text-gray-600 rounded">min: {{ config[index][0] }}</pre>
-        <pre class="px-4 py-2 bg-gray-100 text-gray-600 rounded">{{ config[index][1] }}</pre>
+        <pre class="px-4 py-2 bg-gray-50 text-gray-600 rounded border border-gray-100">min: {{ config[index][0] }}</pre>
+        <pre class="px-4 py-2 bg-gray-50 text-gray-600 rounded border border-gray-100">{{ config[index][1] }}</pre>
       </d2-flex>
     </d2-flex>
   </the-section>

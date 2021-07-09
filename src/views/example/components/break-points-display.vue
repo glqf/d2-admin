@@ -42,6 +42,6 @@ export default {
   @apply mb-8;
 }
 .code {
-  @apply p-4 text-gray-500 border border-gray-100 rounded bg-gray-50;
+  @apply p-4 text-gray-600 border border-gray-100 rounded bg-gray-50;
 }
 </style>
