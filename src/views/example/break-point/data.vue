@@ -1,9 +1,9 @@
 <template>
   <the-section title="break point">
     <d2-break-point :data="config" v-slot="status">
-      <p class="label">
+      <p class="info">
         <span
-          class="text-white px-4 py-2 rounded-full"
+          class="label"
           :style="{ backgroundColor: status.data.color }"
         >
           {{ status.data.color }}
@@ -43,7 +43,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.label {
-  @apply p-4 mb-8 text-center border border-gray-100 rounded bg-gray-50;
+.info {
+  @apply p-4 mb-8 text-center border border-gray-100 rounded cursor-pointer select-none bg-gray-50;
+  .label {
+    @apply px-4 py-2 text-white rounded-full;
+  }
 }
 </style>

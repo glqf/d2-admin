@@ -1,8 +1,18 @@
 <template>
   <d2-flex dir="top" cross="center" class="item">
-    <d2-icon v-if="value" class="item__icon item__icon--active" icon="akar-icons:circle-check-fill"/>
-    <d2-icon v-else class="item__icon" icon="akar-icons:circle-x"/>
-    <span class="item__label">{{ name }}</span>
+    <d2-icon
+      v-if="value"
+      class="item__icon item__icon--active"
+      icon="akar-icons:circle-check-fill"
+    />
+    <d2-icon
+      v-else
+      class="item__icon"
+      icon="akar-icons:circle-x"
+    />
+    <span class="item__label">
+      {{ name }}
+    </span>
   </d2-flex>
 </template>
 
