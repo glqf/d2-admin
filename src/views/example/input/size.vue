@@ -1,7 +1,13 @@
 <template>
   <the-section title="size">
-    <d2-input v-model:value="value" class="mb-4"/>
-    <d2-input v-for="size in sizeNames" :key="size" :size="size" v-model:value="value" class="mb-4"/>
+    <p>
+      <d2-input v-model:value="value" class="mb-4"/>
+      <d2-button>Submit</d2-button>
+    </p>
+    <p v-for="size in sizeNames" :key="size">
+      <d2-input :size="size" v-model:value="value" class="mb-4"/>
+      <d2-button :size="size">Submit</d2-button>
+    </p>
   </the-section>
 </template>
 

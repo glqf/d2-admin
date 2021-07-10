@@ -448,9 +448,9 @@ $--d2-button-sizes: (
 
 $--d2-input-status-base: (
   base:           ( font-color: 500, border-color: 300, background-color: 0 ),
-  hover:          ( font-color: 500, border-color: 300, background-color: 50 ),
-  focus:          ( font-color: 500, border-color: 300, background-color: 50 ),
-  active:         ( font-color: 600, border-color: 400, background-color: 50 ),
+  hover:          ( font-color: 500, border-color: 300, background-color: 0 ),
+  focus:          ( font-color: 500, border-color: 300, background-color: 0 ),
+  active:         ( font-color: 600, border-color: 400, background-color: 0 ),
   disabled:       ( font-color: 400, border-color: 200, background-color: 0 )
 );
 

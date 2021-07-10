@@ -1,7 +1,13 @@
 <template>
   <the-section title="color">
-    <d2-input v-model:value="value" class="mb-4"/>
-    <d2-input v-for="color in colorNames" :key="color" :color="color" v-model:value="value" class="mb-4"/>
+    <p>
+      <d2-input v-model:value="value" class="mb-4"/>
+      <d2-button>Submit</d2-button>
+    </p>
+    <p v-for="color in colorNames" :key="color">
+      <d2-input :color="color" v-model:value="value" class="mb-4"/>
+      <d2-button :color="color">Submit</d2-button>
+    </p>
   </the-section>
 </template>
 
