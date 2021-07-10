@@ -23,6 +23,14 @@
   }
 }
 
+@mixin mix-input-size($size) {
+  padding: var(--d2-input-padding-y-#{$size}) var(--d2-input-padding-x-#{$size});
+  border-radius: var(--d2-input-border-radius-#{$size});
+  font-size: var(--d2-input-font-size-#{$size});
+  font-weight: var(--d2-input-font-weight-#{$size});
+  line-height: var(--d2-input-line-height-#{$size});
+}
+
 @include b(input) {
   display: inline-block;
   box-sizing: border-box;
@@ -39,6 +47,16 @@
   @each $color, $color-setting in $--d2-color {
     @include m($color) {
       @include mix-input-color($color);
+    }
+  }
+  @each $size, $size-setting in $--d2-input-sizes {
+    @if $size == base {
+      @include mix-input-size(base);
+    }
+    @else {
+      @include m($size) {
+        @include mix-input-size($size);
+      }
     }
   }
 }
