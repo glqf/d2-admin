@@ -15,12 +15,6 @@
       @include mix-input-color-styles(#{$color}-disabled);
     }
   }
-  @include when(loading) {
-    &, &:hover, &:focus {
-      cursor: not-allowed;
-      @include mix-input-color-styles(#{$color}-loading);
-    }
-  }
 }
 
 @mixin mix-input-size($size) {
