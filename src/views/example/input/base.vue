@@ -2,10 +2,10 @@
   <the-section title="input">
     <p class="mb-4">{{ value }}</p>
     <d2-input v-model:value="value" class="mb-4"/>
-    <d2-input v-model:value="value"/>
-    <d2-input v-model:value="value" size="mini"/>
-    <d2-input v-model:value="value" size="small"/>
-    <d2-input v-model:value="value" size="large"/>
+    <d2-input v-model:value="value" class="mb-4"/>
+    <d2-input v-model:value="value" size="mini" class="mb-4"/>
+    <d2-input v-model:value="value" size="small" class="mb-4"/>
+    <d2-input v-model:value="value" size="large" class="mb-4"/>
   </the-section>
 </template>
 
