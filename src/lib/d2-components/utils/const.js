@@ -11,6 +11,8 @@ export const buttonSizeNames = ['mini', 'small', 'large']
 
 export const buttonTypes = ['button', 'submit', 'reset']
 
+export const inputSizeNames = ['mini', 'small', 'large']
+
 export const flexProps = {
   dir: ['top', 'right', 'bottom', 'left'],
   main: ['right', 'left', 'justify', 'center'],
@@ -75,4 +77,14 @@ export function isButtonSize (value, empty) {
  */
 export function isButtonTypes (value, empty) {
   return empty && isEmptyString(value) || buttonTypes.includes(value)
+}
+
+/**
+ * Check a input size name is available
+ * @param {string} value size name
+ * @param {boolean} empty allow empty string
+ * @returns boolean
+ */
+export function isInputSize (value, empty) {
+  return empty && isEmptyString(value) || inputSizeNames.includes(value)
 }
