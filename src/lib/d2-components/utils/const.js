@@ -5,13 +5,11 @@ export const nameSpace = 'd2'
 
 export const colorNames = ['gray', 'red', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink']
 
-export const spaceSizeNames = ['mini', 'base', 'small', 'large']
+export const spaceNames = ['mini', 'base', 'small', 'large']
 
-export const buttonSizeNames = ['mini', 'small', 'large']
+export const sizeNames = ['mini', 'small', 'large']
 
 export const buttonTypes = ['button', 'submit', 'reset']
-
-export const inputSizeNames = ['mini', 'small', 'large']
 
 export const flexProps = {
   dir: ['top', 'right', 'bottom', 'left'],
@@ -55,8 +53,8 @@ export function isColor (value, empty) {
  * @param {boolean} empty allow empty string
  * @returns boolean
  */
-export function isSpaceSize (value, empty) {
-  return empty && isEmptyString(value) || spaceSizeNames.includes(value)
+export function isSpace (value, empty) {
+  return empty && isEmptyString(value) || spaceNames.includes(value)
 }
 
 /**
@@ -65,8 +63,8 @@ export function isSpaceSize (value, empty) {
  * @param {boolean} empty allow empty string
  * @returns boolean
  */
-export function isButtonSize (value, empty) {
-  return empty && isEmptyString(value) || buttonSizeNames.includes(value)
+export function isSize (value, empty) {
+  return empty && isEmptyString(value) || sizeNames.includes(value)
 }
 
 /**
@@ -77,14 +75,4 @@ export function isButtonSize (value, empty) {
  */
 export function isButtonTypes (value, empty) {
   return empty && isEmptyString(value) || buttonTypes.includes(value)
-}
-
-/**
- * Check a input size name is available
- * @param {string} value size name
- * @param {boolean} empty allow empty string
- * @returns boolean
- */
-export function isInputSize (value, empty) {
-  return empty && isEmptyString(value) || inputSizeNames.includes(value)
 }

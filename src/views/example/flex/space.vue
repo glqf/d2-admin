@@ -9,7 +9,7 @@
       <d2-flex class="flex" space>
         <div class="flex__item" v-for="n in 3" :key="n" box="mean"/>
       </d2-flex>
-      <d2-flex v-for="size in buttonSizeNames" :key="size" class="flex" :space="size" box="mean">
+      <d2-flex v-for="size in sizeNames" :key="size" class="flex" :space="size" box="mean">
         <div class="flex__item" v-for="n in 3" :key="n"/>
       </d2-flex>
     </d2-flex>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { buttonSizeNames, flexProps } from 'd2-components/utils/const.js'
+import { sizeNames, flexProps } from 'd2-components/utils/const.js'
 import TheSection from '../components/the-section.vue'
 
 const { dir } = flexProps
@@ -35,7 +35,7 @@ export default {
   },
   setup () {
     return {
-      buttonSizeNames,
+      sizeNames,
       dir
     }
   }

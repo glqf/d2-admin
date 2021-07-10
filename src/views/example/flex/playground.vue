@@ -89,7 +89,7 @@
 
 <script>
 import { ref } from 'vue'
-import { flexProps, spaceSizeNames } from 'd2-components/utils/const.js'
+import { flexProps, spaceNames } from 'd2-components/utils/const.js'
 import TheSection from '../components/the-section.vue'
 
 const { dir, main, cross, box } = flexProps
@@ -114,7 +114,7 @@ export default {
       crossValue,
       box: ['', ...box],
       boxValue,
-      space: [false, ...spaceSizeNames],
+      space: [false, ...spaceNames],
       spaceValue
     }
   }
