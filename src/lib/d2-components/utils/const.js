@@ -5,11 +5,11 @@ export const nameSpace = 'd2'
 
 export const colorNames = ['gray', 'red', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink']
 
-export const spaceNames = ['mini', 'base', 'small', 'large']
-
 export const sizeNames = ['mini', 'small', 'large']
 
 export const buttonTypes = ['button', 'submit', 'reset']
+
+export const spaceNames = ['mini', 'base', 'small', 'large']
 
 export const flexProps = {
   dir: ['top', 'right', 'bottom', 'left'],

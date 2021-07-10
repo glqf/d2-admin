@@ -24,6 +24,9 @@ export default defineComponent({
     // size
     const inputSize = computed(() => props.size || $D2COM.size)
 
+    // color
+    const inputColor = computed(() => props.color)
+
     watch(() => props.value, (value) => {
       currentValue.value = value
     })
@@ -31,7 +34,8 @@ export default defineComponent({
     const inputClassName = computed(() => classNames(
       mainClassName,
       {
-        [`${mainClassName}--${inputSize.value}`]: inputSize.value
+        [`${mainClassName}--${inputSize.value}`]: inputSize.value,
+        [`${mainClassName}--${inputColor.value}`]: inputColor.value
       }
     ))
 
