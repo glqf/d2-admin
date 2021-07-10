@@ -65,6 +65,7 @@
   padding: var(--d2-button-padding-y-#{$size}) var(--d2-button-padding-x-#{$size});
   border-radius: var(--d2-button-border-radius-#{$size});
   font-size: var(--d2-button-font-size-#{$size});
+  font-weight: var(--d2-button-font-weight-#{$size});
   line-height: var(--d2-button-line-height-#{$size});
   --round-radius: calc((var(--d2-button-line-height-#{$size}) + var(--d2-button-padding-y-#{$size}) * 2) * 0.5);
   // no better solution has yet been found
@@ -113,7 +114,6 @@
   border-width: var(--d2-border-width);
   border-style: var(--d2-border-style);
   transition: --var-transition-speed(fast);
-  font-weight: var(--d2-button-font-weight-base);
   --ring-color: #{--var-color('gray', 500, 10)};
   box-shadow: #{--var-shadow(sm)};
   &:focus,
