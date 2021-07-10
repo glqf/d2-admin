@@ -406,17 +406,18 @@ $--d2-button-sizes: (
 );
 
 :root {
+  // base color
+  @each $_status, $_status-setting in $--d2-button-status-base {
+    @each $_style-name, $_style-value in $_status-setting {
+      --d2-button-#{$_style-name}-base-#{$_status}: #{--var-color('gray', map-get($_status-setting, $_style-name))};
+    }
+  }
+  // colorful
   @each $_color, $_setting in $--d2-color {
     @each $_status, $_status-setting in $--d2-button-status-colorful {
       @each $_style-name, $_style-value in $_status-setting {
         --d2-button-#{$_style-name}-#{"" + $_color}-#{$_status}: #{--var-color($_color, map-get($_status-setting, $_style-name))};
       }
-    }
-  }
-
-  @each $_status, $_status-setting in $--d2-button-status-base {
-    @each $_style-name, $_style-value in $_status-setting {
-      --d2-button-#{$_style-name}-base-#{$_status}: #{--var-color('gray', map-get($_status-setting, $_style-name))};
     }
   }
 
@@ -429,5 +430,72 @@ $--d2-button-sizes: (
     --d2-button-padding-x-#{$_size}: #{--var-space(map-get($_size-setting, padding-x))};
     --d2-button-space-#{$_size}: var(--d2-space-#{$_size});
     --d2-button-group-space-#{$_size}: var(--d2-space-#{$_size});
+  }
+}
+
+
+
+
+
+
+
+
+
+
+// -------------+----------------
+// => component | input
+// -------------+----------------
+
+$--d2-input-status-colorful: (
+  base:           ( font-color: 0,   border-color: 500, background-color: 500 ),
+  hover:          ( font-color: 100, border-color: 500, background-color: 500 ),
+  focus:          ( font-color: 100, border-color: 500, background-color: 500 ),
+  active:         ( font-color: 0,   border-color: 600, background-color: 600 ),
+  disabled:       ( font-color: 0,   border-color: 300, background-color: 300 )
+);
+
+$--d2-input-status-base: (
+  base:           ( font-color: 700, border-color: 300, background-color: 0 ),
+  hover:          ( font-color: 700, border-color: 300, background-color: 50 ),
+  focus:          ( font-color: 700, border-color: 300, background-color: 50 ),
+  active:         ( font-color: 700, border-color: 400, background-color: 50 ),
+  disabled:       ( font-color: 400, border-color: 200, background-color: 0 ),
+  loading:        ( font-color: 400, border-color: 200, background-color: 0 )
+);
+
+// 'base' must be set before other names
+// Because the generation of styles is based on the order of setting
+// 'base' as the default style should appear first in the style sheet so that it can be overridden by other styles
+$--d2-input-sizes: (
+  base:  ( border-radius: base, font-size: base, font-weight: 500, padding-y: 1,   padding-x: 2.5 ),
+  mini:  ( border-radius: sm,   font-size: xs,   font-weight: 400, padding-y: 0,   padding-x: 1 ),
+  small: ( border-radius: sm,   font-size: sm,   font-weight: 400, padding-y: 0.5, padding-x: 1.5 ),
+  large: ( border-radius: md,   font-size: lg,   font-weight: 600, padding-y: 1.5, padding-x: 3 )
+);
+
+:root {
+  // base color
+  @each $_status, $_status-setting in $--d2-input-status-base {
+    @each $_style-name, $_style-value in $_status-setting {
+      --d2-input-#{$_style-name}-base-#{$_status}: #{--var-color('gray', map-get($_status-setting, $_style-name))};
+    }
+  }
+  // colorful
+  @each $_color, $_setting in $--d2-color {
+    @each $_status, $_status-setting in $--d2-input-status-colorful {
+      @each $_style-name, $_style-value in $_status-setting {
+        --d2-input-#{$_style-name}-#{"" + $_color}-#{$_status}: #{--var-color($_color, map-get($_status-setting, $_style-name))};
+      }
+    }
+  }
+
+  @each $_size, $_size-setting in $--d2-input-sizes {
+    --d2-input-border-radius-#{$_size}: #{--var-radius(map-get($_size-setting, border-radius))};
+    --d2-input-font-size-#{$_size}: #{--var-font-size(map-get($_size-setting, font-size))};
+    --d2-input-line-height-#{$_size}: #{--var-line-height(map-get($_size-setting, font-size))};
+    --d2-input-font-weight-#{$_size}: #{--var-font-weight(map-get($_size-setting, font-weight))};
+    --d2-input-padding-y-#{$_size}: #{--var-space(map-get($_size-setting, padding-y))};
+    --d2-input-padding-x-#{$_size}: #{--var-space(map-get($_size-setting, padding-x))};
+    --d2-input-space-#{$_size}: var(--d2-space-#{$_size});
   }
 }
