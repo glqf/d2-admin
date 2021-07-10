@@ -1,3 +1,28 @@
+@mixin mix-input-color-styles ($suffix) {
+  color: var(--d2-input-font-color-#{$suffix});
+  border-color: var(--d2-input-border-color-#{$suffix});
+  background-color: var(--d2-input-background-color-#{$suffix});
+}
+
+@mixin mix-input-color ($color) {
+  @include mix-input-color-styles(#{$color}-base);
+  &:hover { @include mix-input-color-styles(#{$color}-hover); }
+  &:focus { @include mix-input-color-styles(#{$color}-focus); }
+  &:active, &.is-active { @include mix-input-color-styles(#{$color}-active); }
+  @include when(disabled) {
+    &, &:hover, &:focus {
+      cursor: not-allowed;
+      @include mix-input-color-styles(#{$color}-disabled);
+    }
+  }
+  @include when(loading) {
+    &, &:hover, &:focus {
+      cursor: not-allowed;
+      @include mix-input-color-styles(#{$color}-loading);
+    }
+  }
+}
+
 @include b(input) {
   display: inline-block;
   box-sizing: border-box;
@@ -6,19 +31,14 @@
   border-width: var(--d2-border-width);
   border-style: var(--d2-border-style);
   transition: --var-transition-speed(fast);
-  font-weight: var(--d2-button-font-weight-base);
   &:focus,
   &:active {
     outline: none;
   }
-  @include mix-button-color(base);
+  @include mix-input-color(base);
   @each $color, $color-setting in $--d2-color {
     @include m($color) {
-      @include mix-button-color($color);
-      --ring-color: #{--var-color($color, 500, 30)};
-      @include when (text) {
-        --ring-color: #{--var-color($color, 500, 30)};
-      }
+      @include mix-input-color($color);
     }
   }
 }

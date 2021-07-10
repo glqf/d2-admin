@@ -2,7 +2,7 @@ import { defineComponent, computed, ref, watch } from 'vue'
 import classNames from 'classnames'
 import { useConfigForD2Components } from '../../../use/config.js'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
-import { isSize } from '../../../utils/const.js'
+import { isSize, isColor } from '../../../utils/const.js'
 
 export const name = makeComponentName('input')
 export const mainClassName = makeComponentClassName('input')
@@ -11,7 +11,8 @@ export default defineComponent({
   name,
   props: {
     value: { type: [String, Number], default: '' },
-    size: { type: String, default: '', validator: value => isSize(value, true) }
+    size: { type: String, default: '', validator: value => isSize(value, true) },
+    color: { type: String, default: '', validator: value => isColor(value, true) }
   },
   emits: [
     'update:value'
