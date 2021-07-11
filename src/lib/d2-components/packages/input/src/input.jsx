@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import { useConfigForD2Components } from '../../../use/config.js'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { isSize, isColor } from '../../../utils/const.js'
+import D2InputWrapper from './wrapper.jsx'
 
 export const name = makeComponentName('input')
 export const mainClassName = makeComponentClassName('input')
@@ -66,6 +67,6 @@ export default defineComponent({
       return <input { ...inputProps }/>
     }
     
-    return () => createInput()
+    return () => <D2InputWrapper element={ createInput() }></D2InputWrapper>
   }
 })
