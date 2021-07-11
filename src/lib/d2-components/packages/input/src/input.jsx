@@ -9,6 +9,7 @@ export const mainClassName = makeComponentClassName('input')
 
 export default defineComponent({
   name,
+  inheritAttrs: false,
   props: {
     value: { type: [String, Number], default: '' },
     size: { type: String, default: '', validator: value => isSize(value, true) },
@@ -17,7 +18,7 @@ export default defineComponent({
   emits: [
     'update:value'
   ],
-  setup (props, { slots, emit }) {
+  setup (props, { attrs, slots, emit }) {
     const $D2COM = useConfigForD2Components()
 
     const currentValue = ref(props.value || '')
@@ -36,7 +37,8 @@ export default defineComponent({
       mainClassName,
       {
         [`${mainClassName}--${inputSize.value}`]: inputSize.value,
-        [`${mainClassName}--${inputColor.value}`]: inputColor.value
+        [`${mainClassName}--${inputColor.value}`]: inputColor.value,
+        [attrs.class]: attrs.class
       }
     ))
 
@@ -45,13 +47,16 @@ export default defineComponent({
       currentValue.value = value
       emit('update:value', value)
     }
-    
-    return () =>
-      <input
+
+    function createInput () {
+      return <input
         class={ inputClassName.value }
         value={ currentValue.value }
         onInput={ handleChange }
         onChange={ handleChange }
       />
+    }
+    
+    return () => createInput()
   }
 })
