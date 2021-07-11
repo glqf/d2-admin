@@ -8,7 +8,7 @@
   @include mix-input-color-styles(#{$color}-base);
   &:hover { @include mix-input-color-styles(#{$color}-hover); }
   &:focus { @include mix-input-color-styles(#{$color}-focus); }
-  &:active, &.is-active { @include mix-input-color-styles(#{$color}-active); }
+  &:active { @include mix-input-color-styles(#{$color}-active); }
   @include when(disabled) {
     &, &:hover, &:focus {
       cursor: not-allowed;
