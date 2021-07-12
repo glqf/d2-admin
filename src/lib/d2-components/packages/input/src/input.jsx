@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import { useConfigForD2Components } from '../../../use/config.js'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { isSize, isColor } from '../../../utils/const.js'
-import D2InputCore from './core.jsx'
 
 export const name = makeComponentName('input')
 export const mainClassName = makeComponentClassName('input')
@@ -61,12 +60,16 @@ export default defineComponent({
       const inputProps = {
         class: inputClassName.value,
         value: currentValue.value,
+        disabled: inputDisabled.value,
         onInput: handleChange,
         onChange: handleChange
       }
       return <input { ...inputProps }/>
     }
     
-    return () => <D2InputCore input={ createInput() }></D2InputCore>
+    return () => {
+      const input = createInput()
+      return input
+    }
   }
 })
