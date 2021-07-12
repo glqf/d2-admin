@@ -24,16 +24,12 @@ export default defineComponent({
 
     const currentValue = ref(props.value || '')
 
-    // disabled
     const inputDisabled = computed(() => props.disabled)
-    
-    // size
+
     const inputSize = computed(() => props.size || $D2COM.size)
 
-    // color
     const inputColor = computed(() => props.color)
 
-    // has external container
     const hasWrapper = computed(() => false)
 
     watch(() => props.value, (value) => {

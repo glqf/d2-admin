@@ -42,54 +42,39 @@ export default {
   ],
   setup (props, { emit, slots }) {
     const $D2COM = useConfigForD2Components()
-
-    // under what circumstances will the slot contents not be displayed
-    // slot content is not set
-    // circle mode and has icon prop
+    
     const slotActive = computed(() => !((!slots.default) || (buttonCircle.value && props.icon) || (buttonCircle.value && buttonLoading.value)))
 
-    // ring
     const buttonRingOffset = computed(() => {
       const offset = props.ringOffset
       return isNumber(offset) ? offset : (offset ? 1 : 0)
     })
-    
-    // size
+
     const buttonSize = computed(() => props.size || unref(inject(buttonGroupName, 'size')) || $D2COM.size)
 
-    // color
     const buttonColor = computed(() => props.color || unref(inject(buttonGroupName, 'color')))
 
-    // plain
     const buttonPlain = computed(() => props.plain || unref(inject(buttonGroupName, 'plain')))
 
-    // text
     const buttonText = computed(() => props.text || unref(inject(buttonGroupName, 'text')))
 
-    // circle
     const buttonCircle = computed(() => props.circle || unref(inject(buttonGroupName, 'circle')))
 
-    // ring
     const buttonRing = computed(() => props.ring || unref(inject(buttonGroupName, 'ring')))
     const buttonRingWidth = computed(() => findFirstDifferent(buttonProps.ringWidth.default, props.ringWidth, unref(inject(buttonGroupName, 'ringWidth'))))
     
-    // disabled
     const buttonDisabled = computed(() => props.disabled || unref(inject(buttonGroupName, 'disabled')))
 
-    // active
     const buttonActive = computed(() => props.active || unref(inject(buttonGroupName, 'active')))
 
-    // loading
     const buttonLoadingLeft = computed(() => props.loading)
     const buttonLoadingRight = computed(() => props.loadingRight)
     const buttonLoading = computed(() => buttonLoadingLeft.value || buttonLoadingRight.value)
 
-    // round and special
     const buttonRound = computed(() => (props.round || unref(inject(buttonGroupName, 'round'))) && !props.roundLeft && !props.roundRight)
     const buttonRoundLeft = computed(() => props.roundLeft)
     const buttonRoundRight = computed(() => props.roundRight)
 
-    // icon name and position
     const buttonIconLeftActive = computed(() => isValuableString(props.icon) && !buttonLoadingLeft.value)
     const buttonIconRightActive = computed(() => isValuableString(props.iconRight)  && !buttonLoadingRight.value)
     

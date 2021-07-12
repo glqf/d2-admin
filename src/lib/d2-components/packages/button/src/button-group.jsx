@@ -19,10 +19,8 @@ export default defineComponent({
   setup (props, { slots }) {
     const $D2COM = useConfigForD2Components()
 
-    // All props are provide to the button component
     propsName.forEach(name => provide(name, computed(() => props[name])))
 
-    // size
     const buttonGroupSize = computed(() => props.size || $D2COM.size)
 
     const buttonGroupClassName = computed(() => classNames(
