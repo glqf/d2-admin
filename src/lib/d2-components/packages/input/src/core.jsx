@@ -8,7 +8,7 @@ export const mainClassName = makeComponentClassName('input-core')
 export default defineComponent({
   name,
   props: {
-    element: { type: Object, validator: value => isVNode(value) }
+    input: { type: Object, validator: value => isVNode(value) }
   },
   setup (props) {
     const inputCoreClassName = computed(() => classNames(
@@ -16,6 +16,6 @@ export default defineComponent({
       {}
     ))
 
-    return () => <span class={ inputCoreClassName.value }>{ props.element }</span>
+    return () => <span class={ inputCoreClassName.value }>{ props.input }</span>
   }
 })

@@ -67,6 +67,6 @@ export default defineComponent({
       return <input { ...inputProps }/>
     }
     
-    return () => <D2InputCore element={ createInput() }></D2InputCore>
+    return () => <D2InputCore input={ createInput() }></D2InputCore>
   }
 })
