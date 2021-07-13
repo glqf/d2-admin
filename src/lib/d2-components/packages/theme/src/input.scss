@@ -7,7 +7,7 @@
 @mixin mix-input-color ($color) {
   @include mix-input-color-styles(#{$color}-base);
   &:hover { @include mix-input-color-styles(#{$color}-hover); }
-  &:focus { @include mix-input-color-styles(#{$color}-focus); }
+  &:focus, .is-focus { @include mix-input-color-styles(#{$color}-focus); }
   &:active { @include mix-input-color-styles(#{$color}-active); }
   @include when(disabled) {
     &, &:hover, &:focus {
@@ -25,12 +25,14 @@
   line-height: var(--d2-input-line-height-#{$size});
 }
 
-@mixin input-and-wrapper {
+@mixin input-and-wrapper-public {
   display: inline-block;
   box-sizing: border-box;
   outline: none;
   margin: 0;
   transition: --var-transition-speed(fast);
+  border-width: var(--d2-border-width);
+  border-style: var(--d2-border-style);
   &:focus,
   &:active {
     outline: none;
@@ -38,9 +40,7 @@
 }
 
 @include b(input) {
-  @include input-and-wrapper;
-  border-width: var(--d2-border-width);
-  border-style: var(--d2-border-style);
+  @include input-and-wrapper-public;
   @include mix-input-color(base);
   @each $color, $color-setting in $--d2-color {
     @include m($color) {
@@ -60,9 +60,7 @@
 }
 
 @include b(input-wrapper) {
-  @include input-and-wrapper;
-  border-width: var(--d2-border-width);
-  border-style: var(--d2-border-style);
+  @include input-and-wrapper-public;
   @include b(input) {
     padding: 0;
     border-radius: 0;
