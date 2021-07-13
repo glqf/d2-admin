@@ -26,14 +26,19 @@ export default defineComponent({
   ],
   setup (props, { emit, attrs }) {
     const $D2COM = useConfigForD2Components()
+
     const currentValue = ref(props.value || '')
+
     const disabled = computed(() => props.disabled)
     const size = computed(() => props.size || $D2COM.size)
     const color = computed(() => props.color)
     const clearActive = computed(() => props.clearable && currentValue.value)
+
     const prefix = computed(() => props.prefix)
     const suffix = computed(() => clearActive.value ? 'icon-park-outline:close-one' : props.suffix)
+
     const wrapperActive = computed(() => props.clearable)
+
     const innerClassNames = computed(() => classNames(
       innerClassName,
       {
@@ -43,6 +48,7 @@ export default defineComponent({
         [attrs.class]: attrs.class && !wrapperActive.value
       }
     ))
+
     const outerClassNames = computed(() => classNames(
       outerClassName,
       {
@@ -52,14 +58,17 @@ export default defineComponent({
         [attrs.class]: attrs.class && wrapperActive.value
       }
     ))
+
     watch(() => props.value, (value) => {
       currentValue.value = value
     })
+
     function onInputElementChange (e) {
       const value = e.target.value
       currentValue.value = value
       emit('update:value', value)
     }
+
     function createInputElement () {
       const props = {
         disabled: disabled.value,
@@ -70,11 +79,13 @@ export default defineComponent({
       }
       return <input { ...props }/>
     }
+
     function createIcon (icon) {
       return <span>
         <D2Icon icon={ icon.value }/>
       </span>
     }
+
     function createInputWrapper (input) {
       const suffixIcon = createIcon(suffix)
       return <span class={ outerClassNames.value }>
@@ -82,6 +93,7 @@ export default defineComponent({
         { suffixIcon }
       </span>
     }
+
     return () => {
       const input = createInputElement({
         innerClassNames: innerClassNames.value,
