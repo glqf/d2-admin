@@ -37,14 +37,15 @@
   }
 }
 
-@include b(input-wrapper) {
+@include b(input) {
   @include input-and-wrapper;
   border-width: var(--d2-border-width);
   border-style: var(--d2-border-style);
-  @include b(input) {
-    padding: 0;
-    border-radius: 0;
-    border-width: 0;
+  @include mix-input-color(base);
+  @each $color, $color-setting in $--d2-color {
+    @include m($color) {
+      @include mix-input-color($color);
+    }
   }
   @each $size, $size-setting in $--d2-input-sizes {
     @if $size == base {
@@ -58,10 +59,15 @@
   }
 }
 
-@include b(input) {
+@include b(input-wrapper) {
   @include input-and-wrapper;
   border-width: var(--d2-border-width);
   border-style: var(--d2-border-style);
+  @include b(input) {
+    padding: 0;
+    border-radius: 0;
+    border-width: 0;
+  }
   @include mix-input-color(base);
   @each $color, $color-setting in $--d2-color {
     @include m($color) {
