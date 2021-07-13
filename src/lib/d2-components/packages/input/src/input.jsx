@@ -14,7 +14,8 @@ export default defineComponent({
     value: { type: [String, Number], default: '' },
     disabled: { type: Boolean },
     size: { type: String, default: '', validator: value => isSize(value, true) },
-    color: { type: String, default: '', validator: value => isColor(value, true) }
+    color: { type: String, default: '', validator: value => isColor(value, true) },
+    clearable: { type: Boolean }
   },
   emits: [
     'update:value'
@@ -30,7 +31,7 @@ export default defineComponent({
 
     const inputColor = computed(() => props.color)
 
-    const hasWrapper = computed(() => false)
+    const wrapperActive = computed(() => false)
 
     watch(() => props.value, (value) => {
       currentValue.value = value
@@ -42,7 +43,7 @@ export default defineComponent({
         'is-disabled': inputDisabled.value,
         [`${mainClassName}--${inputSize.value}`]: inputSize.value,
         [`${mainClassName}--${inputColor.value}`]: inputColor.value,
-        [attrs.class]: attrs.class && !hasWrapper.value
+        [attrs.class]: attrs.class && !wrapperActive.value
       }
     ))
 
@@ -52,20 +53,24 @@ export default defineComponent({
       emit('update:value', value)
     }
 
-    function createInput () {
-      const inputProps = {
+    function createInputElement () {
+      const props = {
         class: inputClassName.value,
         value: currentValue.value,
         disabled: inputDisabled.value,
         onInput: handleChange,
         onChange: handleChange
       }
-      return <input { ...inputProps }/>
+      return <input { ...props }/>
+    }
+
+    function createInputComponent () {
+      return () => {
+        const input = createInputElement()
+        return input
+      }
     }
     
-    return () => {
-      const input = createInput()
-      return input
-    }
+    return createInputComponent()
   }
 })
