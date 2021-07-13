@@ -68,7 +68,7 @@ export default defineComponent({
         {}
       ))
       function createInputWrapper (input) {
-        const clearButton = <D2Icon icon="icon-park-outline:clear-format"/>
+        const clearButton = <D2Icon icon="icon-park-outline:close-one"/>
         return <span class={ outerClassNames.value }>
           { input }
           { clearButton }
