@@ -31,10 +31,10 @@
 
 @mixin mix-input-wrapper-size ($size) {
   @include mix-input-and-wrapper-size-public($size);
-  @include when(prefix-space) {
+  @include when(prefix-has) {
     padding-left: var(--d2-input-padding-y-#{$size});
   }
-  @include when(suffix-space) {
+  @include when(suffix-has) {
     padding-right: var(--d2-input-padding-y-#{$size});
   }
   & > span {

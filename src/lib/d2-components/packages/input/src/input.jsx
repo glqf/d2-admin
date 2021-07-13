@@ -33,8 +33,8 @@ export default defineComponent({
     const size = computed(() => props.size || $D2COM.size)
     const color = computed(() => props.color)
 
-    const iconSpacePrefix = computed(() => props.prefix)
-    const iconSpaceSuffix = computed(() => props.suffix || props.clearable)
+    const hasPrefix = computed(() => props.prefix)
+    const hasSuffix = computed(() => props.suffix || props.clearable)
 
     const wrapperActive = computed(() => props.clearable)
 
@@ -52,8 +52,8 @@ export default defineComponent({
       outerClassName,
       {
         'is-disabled': disabled.value,
-        'is-prefix-space': iconSpacePrefix.value,
-        'is-suffix-space': iconSpaceSuffix.value,
+        'is-prefix-has': hasPrefix.value,
+        'is-suffix-has': hasSuffix.value,
         [`${outerClassName}--${size.value}`]: size.value,
         [`${outerClassName}--${color.value}`]: color.value,
         [attrs.class]: attrs.class && wrapperActive.value
@@ -81,13 +81,18 @@ export default defineComponent({
       return <input { ...props }/>
     }
 
+    function createClearButton () {
+      return <span><D2Icon icon="icon-park-outline:close-one"/></span>
+    }
+
     function createInputWrapper (input) {
       const prefix = <span><D2Icon icon={ props.prefix }/></span>
-      const suffix = <span><D2Icon icon="icon-park-outline:close-one"/></span>
+      const suffix = <span><D2Icon icon={ props.suffix }/></span>
+      const clearButton = createClearButton()
       return <span class={ outerClassNames.value }>
-        { prefix }
+        { props.prefix ? prefix : null }
         { input }
-        { suffix }
+        { props.clearable ? clearButton : suffix }
       </span>
     }
 
