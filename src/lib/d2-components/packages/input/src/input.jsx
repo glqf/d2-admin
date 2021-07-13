@@ -32,7 +32,9 @@ export default defineComponent({
     const disabled = computed(() => props.disabled)
     const size = computed(() => props.size || $D2COM.size)
     const color = computed(() => props.color)
-    const clearActive = computed(() => props.clearable && currentValue.value)
+
+    const iconSpacePrefix = computed(() => props.prefix)
+    const iconSpaceSuffix = computed(() => props.suffix || props.clearable)
 
     const wrapperActive = computed(() => props.clearable)
 
@@ -50,6 +52,8 @@ export default defineComponent({
       outerClassName,
       {
         'is-disabled': disabled.value,
+        'is-prefix-space': iconSpacePrefix.value,
+        'is-suffix-space': iconSpaceSuffix.value,
         [`${outerClassName}--${size.value}`]: size.value,
         [`${outerClassName}--${color.value}`]: color.value,
         [attrs.class]: attrs.class && wrapperActive.value
