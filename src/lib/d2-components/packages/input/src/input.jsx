@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import { useConfigForD2Components } from '../../../use/config.js'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { isSize, isColor } from '../../../utils/const.js'
+import D2Icon from '../../icon/src/icon.vue'
 
 export const name = makeComponentName('input')
 export const innerClassName = makeComponentClassName('input')
@@ -67,7 +68,7 @@ export default defineComponent({
         {}
       ))
       function createInputWrapper (input) {
-        const clearButton = 'clear'
+        const clearButton = <D2Icon icon="icon-park-outline:clear-format"/>
         return <span class={ outerClassNames.value }>
           { input }
           { clearButton }
