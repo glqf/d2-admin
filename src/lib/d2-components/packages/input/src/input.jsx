@@ -67,7 +67,11 @@ export default defineComponent({
         {}
       ))
       function createInputWrapper (input) {
-        return <span class={ outerClassNames.value }>{ input }</span>
+        const clearButton = 'clear'
+        return <span class={ outerClassNames.value }>
+          { input }
+          { clearButton }
+        </span>
       }
       return () => {
         const input = createInputElement({
