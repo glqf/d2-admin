@@ -57,6 +57,7 @@ export default defineComponent({
       const innerClassNames = computed(() => classNames(
         innerClassName,
         {
+          'is-complete': !wrapperActive.value,
           'is-disabled': inputDisabled.value,
           [`${innerClassName}--${inputSize.value}`]: inputSize.value,
           [`${innerClassName}--${inputColor.value}`]: inputColor.value,

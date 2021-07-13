@@ -26,31 +26,36 @@
 }
 
 @include b(input) {
-  display: inline-block;
-  box-sizing: border-box;
-  outline: none;
-  margin: 0;
-  border-width: var(--d2-border-width);
-  border-style: var(--d2-border-style);
-  transition: --var-transition-speed(fast);
-  &:focus,
-  &:active {
+  @include when(complete) {
+    display: inline-block;
+    box-sizing: border-box;
     outline: none;
-  }
-  @include mix-input-color(base);
-  @each $color, $color-setting in $--d2-color {
-    @include m($color) {
-      @include mix-input-color($color);
+    margin: 0;
+    border-width: var(--d2-border-width);
+    border-style: var(--d2-border-style);
+    transition: --var-transition-speed(fast);
+    &:focus,
+    &:active {
+      outline: none;
     }
-  }
-  @each $size, $size-setting in $--d2-input-sizes {
-    @if $size == base {
-      @include mix-input-size(base);
+    @include mix-input-color(base);
+    @each $color, $color-setting in $--d2-color {
+      @include m($color) {
+        @include mix-input-color($color);
+      }
     }
-    @else {
-      @include m($size) {
-        @include mix-input-size($size);
+    @each $size, $size-setting in $--d2-input-sizes {
+      @if $size == base {
+        @include mix-input-size(base);
+      }
+      @else {
+        @include m($size) {
+          @include mix-input-size($size);
+        }
       }
     }
   }
+}
+
+@include b(input-wrapper) {
 }
