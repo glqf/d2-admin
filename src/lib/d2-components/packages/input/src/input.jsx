@@ -22,72 +22,64 @@ export default defineComponent({
   emits: [
     'update:value'
   ],
-  setup (props, context) {
+  setup (props, { emit, attrs }) {
     const $D2COM = useConfigForD2Components()
-
-    function createInputElement ({
-      innerClassNames = '',
-      disabled
-    }) {
-      const { emit } = context
-      const currentValue = ref(props.value || '')
-      watch(() => props.value, (value) => {
-        currentValue.value = value
-      })
-      function onInputElementChange (e) {
-        const value = e.target.value
-        currentValue.value = value
-        emit('update:value', value)
+    const currentValue = ref(props.value || '')
+    const inputDisabled = computed(() => props.disabled)
+    const inputSize = computed(() => props.size || $D2COM.size)
+    const inputColor = computed(() => props.color)
+    const wrapperActive = computed(() => props.clearable)
+    const innerClassNames = computed(() => classNames(
+      innerClassName,
+      {
+        'is-disabled': inputDisabled.value,
+        [`${innerClassName}--${inputSize.value}`]: inputSize.value,
+        [`${innerClassName}--${inputColor.value}`]: inputColor.value,
+        [attrs.class]: attrs.class && !wrapperActive.value
       }
-      const inputElementProps = {
-        disabled,
-        class: innerClassNames,
+    ))
+    const outerClassNames = computed(() => classNames(
+      outerClassName,
+      {
+        'is-disabled': inputDisabled.value,
+        [`${outerClassName}--${inputSize.value}`]: inputSize.value,
+        [`${outerClassName}--${inputColor.value}`]: inputColor.value,
+        [attrs.class]: attrs.class && wrapperActive.value
+      }
+    ))
+    watch(() => props.value, (value) => {
+      currentValue.value = value
+    })
+    function onInputElementChange (e) {
+      const value = e.target.value
+      currentValue.value = value
+      emit('update:value', value)
+    }
+    function createInputElement () {
+      const props = {
+        disabled: inputDisabled.value,
+        class: innerClassNames.value,
         value: currentValue.value,
         onInput: onInputElementChange,
         onChange: onInputElementChange
       }
-      return <input { ...inputElementProps }/>
+      return <input { ...props }/>
     }
-
-    function createInputComponent (props, context, createInputElement) {
-      const inputDisabled = computed(() => props.disabled)
-      const inputSize = computed(() => props.size || $D2COM.size)
-      const inputColor = computed(() => props.color)
-      const wrapperActive = computed(() => props.clearable)
-      const innerClassNames = computed(() => classNames(
-        innerClassName,
-        {
-          'is-disabled': inputDisabled.value,
-          [`${innerClassName}--${inputSize.value}`]: inputSize.value,
-          [`${innerClassName}--${inputColor.value}`]: inputColor.value,
-          [context.attrs.class]: context.attrs.class && !wrapperActive.value
-        }
-      ))
-      function createInputWrapper (input) {
-        const outerClassNames = computed(() => classNames(
-          outerClassName,
-          {
-            'is-disabled': inputDisabled.value,
-            [`${outerClassName}--${inputSize.value}`]: inputSize.value,
-            [`${outerClassName}--${inputColor.value}`]: inputColor.value,
-            [context.attrs.class]: context.attrs.class && wrapperActive.value
-          }
-        ))
-        const clearButton = <D2Icon icon="icon-park-outline:close-one"/>
-        return <span class={ outerClassNames.value }>
-          { input }
-          { clearButton }
-        </span>
-      }
-      return () => {
-        const input = createInputElement({
-          innerClassNames: innerClassNames.value,
-          disabled: inputDisabled.value
-        })
-        return wrapperActive.value ? createInputWrapper(input) : input
-      }
+    function createInputWrapper (input) {
+      const clearButton = <span>
+        <D2Icon icon="icon-park-outline:close-one"/>
+      </span>
+      return <span class={ outerClassNames.value }>
+        { input }
+        { clearButton }
+      </span>
     }
-
-    return createInputComponent(props, context, createInputElement)
+    return () => {
+      const input = createInputElement({
+        innerClassNames: innerClassNames.value,
+        disabled: inputDisabled.value
+      })
+      return wrapperActive.value ? createInputWrapper(input) : input
+    }
   }
 })
