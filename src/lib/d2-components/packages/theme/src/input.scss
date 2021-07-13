@@ -31,37 +31,20 @@
   outline: none;
   margin: 0;
   transition: --var-transition-speed(fast);
-}
-
-@include b(input) {
-  @include input-and-wrapper;
   &:focus,
   &:active {
     outline: none;
   }
-  @include when(complete) {
-    border-width: var(--d2-border-width);
-    border-style: var(--d2-border-style);
-    @include mix-input-color(base);
-    @each $color, $color-setting in $--d2-color {
-      @include m($color) {
-        @include mix-input-color($color);
-      }
-    }
-    @each $size, $size-setting in $--d2-input-sizes {
-      @if $size == base {
-        @include mix-input-size(base);
-      }
-      @else {
-        @include m($size) {
-          @include mix-input-size($size);
-        }
-      }
-    }
-  }
 }
 
 @include b(input-wrapper) {
+  @include input-and-wrapper;
+  @include b(input) {
+    border-width: 0;
+  }
+}
+
+@include b(input) {
   @include input-and-wrapper;
   border-width: var(--d2-border-width);
   border-style: var(--d2-border-style);
