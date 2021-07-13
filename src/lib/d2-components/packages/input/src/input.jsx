@@ -5,7 +5,8 @@ import { makeComponentName, makeComponentClassName } from '../../../utils/make.j
 import { isSize, isColor } from '../../../utils/const.js'
 
 export const name = makeComponentName('input')
-export const mainClassName = makeComponentClassName('input')
+export const innerClassName = makeComponentClassName('input')
+export const outerClassName = makeComponentClassName('input-wrapper')
 
 export default defineComponent({
   name,
@@ -24,7 +25,7 @@ export default defineComponent({
     const $D2COM = useConfigForD2Components()
 
     function createInputElement ({
-      classInner = '',
+      innerClassNames = '',
       disabled
     }) {
       const { emit } = context
@@ -39,7 +40,7 @@ export default defineComponent({
       }
       const inputElementProps = {
         disabled,
-        class: classInner,
+        class: innerClassNames,
         value: currentValue.value,
         onInput: onInputElementChange,
         onChange: onInputElementChange
@@ -52,21 +53,25 @@ export default defineComponent({
       const inputSize = computed(() => props.size || $D2COM.size)
       const inputColor = computed(() => props.color)
       const wrapperActive = computed(() => false)
-      const classInner = computed(() => classNames(
-        mainClassName,
+      const innerClassNames = computed(() => classNames(
+        innerClassName,
         {
           'is-disabled': inputDisabled.value,
-          [`${mainClassName}--${inputSize.value}`]: inputSize.value,
-          [`${mainClassName}--${inputColor.value}`]: inputColor.value,
+          [`${innerClassName}--${inputSize.value}`]: inputSize.value,
+          [`${innerClassName}--${inputColor.value}`]: inputColor.value,
           [context.attrs.class]: context.attrs.class && !wrapperActive.value
         }
       ))
+      const outerClassNames = computed(() => classNames(
+        outerClassName,
+        {}
+      ))
       return () => {
         const input = createInputElement({
-          classInner: classInner.value,
+          innerClassNames: innerClassNames.value,
           disabled: inputDisabled.value
         })
-        return input
+        return <span class={ outerClassNames.value }>{ input }</span>
       }
     }
     
