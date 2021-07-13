@@ -39,8 +39,22 @@
 
 @include b(input-wrapper) {
   @include input-and-wrapper;
+  border-width: var(--d2-border-width);
+  border-style: var(--d2-border-style);
   @include b(input) {
+    padding: 0;
+    border-radius: 0;
     border-width: 0;
+  }
+  @each $size, $size-setting in $--d2-input-sizes {
+    @if $size == base {
+      @include mix-input-size(base);
+    }
+    @else {
+      @include m($size) {
+        @include mix-input-size($size);
+      }
+    }
   }
 }
 

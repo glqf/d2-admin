@@ -57,18 +57,22 @@ export default defineComponent({
       const innerClassNames = computed(() => classNames(
         innerClassName,
         {
-          'is-complete': !wrapperActive.value,
           'is-disabled': inputDisabled.value,
           [`${innerClassName}--${inputSize.value}`]: inputSize.value,
           [`${innerClassName}--${inputColor.value}`]: inputColor.value,
           [context.attrs.class]: context.attrs.class && !wrapperActive.value
         }
       ))
-      const outerClassNames = computed(() => classNames(
-        outerClassName,
-        {}
-      ))
       function createInputWrapper (input) {
+        const outerClassNames = computed(() => classNames(
+          outerClassName,
+          {
+            'is-disabled': inputDisabled.value,
+            [`${outerClassName}--${inputSize.value}`]: inputSize.value,
+            [`${outerClassName}--${inputColor.value}`]: inputColor.value,
+            [context.attrs.class]: context.attrs.class && wrapperActive.value
+          }
+        ))
         const clearButton = <D2Icon icon="icon-park-outline:close-one"/>
         return <span class={ outerClassNames.value }>
           { input }
