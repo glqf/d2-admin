@@ -2,6 +2,9 @@
   <the-section title="input">
     <d2-input v-model:value="value" class="mb-4"/>
   </the-section>
+  <the-section title="clearable">
+    <d2-input v-model:value="value" class="mb-4" clearable/>
+  </the-section>
   <the-section title="input + button">
     <d2-input v-model:value="value" class="mb-4"/>
     <d2-button>Submit</d2-button>
