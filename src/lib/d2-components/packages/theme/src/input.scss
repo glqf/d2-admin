@@ -23,6 +23,10 @@
   font-size: var(--d2-input-font-size-#{$size});
   font-weight: var(--d2-input-font-weight-#{$size});
   line-height: var(--d2-input-line-height-#{$size});
+  & > span {
+    height: var(--d2-input-line-height-#{$size});
+    width: var(--d2-input-line-height-#{$size});
+  }
 }
 
 @mixin input-and-wrapper-public {
@@ -61,6 +65,10 @@
 
 @include b(input-wrapper) {
   @include input-and-wrapper-public;
+  & > span {
+    display: inline-block;
+    text-align: center;
+  }
   @include b(input) {
     padding: 0;
     border-radius: 0;

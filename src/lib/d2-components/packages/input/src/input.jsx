@@ -34,9 +34,6 @@ export default defineComponent({
     const color = computed(() => props.color)
     const clearActive = computed(() => props.clearable && currentValue.value)
 
-    const prefix = computed(() => props.prefix)
-    const suffix = computed(() => clearActive.value ? 'icon-park-outline:close-one' : props.suffix)
-
     const wrapperActive = computed(() => props.clearable)
 
     const innerClassNames = computed(() => classNames(
@@ -80,17 +77,13 @@ export default defineComponent({
       return <input { ...props }/>
     }
 
-    function createIcon (icon) {
-      return <span>
-        <D2Icon icon={ icon.value }/>
-      </span>
-    }
-
     function createInputWrapper (input) {
-      const suffixIcon = createIcon(suffix)
+      const prefix = <span><D2Icon icon={ props.prefix }/></span>
+      const suffix = <span><D2Icon icon="icon-park-outline:close-one"/></span>
       return <span class={ outerClassNames.value }>
+        { prefix }
         { input }
-        { suffixIcon }
+        { suffix }
       </span>
     }
 
