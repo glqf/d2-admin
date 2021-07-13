@@ -48,11 +48,11 @@ export default defineComponent({
       return <input { ...inputElementProps }/>
     }
 
-    function createInputComponent () {
+    function createInputComponent (props, context, createInputElement) {
       const inputDisabled = computed(() => props.disabled)
       const inputSize = computed(() => props.size || $D2COM.size)
       const inputColor = computed(() => props.color)
-      const wrapperActive = computed(() => false)
+      const wrapperActive = computed(() => props.clearable)
       const innerClassNames = computed(() => classNames(
         innerClassName,
         {
@@ -66,15 +66,18 @@ export default defineComponent({
         outerClassName,
         {}
       ))
+      function createInputWrapper (input) {
+        return <span class={ outerClassNames.value }>{ input }</span>
+      }
       return () => {
         const input = createInputElement({
           innerClassNames: innerClassNames.value,
           disabled: inputDisabled.value
         })
-        return <span class={ outerClassNames.value }>{ input }</span>
+        return wrapperActive.value ? createInputWrapper(input) : input
       }
     }
-    
-    return createInputComponent(props, context)
+
+    return createInputComponent(props, context, createInputElement)
   }
 })
