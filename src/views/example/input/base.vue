@@ -5,6 +5,9 @@
   <the-section title="clearable">
     <d2-input v-model:value="value" class="mb-4" clearable/>
   </the-section>
+  <the-section title="clearable size">
+    <d2-input v-for="size in sizeNames" :key="size" v-model:value="value" :size="size" clearable/>
+  </the-section>
   <the-section title="input + button">
     <d2-input v-model:value="value" class="mb-4"/>
     <d2-button>Submit</d2-button>
@@ -13,20 +16,10 @@
     <d2-input v-model:value="value" disabled/>
   </the-section>
   <the-section title="color">
-    <d2-input
-      v-for="color in colorNames"
-      :key="color"
-      :color="color"
-      v-model:value="value"
-    />
+    <d2-input v-for="color in colorNames" :key="color" :color="color" v-model:value="value"/>
   </the-section>
   <the-section title="size">
-    <d2-input
-      v-for="size in sizeNames"
-      :key="size"
-      :size="size"
-      v-model:value="value"
-    />
+    <d2-input v-for="size in sizeNames" :key="size" v-model:value="value" :size="size"/>
   </the-section>
 </template>
 
