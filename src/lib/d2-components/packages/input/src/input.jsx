@@ -25,27 +25,9 @@ export default defineComponent({
 
     const currentValue = ref(props.value || '')
 
-    const inputDisabled = computed(() => props.disabled)
-
-    const inputSize = computed(() => props.size || $D2COM.size)
-
-    const inputColor = computed(() => props.color)
-
-    const wrapperActive = computed(() => false)
-
     watch(() => props.value, (value) => {
       currentValue.value = value
     })
-
-    const inputClassName = computed(() => classNames(
-      mainClassName,
-      {
-        'is-disabled': inputDisabled.value,
-        [`${mainClassName}--${inputSize.value}`]: inputSize.value,
-        [`${mainClassName}--${inputColor.value}`]: inputColor.value,
-        [attrs.class]: attrs.class && !wrapperActive.value
-      }
-    ))
 
     function handleChange (e) {
       const value = e.target.value
@@ -53,11 +35,14 @@ export default defineComponent({
       emit('update:value', value)
     }
 
-    function createInputElement () {
+    function createInputElement ({
+      classNames = '',
+      disabled
+    }) {
       const props = {
-        class: inputClassName.value,
+        disabled,
+        class: classNames,
         value: currentValue.value,
-        disabled: inputDisabled.value,
         onInput: handleChange,
         onChange: handleChange
       }
@@ -65,8 +50,29 @@ export default defineComponent({
     }
 
     function createInputComponent () {
+      const inputDisabled = computed(() => props.disabled)
+  
+      const inputSize = computed(() => props.size || $D2COM.size)
+  
+      const inputColor = computed(() => props.color)
+
+      const wrapperActive = computed(() => false)
+
+      const inputElementClassName = computed(() => classNames(
+        mainClassName,
+        {
+          'is-disabled': inputDisabled.value,
+          [`${mainClassName}--${inputSize.value}`]: inputSize.value,
+          [`${mainClassName}--${inputColor.value}`]: inputColor.value,
+          [attrs.class]: attrs.class && !wrapperActive.value
+        }
+      ))
+
       return () => {
-        const input = createInputElement()
+        const input = createInputElement({
+          classNames: inputElementClassName.value,
+          disabled: inputDisabled.value
+        })
         return input
       }
     }
