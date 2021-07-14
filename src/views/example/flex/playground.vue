@@ -1,6 +1,6 @@
 <template>
   <the-section title="playground">
-    <d2-flex dir="left" box="first">
+    <d2-flex dir="left" cross="top" box="first">
       <d2-flex main="center" cross="center" class="view">
         <d2-flex class="flex" :dir="dirValue" :main="mainValue" :cross="crossValue" :box="boxValue" :space="spaceValue">
           <d2-flex class="flex__item" :class="`flex__item--${n}`" v-for="n in 5" :key="n" center>{{ n }}</d2-flex>
