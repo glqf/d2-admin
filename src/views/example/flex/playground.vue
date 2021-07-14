@@ -22,26 +22,11 @@
         </d2-flex>
       </d2-flex>
       <div class="control">
-        <div class="control__row">
-          <p>dir</p>
-          <playground-control :options="dir" v-model:value="dirValue"/>
-        </div>
-        <div class="control__row">
-          <p>main</p>
-          <playground-control :options="main" v-model:value="mainValue"/>
-        </div>
-        <div class="control__row">
-          <p>cross</p>
-          <playground-control :options="cross" v-model:value="crossValue"/>
-        </div>
-        <div class="control__row">
-          <p>box</p>
-          <playground-control :options="box" v-model:value="boxValue"/>
-        </div>
-        <div class="control__row">
-          <p>space</p>
-          <playground-control :options="space" v-model:value="spaceValue"/>
-        </div>
+      <playground-control label="dir" :options="dir" v-model:value="dirValue"/>
+      <playground-control label="main" :options="main" v-model:value="mainValue"/>
+      <playground-control label="cross" :options="cross" v-model:value="crossValue"/>
+      <playground-control label="box" :options="box" v-model:value="boxValue"/>
+      <playground-control label="space" :options="space" v-model:value="spaceValue"/>
       </div>
     </d2-flex>
   </the-section>
@@ -95,14 +80,6 @@ export default {
       &.flex__item--3 { @apply bg-indigo-500; }
       &.flex__item--4 { @apply bg-indigo-400; }
       &.flex__item--5 { @apply bg-indigo-300; }
-    }
-  }
-}
-.control {
-  .control__row {
-    @apply mb-2;
-    p {
-      @apply mb-2 text-gray-500;
     }
   }
 }
