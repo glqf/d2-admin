@@ -7,10 +7,11 @@
       v-for="item in options"
       :key="item"
       :color="value === item ? 'indigo' : ''"
+      :icon="buttonIcon(item)"
       size="small"
       @click="onClick(item)"
     >
-      {{ item || 'default' }}
+      {{ buttonLabel(item) }}
     </d2-button>
   </section>
 </template>
@@ -29,8 +30,28 @@ export default {
     function onClick (item) {
       emit('update:value', item)
     }
+
+    function buttonLabel (item) {
+      switch (item) {
+        case true: return 'true';
+        case false: return 'false';
+        case '': return 'default';
+        default: return item
+      }
+    }
+
+    function buttonIcon (item) {
+      switch (item) {
+        case true: return 'icon-park-outline:check';
+        case false: return 'icon-park-outline:close';
+        default: return ''
+      }
+    }
+    
     return {
-      onClick
+      onClick,
+      buttonLabel,
+      buttonIcon
     }
   }
 }
