@@ -37,7 +37,7 @@
   @include when(suffix-has) {
     padding-right: var(--d2-input-padding-y-#{$size});
   }
-  & > span {
+  & > .#{$namespace}-input-icon {
     height: var(--d2-input-line-height-#{$size});
     width: var(--d2-input-line-height-#{$size});
   }
@@ -79,7 +79,7 @@
 
 @include b(input-wrapper) {
   @include mix-input-and-wrapper-public;
-  & > span {
+  & > .#{$namespace}-input-icon {
     display: inline-block;
     text-align: center;
   }

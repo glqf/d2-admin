@@ -7,6 +7,7 @@ import D2Icon from '../../icon/src/icon.vue'
 
 export const name = makeComponentName('input')
 export const innerClassName = makeComponentClassName('input')
+export const iconClassName = makeComponentClassName('input-icon')
 export const outerClassName = makeComponentClassName('input-wrapper')
 
 export default defineComponent({
@@ -35,6 +36,9 @@ export default defineComponent({
 
     const hasPrefix = computed(() => props.prefix)
     const hasSuffix = computed(() => props.suffix || props.clearable)
+
+    const iconPrefix = computed(() => <span><D2Icon icon={ props.prefix }/></span>)
+    const iconSuffix = computed(() => <span><D2Icon icon={ props.suffix }/></span>)
 
     const wrapperActive = computed(() => props.clearable)
 
@@ -81,18 +85,18 @@ export default defineComponent({
       return <input { ...props }/>
     }
 
-    function createClearButton () {
-      return <span><D2Icon icon="icon-park-outline:close-one"/></span>
-    }
+    const iconClear = computed(
+      () =>
+        <span class={ iconClassName }>
+          <D2Icon icon="icon-park-outline:close-one"/>
+        </span>
+    )
 
     function createInputWrapper (input) {
-      const prefix = <span><D2Icon icon={ props.prefix }/></span>
-      const suffix = <span><D2Icon icon={ props.suffix }/></span>
-      const clearButton = createClearButton()
       return <span class={ outerClassNames.value }>
-        { props.prefix ? prefix : null }
+        { props.prefix ? iconPrefix : null }
         { input }
-        { props.clearable ? clearButton : suffix }
+        { props.clearable ? iconClear.value : iconSuffix }
       </span>
     }
 
