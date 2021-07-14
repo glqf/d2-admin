@@ -127,7 +127,7 @@ export default {
   .flex {
     @apply w-64 h-64 p-1 bg-gray-100;
     .flex__item {
-      @apply p-2 transition-all text-white rounded-sm;
+      @apply p-2 text-white transition-all rounded-sm;
       &.flex__item--1 { @apply bg-indigo-700; }
       &.flex__item--2 { @apply bg-indigo-600; }
       &.flex__item--3 { @apply bg-indigo-500; }
