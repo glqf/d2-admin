@@ -6,7 +6,7 @@
           v-model:value="value"
           :size="sizeValue"
           :color="colorValue"
-          :clearable="clearable"
+          :clearable="clearableValue"
         />
       </d2-flex>
       <div class="control">
