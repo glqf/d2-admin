@@ -21,7 +21,7 @@
           </d2-flex>
         </d2-flex>
       </d2-flex>
-      <div class="control">
+      <div>
         <playground-control label="dir" :options="dir" v-model:value="dirValue"/>
         <playground-control label="main" :options="main" v-model:value="mainValue"/>
         <playground-control label="cross" :options="cross" v-model:value="crossValue"/>
