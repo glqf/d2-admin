@@ -1,8 +1,8 @@
 <template>
-  <p class="playground-control__title">
+  <p class="title">
     {{ label }}
   </p>
-  <section class="playground-control__body">
+  <section class="body">
     <d2-button
       v-for="item in options"
       :key="item"
@@ -37,10 +37,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.playground-control__title {
+.title {
   @apply mb-2 text-gray-500;
 }
-.playground-control__body {
+.body {
   @apply mb-2;
 }
 </style>
