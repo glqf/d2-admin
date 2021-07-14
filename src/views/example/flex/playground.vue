@@ -24,63 +24,23 @@
       <div class="control">
         <div class="control__row">
           <p>dir</p>
-          <d2-button
-            v-for="_dir in dir"
-            :key="_dir"
-            :color="dirValue === _dir ? 'indigo' : ''"
-            size="small"
-            @click="dirValue = _dir"
-          >
-            {{ _dir || 'default' }}
-          </d2-button>
+          <playground-control :options="dir" v-model:value="dirValue"/>
         </div>
         <div class="control__row">
           <p>main</p>
-          <d2-button
-            v-for="_main in main"
-            :key="_main"
-            :color="mainValue === _main ? 'indigo' : ''"
-            size="small"
-            @click="mainValue = _main"
-          >
-            {{ _main || 'default' }}
-          </d2-button>
+          <playground-control :options="main" v-model:value="mainValue"/>
         </div>
         <div class="control__row">
           <p>cross</p>
-          <d2-button
-            v-for="_cross in cross"
-            :key="_cross"
-            :color="crossValue === _cross ? 'indigo' : ''"
-            size="small"
-            @click="crossValue = _cross"
-          >
-            {{ _cross || 'default' }}
-          </d2-button>
+          <playground-control :options="cross" v-model:value="crossValue"/>
         </div>
         <div class="control__row">
           <p>box</p>
-          <d2-button
-            v-for="_box in box"
-            :key="_box"
-            :color="boxValue === _box ? 'indigo' : ''"
-            size="small"
-            @click="boxValue = _box"
-          >
-            {{ _box || 'default' }}
-          </d2-button>
+          <playground-control :options="box" v-model:value="boxValue"/>
         </div>
         <div class="control__row">
           <p>space</p>
-          <d2-button
-            v-for="_space in space"
-            :key="_space"
-            :color="spaceValue === _space ? 'indigo' : ''"
-            size="small"
-            @click="spaceValue = _space"
-          >
-            {{ _space || 'default' }}
-          </d2-button>
+          <playground-control :options="space" v-model:value="spaceValue"/>
         </div>
       </div>
     </d2-flex>
@@ -91,12 +51,14 @@
 import { ref } from 'vue'
 import { flexProps, spaceNames } from 'd2-components/utils/const.js'
 import TheSection from '../components/the-section.vue'
+import PlaygroundControl from '../components/playground-control.vue'
 
 const { dir, main, cross, box } = flexProps
 
 export default {
   components: {
-    TheSection
+    TheSection,
+    PlaygroundControl
   },
   setup () {
     const dirValue = ref('')
