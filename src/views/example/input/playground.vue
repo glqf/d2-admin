@@ -2,11 +2,17 @@
   <the-section title="input">
     <d2-flex dir="left" box="first">
       <d2-flex main="center" cross="center" class="view">
-        <d2-input v-model:value="value" :size="sizeValue" :color="colorValue"/>
+        <d2-input
+          v-model:value="value"
+          :size="sizeValue"
+          :color="colorValue"
+          :clearable="clearable"
+        />
       </d2-flex>
       <div class="control">
         <playground-control label="size" :options="size" v-model:value="sizeValue"/>
         <playground-control label="color" :options="color" v-model:value="colorValue"/>
+        <playground-control label="clearable" :options="clearable" v-model:value="clearableValue"/>
       </div>
     </d2-flex>
   </the-section>
@@ -31,7 +37,9 @@ export default {
       color: ['', ...colorNames],
       colorValue: ref(''),
       size: ['', ...sizeNames],
-      sizeValue: ref('')
+      sizeValue: ref(''),
+      clearable: [false, true],
+      clearableValue: ref(false)
     }
   }
 }
@@ -39,6 +47,6 @@ export default {
 
 <style lang="scss" scoped>
 .view {
-  @apply w-64 h-64 mr-4;
+  @apply w-64 h-64 mr-4 border border-gray-100 rounded bg-gray-50;
 }
 </style>

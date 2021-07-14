@@ -56,7 +56,7 @@
   &.is-box-first > *,
   &.is-box-last > *,
   &.is-box-justify > * {
-    width: 0%;
+    // width: 0%;
     height: auto;
     flex-grow: 1;
     flex-shrink: 1;
@@ -65,7 +65,7 @@
   &.is-box-last > :last-child,
   &.is-box-justify > :first-child,
   &.is-box-justify > :last-child {
-    width: auto;
+    // width: auto;
     flex-grow: 0;
     flex-shrink: 0;
   }
@@ -78,7 +78,7 @@
   &.is-dir-bottom.is-box-first > *,
   &.is-dir-bottom.is-box-last > *,
   &.is-dir-bottom.is-box-justify > * {
-    width: auto;
+    // width: auto;
     height: 0;
     flex-grow: 1;
     flex-shrink: 1;
