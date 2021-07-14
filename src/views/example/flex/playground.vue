@@ -2,31 +2,16 @@
   <the-section title="playground">
     <d2-flex dir="left" box="first">
       <d2-flex main="center" cross="center" class="view">
-        <d2-flex
-          class="flex"
-          :dir="dirValue"
-          :main="mainValue"
-          :cross="crossValue"
-          :box="boxValue"
-          :space="spaceValue"
-        >
-          <d2-flex
-            class="flex__item"
-            :class="`flex__item--${n}`"
-            v-for="n in 5"
-            :key="n"
-            center
-          >
-            {{ n }}
-          </d2-flex>
+        <d2-flex class="flex" :dir="dirValue" :main="mainValue" :cross="crossValue" :box="boxValue" :space="spaceValue">
+          <d2-flex class="flex__item" :class="`flex__item--${n}`" v-for="n in 5" :key="n" center>{{ n }}</d2-flex>
         </d2-flex>
       </d2-flex>
       <div class="control">
-      <playground-control label="dir" :options="dir" v-model:value="dirValue"/>
-      <playground-control label="main" :options="main" v-model:value="mainValue"/>
-      <playground-control label="cross" :options="cross" v-model:value="crossValue"/>
-      <playground-control label="box" :options="box" v-model:value="boxValue"/>
-      <playground-control label="space" :options="space" v-model:value="spaceValue"/>
+        <playground-control label="dir" :options="dir" v-model:value="dirValue"/>
+        <playground-control label="main" :options="main" v-model:value="mainValue"/>
+        <playground-control label="cross" :options="cross" v-model:value="crossValue"/>
+        <playground-control label="box" :options="box" v-model:value="boxValue"/>
+        <playground-control label="space" :options="space" v-model:value="spaceValue"/>
       </div>
     </d2-flex>
   </the-section>
