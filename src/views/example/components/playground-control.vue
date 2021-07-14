@@ -30,7 +30,6 @@ export default {
     function onClick (item) {
       emit('update:value', item)
     }
-
     function buttonLabel (item) {
       switch (item) {
         case true: return 'true';
@@ -39,7 +38,6 @@ export default {
         default: return item
       }
     }
-
     function buttonIcon (item) {
       switch (item) {
         case true: return 'icon-park-outline:check';
@@ -47,7 +45,6 @@ export default {
         default: return ''
       }
     }
-    
     return {
       onClick,
       buttonLabel,
