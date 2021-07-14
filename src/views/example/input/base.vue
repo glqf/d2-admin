@@ -1,28 +1,24 @@
 <template>
   <the-section title="input">
-    <d2-input v-model:value="value" class="mb-4"/>
-  </the-section>
-  <the-section title="clearable">
-    <d2-input v-model:value="value" class="mb-4" clearable/>
-  </the-section>
-  <the-section title="clearable size">
-    <d2-input v-for="size in sizeNames" :key="size" v-model:value="value" :size="size" clearable/>
-  </the-section>
-  <the-section title="clearable color">
-    <d2-input v-for="color in colorNames" :key="color" v-model:value="value" :color="color" clearable/>
-  </the-section>
-  <the-section title="input + button">
-    <d2-input v-model:value="value" class="mb-4"/>
-    <d2-button>Submit</d2-button>
-  </the-section>
-  <the-section title="disabled">
-    <d2-input v-model:value="value" disabled/>
-  </the-section>
-  <the-section title="color">
-    <d2-input v-for="color in colorNames" :key="color" :color="color" v-model:value="value"/>
-  </the-section>
-  <the-section title="size">
-    <d2-input v-for="size in sizeNames" :key="size" v-model:value="value" :size="size"/>
+    <d2-flex dir="left" box="first">
+      <d2-flex main="center" cross="center" class="view">
+        <d2-input v-model:value="value" :size="sizeValue"/>
+      </d2-flex>
+      <div class="control">
+        <div class="control__row">
+          <p>size</p>
+          <d2-button
+            v-for="_size in size"
+            :key="_size"
+            :color="sizeValue === _size ? 'indigo' : ''"
+            size="small"
+            @click="sizeValue = _size"
+          >
+            {{ _size || 'default' }}
+          </d2-button>
+        </div>
+      </div>
+    </d2-flex>
   </the-section>
 </template>
 
@@ -38,11 +34,28 @@ export default {
   setup () {
     const value = ref('Hello World')
 
+    const sizeValue = ref('')
+
     return {
       value,
       colorNames,
-      sizeNames
+      size: ['', ...sizeNames],
+      sizeValue
     }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.view {
+  @apply mr-4;
+}
+.control {
+  .control__row {
+    @apply mb-2;
+    p {
+      @apply mb-2 text-gray-500;
+    }
+  }
+}
+</style>

@@ -28,7 +28,7 @@
             v-for="_dir in dir"
             :key="_dir"
             :color="dirValue === _dir ? 'indigo' : ''"
-            size="mini"
+            size="small"
             @click="dirValue = _dir"
           >
             {{ _dir || 'default' }}
@@ -40,7 +40,7 @@
             v-for="_main in main"
             :key="_main"
             :color="mainValue === _main ? 'indigo' : ''"
-            size="mini"
+            size="small"
             @click="mainValue = _main"
           >
             {{ _main || 'default' }}
@@ -52,7 +52,7 @@
             v-for="_cross in cross"
             :key="_cross"
             :color="crossValue === _cross ? 'indigo' : ''"
-            size="mini"
+            size="small"
             @click="crossValue = _cross"
           >
             {{ _cross || 'default' }}
@@ -64,7 +64,7 @@
             v-for="_box in box"
             :key="_box"
             :color="boxValue === _box ? 'indigo' : ''"
-            size="mini"
+            size="small"
             @click="boxValue = _box"
           >
             {{ _box || 'default' }}
@@ -76,7 +76,7 @@
             v-for="_space in space"
             :key="_space"
             :color="spaceValue === _space ? 'indigo' : ''"
-            size="mini"
+            size="small"
             @click="spaceValue = _space"
           >
             {{ _space || 'default' }}
