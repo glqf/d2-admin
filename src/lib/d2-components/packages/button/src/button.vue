@@ -42,6 +42,8 @@ export default {
   ],
   setup (props, { emit, slots }) {
     const $D2COM = useConfigForD2Components()
+
+    console.log(slots.default())
     
     const slotActive = computed(() => !((!slots.default) || (buttonCircle.value && props.icon) || (buttonCircle.value && buttonLoading.value)))
 
