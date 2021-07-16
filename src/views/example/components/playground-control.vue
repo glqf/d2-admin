@@ -32,8 +32,8 @@ export default {
     }
     function buttonLabel (item) {
       switch (item) {
-        case true: return 'true';
-        case false: return 'false';
+        case true: return '';
+        case false: return '';
         case '': return 'default';
         default: return item
       }

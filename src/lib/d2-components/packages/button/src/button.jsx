@@ -1,22 +1,4 @@
-<template>
-  <button
-    :class="buttonClassName"
-    :disabled="buttonDisabled"
-    :autofocus="autofocus"
-    :type="type"
-    @click="handleClick">
-    <d2-icon v-if="buttonIconLeftActive" :icon="icon"/>
-    <d2-icon v-if="buttonLoadingLeft" icon="mdi:loading" spin/>
-    <span v-if="slotActive">
-      <slot/>
-    </span>
-    <d2-icon v-if="buttonIconRightActive" :icon="iconRight"/>
-    <d2-icon v-if="buttonLoadingRight" icon="mdi:loading" spin/>
-  </button>
-</template>
-
-<script>
-import { computed, unref } from 'vue'
+import { computed, unref, defineComponent, markRaw } from 'vue'
 import { isNumber } from 'lodash-es'
 import classNames from 'classnames'
 import { useConfigForD2Components } from '../../../use/config.js'
@@ -31,7 +13,7 @@ import buttonProps from './props.js'
 export const name = makeComponentName('button')
 export const mainClassName = makeComponentClassName('button')
 
-export default {
+export default defineComponent({
   name,
   components: {
     D2Icon
@@ -43,9 +25,13 @@ export default {
   setup (props, { emit, slots }) {
     const $D2COM = useConfigForD2Components()
 
-    console.log(slots.default())
+    // console.log(slots.default?.() || '没有')
     
-    const slotActive = computed(() => !((!slots.default) || (buttonCircle.value && props.icon) || (buttonCircle.value && buttonLoading.value)))
+    const slotActive = computed(() => {
+      return !((!slots.default)
+        || (buttonCircle.value && props.icon)
+        || (buttonCircle.value && buttonLoading.value))
+    })
 
     const buttonRingOffset = computed(() => {
       const offset = props.ringOffset
@@ -104,17 +90,20 @@ export default {
     const handleClick = event => {
       emit('click', event)
     }
-    
-    return {
-      slotActive,
-      buttonIconLeftActive,
-      buttonIconRightActive,
-      buttonClassName,
-      buttonDisabled,
-      buttonLoadingLeft,
-      buttonLoadingRight,
-      handleClick
-    }
+
+    return () =>
+      <button
+        class={ buttonClassName.value }
+        disabled={ buttonDisabled.value }
+        autofocus={ props.autofocus }
+        type={ props.type }
+        onClick={ handleClick }
+      >
+        { buttonIconLeftActive.value ? <d2-icon icon={ props.icon }/> : null }
+        { buttonLoadingLeft.value ? <d2-icon icon="mdi:loading" spin/> : null }
+        { slotActive.value ? <span>{ slots.default?.() }</span> : null }
+        { buttonIconRightActive.value ? <d2-icon icon={ iconRight.value }/> : null }
+        { buttonLoadingRight.value ? <d2-icon icon="mdi:loading" spin/> : null }
+      </button>
   }
-}
-</script>
+})
