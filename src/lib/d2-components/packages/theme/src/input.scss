@@ -44,10 +44,10 @@
 }
 
 @mixin mix-input-and-wrapper-public {
-  display: inline-block;
   box-sizing: border-box;
   outline: none;
   margin: 0;
+  width: 100%;
   transition: --var-transition-speed(fast);
   border-width: var(--d2-border-width);
   border-style: var(--d2-border-style);
@@ -58,6 +58,7 @@
 }
 
 @include b(input) {
+  display: inline-block;
   @include mix-input-and-wrapper-public;
   @include mix-input-color(base);
   @each $color, $color-setting in $--d2-color {
@@ -78,6 +79,7 @@
 }
 
 @include b(input-wrapper) {
+  display: inline-flex;
   @include mix-input-and-wrapper-public;
   & > .#{$namespace}-input-icon {
     display: inline-block;
