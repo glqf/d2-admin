@@ -6,6 +6,7 @@ import { makeComponentName, makeComponentClassName } from '../../../utils/make.j
 import { inject } from '../../../utils/provide.js'
 import { isValuableString } from '../../../utils/string.js'
 import { findFirstDifferent } from '../../../utils/tool.js'
+import { getValueFromSlotsOrProps } from '../../../utils/props.js'
 import { name as buttonGroupName } from './button-group.jsx'
 import D2Icon from '../../icon/src/icon.vue'
 import buttonProps from './props.js'
@@ -15,6 +16,7 @@ export const mainClassName = makeComponentClassName('button')
 
 export default defineComponent({
   name,
+  inheritAttrs: false,
   components: {
     D2Icon
   },
@@ -26,6 +28,8 @@ export default defineComponent({
     const $D2COM = useConfigForD2Components()
 
     // console.log(slots.default?.() || '没有')
+
+    console.log(getValueFromSlotsOrProps(slots, props))
     
     const slotActive = computed(() => {
       return !((!slots.default)
