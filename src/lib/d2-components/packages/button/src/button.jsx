@@ -104,7 +104,7 @@ export default defineComponent({
           { buttonIconLeftActive.value ? <d2-icon icon={ props.icon }/> : null }
           { buttonLoadingLeft.value ? <d2-icon icon="mdi:loading" spin/> : null }
           { slotActive.value ? <span>{ children }</span> : null }
-          { buttonIconRightActive.value ? <d2-icon icon={ props.iconRight.value }/> : null }
+          { buttonIconRightActive.value ? <d2-icon icon={ props.iconRight }/> : null }
           { buttonLoadingRight.value ? <d2-icon icon="mdi:loading" spin/> : null }
         </button>
       return node
