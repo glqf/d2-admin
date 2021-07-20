@@ -26,10 +26,6 @@ export default defineComponent({
   ],
   setup (props, { emit, slots }) {
     const $D2COM = useConfigForD2Components()
-
-    // console.log(slots.default?.() || '没有')
-
-    console.log(getValueFromSlotsOrProps(slots, props))
     
     const slotActive = computed(() => {
       return !((!slots.default)
@@ -95,19 +91,23 @@ export default defineComponent({
       emit('click', event)
     }
 
-    return () =>
-      <button
-        class={ buttonClassName.value }
-        disabled={ buttonDisabled.value }
-        autofocus={ props.autofocus }
-        type={ props.type }
-        onClick={ handleClick }
-      >
-        { buttonIconLeftActive.value ? <d2-icon icon={ props.icon }/> : null }
-        { buttonLoadingLeft.value ? <d2-icon icon="mdi:loading" spin/> : null }
-        { slotActive.value ? <span>{ slots.default?.() }</span> : null }
-        { buttonIconRightActive.value ? <d2-icon icon={ iconRight.value }/> : null }
-        { buttonLoadingRight.value ? <d2-icon icon="mdi:loading" spin/> : null }
-      </button>
+    return () => {
+      const children = getValueFromSlotsOrProps(slots, props)
+      const node = 
+        <button
+          class={ buttonClassName.value }
+          disabled={ buttonDisabled.value }
+          autofocus={ props.autofocus }
+          type={ props.type }
+          onClick={ handleClick }
+        >
+          { buttonIconLeftActive.value ? <d2-icon icon={ props.icon }/> : null }
+          { buttonLoadingLeft.value ? <d2-icon icon="mdi:loading" spin/> : null }
+          { slotActive.value ? <span>{ children }</span> : null }
+          { buttonIconRightActive.value ? <d2-icon icon={ props.iconRight.value }/> : null }
+          { buttonLoadingRight.value ? <d2-icon icon="mdi:loading" spin/> : null }
+        </button>
+      return node
+    }
   }
 })
