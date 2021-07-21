@@ -89,8 +89,9 @@ export default defineComponent({
         )
 
     return () => {
-      const { loading, loadingRight, icon, iconRight, autofocus, type, href } = props
+      const { loading, loadingRight, icon, iconRight, autofocus, type, href, target } = props
       const content = getValueFromSlotsOrProps(slots, props)
+      console.log(content)
       const slotNull = !content || buttonCircle.value && props.icon || buttonCircle.value && buttonLoading.value
       const buttonProps = {
         class: buttonClassName.value,
@@ -104,8 +105,10 @@ export default defineComponent({
         slotNull ? null : <span>{ content }</span>,
         renderIcon(loadingRight, iconRight)
       ]
-      const buttonNode = <button {...buttonProps}>{ contentNode }</button>
-      return buttonNode
+      if (href !== undefined) {
+        return <a {...buttonProps} href={href} target={target}>{ contentNode }</a>
+      }
+      return <button {...buttonProps}>{ contentNode }</button>
     }
   }
 })

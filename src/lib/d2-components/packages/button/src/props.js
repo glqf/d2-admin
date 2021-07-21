@@ -9,6 +9,7 @@ export default {
   size: { type: String, default: '', validator: value => isSize(value, true) },
   type: { type: String, default: 'button', validator: value => isButtonTypes(value)},
   href: { type: String, default: '' },
+  target: { type: String, default: '' },
   autofocus: { type: Boolean, default: false },
   text: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
