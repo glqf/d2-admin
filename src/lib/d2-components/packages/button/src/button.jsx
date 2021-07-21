@@ -55,16 +55,11 @@ export default defineComponent({
 
     const buttonActive = computed(() => props.active || unref(inject(buttonGroupName, 'active')))
 
-    const buttonLoadingLeft = computed(() => props.loading)
-    const buttonLoadingRight = computed(() => props.loadingRight)
-    const buttonLoading = computed(() => buttonLoadingLeft.value || buttonLoadingRight.value)
+    const buttonLoading = computed(() => props.loading || props.loadingRight)
 
     const buttonRound = computed(() => (props.round || unref(inject(buttonGroupName, 'round'))) && !props.roundLeft && !props.roundRight)
     const buttonRoundLeft = computed(() => props.roundLeft)
     const buttonRoundRight = computed(() => props.roundRight)
-
-    const buttonIconLeftActive = computed(() => isValuableString(props.icon) && !buttonLoadingLeft.value)
-    const buttonIconRightActive = computed(() => isValuableString(props.iconRight)  && !buttonLoadingRight.value)
     
     const buttonClassName = computed(() => classNames(
       mainClassName,
@@ -90,24 +85,35 @@ export default defineComponent({
       emit('click', event)
     }
 
+    const renderIcon = (loading, name) =>
+      loading
+        ? <d2-icon icon="mdi:loading" spin/>
+        : (
+          isValuableString(name)
+            ? <d2-icon icon={ name }/>
+            : null
+        )
+
     return () => {
+      const { loading, loadingRight, icon, iconRight, autofocus, type } = props
       const content = getValueFromSlotsOrProps(slots, props)
       const contentNode = slotActive.value ? <span>{ content }</span> : null
-      const node = 
+      const iconLeftNode = renderIcon(loading, icon) 
+      const iconRightNode = renderIcon(loadingRight, iconRight)
+      
+      const buttonNode =
         <button
           class={ buttonClassName.value }
           disabled={ buttonDisabled.value }
-          autofocus={ props.autofocus }
-          type={ props.type }
+          autofocus={ autofocus }
+          type={ type }
           onClick={ handleClick }
         >
-          { buttonIconLeftActive.value ? <d2-icon icon={ props.icon }/> : null }
-          { buttonLoadingLeft.value ? <d2-icon icon="mdi:loading" spin/> : null }
+          { iconLeftNode }
           { contentNode }
-          { buttonIconRightActive.value ? <d2-icon icon={ props.iconRight }/> : null }
-          { buttonLoadingRight.value ? <d2-icon icon="mdi:loading" spin/> : null }
+          { iconRightNode }
         </button>
-      return node
+      return buttonNode
     }
   }
 })
