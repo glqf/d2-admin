@@ -26,12 +26,6 @@ export default defineComponent({
   ],
   setup (props, { emit, slots }) {
     const $D2COM = useConfigForD2Components()
-    
-    const slotActive = computed(() => {
-      return !((!slots.default)
-        || (buttonCircle.value && props.icon)
-        || (buttonCircle.value && buttonLoading.value))
-    })
 
     const buttonRingOffset = computed(() => {
       const offset = props.ringOffset
@@ -97,7 +91,8 @@ export default defineComponent({
     return () => {
       const { loading, loadingRight, icon, iconRight, autofocus, type, href } = props
       const content = getValueFromSlotsOrProps(slots, props)
-      const contentNode = slotActive.value ? <span>{ content }</span> : null
+      const slotNull = !content || buttonCircle.value && props.icon || buttonCircle.value && buttonLoading.value
+      const contentNode = slotNull ? null : <span>{ content }</span>
       const iconLeftNode = renderIcon(loading, icon) 
       const iconRightNode = renderIcon(loadingRight, iconRight)
       const buttonProps = {
@@ -107,12 +102,12 @@ export default defineComponent({
         type: type,
         onClick: handleClick
       }
-      const buttonNode =
-        <button {...buttonProps}>
-          { iconLeftNode }
-          { contentNode }
-          { iconRightNode }
-        </button>
+      const buttonContent = [
+        iconLeftNode,
+        contentNode,
+        iconRightNode
+      ]
+      const buttonNode = <button {...buttonProps}>{ buttonContent }</button>
       return buttonNode
     }
   }
