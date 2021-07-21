@@ -95,20 +95,20 @@ export default defineComponent({
         )
 
     return () => {
-      const { loading, loadingRight, icon, iconRight, autofocus, type } = props
+      const { loading, loadingRight, icon, iconRight, autofocus, type, href } = props
       const content = getValueFromSlotsOrProps(slots, props)
       const contentNode = slotActive.value ? <span>{ content }</span> : null
       const iconLeftNode = renderIcon(loading, icon) 
       const iconRightNode = renderIcon(loadingRight, iconRight)
-      
+      const buttonProps = {
+        class: buttonClassName.value,
+        disabled: buttonDisabled.value,
+        autofocus: autofocus,
+        type: type,
+        onClick: handleClick
+      }
       const buttonNode =
-        <button
-          class={ buttonClassName.value }
-          disabled={ buttonDisabled.value }
-          autofocus={ autofocus }
-          type={ type }
-          onClick={ handleClick }
-        >
+        <button {...buttonProps}>
           { iconLeftNode }
           { contentNode }
           { iconRightNode }
