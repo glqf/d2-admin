@@ -1,7 +1,7 @@
 <template>
   <the-section title="type">
-    <d2-button>Apple</d2-button>
-    <d2-button v-for="type in buttonTypes" :key="type" :type="type">Apple</d2-button>
+    <d2-button>default</d2-button>
+    <d2-button v-for="type in buttonTypes" :key="type" :type="type">{{ type }}</d2-button>
   </the-section>
 </template>
 
