@@ -45,3 +45,12 @@ export function titleCase (value) {
   if (_value.length < 2) return _value.toLocaleUpperCase()
   return _value[0].toLocaleUpperCase() + _value.slice(1)
 }
+
+/**
+ * Check whether the content is two Chinese characters
+ * @param {string} value string to check
+ * @returns boolean
+ */
+export function isTwoCNChar (value) {
+  return /^[\u4e00-\u9fa5]{2}$/.test(value)
+}

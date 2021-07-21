@@ -1,10 +1,10 @@
-import { computed, unref, defineComponent, markRaw } from 'vue'
+import { computed, ref, unref, defineComponent, onMounted, onUpdated } from 'vue'
 import { isNumber } from 'lodash-es'
 import classNames from 'classnames'
 import { useConfigForD2Components } from '../../../use/config.js'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
-import { isValuableString } from '../../../utils/string.js'
+import { isValuableString, isTwoCNChar } from '../../../utils/string.js'
 import { findFirstDifferent } from '../../../utils/tool.js'
 import { getValueFromSlotsOrProps } from '../../../utils/props.js'
 import { name as buttonGroupName } from './button-group.jsx'
@@ -26,6 +26,8 @@ export default defineComponent({
   ],
   setup (props, { emit, slots }) {
     const $D2COM = useConfigForD2Components()
+
+    const buttonRef = ref(null)
 
     const buttonRingOffset = computed(() => {
       const offset = props.ringOffset
@@ -87,6 +89,13 @@ export default defineComponent({
             ? <d2-icon icon={ name }/>
             : null
         )
+    
+    function checkContentIsTwoCNChar () {
+      console.log(buttonRef.value.textContent)
+    }
+
+    onMounted(checkContentIsTwoCNChar)
+    onUpdated(checkContentIsTwoCNChar)
 
     return () => {
       const { loading, loadingRight, icon, iconRight, autofocus, type, href, target } = props
@@ -105,10 +114,10 @@ export default defineComponent({
         slotNull ? null : <span>{ content }</span>,
         renderIcon(loadingRight, iconRight)
       ]
-      if (href !== undefined) {
-        return <a {...buttonProps} href={href} target={target}>{ contentNode }</a>
+      if (isValuableString(href)) {
+        return <a {...buttonProps} href={href} target={target} ref={ buttonRef }>{ contentNode }</a>
       }
-      return <button {...buttonProps}>{ contentNode }</button>
+      return <button {...buttonProps} ref={ buttonRef }>{ contentNode }</button>
     }
   }
 })
