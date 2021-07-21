@@ -79,7 +79,6 @@ export default defineComponent({
         'is-active': buttonActive.value,
         'is-loading': buttonLoading.value,
         'is-text': buttonText.value,
-        'is-icon-right': buttonIconRightActive.value,
         [`is-ring-offset-width-${buttonRingOffset.value}`]: buttonRing.value,
         [`is-ring-width-${buttonRingWidth.value}`]: buttonRing.value,
         [`${mainClassName}--${buttonSize.value}`]: buttonSize.value,
@@ -92,7 +91,8 @@ export default defineComponent({
     }
 
     return () => {
-      const children = getValueFromSlotsOrProps(slots, props)
+      const content = getValueFromSlotsOrProps(slots, props)
+      const contentNode = slotActive.value ? <span>{ content }</span> : null
       const node = 
         <button
           class={ buttonClassName.value }
@@ -103,7 +103,7 @@ export default defineComponent({
         >
           { buttonIconLeftActive.value ? <d2-icon icon={ props.icon }/> : null }
           { buttonLoadingLeft.value ? <d2-icon icon="mdi:loading" spin/> : null }
-          { slotActive.value ? <span>{ children }</span> : null }
+          { contentNode }
           { buttonIconRightActive.value ? <d2-icon icon={ props.iconRight }/> : null }
           { buttonLoadingRight.value ? <d2-icon icon="mdi:loading" spin/> : null }
         </button>
