@@ -92,9 +92,6 @@ export default defineComponent({
       const { loading, loadingRight, icon, iconRight, autofocus, type, href } = props
       const content = getValueFromSlotsOrProps(slots, props)
       const slotNull = !content || buttonCircle.value && props.icon || buttonCircle.value && buttonLoading.value
-      const contentNode = slotNull ? null : <span>{ content }</span>
-      const iconLeftNode = renderIcon(loading, icon) 
-      const iconRightNode = renderIcon(loadingRight, iconRight)
       const buttonProps = {
         class: buttonClassName.value,
         disabled: buttonDisabled.value,
@@ -102,12 +99,12 @@ export default defineComponent({
         type: type,
         onClick: handleClick
       }
-      const buttonContent = [
-        iconLeftNode,
-        contentNode,
-        iconRightNode
+      const contentNode = [
+        renderIcon(loading, icon),
+        slotNull ? null : <span>{ content }</span>,
+        renderIcon(loadingRight, iconRight)
       ]
-      const buttonNode = <button {...buttonProps}>{ buttonContent }</button>
+      const buttonNode = <button {...buttonProps}>{ contentNode }</button>
       return buttonNode
     }
   }
