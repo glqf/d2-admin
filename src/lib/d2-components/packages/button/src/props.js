@@ -8,6 +8,7 @@ export default {
   color: { type: String, default: '', validator: value => isColor(value, true) },
   size: { type: String, default: '', validator: value => isSize(value, true) },
   type: { type: String, default: 'button', validator: value => isButtonTypes(value)},
+  href: { type: String, default: '' },
   autofocus: { type: Boolean, default: false },
   text: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
