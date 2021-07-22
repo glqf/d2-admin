@@ -97,7 +97,6 @@ export default defineComponent({
     return () => {
       const { loading, loadingRight, icon, iconRight, autofocus, type, href, target } = props
       const content = getValueFromSlotsOrProps(slots, props)
-      console.log(content)
       const slotNull = !content || buttonCircle.value && props.icon || buttonCircle.value && buttonLoading.value
       const buttonProps = {
         class: buttonClassName.value,
