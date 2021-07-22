@@ -8,7 +8,7 @@
 import { onMounted } from 'vue'
 // import request from '@/request.js'
 
-import LayoutDefault from '@/layouts/default/LayoutDefault.vue'
+import LayoutDefault from '@/layouts/default/layout-default.vue'
 
 export default {
   components: {
