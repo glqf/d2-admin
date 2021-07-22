@@ -3,6 +3,7 @@ import { configDefault } from './utils/config.js'
 import breakPoint from './packages/break-point/index.js'
 import button from './packages/button/index.js'
 import buttonGroup from './packages/button-group/index.js'
+import configProvider from './packages/config-provider/index.js'
 import flex from './packages/flex/index.js'
 import icon from './packages/icon/index.js'
 import iconGroup from './packages/icon-group/index.js'
@@ -18,6 +19,7 @@ const components = [
   breakPoint,
   button,
   buttonGroup,
+  configProvider,
   flex,
   icon,
   iconGroup,
