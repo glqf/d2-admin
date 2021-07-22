@@ -17,9 +17,6 @@ export const mainClassName = makeComponentClassName('button')
 export default defineComponent({
   name,
   inheritAttrs: false,
-  components: {
-    D2Icon
-  },
   props: buttonProps,
   emits: [
     'click'
@@ -83,10 +80,10 @@ export default defineComponent({
 
     const renderIcon = (loading, name) =>
       loading
-        ? <d2-icon icon="mdi:loading" spin/>
+        ? <D2Icon icon="mdi:loading" spin/>
         : (
           isValuableString(name)
-            ? <d2-icon icon={ name }/>
+            ? <D2Icon icon={ name }/>
             : null
         )
     
