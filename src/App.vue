@@ -1,14 +1,14 @@
 <template>
-  <LayoutDefault>
+  <layout-default>
     <router-view/>
-  </LayoutDefault>
+  </layout-default>
 </template>
 
 <script>
 import { onMounted } from 'vue'
 // import request from '@/request.js'
 
-import LayoutDefault from '@/layouts/default/index.vue'
+import LayoutDefault from '@/layouts/default/LayoutDefault.vue'
 
 export default {
   components: {
