@@ -1,33 +1,33 @@
 import { configDefault } from './utils/config.js'
 
-import breakPoint from './packages/break-point/index.js'
-import button from './packages/button/index.js'
-import buttonGroup from './packages/button-group/index.js'
-import configProvider from './packages/config-provider/index.js'
-import flex from './packages/flex/index.js'
-import icon from './packages/icon/index.js'
-import iconGroup from './packages/icon-group/index.js'
-import input from './packages/input/index.js'
-import popper from './packages/popper/index.js'
-import svg from './packages/svg/index.js'
-import svgGroup from './packages/svg-group/index.js'
-import test from './packages/test/index.js'
+import BreakPoint from './packages/break-point/index.js'
+import Button from './packages/button/index.js'
+import ButtonGroup from './packages/button-group/index.js'
+import ConfigProvider from './packages/config-provider/index.js'
+import Flex from './packages/flex/index.js'
+import Icon from './packages/icon/index.js'
+import IconGroup from './packages/icon-group/index.js'
+import Input from './packages/input/index.js'
+import Popper from './packages/popper/index.js'
+import Svg from './packages/svg/index.js'
+import SvgGroup from './packages/svg-group/index.js'
+import Test from './packages/test/index.js'
 
 import './packages/theme/index.scss'
 
 const components = [
-  breakPoint,
-  button,
-  buttonGroup,
-  configProvider,
-  flex,
-  icon,
-  iconGroup,
-  input,
-  popper,
-  svg,
-  svgGroup,
-  test
+  BreakPoint,
+  Button,
+  ButtonGroup,
+  ConfigProvider,
+  Flex,
+  Icon,
+  IconGroup,
+  Input,
+  Popper,
+  Svg,
+  SvgGroup,
+  Test
 ]
 
 function install (app, option) {
