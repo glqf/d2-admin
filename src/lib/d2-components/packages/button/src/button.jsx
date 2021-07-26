@@ -88,7 +88,10 @@ export default defineComponent({
         )
     
     function checkContentIsTwoCNChar () {
-      console.log(buttonRef.value.textContent)
+      const textContent = buttonRef.value.textContent
+      if (isTwoCNChar(textContent)) {
+        console.log('isTwoCNChar', textContent)
+      }
     }
 
     onMounted(checkContentIsTwoCNChar)
