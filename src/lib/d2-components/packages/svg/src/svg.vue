@@ -6,7 +6,7 @@
 
 <script>
 import { computed, ref, unref } from 'vue'
-import { useConfig } from '../../../use/config-inject'
+import { useConfig } from '../../../use/config.js'
 import { makeComponentName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
 import { name as svgGroupName } from './svg-group.vue'

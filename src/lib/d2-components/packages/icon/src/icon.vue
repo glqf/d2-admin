@@ -8,7 +8,7 @@
 import { ref, unref, onMounted, watch, nextTick, computed } from 'vue'
 import Iconify from '@iconify/iconify'
 import classNames from 'classnames'
-import { useConfig } from '../../../use/config-inject'
+import { useConfig } from '../../../use/config.js'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
 import { name as iconGroupName } from './icon-group.vue'

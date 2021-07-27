@@ -3,7 +3,7 @@ import { keys, mapValues } from 'lodash-es'
 import { provideGenerator } from '../../../utils/provide.js'
 import { makeComponentName } from '../../../utils/make.js'
 import { useBreakPoint } from '../../../use/break-point.js'
-import { useConfig } from '../../../use/config-inject'
+import { useConfig } from '../../../use/config.js'
 
 export const name = makeComponentName('break-point')
 

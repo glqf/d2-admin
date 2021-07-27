@@ -1,7 +1,7 @@
 import { computed } from 'vue'
 import { keys, values, fromPairs } from 'lodash-es'
 import { useWindowSize } from './window-size.js'
-import { useConfig } from './config-inject'
+import { useConfig } from './config.js'
 
 /**
  * Get breakpoint status

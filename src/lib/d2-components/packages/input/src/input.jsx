@@ -1,6 +1,6 @@
 import { defineComponent, computed, ref, watch } from 'vue'
 import classNames from 'classnames'
-import { useConfig } from '../../../use/config-inject'
+import { useConfig } from '../../../use/config.js'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { isSize, isColor } from '../../../utils/const.js'
 import D2Icon from '../../icon/src/icon.vue'

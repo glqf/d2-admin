@@ -1,7 +1,7 @@
 import { defineComponent, computed } from 'vue'
 import classNames from 'classnames'
 import { pick } from 'lodash-es'
-import { useConfig } from '../../../use/config-inject'
+import { useConfig } from '../../../use/config.js'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { provideGenerator } from '../../../utils/provide.js'
 import buttonProps from './props.js'

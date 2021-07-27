@@ -1,7 +1,7 @@
 import { computed, ref, unref, defineComponent, onMounted, onUpdated } from 'vue'
 import { isNumber } from 'lodash-es'
 import classNames from 'classnames'
-import { useConfig } from '../../../use/config-inject'
+import { useConfig } from '../../../use/config.js'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
 import { isValuableString, isTwoCNChar } from '../../../utils/string.js'
