@@ -8,7 +8,7 @@
 import { ref, unref, onMounted, watch, nextTick, computed } from 'vue'
 import Iconify from '@iconify/iconify'
 import classNames from 'classnames'
-import { useConfigForD2Components } from '../../../use/config.js'
+import { useConfig } from '../../../use/config-inject'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
 import { name as iconGroupName } from './icon-group.vue'
@@ -24,7 +24,7 @@ export default {
     spin: { type: Boolean, default: false }
   },
   setup (props, { slots }) {
-    const $D2COM = useConfigForD2Components()
+    const config = useConfig()
 
     const injectCollectionFromIconGroup = inject(iconGroupName, 'collection')
 
@@ -41,7 +41,7 @@ export default {
       if (_icon.indexOf(':') < 0) {
         // The icon name does not contain the icon collection name
         // Try to get it from another way
-        const collection = props.collection || unref(injectCollectionFromIconGroup) || $D2COM.iconCollection
+        const collection = props.collection || unref(injectCollectionFromIconGroup) || config.iconCollection
         return collection ? `${collection}:${_icon}` : _icon
       }
       return _icon

@@ -1,7 +1,7 @@
 import { computed, ref, unref, defineComponent, onMounted, onUpdated } from 'vue'
 import { isNumber } from 'lodash-es'
 import classNames from 'classnames'
-import { useConfigForD2Components } from '../../../use/config.js'
+import { useConfig } from '../../../use/config-inject'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
 import { isValuableString, isTwoCNChar } from '../../../utils/string.js'
@@ -22,7 +22,7 @@ export default defineComponent({
     'click'
   ],
   setup (props, { emit, slots }) {
-    const $D2COM = useConfigForD2Components()
+    const config = useConfig()
 
     const buttonRef = ref(null)
 
@@ -31,7 +31,7 @@ export default defineComponent({
       return isNumber(offset) ? offset : (offset ? 1 : 0)
     })
 
-    const buttonSize = computed(() => props.size || unref(inject(buttonGroupName, 'size')) || $D2COM.size)
+    const buttonSize = computed(() => props.size || unref(inject(buttonGroupName, 'size')) || config.size)
 
     const buttonColor = computed(() => props.color || unref(inject(buttonGroupName, 'color')))
 

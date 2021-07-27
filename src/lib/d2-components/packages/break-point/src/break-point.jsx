@@ -3,7 +3,7 @@ import { keys, mapValues } from 'lodash-es'
 import { provideGenerator } from '../../../utils/provide.js'
 import { makeComponentName } from '../../../utils/make.js'
 import { useBreakPoint } from '../../../use/break-point.js'
-import { useConfigForD2Components } from 'd2-components/use/config.js'
+import { useConfig } from '../../../use/config-inject'
 
 export const name = makeComponentName('break-point')
 
@@ -27,11 +27,11 @@ export default defineComponent({
     data: { type: Object, default: () => ({}) }
   },
   setup (props, { slots }) {
-    const $D2COM = useConfigForD2Components()
+    const config = useConfig()
 
-    const config = $D2COM.breakPoints
+    const breakPoints = config.breakPoints
 
-    const names = keys(config)
+    const names = keys(breakPoints)
 
     const status = useBreakPoint()
 
@@ -40,7 +40,7 @@ export default defineComponent({
     const data = computed(() => ({
       breakPoint: unref(status.breakPoint),
       min: unref(status.min),
-      ...mapValues(config, (v, k) => unref(status[k])),
+      ...mapValues(breakPoints, (v, k) => unref(status[k])),
       data: mapValues(props.data, (v, k) => unref(status.responsive(...props.data[k])))
     }))
     

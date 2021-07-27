@@ -6,7 +6,7 @@
 
 <script>
 import { computed, ref, unref } from 'vue'
-import { useConfigForD2Components } from '../../../use/config.js'
+import { useConfig } from '../../../use/config-inject'
 import { makeComponentName } from '../../../utils/make.js'
 import { inject } from '../../../utils/provide.js'
 import { name as svgGroupName } from './svg-group.vue'
@@ -19,9 +19,9 @@ export default {
     name: { type: String, required: true }
   },
   setup (props) {
-    const $D2COM = useConfigForD2Components()
+    const config = useConfig()
 
-    const prefix = $D2COM.svgPrefix
+    const prefix = config.svgPrefix
 
     const name = props.name.replace(/\//g, '-')
 

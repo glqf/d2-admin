@@ -1,38 +1,33 @@
-import { defineComponent, provide, reactive } from 'vue'
+import { defineComponent, provide, reactive, watch } from 'vue'
 import { makeComponentName } from '../../../utils/make.js'
 import { breakPoints } from '../../../utils/const.js'
 
 export const name = makeComponentName('config-provider')
 
-const configDefault = {
-  svgPrefix: '',
-  svgNames: [],
-  size: '',
-  iconCollection: '',
-  windowResizeThrottleWait: 100,
-  breakPoints
-}
-
-console.log(JSON.stringify(configDefault, null, 2))
-
 export default defineComponent({
   name,
   props: {
-
+    svgPrefix: { type: String, default: '' },
+    svgNames: { type: Array, default: () => [] },
+    size: { type: String, default: '' },
+    iconCollection: { type: String, default: '' },
+    windowResizeThrottleWait: { type: Number, default: 100 },
+    breakPoints: { type: Object, default: () => breakPoints }
   },
   setup (props, { slots }) {
-    const data = reactive({
+    const config = reactive({
       ...props
     })
     Object.keys(props).forEach(key => {
       watch(
         () => props[key],
         () => {
-          data[key] = props[key]
+          config[key] = props[key]
         }
       )
     })
-    provide(name, data)
+    provide(name, config)
+    console.log(config)
     return () => slots.default && slots.default()
   }
 })

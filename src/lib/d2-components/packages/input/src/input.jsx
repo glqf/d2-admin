@@ -1,6 +1,6 @@
 import { defineComponent, computed, ref, watch } from 'vue'
 import classNames from 'classnames'
-import { useConfigForD2Components } from '../../../use/config.js'
+import { useConfig } from '../../../use/config-inject'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { isSize, isColor } from '../../../utils/const.js'
 import D2Icon from '../../icon/src/icon.vue'
@@ -26,12 +26,12 @@ export default defineComponent({
     'update:value'
   ],
   setup (props, { emit, attrs }) {
-    const $D2COM = useConfigForD2Components()
+    const config = useConfig()
 
     const currentValue = ref(props.value || '')
 
     const disabled = computed(() => props.disabled)
-    const size = computed(() => props.size || $D2COM.size)
+    const size = computed(() => props.size || config.size)
     const color = computed(() => props.color)
 
     const hasPrefix = computed(() => props.prefix)
