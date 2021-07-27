@@ -15,19 +15,18 @@ export default defineComponent({
     breakPoints: { type: Object, default: () => breakPoints }
   },
   setup (props, { slots }) {
-    const config = reactive({
+    const provideData = reactive({
       ...props
     })
     Object.keys(props).forEach(key => {
       watch(
         () => props[key],
         () => {
-          config[key] = props[key]
+          provideData[key] = props[key]
         }
       )
     })
-    provide(name, config)
-    console.log(config)
+    provide(name, provideData)
     return () => slots.default && slots.default()
   }
 })

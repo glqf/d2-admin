@@ -1,9 +1,8 @@
-import { computed, ref, unref, defineComponent, onMounted, onUpdated } from 'vue'
+import { inject, computed, ref, defineComponent, onMounted, onUpdated } from 'vue'
 import { isNumber } from 'lodash-es'
 import classNames from 'classnames'
 import { useConfig } from '../../../use/config.js'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
-import { inject } from '../../../utils/provide.js'
 import { isValuableString, isTwoCNChar } from '../../../utils/string.js'
 import { findFirstDifferent } from '../../../utils/tool.js'
 import { getValueFromSlotsOrProps } from '../../../utils/props.js'
@@ -24,6 +23,8 @@ export default defineComponent({
   setup (props, { emit, slots }) {
     const config = useConfig()
 
+    const group = inject(buttonGroupName, {})
+
     const buttonRef = ref(null)
 
     const buttonRingOffset = computed(() => {
@@ -31,26 +32,26 @@ export default defineComponent({
       return isNumber(offset) ? offset : (offset ? 1 : 0)
     })
 
-    const buttonSize = computed(() => props.size || unref(inject(buttonGroupName, 'size')) || config.size)
+    const buttonSize = computed(() => props.size || group.size || config.size)
 
-    const buttonColor = computed(() => props.color || unref(inject(buttonGroupName, 'color')))
+    const buttonColor = computed(() => props.color || group.color)
 
-    const buttonPlain = computed(() => props.plain || unref(inject(buttonGroupName, 'plain')))
+    const buttonPlain = computed(() => props.plain || group.plain)
 
-    const buttonText = computed(() => props.text || unref(inject(buttonGroupName, 'text')))
+    const buttonText = computed(() => props.text || group.text)
 
-    const buttonCircle = computed(() => props.circle || unref(inject(buttonGroupName, 'circle')))
+    const buttonCircle = computed(() => props.circle || group.circle)
 
-    const buttonRing = computed(() => props.ring || unref(inject(buttonGroupName, 'ring')))
-    const buttonRingWidth = computed(() => findFirstDifferent(buttonProps.ringWidth.default, props.ringWidth, unref(inject(buttonGroupName, 'ringWidth'))))
+    const buttonRing = computed(() => props.ring || group.ring)
+    const buttonRingWidth = computed(() => findFirstDifferent(buttonProps.ringWidth.default, props.ringWidth, group.ringWidth))
     
-    const buttonDisabled = computed(() => props.disabled || unref(inject(buttonGroupName, 'disabled')))
+    const buttonDisabled = computed(() => props.disabled || group.disabled)
 
-    const buttonActive = computed(() => props.active || unref(inject(buttonGroupName, 'active')))
+    const buttonActive = computed(() => props.active || group.active)
 
     const buttonLoading = computed(() => props.loading || props.loadingRight)
 
-    const buttonRound = computed(() => (props.round || unref(inject(buttonGroupName, 'round'))) && !props.roundLeft && !props.roundRight)
+    const buttonRound = computed(() => (props.round || group.round) && !props.roundLeft && !props.roundRight)
     const buttonRoundLeft = computed(() => props.roundLeft)
     const buttonRoundRight = computed(() => props.roundRight)
     
