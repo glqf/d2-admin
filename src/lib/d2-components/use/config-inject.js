@@ -1,5 +1,5 @@
 import { inject } from 'vue'
-import { name as configProviderName } from '../packages/config-provider/src/config-provider.jsx'
+import { name as configProviderName } from '../packages/config/src/config.jsx'
 
 export function useConfig () {
   const config = inject(configProviderName, {})

@@ -13,10 +13,10 @@ import { useConfig } from './config-inject'
 export function useBreakPoint (breakPoints) {
   const config = useConfig()
   
-  const config = breakPoints || config.breakPoints
+  const _breakPoints = breakPoints || config.breakPoints
 
-  const names = keys(config)
-  const widths = values(config).sort((a, b) => a - b)
+  const names = keys(_breakPoints)
+  const widths = values(_breakPoints).sort((a, b) => a - b)
   const dict = fromPairs(widths.map((e, i) => [e, names[i]]))
 
   const { width } = useWindowSize()
@@ -40,7 +40,7 @@ export function useBreakPoint (breakPoints) {
       const point = dict[
         Math.max(
           ...keys(valueSet)
-            .map(e => config[e])
+            .map(e => _breakPoints[e])
             .filter(e => e <= widthActive.value)
         )
       ]

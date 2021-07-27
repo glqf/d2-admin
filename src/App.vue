@@ -1,9 +1,9 @@
 <template>
-  <d2-config-provider>
+  <d2-config>
     <layout-default>
       <router-view/>
     </layout-default>
-  </d2-config-provider>
+  </d2-config>
 </template>
 
 <script>

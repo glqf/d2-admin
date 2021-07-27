@@ -2,7 +2,7 @@ import { defineComponent, provide, reactive, watch } from 'vue'
 import { makeComponentName } from '../../../utils/make.js'
 import { breakPoints } from '../../../utils/const.js'
 
-export const name = makeComponentName('config-provider')
+export const name = makeComponentName('config')
 
 export default defineComponent({
   name,
