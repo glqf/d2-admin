@@ -185,6 +185,8 @@
 }
 
 @mixin mix-button-group-size ($size) {
+  font-size: var(--d2-button-font-size-#{$size});
+  line-height: var(--d2-button-line-height-#{$size});
   & + &,
   & + .#{$namespace}-button {
     margin-left: var(--d2-button-group-space-#{$size});
@@ -193,7 +195,6 @@
 
 @include b(button-group) {
   display: inline-block;
-  vertical-align: middle;
   @include clearfix;
   @each $size, $size-setting in $--d2-button-sizes {
     @if $size == base {
