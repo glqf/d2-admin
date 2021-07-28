@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { useConfig } from '../../../use/config.js'
 import { makeComponentName, makeComponentClassName } from '../../../utils/make.js'
 import { isValuableString, isTwoCNChar } from '../../../utils/string.js'
-import { findFirstDifferent } from '../../../utils/tool.js'
+import { getDifferent } from '../../../utils/tool.js'
 import { getValueFromSlotsOrProps } from '../../../utils/props.js'
 import { name as buttonGroupName } from './button-group.jsx'
 import D2Icon from '../../icon/src/icon.vue'
@@ -43,7 +43,7 @@ export default defineComponent({
     const buttonCircle = computed(() => props.circle || group.circle)
 
     const buttonRing = computed(() => props.ring || group.ring)
-    const buttonRingWidth = computed(() => findFirstDifferent(buttonProps.ringWidth.default, props.ringWidth, group.ringWidth))
+    const buttonRingWidth = computed(() => getDifferent(buttonProps.ringWidth.default, props.ringWidth, group.ringWidth))
     
     const buttonDisabled = computed(() => props.disabled || group.disabled)
 
