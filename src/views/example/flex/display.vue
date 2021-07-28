@@ -1,12 +1,12 @@
 <template>
   <the-section title="default">
     <d2-flex class="flex" space>
-      <div class="flex__item" v-for="n in 3" :key="n"/>
+      <div class="flex__item" v-for="n in 3" :key="n"></div>
     </d2-flex>
   </the-section>
   <the-section title="inline-flex">
     <d2-flex class="flex" inline-flex space>
-      <div class="flex__item" v-for="n in 3" :key="n"/>
+      <div class="flex__item" v-for="n in 3" :key="n"></div>
     </d2-flex>
   </the-section>
   <the-section title="inline">
@@ -21,7 +21,7 @@
   </the-section>
   <the-section title="block">
     <d2-flex class="flex" block>
-      <div class="flex__item" v-for="n in 3" :key="n"/>
+      <div class="flex__item" v-for="n in 3" :key="n"></div>
     </d2-flex>
   </the-section>
 </template>

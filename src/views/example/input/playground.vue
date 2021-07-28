@@ -7,12 +7,12 @@
           :size="sizeValue"
           :color="colorValue"
           :clearable="clearableValue"
-        />
+        ></d2-input>
       </d2-flex>
       <div class="control">
-        <playground-control label="size" :options="size" v-model:value="sizeValue"/>
-        <playground-control label="color" :options="color" v-model:value="colorValue"/>
-        <playground-control label="clearable" :options="clearable" v-model:value="clearableValue"/>
+        <playground-control label="size" :options="size" v-model:value="sizeValue"></playground-control>
+        <playground-control label="color" :options="color" v-model:value="colorValue"></playground-control>
+        <playground-control label="clearable" :options="clearable" v-model:value="clearableValue"></playground-control>
       </div>
     </d2-flex>
   </the-section>

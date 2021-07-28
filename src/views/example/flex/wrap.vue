@@ -1,17 +1,17 @@
 <template>
   <the-section title="default">
     <d2-flex class="flex" cross="top" space>
-      <div class="flex__item flex__item--size" :class="`flex__item--${n}`" v-for="n in 6" :key="n"/>
+      <div class="flex__item flex__item--size" :class="`flex__item--${n}`" v-for="n in 6" :key="n"></div>
     </d2-flex>
   </the-section>
   <the-section title="wrap">
     <d2-flex class="flex" cross="top" wrap space>
-      <div class="flex__item flex__item--size" :class="`flex__item--${n}`" v-for="n in 6" :key="n"/>
+      <div class="flex__item flex__item--size" :class="`flex__item--${n}`" v-for="n in 6" :key="n"></div>
     </d2-flex>
   </the-section>
   <the-section title="wrap-r">
     <d2-flex class="flex" cross="top" wrap-r space>
-      <div class="flex__item flex__item--size" :class="`flex__item--${n}`" v-for="n in 6" :key="n"/>
+      <div class="flex__item flex__item--size" :class="`flex__item--${n}`" v-for="n in 6" :key="n"></div>
     </d2-flex>
   </the-section>
 </template>

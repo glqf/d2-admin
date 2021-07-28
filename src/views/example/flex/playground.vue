@@ -22,11 +22,11 @@
         </d2-flex>
       </d2-flex>
       <div>
-        <playground-control label="dir" :options="dir" v-model:value="dirValue"/>
-        <playground-control label="main" :options="main" v-model:value="mainValue"/>
-        <playground-control label="cross" :options="cross" v-model:value="crossValue"/>
-        <playground-control label="box" :options="box" v-model:value="boxValue"/>
-        <playground-control label="space" :options="space" v-model:value="spaceValue"/>
+        <playground-control label="dir" :options="dir" v-model:value="dirValue"></playground-control>
+        <playground-control label="main" :options="main" v-model:value="mainValue"></playground-control>
+        <playground-control label="cross" :options="cross" v-model:value="crossValue"></playground-control>
+        <playground-control label="box" :options="box" v-model:value="boxValue"></playground-control>
+        <playground-control label="space" :options="space" v-model:value="spaceValue"></playground-control>
       </div>
     </d2-flex>
   </the-section>

@@ -1,6 +1,6 @@
 <template>
   <span :class="iconClassName" ref="container">
-    <slot/>
+    <slot></slot>
   </span>
 </template>
 

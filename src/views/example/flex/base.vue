@@ -7,7 +7,7 @@
             <!-- item -->
             <d2-flex dir="left" cross="center" class="row">
               <d2-flex :dir="_dir" :main="_main" :cross="_cross" :box="_box" class="flex" space>
-                <div class="flex__item" :class="`flex__item--${n}`" v-for="n in 3" :key="n"/>
+                <div class="flex__item" :class="`flex__item--${n}`" v-for="n in 3" :key="n"></div>
               </d2-flex>
               <div class="row__code">
                 <span class="code__prop" :class="{ 'code__prop--empty': !_dir }">dir="<span class="prop__highlight">{{ _dir }}</span>"</span>

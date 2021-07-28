@@ -1,7 +1,7 @@
 <template>
   <the-section title="break point">
     <d2-break-point v-slot="status">
-      <break-points-display :status="status"/>
+      <break-points-display :status="status"></break-points-display>
     </d2-break-point>
   </the-section>
 </template>

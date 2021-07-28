@@ -1,7 +1,7 @@
 <template>
   <the-section title="center">
     <d2-flex class="flex" center space>
-      <div class="flex__item" :class="`flex__item--${n}`" v-for="n in 3" :key="n"/>
+      <div class="flex__item" :class="`flex__item--${n}`" v-for="n in 3" :key="n"></div>
     </d2-flex>
   </the-section>
 </template>

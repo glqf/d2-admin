@@ -1,7 +1,7 @@
 <template>
   <d2-config>
     <layout-default>
-      <router-view/>
+      <router-view></router-view>
     </layout-default>
   </d2-config>
 </template>

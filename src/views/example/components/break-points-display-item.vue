@@ -4,12 +4,12 @@
       v-if="value"
       class="item__icon item__icon--active"
       icon="akar-icons:circle-check-fill"
-    />
+    ></d2-icon>
     <d2-icon
       v-else
       class="item__icon"
       icon="akar-icons:circle-x"
-    />
+    ></d2-icon>
     <span class="item__label">
       {{ name }}
     </span>

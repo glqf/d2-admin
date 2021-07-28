@@ -13,7 +13,7 @@
     <div v-if="arrow" id="arrow" data-popper-arrow></div>
   </div>
   <span id="button" aria-describedby="tooltip">
-    <slot/>
+    <slot></slot>
   </span>
 </template>
 

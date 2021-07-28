@@ -4,13 +4,13 @@
     <break-points-display-item
       :value="status.min"
       name="min"
-    />
+    ></break-points-display-item>
     <break-points-display-item
       v-for="name in breakPointsName"
       :key="name"
       :value="status[name]"
-      :name="name"
-    />
+      :name="name">
+    </break-points-display-item>
   </d2-flex>
   <pre class="code">{{ status }}</pre>
 </template>

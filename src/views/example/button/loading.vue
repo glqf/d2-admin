@@ -1,6 +1,6 @@
 <template>
   <the-section title="toggle">
-    <d2-button @click="toggle" :icon="loading ? 'mdi:toggle-switch' : 'mdi:toggle-switch-off-outline'" circle/>
+    <d2-button @click="toggle" :icon="loading ? 'mdi:toggle-switch' : 'mdi:toggle-switch-off-outline'" circle></d2-button>
   </the-section>
   <the-section title="loading">
     <d2-button :loading="loading">Loading</d2-button>
@@ -15,7 +15,7 @@
     <d2-button icon-right="fluent:auto-fit-height-24-regular" :loading-right="loading">Loading</d2-button>
   </the-section>
   <the-section title="circle">
-    <d2-button :loading="loading" icon="mdi:hand-right" circle/>
+    <d2-button :loading="loading" icon="mdi:hand-right" circle></d2-button>
   </the-section>
   <the-section title="disabled">
     <d2-button :loading="loading" disabled>Loading</d2-button>

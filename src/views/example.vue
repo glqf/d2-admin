@@ -27,7 +27,7 @@
     </d2-button>
   </d2-button-group>
   <hr class="mt-2">
-  <router-view/>
+  <router-view></router-view>
 </template>
 
 <script>
