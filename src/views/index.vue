@@ -1,3 +1,3 @@
 <template>
-  index
+  <a-button>Index</a-button>
 </template>
