@@ -4,6 +4,7 @@
     <use xlink:href="#svg-icon-dev-html5"/>
   </svg>
   <span class="iconify" data-icon="fa:home"></span>
+  <pre>{{ ids }}</pre>
 </template>
 
 <script setup>
