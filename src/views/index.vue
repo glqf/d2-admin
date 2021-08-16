@@ -3,8 +3,7 @@
   <svg aria-hidden="true">
     <use xlink:href="#svg-icon-dev-html5"/>
   </svg>
-  <span class="iconify" data-icon="fa:home"></span>
-  <pre>{{ ids }}</pre>
+  <d2-icon collection="fa" icon="home"/>
 </template>
 
 <script setup>

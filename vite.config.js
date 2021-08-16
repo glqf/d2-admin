@@ -4,6 +4,9 @@ import Vue from '@vitejs/plugin-vue'
 
 import { visualizer } from 'rollup-plugin-visualizer'
 
+// https://github.com/vitejs/vite/tree/main/packages/plugin-vue-jsx
+import Jsx from '@vitejs/plugin-vue-jsx'
+
 // https://github.com/nekocode/antd-dayjs-vite-plugin
 import AntdDayjs from 'antd-dayjs-vite-plugin'
 
@@ -22,6 +25,7 @@ import PurgeIcons from 'vite-plugin-purge-icons'
 export default defineConfig({
   plugins: [
     Vue(),
+    Jsx(),
     Components({
       customComponentResolvers: [
         AntDesignVueResolver()
@@ -50,7 +54,9 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': '/src'
+      '@': '/src',
+      'd2-utils': '/src/libs/d2-utils',
+      'd2-components': '/src/libs/d2-components'
     }
   },
   server: {
