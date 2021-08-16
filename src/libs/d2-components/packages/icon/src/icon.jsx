@@ -19,52 +19,42 @@ export default defineComponent({
   setup (props) {
     const wrapper = ref(null)
 
-    // like [collection]:[icon]
-    const iconForIconify = computed(() => {
-      const _i = props.icon
-      if (!_i) {
+    const iconComplete = computed(() => {
+      const icon = props.icon
+      if (!icon) {
         console.warn('Please set the icon name')
         return ''
       }
-      if (_i.indexOf(':') < 0) {
+      if (icon.indexOf(':') < 0) {
         // The icon name does not contain the icon collection name
         // Try to get it from another way
-        const _c = props.collection
-        return _c ? `${_c}:${_i}` : _i
+        const collection = props.collection
+        return collection ? `${collection}:${icon}` : icon
       }
-      return _i
+      // like [collection]:[icon]
+      return icon
     })
 
-    /**
-     * refresh icon
-     */
-     async function load () {
+    async function load () {
       clearElement(wrapper)
-      // check icon
-      const _i = unref(iconForIconify)
-      if (!_i) return clearElement(wrapper)
-      // render
       await nextTick()
-      const svg = Iconify.renderSVG(_i, {})
+      const svg = Iconify.renderSVG(unref(iconComplete), {})
       if (svg) {
         unref(wrapper).appendChild(svg)
       } else {
         const span = document.createElement('span')
         span.className = 'iconify'
-        span.dataset.icon = _i
+        span.dataset.icon = unref(iconComplete)
         unref(wrapper).appendChild(span)
       }
     }
 
-    // load on mounted
     onMounted(load)
-    // load on icon changed
-    watch(iconForIconify, load, { flush: 'post' })
+    watch(() => props.collection, load, { flush: 'post' })
+    watch(() => props.icon, load, { flush: 'post' })
 
-    return () => {
-      return (
-        <span ref={ wrapper }/>
-      )
-    }
+    return () => (
+      <span ref={ wrapper }/>
+    )
   }
 })
