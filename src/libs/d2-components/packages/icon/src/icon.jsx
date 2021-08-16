@@ -31,7 +31,7 @@ export default defineComponent({
         const collection = props.collection
         return collection ? `${collection}:${icon}` : icon
       }
-      // like [collection]:[icon]
+      // like collection:icon
       return icon
     })
 
