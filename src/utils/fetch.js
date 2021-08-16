@@ -13,6 +13,6 @@ axiosInstance.interceptors.response.use(
   }
 )
 
-export default function request (config) {
-  return axiosInstance.request(config)
+export default function fetch (config) {
+  return axiosInstance.fetch(config)
 }
