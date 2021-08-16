@@ -16,6 +16,9 @@ import Pages from 'vite-plugin-pages'
 // https://github.com/anncwb/vite-plugin-svg-icons
 import SvgIcons from 'vite-plugin-svg-icons'
 
+// https://github.com/antfu/purge-icons
+import PurgeIcons from 'vite-plugin-purge-icons'
+
 export default defineConfig({
   plugins: [
     Vue(),
@@ -37,6 +40,7 @@ export default defineConfig({
     visualizer({
       open: true
     }),
+    PurgeIcons(),
     SvgIcons({
       iconDirs: [
         path.resolve(process.cwd(), 'src/assets/svg/icon')

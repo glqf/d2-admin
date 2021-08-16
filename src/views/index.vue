@@ -3,7 +3,7 @@
   <svg aria-hidden="true">
     <use xlink:href="#svg-icon-dev-html5"/>
   </svg>
-  {{ ids }}
+  <span class="iconify" data-icon="fa:home"></span>
 </template>
 
 <script setup>
