@@ -1,3 +1,4 @@
+import path from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 
@@ -11,6 +12,9 @@ import Components, { AntDesignVueResolver } from 'vite-plugin-components'
 
 // https://github.com/hannoeru/vite-plugin-pages
 import Pages from 'vite-plugin-pages'
+
+// https://github.com/anncwb/vite-plugin-svg-icons
+import SvgIcons from 'vite-plugin-svg-icons'
 
 export default defineConfig({
   plugins: [
@@ -32,6 +36,12 @@ export default defineConfig({
     }),
     visualizer({
       open: true
+    }),
+    SvgIcons({
+      iconDirs: [
+        path.resolve(process.cwd(), 'src/assets/svg/icon')
+      ],
+      symbolId: 'svg-icon-[dir]-[name]'
     })
   ],
   resolve: {

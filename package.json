@@ -20,6 +20,7 @@
     "rollup-plugin-visualizer": "^5.5.2",
     "vite": "^2.4.4",
     "vite-plugin-components": "^0.13.2",
-    "vite-plugin-pages": "^0.17.3"
+    "vite-plugin-pages": "^0.17.3",
+    "vite-plugin-svg-icons": "^1.0.4"
   }
 }
