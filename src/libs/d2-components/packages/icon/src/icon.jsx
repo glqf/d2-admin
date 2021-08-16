@@ -8,7 +8,7 @@ import {
   nextTick
 } from 'vue'
 import Iconify from '@iconify/iconify'
-import { clearElement } from 'd2-utils/dom.js'
+import { clearElementContent } from 'd2-utils/dom.js'
 
 export default defineComponent({
   name: 'D2Icon',
@@ -36,7 +36,7 @@ export default defineComponent({
     })
 
     async function load () {
-      clearElement(wrapper)
+      clearElementContent(wrapper)
       await nextTick()
       const svg = Iconify.renderSVG(unref(iconComplete), {})
       if (svg) {
