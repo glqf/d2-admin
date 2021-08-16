@@ -1,7 +1,26 @@
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import Vue from '@vitejs/plugin-vue'
 
-// https://vitejs.dev/config/
+// https://github.com/hannoeru/vite-plugin-pages
+import Pages from 'vite-plugin-pages'
+
 export default defineConfig({
-  plugins: [vue()]
+  plugins: [
+    Vue(),
+    Pages({
+      pagesDir: 'src/views',
+      exclude: [
+        '**/components/*.vue'
+      ],
+      extensions: ['vue', 'jsx']
+    })
+  ],
+  resolve: {
+    alias: {
+      '@': '/src'
+    }
+  },
+  server: {
+    open: true
+  }
 })
