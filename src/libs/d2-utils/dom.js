@@ -1,5 +1,3 @@
-import { unref } from 'vue'
-
 export const isDOM = el => {
   return typeof HTMLElement === 'object'
     ? el instanceof HTMLElement
@@ -10,8 +8,7 @@ export const isDOM = el => {
 }
 
 export function clearElementContent (el) {
-  const _el = unref(el)
-  if (isDOM(_el)) {
-    _el.innerHTML = ''
+  if (isDOM(el)) {
+    el.innerHTML = ''
   }
 }

@@ -36,7 +36,7 @@ export default defineComponent({
     })
 
     async function load () {
-      clearElementContent(wrapper)
+      clearElementContent(unref(wrapper))
       await nextTick()
       const svg = Iconify.renderSVG(unref(iconComplete), {})
       if (svg) {
