@@ -8,6 +8,7 @@ import {
   nextTick
 } from 'vue'
 import Iconify from '@iconify/iconify'
+import { useConfig } from '../../config/src/config.jsx'
 import { clearElementContent } from 'd2-utils/dom.js'
 
 export default defineComponent({
@@ -19,6 +20,8 @@ export default defineComponent({
   setup (props) {
     const wrapper = ref(null)
 
+    const { iconCollection } = useConfig()
+
     const iconComplete = computed(() => {
       const icon = props.icon
       if (icon.indexOf(':') > 0) {
@@ -27,7 +30,7 @@ export default defineComponent({
       }
       // The icon name does not contain the icon collection name
       // Try to get it from another way
-      const collection = props.collection
+      const collection = props.collection || iconCollection.value
       return collection ? `${collection}:${icon}` : icon
     })
 
