@@ -21,18 +21,14 @@ export default defineComponent({
 
     const iconComplete = computed(() => {
       const icon = props.icon
-      if (!icon) {
-        console.warn('Please set the icon name')
-        return ''
+      if (icon.indexOf(':') > 0) {
+        // like collection:icon
+        return icon
       }
-      if (icon.indexOf(':') < 0) {
-        // The icon name does not contain the icon collection name
-        // Try to get it from another way
-        const collection = props.collection
-        return collection ? `${collection}:${icon}` : icon
-      }
-      // like collection:icon
-      return icon
+      // The icon name does not contain the icon collection name
+      // Try to get it from another way
+      const collection = props.collection
+      return collection ? `${collection}:${icon}` : icon
     })
 
     async function load () {
@@ -53,14 +49,8 @@ export default defineComponent({
     watch(() => props.collection, load, { flush: 'post' })
     watch(() => props.icon, load, { flush: 'post' })
 
-    return {
-      wrapper
-    }
-  },
-  render () {
-    console.log(this.$slots.default)
-    return (
-      <span ref="wrapper"/>
+    return () => (
+      <span ref={ wrapper }/>
     )
   }
 })
