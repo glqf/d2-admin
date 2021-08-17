@@ -53,8 +53,14 @@ export default defineComponent({
     watch(() => props.collection, load, { flush: 'post' })
     watch(() => props.icon, load, { flush: 'post' })
 
-    return () => (
-      <span ref={ wrapper }/>
+    return {
+      wrapper
+    }
+  },
+  render () {
+    console.log(this.$slots.default)
+    return (
+      <span ref="wrapper"/>
     )
   }
 })
