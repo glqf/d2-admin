@@ -1,14 +1,14 @@
-export const isDOM = el => {
+export const isDomElement = el => {
   return typeof HTMLElement === 'object'
     ? el instanceof HTMLElement
-    : el 
-        && typeof el === 'object'
-        && el.nodeType === 1
-        && typeof el.nodeName === 'string'
+    : el &&
+      typeof el === 'object' &&
+      el.nodeType === 1 &&
+      typeof el.nodeName === 'string'
 }
 
 export function clearElementContent (el) {
-  if (isDOM(el)) {
+  if (isDomElement(el)) {
     el.innerHTML = ''
   }
 }
