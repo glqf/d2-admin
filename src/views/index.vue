@@ -1,9 +1,10 @@
 <template>
   <a-button>Index</a-button>
-  <svg aria-hidden="true">
-    <use xlink:href="#svg-icon-dev-html5"/>
-  </svg>
+  <d2-svg name="#icon-dev-html5"/>
   <d2-icon icon="home"/>
+  <d2-config icon-collection="fa">
+    <d2-icon icon="home"/>
+  </d2-config>
 </template>
 
 <script setup>

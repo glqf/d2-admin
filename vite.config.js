@@ -48,8 +48,7 @@ export default defineConfig({
     SvgIcons({
       iconDirs: [
         path.resolve(process.cwd(), 'src/assets/svg/icon')
-      ],
-      symbolId: 'svg-icon-[dir]-[name]'
+      ]
     })
   ],
   resolve: {

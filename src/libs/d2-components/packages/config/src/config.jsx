@@ -1,9 +1,10 @@
 import {
-  fromPairs,
   isFunction,
   keys,
   mapValues,
-  isEqual
+  isEqual,
+  last,
+  isUndefined
 } from 'lodash-es'
 import {
   defineComponent,
@@ -21,47 +22,60 @@ const namespace = 'config'
 
 const name = makeComponentName(namespace)
 
-export const provideKey = '__D2_COMPONENTS_CONFIG__'
-
-export const provideDataDefault = {}
+const provideName = '__D2_COMPONENTS_CONFIG__'
 
 const componentProps = {
-  iconCollection: { type: String, default: '' }
+  iconCollection: { type: String, default: '' },
+  svgSymbolId: { type: String, default: 'icon-[dir]-[name]' },
+  svgDir: { type: String, default: '' }
 }
 
-function propDefault (key) {
+const provideDataDefault = mapValues(
+  componentProps,
+  (value, key) => getDefault(key)
+)
+
+export function useConfig () {
+  const config = inject(provideName, provideDataDefault)
+  const result = mapValues(
+    componentProps,
+    (value, key) => computed(() => config[key])
+  )
+  return result
+}
+
+function getDefault (key) {
   const defaultConfig = componentProps?.[key]?.default
   if (isFunction(defaultConfig)) return defaultConfig()
   return defaultConfig
 }
 
-function validProp (key, ...values) {
-  const defaultValue = propDefault(key)
-  return values.find(e => !isEqual(defaultValue, e))
+function getValid (key, ...values) {
+  const defaultValue = getDefault(key)
+  return values.find(e => !isEqual(defaultValue, e)) || last(values)
 }
 
-export function useConfig () {
-  const config = inject(provideKey, provideDataDefault)
-  const result = fromPairs(
-    keys(componentProps).map(key => [
-      key,
-      computed(() => config[key])
-    ])
-  )
-  return result
+function getProvideData (props) {
+  if (isUndefined(inject(provideName))) {
+    return reactive({
+      ...props
+    })
+  } else {
+    const config = useConfig()
+    return reactive(
+      mapValues(
+        props,
+        (value, key) => getValid(key, value, config[key].value)
+      )
+    )
+  }
 }
 
 export default defineComponent({
   name,
   props: componentProps,
   setup (props, { slots }) {
-    const config = useConfig()
-    const provideData = reactive(
-      mapValues(
-        props,
-        (value, key) => validProp(key, value, config[key].value)
-      )
-    )
+    let provideData = getProvideData(props)
     keys(props).forEach(key => {
       watch(
         () => props[key],
@@ -70,7 +84,7 @@ export default defineComponent({
         }
       )
     })
-    provide(provideKey, provideData)
+    provide(provideName, provideData)
     return () => slots.default?.()
   }
 })
