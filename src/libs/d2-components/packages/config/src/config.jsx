@@ -56,7 +56,7 @@ function getValid (key, ...values) {
 }
 
 function getProvideData (props) {
-  if (isUndefined(inject(provideName))) {
+  if (isUndefined(inject(provideName, undefined))) {
     return reactive({
       ...props
     })
