@@ -13,6 +13,9 @@
     <d2-icon name="home"/>
   </d2-config>
   <d2-icon collection="icon-park-outline" name="home"/>
+  <d2-flex style="width:200px; height: 200px;" center>
+    <span>123</span>
+  </d2-flex>
 </template>
 
 <script setup>
