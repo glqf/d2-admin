@@ -6,12 +6,13 @@
     <d2-svg name="left-right"/>
     <d2-svg name="right"/>
   </d2-config>
-  <d2-icon icon="home"/>
-  <d2-icon icon="account-supervisor-circle"/>
-  <d2-icon icon="menu-open"/>
+  <d2-icon name="home"/>
+  <d2-icon name="account-supervisor-circle"/>
+  <d2-icon name="menu-open"/>
   <d2-config icon-collection="icon-park-outline">
-    <d2-icon icon="home"/>
+    <d2-icon name="home"/>
   </d2-config>
+  <d2-icon collection="icon-park-outline" name="home"/>
 </template>
 
 <script setup>

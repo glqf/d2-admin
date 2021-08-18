@@ -29,35 +29,33 @@ export default defineComponent({
   name,
   props: {
     collection: { type: String, default: '' },
-    icon: { type: String, default: '' }
+    name: { type: String, default: '' }
   },
   setup (props) {
     const wrapper = ref(null)
 
     const { iconCollection } = useConfig()
 
-    const iconComplete = computed(() => {
-      const icon = props.icon
-      if (icon.indexOf(':') > 0) {
-        // like collection:icon
-        return icon
-      }
+    const collection = computed(() => props.collection || iconCollection.value)
+
+    const iconNameComplete = computed(() => {
+      // like collection:icon
+      if (props.name.indexOf(':') > 0) return props.name
       // The icon name does not contain the icon collection name
       // Try to get it from another way
-      const collection = props.collection || iconCollection.value
-      return collection ? `${collection}:${icon}` : icon
+      return collection.value ? `${collection.value}:${props.name}` : props.name
     })
 
     async function load () {
       clearElementContent(unref(wrapper))
       await nextTick()
-      const svg = iconify.renderSVG(unref(iconComplete), {})
+      const svg = iconify.renderSVG(unref(iconNameComplete), {})
       if (svg) {
         unref(wrapper).appendChild(svg)
       } else {
         const span = document.createElement('span')
         span.className = 'iconify'
-        span.dataset.icon = unref(iconComplete)
+        span.dataset.icon = unref(iconNameComplete)
         unref(wrapper).appendChild(span)
       }
     }
