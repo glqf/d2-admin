@@ -2,17 +2,17 @@ import { isString, camelCase } from 'lodash-es'
 
 /**
  * Convert string to pascalcase
- * @param {string} value string to be processed
- * @returns string
+ * @param {string} value string to be processed eg: 'Foo Bar' / '--foo-bar--' / '__FOO_BAR__'
+ * @returns string eg: 'FooBar'
  */
 export function pascalCase (value) {
   return titleCase(camelCase(value))
 }
 
 /**
- * Convert string to titleCase
- * @param {string} value string to be processed
- * @returns string
+ * Converts the first letter of the input string to uppercase
+ * @param {string} value string to be processed eg: 'abc'
+ * @returns string eg: 'Abc'
  */
 export function titleCase (value) {
   if (!isString(value)) return ''
