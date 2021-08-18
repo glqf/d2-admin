@@ -1,7 +1,7 @@
 <template>
-  <d2-components-config v-bind="config">
+  <d2-config v-bind="config">
     <router-view/>
-  </d2-components-config>
+  </d2-config>
 </template>
 
 <script setup>

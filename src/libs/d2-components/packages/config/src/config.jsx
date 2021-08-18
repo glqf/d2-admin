@@ -1,5 +1,23 @@
-import { fromPairs, isFunction, keys, mapValues, isEqual } from 'lodash-es'
-import { defineComponent, provide, inject, computed, reactive, watch } from 'vue'
+import {
+  fromPairs,
+  isFunction,
+  keys,
+  mapValues,
+  isEqual
+} from 'lodash-es'
+import {
+  defineComponent,
+  provide,
+  inject,
+  computed,
+  reactive,
+  watch
+} from 'vue'
+import { makeComponentName } from '../../../utils/name.js'
+
+const namespace = 'config'
+
+const name = makeComponentName(namespace)
 
 export const provideKey = '__D2_COMPONENTS_CONFIG__'
 
@@ -32,7 +50,7 @@ export function useConfig () {
 }
 
 export default defineComponent({
-  name: 'D2ComponentsConfig',
+  name,
   props: componentProps,
   setup (props, { slots }) {
     const config = useConfig()
