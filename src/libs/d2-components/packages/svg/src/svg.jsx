@@ -25,18 +25,19 @@ export default defineComponent({
   setup (props) {
     const { svgSymbolId, svgDir } = useConfig()
 
-    const _dir = computed(() => props._dir || svgDir.value)
+    const dir = computed(() => props.dir || svgDir.value)
 
-    const href = computed(() => {
-      let result = svgSymbolId.value
-      return props.name
-    })
+    const href = computed(
+      () => ('#' + svgSymbolId.value)
+        .replace(/\[dir\]/g, dir.value)
+        .replace(/\[name\]/g, props.name)
+    )
 
     const classnames = computed(() => makeClassnames(classname, {}))
 
     return () => (
       <svg class={ classnames.value } aria-hidden="true">
-        <use xlink:href={ href.value }></use>
+        <use xlink:href={ href.value }/>
       </svg>
     )
   }
