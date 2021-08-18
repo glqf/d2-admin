@@ -6,8 +6,6 @@
 
 <script setup>
 const config = {
-  iconCollection: 'fa',
-  testKey: 'hello',
-  undefinedKey: 'xxx'
+  iconCollection: 'mdi'
 }
 </script>

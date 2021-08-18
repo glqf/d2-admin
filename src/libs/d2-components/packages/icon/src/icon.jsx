@@ -7,12 +7,19 @@ import {
   watch,
   nextTick
 } from 'vue'
+import makeClassnames from 'classnames'
 import Iconify from '@iconify/iconify'
 import { useConfig } from '../../config/src/config.jsx'
+import { makeComponentName, makeComponentClassName } from '../../../utils/name.js'
 import { clearElementContent } from 'd2-utils/dom.js'
 
+const namespace = 'icon'
+
+const name = makeComponentName(namespace)
+const classname = makeComponentClassName(namespace)
+
 export default defineComponent({
-  name: 'D2Icon',
+  name,
   props: {
     collection: { type: String, default: '' },
     icon: { type: String, default: '' }
@@ -48,12 +55,14 @@ export default defineComponent({
       }
     }
 
+    const classnames = computed(() => makeClassnames(classname, {}))
+
     onMounted(load)
     watch(() => props.collection, load, { flush: 'post' })
     watch(() => props.icon, load, { flush: 'post' })
 
     return () => (
-      <span ref={ wrapper }/>
+      <span class={ classnames.value } ref={ wrapper }/>
     )
   }
 })

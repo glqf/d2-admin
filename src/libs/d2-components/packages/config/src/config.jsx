@@ -6,8 +6,7 @@ export const provideKey = '__D2_COMPONENTS_CONFIG__'
 export const provideDataDefault = {}
 
 const componentProps = {
-  iconCollection: { type: String, default: '' },
-  testKey: { type: String, default: '' }
+  iconCollection: { type: String, default: '' }
 }
 
 function propDefault (key) {
