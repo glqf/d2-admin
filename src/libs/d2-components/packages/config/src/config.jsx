@@ -13,7 +13,9 @@ import {
   reactive,
   watch
 } from 'vue'
-import { makeComponentName } from '../../../utils/name.js'
+import {
+  makeComponentName
+} from '../../../utils/name.js'
 
 const namespace = 'config'
 
