@@ -3,6 +3,7 @@ import {
 } from 'vue'
 import App from './App.vue'
 import router from '@/router.js'
+import 'd2-modern-normalize/index.scss'
 import D2Components from 'd2-components/index.js'
 
 import 'virtual:svg-icons-register'

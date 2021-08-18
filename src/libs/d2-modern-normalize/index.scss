@@ -29,8 +29,8 @@ html {
 */
 
 html {
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
 }
 
 /*
@@ -74,8 +74,8 @@ Grouping content
 */
 
 hr {
-  height: 0;
-  color: inherit;
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
 }
 
 /*
@@ -88,7 +88,8 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 */
 
 abbr[title] {
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
 }
 
 /**
@@ -109,8 +110,14 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
-  font-size: 1em;
+  font-family:
+		ui-monospace,
+		SFMono-Regular,
+		Consolas,
+		'Liberation Mono',
+		Menlo,
+		monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
 
 /**
@@ -152,8 +159,8 @@ Tabular data
 */
 
 table {
-  text-indent: 0;
-  border-color: inherit;
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
 }
 
 /*
@@ -171,10 +178,10 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
 }
 
 /**
@@ -183,7 +190,7 @@ Remove the inheritance of text transform in Edge and Firefox.
 */
 
 button,
-select {
+select { /* 1 */
   text-transform: none;
 }
 
@@ -255,8 +262,8 @@ Correct the cursor style of increment and decrement buttons in Safari.
 */
 
 [type='search'] {
-  -webkit-appearance: textfield;
-  outline-offset: -2px;
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
 }
 
 /**
@@ -273,8 +280,8 @@ Remove the inner padding in Chrome and Safari on macOS.
 */
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  font: inherit;
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
 }
 
 /*
@@ -345,8 +352,8 @@ ul {
  */
 
 html {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  line-height: 1.5;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
+  line-height: 1.5; /* 2 */
 }
 
 /**
@@ -388,10 +395,10 @@ body {
 *,
 ::before,
 ::after {
-  box-sizing: border-box;
-  border-width: 0;
-  border-style: solid;
-  border-color: currentColor;
+  box-sizing: border-box; /* 1 */
+  border-width: 0; /* 2 */
+  border-style: solid; /* 2 */
+  border-color: currentColor; /* 2 */
 }
 
 /*
@@ -512,8 +519,8 @@ audio,
 iframe,
 embed,
 object {
-  display: block;
-  vertical-align: middle;
+  display: block; /* 1 */
+  vertical-align: middle; /* 2 */
 }
 
 /**
@@ -529,6 +536,10 @@ video {
   height: auto;
 }
 
-*, ::before, ::after {
-  border-color: var(--d2-border-color);
+/**
+ * Ensure the default browser behavior of the `hidden` attribute.
+ */
+
+[hidden] {
+  display: none;
 }

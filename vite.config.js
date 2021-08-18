@@ -55,7 +55,8 @@ export default defineConfig({
     alias: {
       '@': '/src',
       'd2-utils': '/src/libs/d2-utils',
-      'd2-components': '/src/libs/d2-components'
+      'd2-components': '/src/libs/d2-components',
+      'd2-modern-normalize': '/src/libs/d2-modern-normalize'
     }
   },
   server: {
