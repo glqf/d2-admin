@@ -1,4 +1,6 @@
-import { createApp } from 'vue'
+import {
+  createApp
+} from 'vue'
 import App from './App.vue'
 import router from '@/router.js'
 import D2Components from 'd2-components/index.js'

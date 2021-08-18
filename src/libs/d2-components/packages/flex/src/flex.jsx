@@ -8,15 +8,15 @@ import {
 } from 'lodash-es'
 import makeClassnames from 'classnames'
 import {
+  isNumberLike
+} from 'd2-utils/number.js'
+import {
   makeComponentName,
   makeComponentClassName
 } from '../../../utils/name.js'
 import {
   isFlexProp
 } from '../../../utils/const.js'
-import {
-  isNumberLike
-} from 'd2-utils/number.js'
 
 const namespace = 'flex'
 
