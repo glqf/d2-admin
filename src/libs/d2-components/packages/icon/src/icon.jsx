@@ -8,7 +8,7 @@ import {
   nextTick
 } from 'vue'
 import makeClassnames from 'classnames'
-import Iconify from '@iconify/iconify'
+import iconify from '@iconify/iconify'
 import {
   useConfig
 } from '../../config/src/config.jsx'
@@ -51,7 +51,7 @@ export default defineComponent({
     async function load () {
       clearElementContent(unref(wrapper))
       await nextTick()
-      const svg = Iconify.renderSVG(unref(iconComplete), {})
+      const svg = iconify.renderSVG(unref(iconComplete), {})
       if (svg) {
         unref(wrapper).appendChild(svg)
       } else {
