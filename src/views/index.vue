@@ -1,5 +1,17 @@
 <template>
-  <d2-flex style="width:200px; height: 200px;" center>
-    <span>123</span>
-  </d2-flex>
+  <pre>{{ status }}</pre>
+  <p>width: {{ width }}</p>
 </template>
+
+<script setup>
+import { useBreakPoint } from 'd2-use/break-point.js'
+
+const status = useBreakPoint()
+
+const responsive = status.responsive
+
+const width = responsive(100, {
+  md: 50,
+  lg: 25
+})
+</script>

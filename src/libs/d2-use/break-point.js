@@ -1,57 +1,65 @@
 import { computed } from 'vue'
-import { keys, values, fromPairs } from 'lodash-es'
+import { keys, values, fromPairs, mapValues } from 'lodash-es'
 import { useWindowSize } from './window-size.js'
 import { useD2ComponentsConfig } from './config.js'
+
+const minKey = 'min'
+const minWidth = 0
 
 /**
  * Get breakpoint status
  * @param {Object} breakPoints break point setting, if do not set this parameter, use global config
+ *                             eg: { sm: 640, md: 768, lg: 1024, xl: 1280, xxl: 1536 }
  * @returns {Object} status {String} breakPoint now active break point name
  * @returns {Object} status {String} ...breakPoints.keys active state of each breakpoint
  * @returns {Object} status {String} min less than the minimum breakpoint
  */
 export function useBreakPoint (breakPoints) {
-  const config = useD2ComponentsConfig()
-  
-  const _breakPoints = Object.assign({}, config.breakPoints, breakPoints)
-
-  const names = keys(_breakPoints)
-  const widths = values(_breakPoints).sort((a, b) => a - b)
-  const dict = fromPairs(widths.map((e, i) => [e, names[i]]))
-
   const { width } = useWindowSize()
 
-  const widthActive = computed(() => widths.reduce((r, e) => width.value >= e ? e : r, 0))
+  const d2ComponentsConfig = useD2ComponentsConfig()
+  
+  const _points = Object.assign(
+    {
+      [minKey]: minWidth
+    },
+    d2ComponentsConfig.breakPoints,
+    breakPoints
+  )
 
-  const breakPoint = computed(() => dict[widthActive.value] || 'min')
+  const names = keys(_points)
+  const widths = values(_points).sort((a, b) => a - b)
+  // eg: { 640: 'sm' }
+  const dict = fromPairs(widths.map((w, i) => [w, names[i]]))
 
-  const isMin = computed(() => breakPoint.value === 'min')
+  const activeWidth = computed(() => widths.reduce((r, e) => width.value >= e ? e : r, minWidth))
+  const activeName = computed(() => dict[activeWidth.value])
 
-  const status = fromPairs(names.map(e => [e, computed(() => breakPoint.value === e)]))
+  const status = mapValues(_points, (v, k) => computed(() => activeName.value === k))
 
   /**
-   * match values based on breakpoints
-   * @param {*} value default value
-   * @param {*} valueSet set of values matched by breakpoints
-   * @returns a matched value
+   * match data based on breakpoints
+   * @param {*} data default data
+   * @param {*} dataSet set of datas matched by breakpoints
+   * @returns a matched data
    */
-  function responsive (value, valueSet = {}) {
+  function responsive (data, dataSet = {}) {
     return computed(() => {
-      const point = dict[
+      const activeName = dict[
         Math.max(
-          ...keys(valueSet)
-            .map(e => _breakPoints[e])
-            .filter(e => e <= widthActive.value)
+          ...keys(dataSet)
+            .map(k => _points[k])
+            .filter(w => w <= activeWidth.value)
         )
       ]
-      return valueSet[point] || value
+      return dataSet[activeName] || data
     })
   }
 
   return {
     responsive,
-    breakPoint,
-    min: isMin,
+    width,
+    active: activeName,
     ...status
   }
 }
