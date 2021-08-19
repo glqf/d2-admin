@@ -1,17 +1,11 @@
 <template>
-  <pre>{{ status }}</pre>
-  <p>width: {{ width }}</p>
+  <d2-break-point
+    :data="{
+      width: [100, { md: 50, lg: 25 }],
+      height: [200, { md: 100, lg: 400 }]
+    }"
+    v-slot="status">
+    <pre>{{ status }}</pre>
+    {{ status.responsive(100, { md: 50, lg: 25 }) }}
+  </d2-break-point>
 </template>
-
-<script setup>
-import { useBreakPoint } from 'd2-use/break-point.js'
-
-const status = useBreakPoint()
-
-const responsive = status.responsive
-
-const width = responsive(100, {
-  md: 50,
-  lg: 25
-})
-</script>
