@@ -1,7 +1,7 @@
 import { computed } from 'vue'
 import { keys, values, fromPairs } from 'lodash-es'
 import { useWindowSize } from './window-size.js'
-import { useConfig } from './config.js'
+import { useD2ComponentsConfig } from './config.js'
 
 /**
  * Get breakpoint status
@@ -11,9 +11,9 @@ import { useConfig } from './config.js'
  * @returns {Object} status {String} min less than the minimum breakpoint
  */
 export function useBreakPoint (breakPoints) {
-  const { breakPoints: breakPointsConfig } = useConfig()
+  const config = useD2ComponentsConfig()
   
-  const _breakPoints = Object.assign({}, breakPointsConfig, breakPoints)
+  const _breakPoints = Object.assign({}, config.breakPoints, breakPoints)
 
   const names = keys(_breakPoints)
   const widths = values(_breakPoints).sort((a, b) => a - b)
