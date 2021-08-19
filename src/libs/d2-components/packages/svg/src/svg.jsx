@@ -5,7 +5,7 @@ import {
 import makeClassnames from 'classnames'
 import {
   useConfig
-} from '../../config/src/config.jsx'
+} from '../../../use/config.js'
 import {
   makeComponentName,
   makeComponentClassName

@@ -17,32 +17,26 @@ import {
 import {
   makeComponentName
 } from '../../../utils/name.js'
+import {
+  useConfig
+} from '../../../use/config.js'
 
 const namespace = 'config'
 
 const name = makeComponentName(namespace)
 
-const provideName = '__D2_COMPONENTS_CONFIG__'
+export const provideName = '__D2_COMPONENTS_CONFIG__'
 
-const componentProps = {
+export const componentProps = {
   iconCollection: { type: String, default: '' },
   svgSymbolId: { type: String, default: 'icon-[dir]-[name]' },
   svgDir: { type: String, default: '' }
 }
 
-const provideDataDefault = mapValues(
+export const provideDataDefault = mapValues(
   componentProps,
   (value, key) => getDefault(key)
 )
-
-export function useConfig () {
-  const config = inject(provideName, provideDataDefault)
-  const result = mapValues(
-    componentProps,
-    (value, key) => computed(() => config[key])
-  )
-  return result
-}
 
 function getDefault (key) {
   const defaultConfig = componentProps?.[key]?.default
