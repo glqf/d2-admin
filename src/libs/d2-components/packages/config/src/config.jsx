@@ -11,14 +11,12 @@ import {
   provide,
   inject,
   reactive,
-  watch
+  watch,
+  computed
 } from 'vue'
 import {
   makeComponentName
 } from '../../../utils/name.js'
-import {
-  useConfig
-} from '../../../use/config.js'
 import {
   breakPoints
 } from '../../../utils/const.js'
@@ -66,6 +64,15 @@ function getProvideData (props) {
       )
     )
   }
+}
+
+export function useConfig () {
+  const config = inject(provideName, provideDataDefault)
+  const result = mapValues(
+    componentProps,
+    (value, key) => computed(() => config[key])
+  )
+  return result
 }
 
 export default defineComponent({
