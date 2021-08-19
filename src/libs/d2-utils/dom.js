@@ -1,7 +1,7 @@
 export const isDomElement = el => {
-  return typeof HTMLElement === 'object'
-    ? el instanceof HTMLElement
-    : el &&
+  return typeof HTMLElement === 'object' ?
+    el instanceof HTMLElement :
+    el &&
       typeof el === 'object' &&
       el.nodeType === 1 &&
       typeof el.nodeName === 'string'
