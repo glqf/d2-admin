@@ -1,8 +1,16 @@
+<route>
+{
+  meta: {
+    title: '首页'
+  }
+}
+</route>
+
 <template>
   <a-space>
     <a-button v-for="route in routes" :key="route.name">
       <router-link :to="route.path">
-        {{ route.path }}
+        {{ route?.meta?.title || route.path }}
       </router-link>
     </a-button>
   </a-space>
