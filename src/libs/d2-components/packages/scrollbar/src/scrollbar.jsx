@@ -18,7 +18,7 @@ import {
   assignWith
 } from 'lodash-es'
 
-export const osCallbacks = [
+export const callbacks = [
   'onInitialized',
   'onInitializationWithdrawn',
   'onDestroyed',
@@ -33,7 +33,7 @@ export const osCallbacks = [
   'onUpdated'
 ]
 
-export const callbacksEmits = osCallbacks.map(name => kebabCase(name.replace(/^on/, '')))
+export const emits = callbacks.map(name => kebabCase(name.replace(/^on/, '')))
 
 const namespace = 'scrollbar'
 
@@ -51,7 +51,7 @@ export default defineComponent({
     full: { type: Boolean }
   },
   emits: [
-    ...callbacksEmits,
+    ...emits,
     'in-cordon-x',
     'in-cordon-y',
     'scroll-top',
@@ -69,7 +69,7 @@ export default defineComponent({
           autoHide: 'scroll',
           autoHideDelay: 300
         },
-        callbacks: fromPairs(osCallbacks.map(name => {
+        callbacks: fromPairs(callbacks.map(name => {
           const emitName = kebabCase(name.replace(/^on/, ''))
           let callback = () => {}
           switch (name) {
