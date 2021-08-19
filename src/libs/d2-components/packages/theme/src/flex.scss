@@ -1,18 +1,5 @@
-@mixin flex-space ($space, $position) {
-  &.is-space-#{$position}-#{$space} > * + * {
-    margin-#{$position}: var(--d2-flex-space-#{$space});
-  }
-}
-
 @include b(flex) {
   display: flex;
-
-  @each $_flex-dir in $--d2-flex-dir {
-    @include flex-space(base, $_flex-dir);
-    @each $_space, $_setting in $--d2-space {
-      @include flex-space($_space, $_flex-dir);
-    }
-  }
 
   &.is-inline-flex { display: inline-flex; }
   &.is-block { display: block; }
