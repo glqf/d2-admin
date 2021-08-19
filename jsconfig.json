@@ -9,7 +9,11 @@
       "d2-use/*": ["src/libs/d2-use/*"],
       "d2-components/*": ["src/libs/d2-components/*"],
       "d2-modern-normalize/*": ["src/libs/d2-modern-normalize/*"]
-    }
+    },
+    // strict and moduleResolution is for volar
+    // https://github.com/johnsoncodehk/volar#note
+    "strict": true,
+    "moduleResolution": "node"
   },
   "exclude": ["node_modules", "dist"]
 }
