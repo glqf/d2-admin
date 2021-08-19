@@ -10,7 +10,6 @@ import {
   defineComponent,
   provide,
   inject,
-  computed,
   reactive,
   watch
 } from 'vue'
@@ -20,6 +19,9 @@ import {
 import {
   useConfig
 } from '../../../use/config.js'
+import {
+  breakPoints
+} from '../../../utils/const.js'
 
 const namespace = 'config'
 
@@ -30,7 +32,8 @@ export const provideName = '__D2_COMPONENTS_CONFIG__'
 export const componentProps = {
   iconCollection: { type: String, default: '' },
   svgSymbolId: { type: String, default: 'icon-[dir]-[name]' },
-  svgDir: { type: String, default: '' }
+  svgDir: { type: String, default: '' },
+  breakPoints: { type: Object, default: () => breakPoints }
 }
 
 export const provideDataDefault = mapValues(
