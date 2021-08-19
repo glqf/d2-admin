@@ -36,7 +36,10 @@ export default defineConfig({
       exclude: [
         '**/components/*.vue'
       ],
-      extensions: ['vue', 'jsx']
+      extensions: ['vue', 'jsx'],
+      extendRoute (route, parent) {
+        return route
+      }
     }),
     AntdDayjs({
       preset: 'antdv3'
