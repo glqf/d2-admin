@@ -1,11 +1,13 @@
 <template>
-  <d2-break-point
-    :data="{
-      width: [100, { md: 50, lg: 25 }],
-      height: [200, { md: 100, lg: 400 }]
-    }"
-    v-slot="status">
-    <pre>{{ status }}</pre>
-    {{ status.responsive(100, { md: 50, lg: 25 }) }}
-  </d2-break-point>
+  <a-space>
+    <a-button v-for="route in routes" :key="route.name">
+      <router-link :to="route.path">
+        {{ route.path }}
+      </router-link>
+    </a-button>
+  </a-space>
 </template>
+
+<script setup>
+import routes from 'virtual:generated-pages'
+</script>
