@@ -15,7 +15,7 @@ import {
 import {
   kebabCase,
   fromPairs,
-  assignWith
+  mergeWith
 } from 'lodash-es'
 
 export const callbacks = [
@@ -98,7 +98,7 @@ export default defineComponent({
       }
       const customizer = (left, right, key) => {
         if (key === 'callbacks') {
-          return assignWith({}, left, right, (leftFn, rightFn) => {
+          return mergeWith({}, left, right, (leftFn, rightFn) => {
             if (leftFn && rightFn) {
               return (event) => {
                 leftFn(event)
@@ -108,7 +108,7 @@ export default defineComponent({
           })
         }
       }
-      const osOptionsMerged = assignWith({}, osOptionsDefault, props.options, customizer)
+      const osOptionsMerged = mergeWith({}, osOptionsDefault, props.options, customizer)
       const osTarget = target.value
       // https://kingsora.github.io/OverlayScrollbars/#!documentation/options
       osInstance.value = OverlayScrollbars(
