@@ -7,7 +7,7 @@ import {
   watch
 } from 'vue'
 import makeClassnames from 'classnames'
-import OverlayScrollbars from 'overlayscrollbars'
+import os from 'overlayscrollbars'
 import {
   makeComponentName,
   makeComponentClassName
@@ -60,7 +60,9 @@ export default defineComponent({
   setup (props, { slots, emit }) {
     const target = ref(null)
 
-    const osInstance = ref(null)
+    const instance = ref(null)
+
+    const isValid = () => os.valid(instance.value)
 
     function init () {
       const osOptionsDefault = {
@@ -75,7 +77,7 @@ export default defineComponent({
           switch (name) {
             case 'onScroll':
               callback = event => {
-                const information = osInstance.value.scroll()
+                const information = instance.value.scroll()
                 const ratioY = information.ratio.y
                 emit(emitName, event)
                 const cordonY = information.max.y - information.position.y
@@ -99,52 +101,52 @@ export default defineComponent({
       const customizer = (left, right, key) => {
         if (key === 'callbacks') {
           return mergeWith({}, left, right, (leftFn, rightFn) => {
-            if (leftFn && rightFn) {
-              return (event) => {
+            if (leftFn && isFunction(leftFn) && rightFn && isFunction(rightFn)) {
+              return event => {
                 leftFn(event)
-                if (isFunction(rightFn)) rightFn(event)
+                rightFn(event)
               }
             }
           })
         }
       }
-      const osOptionsMerged = mergeWith({}, osOptionsDefault, props.options, customizer)
-      const osTarget = target.value
-      // https://kingsora.github.io/OverlayScrollbars/#!documentation/options
-      osInstance.value = OverlayScrollbars(
-        osTarget,
-        osOptionsMerged,
+      instance.value = os(
+        target.value,
+        mergeWith({}, osOptionsDefault, props.options, customizer),
         props.extensions
       )
     }
 
-    onMounted(() => {
-      init()
-    })
+    onMounted(init)
     
     watch(() => props.options, (options) => {
-      if (OverlayScrollbars.valid(osInstance.value)) {
-        osInstance.value.options(options)
+      if (isValid()) {
+        instance.value.options(options)
       }
     })
     
     onBeforeUnmount(() => {
-      if (OverlayScrollbars.valid(osInstance.value)) {
-        osInstance.value.destroy()
-        osInstance.value = null
+      if (isValid()) {
+        instance.value.destroy()
+        instance.value = null
       }
     })
-
-    const style = computed(() => ({}))
+    
     const classnames = computed(() => makeClassnames(classname, {}))
 
-    return () => (
-      <div ref={ target } class="os-host" class={ classnames.value } style={ style.value }>
+    return {
+      target,
+      classnames
+    }
+  },
+  render () {
+    return (
+      <div ref="target" class="os-host" class={ this.classnames }>
         <div class="os-resize-observer-host"/>
         <div class="os-padding">
           <div class="os-viewport">
             <div class="os-content">
-              { slots.default?.() }
+              { this.$slots?.default?.() }
             </div>
           </div>
         </div>
