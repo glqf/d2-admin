@@ -12,10 +12,10 @@ import {
 } from '../../../utils/name.js'
 import {
   useBreakPoint
-} from 'd2-use/break-point.js'
+} from 'd2-projects/d2-use/break-point.js'
 import {
   useD2ComponentsConfig
-} from 'd2-use/config.js'
+} from 'd2-projects/d2-use/config.js'
 
 const namespace = 'break-point'
 

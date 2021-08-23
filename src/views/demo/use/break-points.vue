@@ -4,7 +4,7 @@
 </template>
 
 <script setup>
-import { useBreakPoint } from 'd2-use/break-point.js'
+import { useBreakPoint } from 'd2-projects/d2-use/break-point.js'
 
 const status = useBreakPoint()
 

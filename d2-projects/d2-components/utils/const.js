@@ -1,5 +1,5 @@
 import { fromPairs } from 'lodash-es'
-import { isEmptyString } from 'd2-utils/string.js'
+import { isEmptyString } from 'd2-projects/d2-utils/string.js'
 
 export const namespace = 'd2'
 

@@ -14,7 +14,7 @@ import {
 import makeClassnames from 'classnames'
 import {
   pascalCase
-} from 'd2-utils/string.js'
+} from 'd2-projects/d2-utils/string.js'
 import os from 'overlayscrollbars'
 import 'overlayscrollbars/css/OverlayScrollbars.css'
 

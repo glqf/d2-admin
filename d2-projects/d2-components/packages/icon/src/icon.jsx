@@ -11,7 +11,7 @@ import makeClassnames from 'classnames'
 import iconify from '@iconify/iconify'
 import {
   clearElementContent
-} from 'd2-utils/dom.js'
+} from 'd2-projects/d2-utils/dom.js'
 import {
   useConfig
 } from '../../config/src/config.jsx'

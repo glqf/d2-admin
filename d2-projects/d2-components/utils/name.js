@@ -1,5 +1,5 @@
 import { kebabCase } from 'lodash-es'
-import { pascalCase } from 'd2-utils/string.js'
+import { pascalCase } from 'd2-projects/d2-utils/string.js'
 import { namespace } from './const.js'
 
 /**

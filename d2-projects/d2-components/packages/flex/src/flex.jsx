@@ -9,7 +9,7 @@ import {
 import makeClassnames from 'classnames'
 import {
   isNumberLike
-} from 'd2-utils/number.js'
+} from 'd2-projects/d2-utils/number.js'
 import {
   makeComponentName,
   makeComponentClassName
