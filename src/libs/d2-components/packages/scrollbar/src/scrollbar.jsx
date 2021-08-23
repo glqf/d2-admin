@@ -48,7 +48,7 @@ export default defineComponent({
   props: {
     options: { type: Object },
     extensions: { type: [String, Array, Object] },
-    theme: { type: String, default: 'thin-dark' },
+    theme: { type: String, default: 'dark' },
     cordonX: { type: Number, default: 0 },
     cordonY: { type: Number, default: 0 },
     full: { type: Boolean }
@@ -67,8 +67,10 @@ export default defineComponent({
 
     const isValid = () => os.valid(instance.value)
 
+    const themeClassName = computed(() => `os-theme-${props.theme}`)
+
     const optionsDefault = computed(() => ({
-      className: `os-theme-${props.theme}`,
+      className: themeClassName.value,
       scrollbars: {
         autoHide: 'scroll',
         autoHideDelay: 300
