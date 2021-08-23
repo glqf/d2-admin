@@ -117,6 +117,12 @@ export default defineComponent({
 
     const options = computed(() => mergeDefaultOption(props.options))
 
+    function reloadOptions () {
+      if (isValid()) {
+        instance.value.options(mergeDefaultOption(options))
+      }
+    }
+
     function init () {
       instance.value = os(
         target.value,
@@ -124,12 +130,6 @@ export default defineComponent({
         props.extensions
       )
     }
-    
-    watch(() => props.options, (options) => {
-      if (isValid()) {
-        instance.value.options(mergeDefaultOption(options))
-      }
-    })
 
     onMounted(init)
     
@@ -139,6 +139,8 @@ export default defineComponent({
         instance.value = null
       }
     })
+    
+    watch(options, reloadOptions)
     
     const classnames = computed(() => makeClassnames(classname, {}))
 
