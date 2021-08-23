@@ -57,73 +57,81 @@ export default defineComponent({
     'scroll-top',
     'scroll-bottom'
   ],
-  setup (props, { slots, emit }) {
+  setup (props, { emit }) {
     const target = ref(null)
 
     const instance = ref(null)
 
     const isValid = () => os.valid(instance.value)
 
-    function init () {
-      const osOptionsDefault = {
-        className: `os-theme-${props.theme}`,
-        scrollbars: {
-          autoHide: 'scroll',
-          autoHideDelay: 300
-        },
-        callbacks: fromPairs(callbacks.map(name => {
-          const emitName = kebabCase(name.replace(/^on/, ''))
-          let callback = () => {}
-          switch (name) {
-            case 'onScroll':
-              callback = event => {
-                const information = instance.value.scroll()
-                const ratioY = information.ratio.y
-                emit(emitName, event)
-                const cordonY = information.max.y - information.position.y
-                const cordonX = information.max.x - information.position.x
-                if (cordonY <= props.cordonY) emit('in-cordon-y', event)
-                if (cordonX <= props.cordonX) emit('in-cordon-x', event)
-                if (ratioY === 0) emit('scroll-top', event)
-                if (ratioY === 1) emit('scroll-bottom', event)
-              }
-              break
-            default:
-              callback = event => emit(emitName, event)
-              break
-          }
-          return [
-            name,
-            callback
-          ]
-        }))
-      }
-      const customizer = (left, right, key) => {
-        if (key === 'callbacks') {
-          return mergeWith({}, left, right, (leftFn, rightFn) => {
-            if (leftFn && isFunction(leftFn) && rightFn && isFunction(rightFn)) {
-              return event => {
-                leftFn(event)
-                rightFn(event)
-              }
+    const optionsDefault = computed(() => ({
+      className: `os-theme-${props.theme}`,
+      scrollbars: {
+        autoHide: 'scroll',
+        autoHideDelay: 300
+      },
+      callbacks: fromPairs(callbacks.map(name => {
+        const emitName = kebabCase(name.replace(/^on/, ''))
+        let callback = () => {}
+        switch (name) {
+          case 'onScroll':
+            callback = event => {
+              const information = instance.value.scroll()
+              const ratioY = information.ratio.y
+              emit(emitName, event)
+              const cordonY = information.max.y - information.position.y
+              const cordonX = information.max.x - information.position.x
+              if (cordonY <= props.cordonY) emit('in-cordon-y', event)
+              if (cordonX <= props.cordonX) emit('in-cordon-x', event)
+              if (ratioY === 0) emit('scroll-top', event)
+              if (ratioY === 1) emit('scroll-bottom', event)
             }
-          })
+            break
+          default:
+            callback = event => emit(emitName, event)
+            break
         }
+        return [
+          name,
+          callback
+        ]
+      }))
+    }))
+
+    function customizer (left, right, key) {
+      if (key === 'callbacks') {
+        return mergeWith({}, left, right, (leftFn, rightFn) => {
+          if (leftFn && isFunction(leftFn) && rightFn && isFunction(rightFn)) {
+            return event => {
+              leftFn(event)
+              rightFn(event)
+            }
+          }
+        })
       }
+    }
+
+    function mergeDefaultOption (options) {
+      return mergeWith({}, optionsDefault.value, options, customizer)
+    }
+
+    const options = computed(() => mergeDefaultOption(props.options))
+
+    function init () {
       instance.value = os(
         target.value,
-        mergeWith({}, osOptionsDefault, props.options, customizer),
+        options.value,
         props.extensions
       )
     }
-
-    onMounted(init)
     
     watch(() => props.options, (options) => {
       if (isValid()) {
-        instance.value.options(options)
+        instance.value.options(mergeDefaultOption(options))
       }
     })
+
+    onMounted(init)
     
     onBeforeUnmount(() => {
       if (isValid()) {
