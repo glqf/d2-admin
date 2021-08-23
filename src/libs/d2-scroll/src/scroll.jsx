@@ -6,20 +6,17 @@ import {
   ref,
   watch
 } from 'vue'
-import makeClassnames from 'classnames'
-import os from 'overlayscrollbars'
-import {
-  makeComponentName,
-  makeComponentClassName
-} from '../../../utils/name.js'
 import {
   kebabCase,
   fromPairs,
   mergeWith
 } from 'lodash-es'
+import makeClassnames from 'classnames'
+import {
+  pascalCase
+} from 'd2-utils/string.js'
+import os from 'overlayscrollbars'
 import 'overlayscrollbars/css/OverlayScrollbars.css'
-import './theme/thin-dark.css'
-import './theme/thin-light.css'
 
 export const callbacks = [
   'onInitialized',
@@ -38,10 +35,8 @@ export const callbacks = [
 
 export const emits = callbacks.map(name => kebabCase(name.replace(/^on/, '')))
 
-const namespace = 'scrollbar'
-
-const name = makeComponentName(namespace)
-const classname = makeComponentClassName(namespace)
+const name = pascalCase('d2-scroll')
+const classname = kebabCase('d2-scroll')
 
 export default defineComponent({
   name,
