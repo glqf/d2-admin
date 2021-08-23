@@ -17,6 +17,9 @@ import {
   fromPairs,
   mergeWith
 } from 'lodash-es'
+import 'overlayscrollbars/css/OverlayScrollbars.css'
+import './theme/thin-dark.css'
+import './theme/thin-light.css'
 
 export const callbacks = [
   'onInitialized',
