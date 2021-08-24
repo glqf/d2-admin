@@ -13,8 +13,9 @@ import {
 } from 'lodash-es'
 import makeClassnames from 'classnames'
 import {
-  pascalCase
-} from 'd2-projects/d2-utils/string.js'
+  makeComponentName,
+  makeComponentClassName
+} from 'd2-projects/d2-components/utils/name.js'
 import os from 'overlayscrollbars'
 import 'overlayscrollbars/css/OverlayScrollbars.css'
 
@@ -35,8 +36,10 @@ export const callbacks = [
 
 export const emits = callbacks.map(name => kebabCase(name.replace(/^on/, '')))
 
-const name = pascalCase('d2-scroll')
-const classname = kebabCase('d2-scroll')
+const namespace = 'flex'
+
+export const name = makeComponentName(namespace)
+export const classname = makeComponentClassName(namespace)
 
 export default defineComponent({
   name,

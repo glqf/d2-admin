@@ -16,10 +16,10 @@ import {
 } from 'vue'
 import {
   makeComponentName
-} from '../../../utils/name.js'
+} from 'd2-projects/d2-components/utils/name.js'
 import {
   breakPoints
-} from '../../../utils/const.js'
+} from 'd2-projects/d2-components/utils/const.js'
 
 const namespace = 'config'
 

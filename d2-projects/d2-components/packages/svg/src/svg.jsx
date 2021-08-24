@@ -9,7 +9,7 @@ import {
 import {
   makeComponentName,
   makeComponentClassName
-} from '../../../utils/name.js'
+} from 'd2-projects/d2-components/utils/name.js'
 
 const namespace = 'svg'
 
