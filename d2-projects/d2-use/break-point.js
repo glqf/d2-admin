@@ -1,7 +1,18 @@
-import { computed } from 'vue'
-import { keys, values, fromPairs, mapValues } from 'lodash-es'
-import { useWindowSize } from './window-size.js'
-import { useConfig } from './config.js'
+import {
+  computed
+} from 'vue'
+import {
+  keys,
+  values,
+  fromPairs,
+  mapValues
+} from 'lodash-es'
+import {
+  useWindowSize
+} from './window-size.js'
+import {
+  useConfig
+} from 'd2-projects/d2-config/src/config.jsx'
 
 const minKey = 'min'
 const minWidth = 0
