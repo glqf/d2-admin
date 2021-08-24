@@ -1,3 +1,5 @@
+@import './bem.scss';
+
 @include b(animate-spin) {
   animation: spin 1s linear infinite;
 }
