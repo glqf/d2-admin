@@ -34,7 +34,7 @@ export function useBreakPoint (breakPoints) {
     {
       [minKey]: minWidth
     },
-    d2ComponentsConfig.breakPoints,
+    d2ComponentsConfig.breakPoints.value,
     breakPoints
   )
 
@@ -66,6 +66,7 @@ export function useBreakPoint (breakPoints) {
       return dataSet[activeName] || data
     })
   }
+  debugger
 
   return {
     responsive,

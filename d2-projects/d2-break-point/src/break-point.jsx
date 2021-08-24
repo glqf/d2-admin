@@ -42,7 +42,7 @@ export default defineComponent({
   setup (props, { slots }) {
     const _breakPoints = Object.assign(
       {},
-      useConfig().breakPoints.value,
+      unref(useConfig().breakPoints),
       props.breakPoints
     )
     const status = useBreakPoint(_breakPoints)
@@ -55,7 +55,7 @@ export default defineComponent({
     }))
     
     return () => {
-      const prop = data.value
+      const prop = unref(data)
       return [
         slots.default?.(prop),
         slots.min?.(prop),
