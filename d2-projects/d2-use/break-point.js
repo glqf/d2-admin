@@ -65,7 +65,6 @@ export function useBreakPoint (breakPoints) {
       return dataSet[activeName] || data
     })
   }
-  debugger
 
   return {
     responsive,

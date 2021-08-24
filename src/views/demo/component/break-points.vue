@@ -6,7 +6,7 @@
     }"
     v-slot="{
       min, sm, md, lg, xl, xxl,
-      active, data, width,
+      active, width, data,
       responsive
     }">
     <p>min: {{ min }}</p>
@@ -18,6 +18,6 @@
     <p>active: {{ active }}</p>
     <p>data: {{ data }}</p>
     <p>width: {{ width }}</p>
-    {{ responsive(100, { md: 50, lg: 25 }) }}
+    <p>{{ responsive(100, { md: 50, lg: 25 }) }}</p>
   </d2-break-point>
 </template>
