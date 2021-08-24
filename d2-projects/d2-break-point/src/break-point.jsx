@@ -14,8 +14,8 @@ import {
   useBreakPoint
 } from 'd2-projects/d2-use/break-point.js'
 import {
-  useD2ComponentsConfig
-} from 'd2-projects/d2-use/config.js'
+  useConfig
+} from 'd2-projects/d2-config/src/config.jsx'
 
 const namespace = 'break-point'
 
@@ -42,7 +42,7 @@ export default defineComponent({
   setup (props, { slots }) {
     const _breakPoints = Object.assign(
       {},
-      useD2ComponentsConfig().breakPoints,
+      useConfig().breakPoints,
       props.breakPoints
     )
 

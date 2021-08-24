@@ -1,7 +1,7 @@
 import { computed } from 'vue'
 import { keys, values, fromPairs, mapValues } from 'lodash-es'
 import { useWindowSize } from './window-size.js'
-import { useD2ComponentsConfig } from './config.js'
+import { useConfig } from './config.js'
 
 const minKey = 'min'
 const minWidth = 0
@@ -17,7 +17,7 @@ const minWidth = 0
 export function useBreakPoint (breakPoints) {
   const { width } = useWindowSize()
 
-  const d2ComponentsConfig = useD2ComponentsConfig()
+  const d2ComponentsConfig = useConfig()
   
   const _points = Object.assign(
     {
