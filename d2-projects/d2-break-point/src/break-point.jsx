@@ -42,12 +42,10 @@ export default defineComponent({
   setup (props, { slots }) {
     const _breakPoints = Object.assign(
       {},
-      useConfig().breakPoints,
+      useConfig().breakPoints.value,
       props.breakPoints
     )
-
     const status = useBreakPoint(_breakPoints)
-
     const data = computed(() => ({
       ...unref(status),
       data: mapValues(
@@ -57,7 +55,7 @@ export default defineComponent({
     }))
     
     return () => {
-      const prop = unref(data)
+      const prop = data.value
       return [
         slots.default?.(prop),
         slots.min?.(prop),
