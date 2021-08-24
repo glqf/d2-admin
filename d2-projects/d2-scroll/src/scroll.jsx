@@ -36,7 +36,7 @@ export const callbacks = [
 
 export const emits = callbacks.map(name => kebabCase(name.replace(/^on/, '')))
 
-const namespace = 'flex'
+const namespace = 'scroll'
 
 export const name = makeComponentName(namespace)
 export const classname = makeComponentClassName(namespace)
@@ -84,7 +84,7 @@ export default defineComponent({
               emit(emitName, event)
               const cordonY = information.max.y - information.position.y
               const cordonX = information.max.x - information.position.x
-              if (cordonY <= props.cordonY) emit('in-cordon-y', event)
+              if (cordonY <= -props.cordonY) emit('in-cordon-y', event)
               if (cordonX <= props.cordonX) emit('in-cordon-x', event)
               if (ratioY === 0) emit('scroll-top', event)
               if (ratioY === 1) emit('scroll-bottom', event)
