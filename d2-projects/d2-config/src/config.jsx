@@ -56,7 +56,7 @@ function getProvideData (props) {
       ...props
     })
   } else {
-    const config = useD2ComponentsConfig()
+    const config = useConfig()
     return reactive(
       mapValues(
         props,
@@ -66,7 +66,7 @@ function getProvideData (props) {
   }
 }
 
-export function useD2ComponentsConfig () {
+export function useConfig () {
   const config = inject(provideName, provideDataDefault)
   const result = mapValues(
     componentProps,
