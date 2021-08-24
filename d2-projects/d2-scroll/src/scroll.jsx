@@ -15,7 +15,7 @@ import makeClassnames from 'classnames'
 import {
   makeComponentName,
   makeComponentClassName
-} from 'd2-projects/d2-components/utils/name.js'
+} from 'd2-projects/d2-utils/special/d2-components/name.js'
 import os from 'overlayscrollbars'
 import 'overlayscrollbars/css/OverlayScrollbars.css'
 

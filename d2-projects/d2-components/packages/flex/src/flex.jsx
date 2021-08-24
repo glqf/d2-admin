@@ -13,10 +13,10 @@ import {
 import {
   makeComponentName,
   makeComponentClassName
-} from 'd2-projects/d2-components/utils/name.js'
+} from 'd2-projects/d2-utils/special/d2-components/name.js'
 import {
   isFlexProp
-} from 'd2-projects/d2-components/utils/const.js'
+} from 'd2-projects/d2-utils/special/d2-components/const.js'
 
 const namespace = 'flex'
 

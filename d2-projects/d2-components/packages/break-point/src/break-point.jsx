@@ -9,7 +9,7 @@ import {
 } from 'lodash-es'
 import {
   makeComponentName
-} from 'd2-projects/d2-components/utils/name.js'
+} from 'd2-projects/d2-utils/special/d2-components/name.js'
 import {
   useBreakPoint
 } from 'd2-projects/d2-use/break-point.js'
