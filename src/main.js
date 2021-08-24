@@ -9,6 +9,7 @@ import 'd2-projects/d2-modern-normalize/index.css'
 import D2Components from 'd2-projects/d2-components/index.js'
 
 import D2Scroll from 'd2-projects/d2-scroll/index.js'
+import 'd2-projects/d2-scroll/src/scroll.scss'
 
 import D2Flex from 'd2-projects/d2-flex/index.js'
 import 'd2-projects/d2-flex/src/flex.scss'
