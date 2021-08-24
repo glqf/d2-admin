@@ -28,14 +28,12 @@ const minWidth = 0
  */
 export function useBreakPoint (breakPoints) {
   const { width } = useWindowSize()
-
-  const d2ComponentsConfig = useConfig()
   
   const _points = Object.assign(
     {
       [minKey]: minWidth
     },
-    unref(d2ComponentsConfig.breakPoints),
+    unref(useConfig().breakPoints),
     breakPoints
   )
 
