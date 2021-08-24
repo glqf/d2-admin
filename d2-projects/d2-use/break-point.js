@@ -1,5 +1,6 @@
 import {
-  computed
+  computed,
+  unref
 } from 'vue'
 import {
   keys,
@@ -34,7 +35,7 @@ export function useBreakPoint (breakPoints) {
     {
       [minKey]: minWidth
     },
-    d2ComponentsConfig.breakPoints.value,
+    unref(d2ComponentsConfig.breakPoints),
     breakPoints
   )
 
@@ -43,10 +44,10 @@ export function useBreakPoint (breakPoints) {
   // eg: { 640: 'sm' }
   const dict = fromPairs(widths.map((w, i) => [w, names[i]]))
 
-  const activeWidth = computed(() => widths.reduce((r, e) => width.value >= e ? e : r, minWidth))
-  const activeName = computed(() => dict[activeWidth.value])
+  const activeWidth = computed(() => widths.reduce((r, e) => unref(width) >= e ? e : r, minWidth))
+  const activeName = computed(() => dict[unref(activeWidth)])
 
-  const status = mapValues(_points, (v, k) => computed(() => activeName.value === k))
+  const status = mapValues(_points, (v, k) => computed(() => unref(activeName) === k))
 
   /**
    * match data based on breakpoints
@@ -60,7 +61,7 @@ export function useBreakPoint (breakPoints) {
         Math.max(
           ...keys(dataSet)
             .map(k => _points[k])
-            .filter(w => w <= activeWidth.value)
+            .filter(w => w <= unref(activeWidth))
         )
       ]
       return dataSet[activeName] || data
