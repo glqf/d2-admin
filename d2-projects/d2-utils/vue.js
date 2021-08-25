@@ -1,9 +1,6 @@
 import {
   unref,
-  isVNode,
-  Fragment,
-  Comment,
-  Text
+  isVNode
 } from 'vue'
 import {
   isElement

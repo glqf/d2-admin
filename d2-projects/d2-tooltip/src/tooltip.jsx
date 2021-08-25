@@ -1,13 +1,9 @@
 import {
   defineComponent,
   computed,
-  unref,
   Teleport
 } from 'vue'
 import makeClassnames from 'classnames'
-// import {
-//   getSlot
-// } from 'd2-projects/d2-utils/vue.js'
 import {
   usePopper
 } from 'd2-projects/d2-use/popper.js'
@@ -38,7 +34,6 @@ export default defineComponent({
     }
   },
   render () {
-    console.log(this.$slots.default())
     return [
       this.$slots?.default?.(),
       <span ref="reference">reference</span>,
