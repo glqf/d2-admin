@@ -1,4 +1,5 @@
 import {
+  computed,
   onBeforeUpdate,
   ref,
   watchEffect
@@ -25,6 +26,13 @@ export function usePopper () {
     )
   }
 
+  const state = computed(() => popper.value?.state)
+
+  function destroy () { popper.value?.destroy?.() }
+  function update () { popper.value?.update?.() }
+  function forceUpdate () { popper.value?.forceUpdate?.() }
+  function setOptions (options) { popper.value?.setOptions?.(options) }
+
   onBeforeUpdate(() => {
     reference.value = null
     pop.value = null
@@ -39,6 +47,11 @@ export function usePopper () {
   return {
     reference,
     pop,
-    popper
+    popper,
+    state,
+    destroy,
+    update,
+    forceUpdate,
+    setOptions
   }
 }
