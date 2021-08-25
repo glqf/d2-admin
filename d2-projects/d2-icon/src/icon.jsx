@@ -5,7 +5,8 @@ import {
   computed,
   onMounted,
   watch,
-  nextTick
+  nextTick,
+  onBeforeUpdate
 } from 'vue'
 import makeClassnames from 'classnames'
 import iconify from '@iconify/iconify'
@@ -63,6 +64,9 @@ export default defineComponent({
     const classnames = computed(() => makeClassnames(classname, {}))
 
     onMounted(load)
+    onBeforeUpdate(() => {
+      wrapper.value = unll
+    })
     watch(() => props.collection, load, { flush: 'post' })
     watch(() => props.icon, load, { flush: 'post' })
 
