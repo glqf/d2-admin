@@ -8,10 +8,12 @@ import {
 
 export function useContext (name = '') {
   const id = Symbol(camelCase(`${name}-symbol`))
-  const _provide = value => provide(id, value)
-  const _inject = defaultValue => inject(id, defaultValue)
+  const post = value => {
+    provide(id, value)
+  }
+  const get = value => inject(id, value)
   return {
-    provide: _provide,
-    inject: _inject
+    provide: post,
+    inject: get
   }
 }
