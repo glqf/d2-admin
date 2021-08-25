@@ -8,12 +8,13 @@ import {
 } from 'lodash-es'
 import {
   defineComponent,
-  provide,
-  inject,
   reactive,
   watch,
   computed
 } from 'vue'
+import {
+  useContext
+} from 'd2-projects/d2-use/context.js'
 import {
   makeComponentName
 } from 'd2-projects/d2-utils/special/d2-components/name.js'
@@ -25,7 +26,10 @@ const namespace = 'config'
 
 const name = makeComponentName(namespace)
 
-export const provideName = '__D2_COMPONENTS_CONFIG__'
+const {
+  provide,
+  inject
+} = useContext(namespace)
 
 export const componentProps = {
   iconCollection: { type: String, default: '' },
@@ -51,7 +55,7 @@ function getValid (key, ...values) {
 }
 
 function getProvideData (props) {
-  if (isUndefined(inject(provideName, undefined))) {
+  if (isUndefined(inject())) {
     return reactive({
       ...props
     })
@@ -67,7 +71,7 @@ function getProvideData (props) {
 }
 
 export function useConfig () {
-  const config = inject(provideName, provideDataDefault)
+  const config = inject(provideDataDefault)
   const result = mapValues(
     componentProps,
     (value, key) => computed(() => config[key])
@@ -88,7 +92,7 @@ export default defineComponent({
         }
       )
     })
-    provide(provideName, provideData)
+    provide(provideData)
     return () => slots.default?.()
   }
 })
