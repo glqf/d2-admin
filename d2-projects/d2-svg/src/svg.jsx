@@ -1,6 +1,7 @@
 import {
   defineComponent,
-  computed
+  computed,
+  unref
 } from 'vue'
 import makeClassnames from 'classnames'
 import {
@@ -25,20 +26,20 @@ export default defineComponent({
   setup (props) {
     const { svgSymbolId, svgDir } = useConfig()
 
-    const dir = computed(() => props.dir || svgDir.value)
+    const dir = computed(() => props.dir || unref(svgDir))
 
     const href = computed(() => {
-      const result = svgSymbolId.value
+      const result = unref(svgSymbolId)
       return '#' + result
-        .replace(/\[dir\]/g, dir.value)
+        .replace(/\[dir\]/g, unref(dir))
         .replace(/\[name\]/g, props.name)
     })
 
     const classnames = computed(() => makeClassnames(classname, {}))
 
     return () => (
-      <svg class={ classnames.value } aria-hidden="true">
-        <use xlink:href={ href.value }/>
+      <svg class={ unref(classnames) } aria-hidden="true">
+        <use xlink:href={ unref(href) }/>
       </svg>
     )
   }
