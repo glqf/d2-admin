@@ -5,6 +5,9 @@ import {
   Teleport
 } from 'vue'
 import makeClassnames from 'classnames'
+// import {
+//   getSlot
+// } from 'd2-projects/d2-utils/vue.js'
 import {
   usePopper
 } from 'd2-projects/d2-use/popper.js'
@@ -28,18 +31,20 @@ export default defineComponent({
 
     const classnames = computed(() => makeClassnames(classname, {}))
 
-    const slot = slots.default?.()[0]
-
-    reference.value = slot
-
-    console.log(reference.value)
-
-    return () => [
-      // <span ref={ reference }>reference</span>,
-      slot,
+    return {
+      reference,
+      pop,
+      classnames
+    }
+  },
+  render () {
+    console.log(this.$slots.default())
+    return [
+      this.$slots?.default?.(),
+      <span ref="reference">reference</span>,
       (
         <Teleport to="body">
-          <div ref={ pop } class={ unref(classnames) }>Hello</div>
+          <div ref="pop" class={ this.classnames }>Hello</div>
         </Teleport>
       )
     ]

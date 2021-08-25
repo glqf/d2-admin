@@ -17,9 +17,11 @@ export function usePopper () {
   const popper = ref()
 
   function init () {
+    const a = findElement(reference)
+    const b = findElement(pop)
     popper.value = createPopper(
-      findElement(reference),
-      findElement(pop),
+      a,
+      b,
       {
         placement: 'bottom'
       }
