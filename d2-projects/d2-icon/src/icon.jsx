@@ -37,14 +37,14 @@ export default defineComponent({
 
     const { iconCollection } = useConfig()
 
-    const collection = computed(() => props.collection || iconCollection.value)
+    const collection = computed(() => props.collection || unref(iconCollection))
 
     const iconNameComplete = computed(() => {
       // like collection:icon
       if (props.name.indexOf(':') > 0) return props.name
       // The icon name does not contain the icon collection name
       // Try to get it from another way
-      return collection.value ? `${collection.value}:${props.name}` : props.name
+      return unref(collection) ? `${unref(collection)}:${props.name}` : props.name
     })
 
     async function load () {
@@ -71,7 +71,7 @@ export default defineComponent({
     watch(() => props.icon, load, { flush: 'post' })
 
     return () => (
-      <span class={ classnames.value } ref={ wrapper }/>
+      <span class={ unref(classnames) } ref={ wrapper }/>
     )
   }
 })
