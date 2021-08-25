@@ -1,19 +1,25 @@
-import { onBeforeUpdate, ref, unref, watchEffect } from 'vue'
+import { onBeforeUpdate, ref, unref, watchEffect, isVNode } from 'vue'
 import { createPopper } from '@popperjs/core'
 
 export function usePopper () {
-  const reference = ref(null)
+  const trigger = ref(null)
+  const content = ref(null)
+
   const popper = ref(null)
 
-  const instance = ref(null)
-
   onBeforeUpdate(() => {
-    reference.value = null
-    popper.value = null
+    trigger.value = null
+    content.value = null
   })
 
   function init () {
-    instance.value = createPopper(unref(reference), unref(popper))
+    popper.value = createPopper(
+      unref(trigger).$el,
+      unref(content),
+      {
+        placement: 'top'
+      }
+    )
   }
 
   watchEffect(() => {
@@ -21,7 +27,8 @@ export function usePopper () {
   }, { flush: 'post' })
 
   return {
-    reference,
+    trigger,
+    content,
     popper
   }
 }
