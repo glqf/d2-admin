@@ -1,4 +1,4 @@
-import { onBeforeUpdate, ref, watchEffect } from 'vue'
+import { onBeforeUpdate, ref, unref, watchEffect } from 'vue'
 import { createPopper } from '@popperjs/core'
 
 export function usePopper () {
@@ -13,7 +13,7 @@ export function usePopper () {
   })
 
   function init () {
-    instance.value = createPopper(reference.value, popper.value)
+    instance.value = createPopper(unref(reference), unref(popper))
   }
 
   watchEffect(() => {
