@@ -10,7 +10,8 @@ import {
   defineComponent,
   reactive,
   watch,
-  computed
+  computed,
+  unref
 } from 'vue'
 import {
   useContext
@@ -64,7 +65,7 @@ function getProvideData (props) {
     return reactive(
       mapValues(
         props,
-        (value, key) => getValid(key, value, config[key].value)
+        (value, key) => getValid(key, value, unref(config[key]))
       )
     )
   }

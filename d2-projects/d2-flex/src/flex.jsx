@@ -1,6 +1,7 @@
 import {
   defineComponent,
-  computed
+  computed,
+  unref
 } from 'vue'
 import {
   pickBy,
@@ -50,8 +51,8 @@ export default defineComponent({
   },
   setup (props, { slots }) {
     const center = computed(() => props.center ? 'center' : '')
-    const main = computed(() => center.value || props.main)
-    const cross = computed(() => center.value || props.cross)
+    const main = computed(() => unref(center) || props.main)
+    const cross = computed(() => unref(center) || props.cross)
     const classnames = computed(() => makeClassnames(
       classname,
       {
@@ -62,8 +63,8 @@ export default defineComponent({
         'is-wrap': props.wrap,
         'is-wrap-r': props.wrapR,
         [`is-dir-${props.dir}`]: props.dir,
-        [`is-main-${main.value}`]: main.value,
-        [`is-cross-${cross.value}`]: cross.value,
+        [`is-main-${unref(main)}`]: unref(main),
+        [`is-cross-${unref(cross)}`]: unref(cross),
         [`is-box-${props.box}`]: props.box,
         [`is-content-${props.content}`]: props.content,
         [`is-self-${props.self}`]: props.self
@@ -74,9 +75,10 @@ export default defineComponent({
       flexGrow: props.grow,
       flexShrink: props.shrink
     }, value => !isUndefined(value)))
-    return () =>
-      <props.tag class={ classnames.value } style={ style.value }>
+    return () => (
+      <props.tag class={ unref(classnames) } style={ unref(style) }>
         { slots.default?.() }
       </props.tag>
+    )
   }
 })
