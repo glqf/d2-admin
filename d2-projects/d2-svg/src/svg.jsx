@@ -6,7 +6,7 @@ import {
 import makeClassnames from 'classnames'
 import {
   useConfig
-} from 'd2-projects/d2-config/src/config.jsx'
+} from 'd2-projects/d2-config/index.js'
 import {
   makeComponentName,
   makeComponentClassName

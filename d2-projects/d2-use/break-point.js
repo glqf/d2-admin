@@ -13,7 +13,7 @@ import {
 } from './window-size.js'
 import {
   useConfig
-} from 'd2-projects/d2-config/src/config.jsx'
+} from 'd2-projects/d2-config/index.js'
 
 const minKey = 'min'
 const minWidth = 0

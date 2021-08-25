@@ -15,7 +15,7 @@ import {
 } from 'd2-projects/d2-utils/dom.js'
 import {
   useConfig
-} from 'd2-projects/d2-config/src/config.jsx'
+} from 'd2-projects/d2-config/index.js'
 import {
   makeComponentName,
   makeComponentClassName
