@@ -1,4 +1,4 @@
-import 'd2-projects/d2-modern-normalize/index.css'
+import 'd2-projects/d2-normalize/index.css'
 
 import D2BreakPoint from 'd2-projects/d2-break-point/index.js'
 
