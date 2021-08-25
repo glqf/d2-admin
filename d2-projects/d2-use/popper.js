@@ -1,11 +1,19 @@
-import { onBeforeUpdate, ref, unref, watchEffect, isVNode } from 'vue'
-import { createPopper } from '@popperjs/core'
+import {
+  onBeforeUpdate,
+  ref,
+  watchEffect
+} from 'vue'
+import {
+  createPopper
+} from '@popperjs/core'
+import {
+  findElementFromRef
+} from 'd2-projects/d2-utils/vue.js'
 
 export function usePopper () {
   const trigger = ref(null)
   const content = ref(null)
-
-  const popper = ref(null)
+  const popper = ref()
 
   onBeforeUpdate(() => {
     trigger.value = null
@@ -14,17 +22,19 @@ export function usePopper () {
 
   function init () {
     popper.value = createPopper(
-      unref(trigger).$el,
-      unref(content),
+      findElementFromRef(trigger),
+      findElementFromRef(content),
       {
-        placement: 'top'
+        placement: 'bottom'
       }
     )
   }
 
   watchEffect(() => {
     init()
-  }, { flush: 'post' })
+  }, {
+    flush: 'post'
+  })
 
   return {
     trigger,

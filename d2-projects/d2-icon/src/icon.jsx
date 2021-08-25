@@ -11,7 +11,7 @@ import {
 import makeClassnames from 'classnames'
 import iconify from '@iconify/iconify'
 import {
-  clearElementContent
+  clearElement
 } from 'd2-projects/d2-utils/dom.js'
 import {
   useConfig
@@ -48,7 +48,7 @@ export default defineComponent({
     })
 
     async function load () {
-      clearElementContent(unref(wrapper))
+      clearElement(unref(wrapper))
       await nextTick()
       const svg = iconify.renderSVG(unref(iconNameComplete), {})
       if (svg) {

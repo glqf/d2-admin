@@ -1,6 +1,6 @@
 <template>
-  <a-button ref="trigger">trigger</a-button>
-  <div ref="content">content</div>
+  <button ref="trigger">trigger trigger</button>
+  <button ref="content">content</button>
 </template>
 
 <script setup>

@@ -1,4 +1,4 @@
-export const isDomElement = el => {
+export const isElement = el => {
   return typeof HTMLElement === 'object' ?
     el instanceof HTMLElement :
     el &&
@@ -7,8 +7,8 @@ export const isDomElement = el => {
       typeof el.nodeName === 'string'
 }
 
-export function clearElementContent (el) {
-  if (isDomElement(el)) {
+export function clearElement (el) {
+  if (isElement(el)) {
     el.innerHTML = ''
   }
 }
