@@ -15,11 +15,6 @@ export function usePopper () {
   const content = ref(null)
   const popper = ref()
 
-  onBeforeUpdate(() => {
-    trigger.value = null
-    content.value = null
-  })
-
   function init () {
     popper.value = createPopper(
       findElementFromRef(trigger),
@@ -29,6 +24,11 @@ export function usePopper () {
       }
     )
   }
+
+  onBeforeUpdate(() => {
+    trigger.value = null
+    content.value = null
+  })
 
   watchEffect(() => {
     init()
