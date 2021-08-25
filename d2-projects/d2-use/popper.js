@@ -8,7 +8,7 @@ import {
   createPopper
 } from '@popperjs/core'
 import {
-  findElementFromRef
+  findElement
 } from 'd2-projects/d2-utils/vue.js'
 
 export function usePopper () {
@@ -18,8 +18,8 @@ export function usePopper () {
 
   function init () {
     popper.value = createPopper(
-      findElementFromRef(reference),
-      findElementFromRef(pop),
+      findElement(reference),
+      findElement(pop),
       {
         placement: 'bottom'
       }
