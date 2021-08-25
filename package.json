@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@iconify/iconify": "^2.0.3",
+    "@popperjs/core": "^2.9.3",
     "ant-design-vue": "^2.2.6",
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
