@@ -1,5 +1,5 @@
 import config, {
-  useConfig as _useConfig
+  useConfig as use
 } from './src/config.jsx'
 
 config.install = app => {
@@ -8,4 +8,4 @@ config.install = app => {
 
 export default config
 
-export const useConfig = _useConfig
+export const useConfig = use
