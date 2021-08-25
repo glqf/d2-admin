@@ -4,7 +4,8 @@ import {
   onBeforeUnmount,
   onMounted,
   ref,
-  watch
+  watch,
+  unref
 } from 'vue'
 import {
   kebabCase,
@@ -62,12 +63,12 @@ export default defineComponent({
 
     const instance = ref(null)
 
-    const isValid = () => os.valid(instance.value)
+    const isValid = () => os.valid(unref(instance))
 
     const themeClassName = computed(() => `os-theme-${props.theme}`)
 
     const optionsDefault = computed(() => ({
-      className: themeClassName.value,
+      className: unref(themeClassName),
       scrollbars: {
         autoHide: 'scroll',
         autoHideDelay: 300
@@ -78,7 +79,7 @@ export default defineComponent({
         switch (name) {
           case 'onScroll':
             callback = event => {
-              const information = instance.value.scroll()
+              const information = unref(instance).scroll()
               const ratioY = information.ratio.y
               emit(emitName, event)
               const cordonY = information.max.y - information.position.y
@@ -114,21 +115,21 @@ export default defineComponent({
     }
 
     function mergeDefaultOption (options) {
-      return mergeWith({}, optionsDefault.value, options, customizer)
+      return mergeWith({}, unref(optionsDefault), options, customizer)
     }
 
     const options = computed(() => mergeDefaultOption(props.options))
 
     function reloadOptions () {
       if (isValid()) {
-        instance.value.options(mergeDefaultOption(options))
+        unref(instance).options(mergeDefaultOption(options))
       }
     }
 
     function init () {
       instance.value = os(
-        target.value,
-        options.value,
+        unref(target),
+        unref(options),
         props.extensions
       )
     }
@@ -137,7 +138,7 @@ export default defineComponent({
     
     onBeforeUnmount(() => {
       if (isValid()) {
-        instance.value.destroy()
+        unref(instance).destroy()
         instance.value = null
       }
     })
