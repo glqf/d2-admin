@@ -1,5 +1,5 @@
-import { computed, onBeforeUpdate, watch, watchPostEffect } from 'vue'
-import { isBoolean } from 'lodash-es'
+import { computed, onBeforeUpdate, watch } from 'vue'
+import { isBoolean, isArray } from 'lodash-es'
 import { createPopper } from '@popperjs/core'
 import { $, findElement } from 'd2-projects/d2-utils/vue.js'
 
@@ -14,6 +14,9 @@ import { $, findElement } from 'd2-projects/d2-utils/vue.js'
  */
 export function usePopper (props) {
   let instance = null
+
+  const popperStyle = $({ zIndex: 1 })
+  let triggerFocused = false
 
   const refTrigger = $(null)
   const refPopper = $(null)
@@ -51,7 +54,6 @@ export function usePopper (props) {
   const instanceMethod = name => instance[name] || (() => {})
 
   const destroy = () => instanceMethod('destroy')()
-  const update = () => instanceMethod('update')()
   const forceUpdate = () => instanceMethod('forceUpdate')()
   const setOptions = options => instanceMethod('setOptions')(options)
 
@@ -121,17 +123,104 @@ export function usePopper (props) {
     instance = null
   }
 
+  // ----
+
+
+  const events = {}
+
+  function update() {
+    if (!$(visibleComputed)) {
+      return
+    }
+    if (instance) {
+      instanceMethod('update')()
+    } else {
+      init()
+    }
+  }
+
+  function onVisibilityChange(toState) {
+    if (toState) {
+      popperStyle.value.zIndex ++
+      init()
+    }
+  }
+
+  if (!$(isManualMode)) {
+    const toggleState = () => {
+      if ($(visibility)) {
+        hide()
+      } else {
+        show()
+      }
+    }
+
+    const popperEventsHandler = (e) => {
+      e.stopPropagation()
+      switch (e.type) {
+        case 'click': {
+          if (triggerFocused) {
+            // reset previous focus event
+            triggerFocused = false
+          } else {
+            toggleState()
+          }
+          break
+        }
+        case 'mouseenter': {
+          show()
+          break
+        }
+        case 'mouseleave': {
+          hide()
+          break
+        }
+        case 'focus': {
+          triggerFocused = true
+          show()
+          break
+        }
+        case 'blur': {
+          triggerFocused = false
+          hide()
+          break
+        }
+      }
+    }
+
+    const triggerEventsMap = {
+      click: ['onClick'],
+      hover: ['onMouseenter', 'onMouseleave'],
+      focus: ['onFocus', 'onBlur'],
+    }
+
+    const mapEvents = (t) => {
+      triggerEventsMap[t].forEach(event => {
+        events[event] = popperEventsHandler
+      })
+    }
+
+    if (isArray(props.trigger)) {
+      Object.values(props.trigger).forEach(mapEvents)
+    } else {
+      mapEvents(props.trigger)
+    }
+  }
+  // ----
+
   watch(optionsComputed, options => {
     setOptions(options)
     update()
   })
+
+  watch(visibleComputed, onVisibilityChange)
 
   onBeforeUpdate(() => {
     $(refTrigger, null)
     $(refPopper, null)
   })
 
-  watchPostEffect(init)
+  // watchPostEffect(init)
 
   return {
     popperRefTrigger: refTrigger,

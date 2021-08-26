@@ -12,7 +12,13 @@ const classname = makeComponentClassName(namespace)
 export default defineComponent({
   name,
   props: {
-    visible: { type: Boolean }
+    visible: { type: Boolean },
+    disabled: { type: Boolean },
+    manualMode: { type: Boolean },
+    autoClose: { type: Number, default: 0 },
+    showAfter: { type: Number, default: 0 },
+    hideAfter: { type: Number, default: 0 },
+    trigger: { type: [String, Array], default: 'click' } // click | focus | hover | manual
   },
   setup (props, { slots }) {
     const popperCtx = usePopper(props)
