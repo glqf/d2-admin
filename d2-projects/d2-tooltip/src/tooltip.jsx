@@ -24,15 +24,15 @@ export default defineComponent({
   name,
   setup (props, { slots }) {
     const {
-      trigger,
-      pop
+      triggerRef,
+      popperRef
     } = usePopper()
 
     const classnames = computed(() => makeClassnames(classname, {}))
 
     return {
-      trigger,
-      pop,
+      triggerRef,
+      popperRef,
       classnames
     }
   },
@@ -40,7 +40,7 @@ export default defineComponent({
     const triggerSlot = this.$slots.trigger?.()
 
     const triggerProps = {
-      ref: 'trigger'
+      ref: 'triggerRef'
     }
 
     const trigger = renderTrigger(triggerSlot, triggerProps)
@@ -49,7 +49,7 @@ export default defineComponent({
       trigger,
       (
         <Teleport to="body">
-          <div ref="pop" class={ this.classnames }>Hello</div>
+          <div ref="popperRef" class={ this.classnames }>Hello</div>
         </Teleport>
       )
     ]

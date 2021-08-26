@@ -3,8 +3,8 @@
 </style>
 
 <template>
-  <button ref="trigger">trigger trigger</button>
-  <button ref="pop">pop</button>
+  <button ref="triggerRef">trigger trigger</button>
+  <button ref="popperRef">pop</button>
 </template>
 
 <script setup>
@@ -13,7 +13,7 @@ import {
 } from 'd2-projects/d2-use/popper.js'
 
 const {
-  trigger,
-  pop
+  triggerRef,
+  popperRef
 } = usePopper()
 </script>

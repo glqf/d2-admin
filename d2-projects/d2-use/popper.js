@@ -13,14 +13,14 @@ import {
 } from 'd2-projects/d2-utils/vue.js'
 
 export function usePopper () {
-  const trigger = ref(null)
-  const pop = ref(null)
+  const triggerRef = ref(null)
+  const popperRef = ref(null)
   const popper = ref()
 
   function init () {
-    console.log(trigger.value.$el)
-    const a = findElement(trigger)
-    const b = findElement(pop)
+    console.log(triggerRef.value.$el)
+    const a = findElement(triggerRef)
+    const b = findElement(popperRef)
     console.log(a)
     console.log(b)
     popper.value = createPopper(
@@ -40,8 +40,8 @@ export function usePopper () {
   function setOptions (options) { popper.value?.setOptions?.(options) }
 
   onBeforeUpdate(() => {
-    trigger.value = null
-    pop.value = null
+    triggerRef.value = null
+    popperRef.value = null
   })
 
   watchEffect(() => {
@@ -51,8 +51,8 @@ export function usePopper () {
   })
 
   return {
-    trigger,
-    pop,
+    triggerRef,
+    popperRef,
     popper,
     state,
     destroy,
