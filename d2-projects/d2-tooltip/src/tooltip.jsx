@@ -37,15 +37,10 @@ export default defineComponent({
     }
   },
   render () {
-    const events = {}
-
     const triggerSlot = this.$slots.trigger?.()
 
     const triggerProps = {
-      class: '',
-      style: {},
-      ref: 'trigger',
-      ...events,
+      ref: 'trigger'
     }
 
     const trigger = renderTrigger(triggerSlot, triggerProps)
