@@ -39,7 +39,7 @@ export default defineComponent({
     } = this
 
     const trigger = renderTrigger(this.$slots.trigger?.(), {
-      ref: 'triggerRef',
+      triggerRef: 'triggerRef',
       onClick: () => {
         console.log('renderTrigger click')
       }
