@@ -8,6 +8,6 @@ import {
 
 export function renderTrigger (trigger, extraProps) {
   const firstElement = getFirstValidNode(trigger, 1)
-  if (!firstElement) console.log('renderTrigger', 'trigger expects single rooted node')
+  if (!firstElement) console.log('trigger expects single rooted node')
   return cloneVNode(firstElement, extraProps, true)
 }
