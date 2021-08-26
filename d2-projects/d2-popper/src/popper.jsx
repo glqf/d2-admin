@@ -47,10 +47,7 @@ export default defineComponent({
 
     const popper = renderPopper(this.$slots.default?.(), {
       popperRef: 'popperRef',
-      classnames,
-      onClick: () => {
-        console.log('renderPopper click')
-      }
+      classnames: classnames
     })
 
     return [
