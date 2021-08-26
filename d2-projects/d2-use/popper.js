@@ -1,4 +1,4 @@
-import { onBeforeUpdate, watchEffect } from 'vue'
+import { onBeforeUpdate, watch, watchPostEffect } from 'vue'
 import { createPopper } from '@popperjs/core'
 import { $, findElement } from 'd2-projects/d2-utils/vue.js'
 import { usePopperOptions } from './popper-options.js'
@@ -6,27 +6,33 @@ import { usePopperOptions } from './popper-options.js'
 export function usePopper (props) {
   const triggerRef = $(null)
   const popperRef = $(null)
-  const popper = $()
+  const popperInstance = $()
   const popperOptions = usePopperOptions(props)
 
   function init () {
     const _trigger = findElement($(triggerRef))
     const _popper = $(popperRef)
     const _options = $(popperOptions)
-    $(popper, createPopper(_trigger, _popper, _options))
+    $(popperInstance, createPopper(_trigger, _popper, _options))
   }
 
+  watch(popperOptions, options => {
+    if (!popperInstance) return
+    popperSetOptions(options)
+    popperUpdate()
+  })
+
   function popperDestroy () {
-    return $(popper)?.destroy?.()
+    return $(popperInstance)?.destroy?.()
   }
   function popperUpdate () {
-    return $(popper)?.update?.()
+    return $(popperInstance)?.update?.()
   }
   function popperForceUpdate () {
-    return $(popper)?.forceUpdate?.()
+    return $(popperInstance)?.forceUpdate?.()
   }
   function popperSetOptions (options) {
-    return $(popper)?.setOptions?.(options)
+    return $(popperInstance)?.setOptions?.(options)
   }
 
   onBeforeUpdate(() => {
@@ -34,16 +40,12 @@ export function usePopper (props) {
     $(popperRef, null)
   })
 
-  watchEffect(() => {
-    init()
-  }, {
-    flush: 'post'
-  })
+  watchPostEffect(init)
 
   return {
     triggerRef,
     popperRef,
-    popper,
+    popperInstance,
     popperDestroy,
     popperUpdate,
     popperForceUpdate,
