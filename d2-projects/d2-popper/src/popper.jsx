@@ -11,6 +11,9 @@ const classname = makeComponentClassName(namespace)
 
 export default defineComponent({
   name,
+  props: {
+    visible: { type: Boolean }
+  },
   setup (props, { slots }) {
     const popperCtx = usePopper(props)
 

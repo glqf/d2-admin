@@ -1,35 +1,29 @@
 import { onBeforeUpdate, watch, watchPostEffect } from 'vue'
-import { createPopper } from '@popperjs/core'
-import { $, findElement } from 'd2-projects/d2-utils/vue.js'
-import { usePopperOptions } from './popper-options.js'
+import { $ } from 'd2-projects/d2-utils/vue.js'
+import { usePopperInstance } from './popper-instance.js'
 
+/**
+ * @param {boolean} props.visible
+ */
 export function usePopper (props) {
-  let instance = null
+  const {
+    instance,
+    refTrigger,
+    refPopper,
+    optionsComputed,
+    destroy,
+    update,
+    forceUpdate,
+    setOptions,
+    init
+  } = usePopperInstance(props)
 
-  const refTrigger = $(null)
-  const refPopper = $(null)
-  
-  const optionsComputed = usePopperOptions(props)
-
-  function init () {
-    const _trigger = findElement($(refTrigger))
-    const _popper = $(refPopper)
-    const _options = $(optionsComputed)
-    instance = createPopper(_trigger, _popper, _options)
-  }
+  const stateVisible = $(!!props.visible)
 
   watch(optionsComputed, options => {
-    if (!instance) return
     setOptions(options)
     update()
   })
-
-  const instanceMethod = name => instance[name] || (() => {})
-  
-  const destroy = () => instanceMethod('destroy')()
-  const update = () => instanceMethod('update')()
-  const forceUpdate = () => instanceMethod('forceUpdate')()
-  const setOptions = options => instanceMethod('setOptions')(options)
 
   onBeforeUpdate(() => {
     $(refTrigger, null)
