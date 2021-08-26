@@ -1,8 +1,6 @@
 import {
   computed,
   onBeforeUpdate,
-  ref,
-  unref,
   watchEffect
 } from 'vue'
 import {
@@ -14,20 +12,14 @@ import {
 } from 'd2-projects/d2-utils/vue.js'
 
 export function usePopper () {
-  const triggerRef = ref(null)
-  const popperRef = ref(null)
-  const popper = ref()
+  const triggerRef = $(null)
+  const popperRef = $(null)
+  const popper = $()
 
   function init () {
-    const triggerUnRef = $(triggerRef)
-    const popperUnRef = $(popperRef)
-    const a = findElement(triggerUnRef)
-    const b = findElement(popperUnRef)
-    console.log(a)
-    console.log(b)
     popper.value = createPopper(
-      a,
-      b,
+      findElement($(triggerRef)),
+      $(popperRef),
       {
         placement: 'bottom'
       }

@@ -28,6 +28,10 @@ export function $ (r, v, options) {
     // ref
     else return ref(r)
   }
+  // ref()
+  else if (arguments.length === 0) {
+    return ref()
+  }
   throw new Error('unexpected')
 }
 
