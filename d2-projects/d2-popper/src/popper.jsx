@@ -24,20 +24,20 @@ const classname = makeComponentClassName(namespace)
 export default defineComponent({
   name,
   setup (props, { slots }) {
-    const {
-      triggerRef,
-      popperRef
-    } = usePopper()
+    const popperCtx = usePopper()
 
     const classnames = computed(() => makeClassnames(classname, {}))
 
     return {
-      triggerRef,
-      popperRef,
+      ...popperCtx,
       classnames
     }
   },
   render () {
+    const {
+      classnames
+    } = this
+
     const trigger = renderTrigger(this.$slots.trigger?.(), {
       ref: 'triggerRef',
       onClick: () => {
@@ -46,7 +46,8 @@ export default defineComponent({
     })
 
     const popper = renderPopper(this.$slots.default?.(), {
-      ref: 'popperRef',
+      popperRef: 'popperRef',
+      classnames,
       onClick: () => {
         console.log('renderPopper click')
       }
