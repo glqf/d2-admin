@@ -1,6 +1,6 @@
 import {
-  cloneVNode,
-  createVNode
+  Transition,
+  cloneVNode
 } from 'vue'
 
 import {
@@ -13,8 +13,12 @@ export function renderTrigger (trigger, extraProps) {
   return cloneVNode(firstElement, extraProps, true)
 }
 
-export function renderPopper (children) {
-  return createVNode('div', {
-    ref: 'popperRef'
-  }, children)
+export function renderPopper (children, props) {
+  return (
+    <Transition name="fade">
+      <div {...props}>
+        { children }
+      </div>
+    </Transition>
+  )
 }

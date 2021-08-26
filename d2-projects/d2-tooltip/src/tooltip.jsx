@@ -14,7 +14,7 @@ import {
 import {
   renderTrigger,
   renderPopper
-} from './render.js'
+} from './render.jsx'
 
 const namespace = 'tooltip'
 
@@ -42,7 +42,12 @@ export default defineComponent({
       ref: 'triggerRef'
     })
 
-    const popper = renderPopper(this.$slots.default?.())
+    const popper = renderPopper(this.$slots.default?.(), {
+      ref: 'popperRef',
+      onClick: () => {
+        console.log(1)
+      }
+    })
 
     return [
       trigger,
