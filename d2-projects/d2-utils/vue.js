@@ -1,4 +1,4 @@
-import { ref, unref, isRef, isVNode, computed, watch } from 'vue'
+import { ref, reactive, unref, isRef, isVNode, computed, watch } from 'vue'
 import { isElement } from './dom.js'
 
 export function $ (r, v, options) {

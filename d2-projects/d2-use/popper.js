@@ -5,6 +5,9 @@ import { usePopperVisible } from './popper-visible.js'
 
 /**
  * @param {boolean} props.visible
+ * @param {boolean} props.disabled
+ * @param {boolean} props.manualMode
+ * @param {string} props.trigger click | focus | hover | manual
  */
 export function usePopper (props) {
   const {
@@ -20,7 +23,8 @@ export function usePopper (props) {
   } = usePopperInstance(props)
 
   const {
-    visibleState
+    visible,
+    visibleComputed
   } = usePopperVisible(props)
 
   watch(optionsComputed, options => {
