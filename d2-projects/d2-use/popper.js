@@ -25,10 +25,18 @@ export function usePopper () {
     ))
   }
 
-  function popperDestroy () { $(popper)?.destroy?.() }
-  function popperUpdate () { $(popper)?.update?.() }
-  function popperForceUpdate () { $(popper)?.forceUpdate?.() }
-  function popperSetOptions (options) { $(popper)?.setOptions?.(options) }
+  function popperDestroy () {
+    return $(popper)?.destroy?.()
+  }
+  function popperUpdate () {
+    return $(popper)?.update?.()
+  }
+  function popperForceUpdate () {
+    return $(popper)?.forceUpdate?.()
+  }
+  function popperSetOptions (options) {
+    return $(popper)?.setOptions?.(options)
+  }
 
   onBeforeUpdate(() => {
     $(triggerRef, null)
