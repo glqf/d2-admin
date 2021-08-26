@@ -12,12 +12,12 @@ import {
 } from 'd2-projects/d2-utils/vue.js'
 
 export function usePopper () {
-  const reference = ref(null)
+  const trigger = ref(null)
   const pop = ref(null)
   const popper = ref()
 
   function init () {
-    const a = findElement(reference)
+    const a = findElement(trigger)
     const b = findElement(pop)
     popper.value = createPopper(
       a,
@@ -36,7 +36,7 @@ export function usePopper () {
   function setOptions (options) { popper.value?.setOptions?.(options) }
 
   onBeforeUpdate(() => {
-    reference.value = null
+    trigger.value = null
     pop.value = null
   })
 
@@ -47,7 +47,7 @@ export function usePopper () {
   })
 
   return {
-    reference,
+    trigger,
     pop,
     popper,
     state,
