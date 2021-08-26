@@ -6,13 +6,13 @@ import {
 
 const TEMPLATE = 'template'
 
-export const isFragment = (node) => node.type === Fragment
+export const isFragment = node => node.type === Fragment
 
-export const isText = (node) => node.type === Text
+export const isText = node => node.type === Text
 
-export const isComment = (node) => node.type === Comment
+export const isComment = node => node.type === Comment
 
-export const isTemplate = (node) => node.type === TEMPLATE
+export const isTemplate = node => node.type === TEMPLATE
 
 export function getChildren (node, depth) {
   if (isComment(node)) return

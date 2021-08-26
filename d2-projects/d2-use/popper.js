@@ -2,6 +2,7 @@ import {
   computed,
   onBeforeUpdate,
   ref,
+  unref,
   watchEffect
 } from 'vue'
 import {
@@ -17,8 +18,11 @@ export function usePopper () {
   const popper = ref()
 
   function init () {
+    console.log(trigger.value.$el)
     const a = findElement(trigger)
     const b = findElement(pop)
+    console.log(a)
+    console.log(b)
     popper.value = createPopper(
       a,
       b,
