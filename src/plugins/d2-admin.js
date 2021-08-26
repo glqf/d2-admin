@@ -15,7 +15,7 @@ import 'd2-projects/d2-icon/src/icon.scss'
 
 import D2Svg from 'd2-projects/d2-svg/index.js'
 
-import D2Tooltip from 'd2-projects/d2-tooltip/index.js'
+import D2Tooltip from 'd2-projects/d2-popper/index.js'
 
 export default {
   install (app) {

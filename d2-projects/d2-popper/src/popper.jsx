@@ -16,7 +16,7 @@ import {
   renderPopper
 } from './render.jsx'
 
-const namespace = 'tooltip'
+const namespace = 'popper'
 
 const name = makeComponentName(namespace)
 const classname = makeComponentClassName(namespace)
