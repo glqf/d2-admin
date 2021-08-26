@@ -1,6 +1,7 @@
 import { onBeforeUpdate, watch, watchPostEffect } from 'vue'
 import { $ } from 'd2-projects/d2-utils/vue.js'
 import { usePopperInstance } from './popper-instance.js'
+import { usePopperVisible } from './popper-visible.js'
 
 /**
  * @param {boolean} props.visible
@@ -18,7 +19,9 @@ export function usePopper (props) {
     init
   } = usePopperInstance(props)
 
-  const stateVisible = $(!!props.visible)
+  const {
+    visibleState
+  } = usePopperVisible(props)
 
   watch(optionsComputed, options => {
     setOptions(options)
