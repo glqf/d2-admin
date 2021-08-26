@@ -39,8 +39,7 @@ export function findElementFromInstance (instance) {
   return node
 }
 
-export function findElement (object) {
-  const obj = unref(object)
+export function findElement (obj) {
   if (isElement(obj)) return obj
   if (isVNode(obj)) return findElementFromVnode(obj)
   return findElementFromInstance(obj)

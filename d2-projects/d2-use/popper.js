@@ -9,6 +9,7 @@ import {
   createPopper
 } from '@popperjs/core'
 import {
+  $,
   findElement
 } from 'd2-projects/d2-utils/vue.js'
 
@@ -18,9 +19,10 @@ export function usePopper () {
   const popper = ref()
 
   function init () {
-    console.log(triggerRef.value.$el)
-    const a = findElement(triggerRef)
-    const b = findElement(popperRef)
+    const triggerUnRef = $(triggerRef)
+    const popperUnRef = $(popperRef)
+    const a = findElement(triggerUnRef)
+    const b = findElement(popperUnRef)
     console.log(a)
     console.log(b)
     popper.value = createPopper(

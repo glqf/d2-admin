@@ -13,7 +13,7 @@ import {
 } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import {
   renderTrigger
-} from './renderers/trigger.js'
+} from './render.js'
 
 const namespace = 'tooltip'
 
@@ -37,13 +37,9 @@ export default defineComponent({
     }
   },
   render () {
-    const triggerSlot = this.$slots.trigger?.()
-
-    const triggerProps = {
+    const trigger = renderTrigger(this.$slots.trigger?.(), {
       ref: 'triggerRef'
-    }
-
-    const trigger = renderTrigger(triggerSlot, triggerProps)
+    })
 
     return [
       trigger,
