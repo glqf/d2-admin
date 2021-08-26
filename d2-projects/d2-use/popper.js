@@ -1,5 +1,4 @@
 import {
-  computed,
   onBeforeUpdate,
   watchEffect
 } from 'vue'
@@ -17,25 +16,23 @@ export function usePopper () {
   const popper = $()
 
   function init () {
-    popper.value = createPopper(
+    $(popper, createPopper(
       findElement($(triggerRef)),
       $(popperRef),
       {
         placement: 'bottom'
       }
-    )
+    ))
   }
 
-  const state = computed(() => popper.value?.state)
-
-  function destroy () { popper.value?.destroy?.() }
-  function update () { popper.value?.update?.() }
-  function forceUpdate () { popper.value?.forceUpdate?.() }
-  function setOptions (options) { popper.value?.setOptions?.(options) }
+  function popperDestroy () { $(popper)?.destroy?.() }
+  function popperUpdate () { $(popper)?.update?.() }
+  function popperForceUpdate () { $(popper)?.forceUpdate?.() }
+  function popperSetOptions (options) { $(popper)?.setOptions?.(options) }
 
   onBeforeUpdate(() => {
-    triggerRef.value = null
-    popperRef.value = null
+    $(triggerRef, null)
+    $(popperRef, null)
   })
 
   watchEffect(() => {
@@ -48,10 +45,9 @@ export function usePopper () {
     triggerRef,
     popperRef,
     popper,
-    state,
-    destroy,
-    update,
-    forceUpdate,
-    setOptions
+    popperDestroy,
+    popperUpdate,
+    popperForceUpdate,
+    popperSetOptions
   }
 }
