@@ -1,22 +1,13 @@
-import {
-  onBeforeUpdate,
-  watchEffect
-} from 'vue'
-import {
-  createPopper
-} from '@popperjs/core'
-import {
-  $,
-  findElement
-} from 'd2-projects/d2-utils/vue.js'
+import { onBeforeUpdate, watchEffect } from 'vue'
+import { createPopper } from '@popperjs/core'
+import { $, findElement } from 'd2-projects/d2-utils/vue.js'
+import { usePopperOptions } from './popper-options.js'
 
-export function usePopper () {
+export function usePopper (props) {
   const triggerRef = $(null)
   const popperRef = $(null)
   const popper = $()
-  const popperOptions = $(() => ({
-    placement: 'bottom'
-  }))
+  const popperOptions = usePopperOptions(props)
 
   function init () {
     const _trigger = findElement($(triggerRef))

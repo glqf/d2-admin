@@ -1,23 +1,9 @@
-import {
-  defineComponent,
-  computed,
-  unref
-} from 'vue'
-import {
-  pickBy,
-  isUndefined
-} from 'lodash-es'
+import { defineComponent, computed, unref } from 'vue'
+import { pickBy, isUndefined } from 'lodash-es'
 import makeClassnames from 'classnames'
-import {
-  isNumberLike
-} from 'd2-projects/d2-utils/number.js'
-import {
-  makeComponentName,
-  makeComponentClassName
-} from 'd2-projects/d2-utils/special/d2-components/name.js'
-import {
-  isFlexProp
-} from 'd2-projects/d2-utils/special/d2-components/const.js'
+import { isNumberLike } from 'd2-projects/d2-utils/number.js'
+import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
+import { isFlexProp } from 'd2-projects/d2-utils/special/d2-components/const.js'
 
 const namespace = 'flex'
 

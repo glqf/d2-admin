@@ -1,10 +1,5 @@
-import {
-  provide,
-  inject
-} from 'vue'
-import {
-  camelCase
-} from 'lodash-es'
+import { provide, inject } from 'vue'
+import { camelCase } from 'lodash-es'
 
 export function useContext (name = '') {
   const id = Symbol(camelCase(`${name}-symbol`))

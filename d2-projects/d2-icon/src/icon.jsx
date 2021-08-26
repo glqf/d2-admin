@@ -1,25 +1,9 @@
-import {
-  defineComponent,
-  ref,
-  unref,
-  computed,
-  onMounted,
-  watch,
-  nextTick,
-  onBeforeUpdate
-} from 'vue'
+import { defineComponent, ref, unref, computed, onMounted, watch, nextTick, onBeforeUpdate } from 'vue'
 import makeClassnames from 'classnames'
 import iconify from '@iconify/iconify'
-import {
-  clearElement
-} from 'd2-projects/d2-utils/dom.js'
-import {
-  useConfig
-} from 'd2-projects/d2-config/index.js'
-import {
-  makeComponentName,
-  makeComponentClassName
-} from 'd2-projects/d2-utils/special/d2-components/name.js'
+import { clearElement } from 'd2-projects/d2-utils/dom.js'
+import { useConfig } from 'd2-projects/d2-config/index.js'
+import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 
 const namespace = 'icon'
 

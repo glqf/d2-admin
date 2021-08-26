@@ -1,9 +1,6 @@
-import {
-  createApp
-} from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
 import router from '@/router.js'
-
 import D2Admin from './plugins/d2-admin.js'
 
 import 'virtual:svg-icons-register'

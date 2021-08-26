@@ -1,27 +1,8 @@
-import {
-  isFunction,
-  keys,
-  mapValues,
-  isEqual,
-  last,
-  isUndefined
-} from 'lodash-es'
-import {
-  defineComponent,
-  reactive,
-  watch,
-  computed,
-  unref
-} from 'vue'
-import {
-  useContext
-} from 'd2-projects/d2-use/context.js'
-import {
-  makeComponentName
-} from 'd2-projects/d2-utils/special/d2-components/name.js'
-import {
-  breakPoints
-} from 'd2-projects/d2-utils/special/d2-components/const.js'
+import { isFunction, keys, mapValues, isEqual, last, isUndefined } from 'lodash-es'
+import { defineComponent, reactive, watch, computed, unref } from 'vue'
+import { useContext } from 'd2-projects/d2-use/context.js'
+import { makeComponentName } from 'd2-projects/d2-utils/special/d2-components/name.js'
+import { breakPoints } from 'd2-projects/d2-utils/special/d2-components/const.js'
 
 const namespace = 'config'
 

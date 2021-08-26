@@ -1,22 +1,7 @@
-import {
-  defineComponent,
-  computed,
-  onBeforeUnmount,
-  onMounted,
-  ref,
-  watch,
-  unref
-} from 'vue'
-import {
-  kebabCase,
-  fromPairs,
-  mergeWith
-} from 'lodash-es'
+import { defineComponent, computed, onBeforeUnmount, onMounted, ref, watch, unref } from 'vue'
+import { kebabCase, fromPairs, mergeWith } from 'lodash-es'
 import makeClassnames from 'classnames'
-import {
-  makeComponentName,
-  makeComponentClassName
-} from 'd2-projects/d2-utils/special/d2-components/name.js'
+import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import os from 'overlayscrollbars'
 
 export const callbacks = [

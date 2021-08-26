@@ -1,8 +1,4 @@
-import {
-  Fragment,
-  Text,
-  Comment
-} from 'vue'
+import { Fragment, Text, Comment } from 'vue'
 
 const TEMPLATE = 'template'
 

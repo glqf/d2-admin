@@ -1,11 +1,5 @@
-import {
-  Transition,
-  cloneVNode
-} from 'vue'
-
-import {
-  getFirstValidNode
-} from 'd2-projects/d2-utils/vnode.js'
+import { Transition, cloneVNode } from 'vue'
+import { getFirstValidNode } from 'd2-projects/d2-utils/vnode.js'
 
 export function renderTrigger (trigger, props = {}) {
   const {
