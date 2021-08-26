@@ -4,51 +4,43 @@ import { $, findElement } from 'd2-projects/d2-utils/vue.js'
 import { usePopperOptions } from './popper-options.js'
 
 export function usePopper (props) {
-  const popperRefTrigger = $(null)
-  const popperRefPopper = $(null)
-  const popperInstance = $()
+  const instance = null
+  const refTrigger = $(null)
+  const refPopper = $(null)
   const popperOptions = usePopperOptions(props)
 
   function init () {
-    const _trigger = findElement($(popperRefTrigger))
-    const _popper = $(popperRefPopper)
+    const _trigger = findElement($(refTrigger))
+    const _popper = $(refPopper)
     const _options = $(popperOptions)
-    $(popperInstance, createPopper(_trigger, _popper, _options))
+    instance = createPopper(_trigger, _popper, _options)
   }
 
   watch(popperOptions, options => {
-    if (!popperInstance) return
-    popperSetOptions(options)
-    popperUpdate()
+    if (!instance) return
+    setOptions(options)
+    update()
   })
 
-  function popperDestroy () {
-    return $(popperInstance)?.destroy?.()
-  }
-  function popperUpdate () {
-    return $(popperInstance)?.update?.()
-  }
-  function popperForceUpdate () {
-    return $(popperInstance)?.forceUpdate?.()
-  }
-  function popperSetOptions (options) {
-    return $(popperInstance)?.setOptions?.(options)
-  }
+  const destroy = () => instance?.destroy?.()
+  const update = () => instance?.update?.()
+  const forceUpdate = () => instance?.forceUpdate?.()
+  const setOptions = options => instance?.setOptions?.(options)
 
   onBeforeUpdate(() => {
-    $(popperRefTrigger, null)
-    $(popperRefPopper, null)
+    $(refTrigger, null)
+    $(refPopper, null)
   })
 
   watchPostEffect(init)
 
   return {
-    popperRefTrigger,
-    popperRefPopper,
-    popperInstance,
-    popperDestroy,
-    popperUpdate,
-    popperForceUpdate,
-    popperSetOptions
+    popperRefTrigger: refTrigger,
+    popperRefPopper: refPopper,
+    popperInstance: instance,
+    popperDestroy: destroy,
+    popperUpdate: update,
+    popperForceUpdate: forceUpdate,
+    popperSetOptions: setOptions
   }
 }
