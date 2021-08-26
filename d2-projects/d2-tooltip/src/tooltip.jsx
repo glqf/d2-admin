@@ -12,7 +12,8 @@ import {
   makeComponentClassName
 } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import {
-  renderTrigger
+  renderTrigger,
+  renderPopper
 } from './render.js'
 
 const namespace = 'tooltip'
@@ -41,11 +42,13 @@ export default defineComponent({
       ref: 'triggerRef'
     })
 
+    const popper = renderPopper(this.$slots.default?.())
+
     return [
       trigger,
       (
         <Teleport to="body">
-          <div ref="popperRef" class={ this.classnames }>Hello</div>
+          { popper }
         </Teleport>
       )
     ]

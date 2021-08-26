@@ -1,5 +1,6 @@
 import {
-  cloneVNode
+  cloneVNode,
+  createVNode
 } from 'vue'
 
 import {
@@ -10,4 +11,10 @@ export function renderTrigger (trigger, extraProps) {
   const firstElement = getFirstValidNode(trigger, 1)
   if (!firstElement) console.log('trigger expects single rooted node')
   return cloneVNode(firstElement, extraProps, true)
+}
+
+export function renderPopper (children) {
+  return createVNode('div', {
+    ref: 'popperRef'
+  }, children)
 }
