@@ -12,16 +12,16 @@ const classname = makeComponentClassName(namespace)
 export default defineComponent({
   name,
   props: {
-    visible: { type: Boolean },
-    disabled: { type: Boolean },
-    manualMode: { type: Boolean },
+    visible: { type: Boolean, default: undefined },
+    disabled: { type: Boolean, default: undefined },
+    manualMode: { type: Boolean, default: undefined },
     autoClose: { type: Number, default: 0 },
     showAfter: { type: Number, default: 0 },
     hideAfter: { type: Number, default: 0 },
-    trigger: { type: [String, Array], default: 'click' } // click | focus | hover | manual
+    trigger: { type: [String, Array], default: 'hover' } // click | focus | hover | manual
   },
-  setup (props, { slots }) {
-    const popperCtx = usePopper(props)
+  setup (props, { emit }) {
+    const popperCtx = usePopper(props, emit)
 
     const classnames = computed(() => makeClassnames(classname, {}))
 
@@ -32,20 +32,25 @@ export default defineComponent({
   },
   render () {
     const {
-      classnames
+      classnames,
+      events,
+      visibility
     } = this
+
+    console.log('events', events)
 
     const trigger = renderTrigger(this.$slots.trigger?.(), {
       ref: 'popperRefTrigger',
-      onClick: () => {
-        console.log('renderTrigger click')
-      }
+      ...events
     })
 
     const popper = renderPopper(this.$slots.default?.(), {
       ref: 'popperRefPopper',
-      classnames: classnames
+      classnames: classnames,
+      visibility: visibility
     })
+    
+    console.log(visibility)
 
     return [
       trigger,

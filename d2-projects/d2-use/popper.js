@@ -12,7 +12,7 @@ import { $, findElement } from 'd2-projects/d2-utils/vue.js'
  * @param {number} props.hideAfter
  * @param {string} props.trigger click | focus | hover | manual
  */
-export function usePopper (props) {
+export function usePopper (props, emit) {
   let instance = null
 
   const popperStyle = $({ zIndex: 1 })
@@ -33,7 +33,7 @@ export function usePopper (props) {
   let showTimer = null
   let hideTimer = null
 
-  const visibleComputed = computed({
+  const visibility = computed({
     get () {
       return props.disabled
         ? false
@@ -44,6 +44,7 @@ export function usePopper (props) {
           )
     },
     set (val) {
+      console.log('visibility set', val);
       if ($(isManualMode)) return
       $(hasVisibleProp)
         ? emit('update:visible', val)
@@ -58,23 +59,28 @@ export function usePopper (props) {
   const setOptions = options => instanceMethod('setOptions')(options)
 
   function init () {
+    if (!$(visibility)) {
+      return
+    }
     const _trigger = findElement($(refTrigger))
     const _popper = $(refPopper)
     const _options = $(optionsComputed)
     instance = createPopper(_trigger, _popper, _options)
+    update()
   }
 
   function _show() {
+    console.log('_show')
     if (props.autoClose > 0) {
       hideTimer = setTimeout(() => {
         _hide()
       }, props.autoClose)
     }
-    visibleComputed.value = true
+    visibility.value = true
   }
 
   function _hide() {
-    visibleComputed.value = false
+    visibility.value = false
   }
 
   function clearTimers() {
@@ -83,6 +89,7 @@ export function usePopper (props) {
   }
 
   const show = () => {
+    console.log('show')
     if ($(isManualMode) || props.disabled) return
     clearTimers()
     if (props.showAfter === 0) {
@@ -114,7 +121,7 @@ export function usePopper (props) {
   }
 
   function doDestroy(force) {
-    if (!instance || ($(visibleComputed) && !force)) return
+    if (!instance || ($(visibility) && !force)) return
     detachPopper()
   }
 
@@ -129,7 +136,7 @@ export function usePopper (props) {
   const events = {}
 
   function update() {
-    if (!$(visibleComputed)) {
+    if (!$(visibility)) {
       return
     }
     if (instance) {
@@ -156,11 +163,11 @@ export function usePopper (props) {
     }
 
     const popperEventsHandler = (e) => {
+      console.log('popperEventsHandler', e)
       e.stopPropagation()
       switch (e.type) {
         case 'click': {
           if (triggerFocused) {
-            // reset previous focus event
             triggerFocused = false
           } else {
             toggleState()
@@ -213,7 +220,7 @@ export function usePopper (props) {
     update()
   })
 
-  watch(visibleComputed, onVisibilityChange)
+  watch(visibility, onVisibilityChange)
 
   onBeforeUpdate(() => {
     $(refTrigger, null)
@@ -226,6 +233,8 @@ export function usePopper (props) {
     popperRefTrigger: refTrigger,
     popperRefPopper: refPopper,
     popperInstance: instance,
+    events,
+    visibility,
     popperDestroy: destroy,
     popperUpdate: update,
     popperForceUpdate: forceUpdate,

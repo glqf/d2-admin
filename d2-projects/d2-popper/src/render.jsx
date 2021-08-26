@@ -18,14 +18,18 @@ export function renderPopper (children, props = {}) {
   const {
     ref = 'popperRefPopper',
     classnames = '',
-    onClick = () => {}
+    visibility = false
   } = props
   return (
     <Transition name="fade">
       <div
         ref={ ref }
         class={ classnames }
-        onClick={ onClick }
+        style={
+          {
+            display: visibility ? 'block' : 'none'
+          }
+        }
       >
         { children }
       </div>
