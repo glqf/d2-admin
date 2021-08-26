@@ -24,10 +24,14 @@ export function usePopper (props) {
     update()
   })
 
-  const destroy = () => instance?.destroy?.()
-  const update = () => instance?.update?.()
-  const forceUpdate = () => instance?.forceUpdate?.()
-  const setOptions = options => instance?.setOptions?.(options)
+  function instanceFn (fn) {
+    if (instance) return fn(instance)
+  }
+
+  const destroy = () => instanceFn(i => i?.destroy?.())
+  const update = () => instanceFn(i => i?.update?.())
+  const forceUpdate = () => instanceFn(i => i?.forceUpdate?.())
+  const setOptions = options => instanceFn(i => i?.setOptions?.(options))
 
   onBeforeUpdate(() => {
     $(refTrigger, null)
