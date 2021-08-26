@@ -4,14 +4,14 @@ import { $, findElement } from 'd2-projects/d2-utils/vue.js'
 import { usePopperOptions } from './popper-options.js'
 
 export function usePopper (props) {
-  const triggerRef = $(null)
-  const popperRef = $(null)
+  const popperRefTrigger = $(null)
+  const popperRefPopper = $(null)
   const popperInstance = $()
   const popperOptions = usePopperOptions(props)
 
   function init () {
-    const _trigger = findElement($(triggerRef))
-    const _popper = $(popperRef)
+    const _trigger = findElement($(popperRefTrigger))
+    const _popper = $(popperRefPopper)
     const _options = $(popperOptions)
     $(popperInstance, createPopper(_trigger, _popper, _options))
   }
@@ -36,15 +36,15 @@ export function usePopper (props) {
   }
 
   onBeforeUpdate(() => {
-    $(triggerRef, null)
-    $(popperRef, null)
+    $(popperRefTrigger, null)
+    $(popperRefPopper, null)
   })
 
   watchPostEffect(init)
 
   return {
-    triggerRef,
-    popperRef,
+    popperRefTrigger,
+    popperRefPopper,
     popperInstance,
     popperDestroy,
     popperUpdate,

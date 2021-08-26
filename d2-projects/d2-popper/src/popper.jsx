@@ -27,14 +27,14 @@ export default defineComponent({
     } = this
 
     const trigger = renderTrigger(this.$slots.trigger?.(), {
-      triggerRef: 'triggerRef',
+      ref: 'popperRefTrigger',
       onClick: () => {
         console.log('renderTrigger click')
       }
     })
 
     const popper = renderPopper(this.$slots.default?.(), {
-      popperRef: 'popperRef',
+      ref: 'popperRefPopper',
       classnames: classnames
     })
 
