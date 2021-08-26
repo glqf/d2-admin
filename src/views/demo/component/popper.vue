@@ -1,12 +1,8 @@
 <template>
   <d2-popper>
     <template v-slot:trigger>
-      <a-button>
-        Trigger Button Trigger Button Trigger Button
-      </a-button>
+      <a-button>Trigger Button</a-button>
     </template>
-    <a-button @click="onPopperButtonClick">Popper</a-button>
-    <a-button @click="onPopperButtonClick">Popper</a-button>
     <a-button @click="onPopperButtonClick">Popper</a-button>
   </d2-popper>
 </template>
