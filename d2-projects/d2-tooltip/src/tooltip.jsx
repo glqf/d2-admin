@@ -11,6 +11,9 @@ import {
   makeComponentName,
   makeComponentClassName
 } from 'd2-projects/d2-utils/special/d2-components/name.js'
+import {
+  renderTrigger
+} from './renderers/trigger.js'
 
 const namespace = 'tooltip'
 
@@ -34,9 +37,21 @@ export default defineComponent({
     }
   },
   render () {
+    const events = {}
+
+    const triggerSlot = this.$slots.trigger?.()
+
+    const triggerProps = {
+      class: '',
+      style: {},
+      ref: 'trigger',
+      ...events,
+    }
+
+    const trigger = renderTrigger(triggerSlot, triggerProps)
+
     return [
-      this.$slots?.default?.(),
-      <span ref="trigger">trigger</span>,
+      trigger,
       (
         <Teleport to="body">
           <div ref="pop" class={ this.classnames }>Hello</div>
