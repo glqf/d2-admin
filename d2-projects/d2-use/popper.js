@@ -14,15 +14,15 @@ export function usePopper () {
   const triggerRef = $(null)
   const popperRef = $(null)
   const popper = $()
+  const popperOptions = $(() => ({
+    placement: 'bottom'
+  }))
 
   function init () {
-    $(popper, createPopper(
-      findElement($(triggerRef)),
-      $(popperRef),
-      {
-        placement: 'bottom'
-      }
-    ))
+    const _trigger = findElement($(triggerRef))
+    const _popper = $(popperRef)
+    const _options = $(popperOptions)
+    $(popper, createPopper(_trigger, _popper, _options))
   }
 
   function popperDestroy () {
