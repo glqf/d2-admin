@@ -11,6 +11,7 @@ export function renderTrigger (trigger, extraProps = {}) {
 
 export function renderPopper (children, config = {}) {
   const {
+    transitionName = 'fade',
     ref = 'popperRefPopper',
     classnames = '',
     style = {},
@@ -19,7 +20,7 @@ export function renderPopper (children, config = {}) {
   return createVNode(
     Transition,
     {
-      name: 'fade'
+      name: transitionName
     },
     {
       default: withCtx(() => [
@@ -33,7 +34,9 @@ export function renderPopper (children, config = {}) {
             },
             children
           ),
-          [[vShow, visibility]],
+          [
+            [vShow, visibility]
+          ],
         )
       ])
     }
