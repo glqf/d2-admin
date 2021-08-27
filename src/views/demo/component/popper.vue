@@ -1,18 +1,20 @@
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
+
 <template>
   <d2-popper>
     <template v-slot:trigger>
       <a-button>Trigger Button</a-button>
     </template>
-    <a-button @click="onPopperButtonClick">Popper</a-button>
+    <a-alert message="Success" type="success"/>
   </d2-popper>
-  <a-button @mouseenter="mouseenter">onMouseenter</a-button>
 </template>
-
-<script setup>
-function onPopperButtonClick () {
-  console.log('onPopperButtonClick')
-}
-function mouseenter () {
-  console.log('mouseenter')
-}
-</script>
