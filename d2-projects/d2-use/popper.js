@@ -10,7 +10,7 @@ import { $, findElement } from 'd2-projects/d2-utils/vue.js'
  * @param {number} props.autoClose
  * @param {number} props.showAfter
  * @param {number} props.hideAfter
- * @param {string} props.trigger click | focus | hover | manual
+ * @param {string} props.trigger click/focus/hover/manual
  */
 export function usePopper (props, emit) {
   let instance = null
@@ -37,11 +37,7 @@ export function usePopper (props, emit) {
     get () {
       return props.disabled
         ? false
-        : (
-            $(hasVisibleProp)
-              ? props.visible
-              : $(visible)
-          )
+        : ($(hasVisibleProp) ? props.visible : $(visible))
     },
     set (val) {
       console.log('visibility set', val);
@@ -55,7 +51,6 @@ export function usePopper (props, emit) {
   const instanceMethod = name => instance[name] || (() => {})
 
   const destroy = () => instanceMethod('destroy')()
-  const forceUpdate = () => instanceMethod('forceUpdate')()
   const setOptions = options => instanceMethod('setOptions')(options)
 
   function init () {
@@ -237,7 +232,6 @@ export function usePopper (props, emit) {
     visibility,
     popperDestroy: destroy,
     popperUpdate: update,
-    popperForceUpdate: forceUpdate,
     popperSetOptions: setOptions
   }
 }
