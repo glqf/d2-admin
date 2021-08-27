@@ -5,10 +5,14 @@
     </template>
     <a-button @click="onPopperButtonClick">Popper</a-button>
   </d2-popper>
+  <a-button @mouseenter="mouseenter">onMouseenter</a-button>
 </template>
 
 <script setup>
 function onPopperButtonClick () {
   console.log('onPopperButtonClick')
+}
+function mouseenter () {
+  console.log('mouseenter')
 }
 </script>

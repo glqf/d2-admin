@@ -2,16 +2,11 @@ import { Transition, cloneVNode } from 'vue'
 import { getFirstValidNode } from 'd2-projects/d2-utils/vnode.js'
 
 export function renderTrigger (trigger, props = {}) {
-  const {
-    ref = 'popperRefTrigger',
-    onClick = () => {}
-  } = props
-  const firstElement = getFirstValidNode(trigger, 1)
-  if (!firstElement) console.log('trigger expects single rooted node')
-  return cloneVNode(firstElement, {
-    ref: ref,
-    onClick: onClick
-  }, true)
+  const element = getFirstValidNode(trigger, 1)
+  if (!element) {
+    console.log('trigger expects single rooted node')
+  }
+  return cloneVNode(element, props, true)
 }
 
 export function renderPopper (children, props = {}) {

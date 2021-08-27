@@ -18,7 +18,7 @@ export default defineComponent({
     autoClose: { type: Number, default: 0 },
     showAfter: { type: Number, default: 0 },
     hideAfter: { type: Number, default: 0 },
-    trigger: { type: [String, Array], default: 'click' } // click | focus | hover | manual
+    trigger: { type: [String, Array], default: 'hover' } // click | focus | hover | manual
   },
   setup (props, { emit }) {
     const popperCtx = usePopper(props, emit)
