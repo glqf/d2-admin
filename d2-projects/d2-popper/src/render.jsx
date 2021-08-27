@@ -1,4 +1,4 @@
-import { Transition, cloneVNode } from 'vue'
+import { Transition, createVNode, cloneVNode, withDirectives, withCtx, vShow } from 'vue'
 import { getFirstValidNode } from 'd2-projects/d2-utils/vnode.js'
 
 export function renderTrigger (trigger, props = {}) {
@@ -13,21 +13,27 @@ export function renderPopper (children, props = {}) {
   const {
     ref = 'popperRefPopper',
     classnames = '',
+    style = {},
     visibility = false
   } = props
-  return (
-    <Transition name="fade">
-      <div
-        ref={ ref }
-        class={ classnames }
-        style={
+  return createVNode(
+    Transition,
+    {
+      name: 'fade'
+    },
+    {
+      default: withCtx(() => [withDirectives(
+        createVNode(
+          'div',
           {
-            display: visibility ? 'block' : 'none'
-          }
-        }
-      >
-        { children }
-      </div>
-    </Transition>
+            ref,
+            style,
+            class: classnames
+          },
+          children
+        ),
+        [[vShow, visibility]],
+      )])
+    }
   )
 }

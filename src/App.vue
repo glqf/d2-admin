@@ -1,6 +1,8 @@
 <template>
   <d2-config v-bind="config">
-    <router-view/>
+    <div style="padding: 100px;">
+      <router-view/>
+    </div>
   </d2-config>
 </template>
 
