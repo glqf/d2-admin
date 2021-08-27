@@ -9,31 +9,33 @@ export function renderTrigger (trigger, props = {}) {
   return cloneVNode(element, props, true)
 }
 
-export function renderPopper (children, props = {}) {
+export function renderPopper (children, config = {}) {
   const {
     ref = 'popperRefPopper',
     classnames = '',
     style = {},
     visibility = false
-  } = props
+  } = config
   return createVNode(
     Transition,
     {
       name: 'fade'
     },
     {
-      default: withCtx(() => [withDirectives(
-        createVNode(
-          'div',
-          {
-            ref,
-            style,
-            class: classnames
-          },
-          children
-        ),
-        [[vShow, visibility]],
-      )])
+      default: withCtx(() => [
+        withDirectives(
+          createVNode(
+            'div',
+            {
+              ref,
+              style,
+              class: classnames
+            },
+            children
+          ),
+          [[vShow, visibility]],
+        )
+      ])
     }
   )
 }
