@@ -7,7 +7,7 @@
 </route>
 
 <template>
-  <a-space>
+  <a-space direction="vertical">
     <a-button v-for="route in routes" :key="route.name">
       <router-link :to="route.path">
         {{ route?.meta?.title || route.path }}

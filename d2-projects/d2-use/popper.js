@@ -195,14 +195,14 @@ export function usePopper (props, emit) {
       }
     }
 
-    const triggerEventsMap = {
+    const triggerTypes = {
       click: ['onClick'],
       hover: ['onMouseenter', 'onMouseleave'],
       focus: ['onFocus', 'onBlur'],
     }
 
-    const mapEvents = (t) => {
-      triggerEventsMap[t].forEach(event => {
+    const mapEvents = type => {
+      triggerTypes[type].forEach(event => {
         events[event] = popperEventsHandler
       })
     }
