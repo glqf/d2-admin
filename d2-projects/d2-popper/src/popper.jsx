@@ -1,6 +1,6 @@
 import { defineComponent, computed, Teleport } from 'vue'
 import makeClassnames from 'classnames'
-import { usePopper, popperPropsDefault } from 'd2-projects/d2-use/use-popper.js'
+import { usePopper, popperPropsDefault, eventNameUpdateVisible } from 'd2-projects/d2-use/use-popper.js'
 import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import { renderTrigger, renderPopper } from './render.jsx'
 
@@ -12,6 +12,9 @@ const classname = makeComponentClassName(namespace)
 export default defineComponent({
   name,
   props: popperPropsDefault,
+  emits: [
+    eventNameUpdateVisible
+  ],
   setup (props, { emit }) {
     const popperCtx = usePopper(props, emit)
 

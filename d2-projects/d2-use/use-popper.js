@@ -3,6 +3,8 @@ import { isBoolean, isArray } from 'lodash-es'
 import { createPopper } from '@popperjs/core'
 import { $, findElement } from 'd2-projects/d2-utils/vue.js'
 
+export const eventNameUpdateVisible = 'update:visible'
+
 export const popperPropsDefault = {
   visible: { type: Boolean, default: undefined },
   disabled: { type: Boolean },
@@ -43,10 +45,9 @@ export function usePopper (props, emit) {
         : ($(hasVisibleProp) ? props.visible : $(visibleState))
     },
     set (val) {
-      console.log('popperVisible set', val);
       if ($(isManual)) return
       $(hasVisibleProp)
-        ? emit('update:visible', val)
+        ? emit(eventNameUpdateVisible, val)
         : $(visibleState, val)
     },
   })
@@ -68,7 +69,6 @@ export function usePopper (props, emit) {
   }
 
   function _show() {
-    console.log('_show')
     if (props.autoClose > 0) {
       hideTimer = setTimeout(() => {
         _hide()
@@ -87,7 +87,6 @@ export function usePopper (props, emit) {
   }
 
   const show = () => {
-    console.log('show')
     if ($(isManual) || props.disabled) return
     clearTimers()
     if (props.showAfter === 0) {
