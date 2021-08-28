@@ -15,7 +15,7 @@ export function renderPopper (children, config = {}) {
     ref = 'popperRefPopper',
     classnames = '',
     style = {},
-    visibility = false
+    visible = false
   } = config
   return createVNode(
     Transition,
@@ -35,7 +35,7 @@ export function renderPopper (children, config = {}) {
             children
           ),
           [
-            [vShow, visibility]
+            [vShow, visible]
           ],
         )
       ])

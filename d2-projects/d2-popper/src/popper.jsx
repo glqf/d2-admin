@@ -48,7 +48,7 @@ export default defineComponent({
       transitionName: 'fade',
       ref: 'popperRefPopper',
       classnames: classnames,
-      visibility: popperVisible
+      visible: popperVisible
     })
     
     console.log(popperVisible)
