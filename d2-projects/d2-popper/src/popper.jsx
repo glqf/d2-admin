@@ -34,7 +34,7 @@ export default defineComponent({
     const {
       classnames,
       events,
-      visibility
+      popperVisible
     } = this
 
     console.log('events', events)
@@ -48,10 +48,10 @@ export default defineComponent({
       transitionName: 'fade',
       ref: 'popperRefPopper',
       classnames: classnames,
-      visibility: visibility
+      visibility: popperVisible
     })
     
-    console.log(visibility)
+    console.log(popperVisible)
 
     return [
       trigger,

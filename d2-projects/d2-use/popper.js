@@ -34,14 +34,14 @@ export function usePopper (props, emit) {
   let showTimer = null
   let hideTimer = null
 
-  const visibility = computed({
+  const popperVisible = computed({
     get () {
       return props.disabled
         ? false
         : ($(hasVisibleProp) ? props.visible : $(visibleState))
     },
     set (val) {
-      console.log('visibility set', val);
+      console.log('popperVisible set', val);
       if ($(isManual)) return
       $(hasVisibleProp)
         ? emit('update:visible', val)
@@ -55,7 +55,7 @@ export function usePopper (props, emit) {
   const setOptions = options => instanceMethod('setOptions')(options)
 
   function init () {
-    if (!$(visibility)) {
+    if (!$(popperVisible)) {
       return
     }
     const _trigger = findElement($(refTrigger))
@@ -72,11 +72,11 @@ export function usePopper (props, emit) {
         _hide()
       }, props.autoClose)
     }
-    visibility.value = true
+    popperVisible.value = true
   }
 
   function _hide() {
-    visibility.value = false
+    popperVisible.value = false
   }
 
   function clearTimers() {
@@ -117,7 +117,7 @@ export function usePopper (props, emit) {
   }
 
   function doDestroy(force) {
-    if (!instance || ($(visibility) && !force)) return
+    if (!instance || ($(popperVisible) && !force)) return
     detachPopper()
   }
 
@@ -132,7 +132,7 @@ export function usePopper (props, emit) {
   const events = {}
 
   function update() {
-    if (!$(visibility)) {
+    if (!$(popperVisible)) {
       return
     }
     if (instance) {
@@ -142,7 +142,7 @@ export function usePopper (props, emit) {
     }
   }
 
-  function onVisibilityChange(toState) {
+  function onpopperVisibleChange(toState) {
     if (toState) {
       popperStyle.value.zIndex ++
       init()
@@ -151,7 +151,7 @@ export function usePopper (props, emit) {
 
   if (!$(isManual)) {
     const toggleState = () => {
-      if ($(visibility)) {
+      if ($(popperVisible)) {
         hide()
       } else {
         show()
@@ -216,7 +216,7 @@ export function usePopper (props, emit) {
     update()
   })
 
-  watch(visibility, onVisibilityChange)
+  watch(popperVisible, onpopperVisibleChange)
 
   onBeforeUpdate(() => {
     $(refTrigger, null)
@@ -230,7 +230,7 @@ export function usePopper (props, emit) {
     popperRefPopper: refPopper,
     popperInstance: instance,
     events,
-    visibility,
+    popperVisible,
     popperDestroy: destroy,
     popperUpdate: update,
     popperSetOptions: setOptions
