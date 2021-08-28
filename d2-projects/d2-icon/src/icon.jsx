@@ -1,5 +1,5 @@
-import { defineComponent, onMounted, nextTick, onBeforeUpdate } from 'vue'
 import makeClassnames from 'classnames'
+import { defineComponent, onMounted, nextTick, onBeforeUpdate } from 'vue'
 import iconify from '@iconify/iconify'
 import { $ } from 'd2-projects/d2-utils/vue.js'
 import { clearElement } from 'd2-projects/d2-utils/dom.js'
