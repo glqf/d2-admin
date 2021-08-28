@@ -50,8 +50,6 @@ export default defineComponent({
       popperClassnames: classnames,
       popperVisible: popperVisible
     })
-    
-    console.log(popperVisible)
 
     return [
       trigger,
