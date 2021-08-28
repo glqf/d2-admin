@@ -57,7 +57,10 @@ export default defineComponent({
     return [
       trigger,
       (
-        <Teleport to="body" disabled={ !appendToBody }>
+        <Teleport
+          to="body"
+          disabled={ !appendToBody }
+        >
           { popper }
         </Teleport>
       )
