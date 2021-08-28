@@ -1,6 +1,7 @@
-import { defineComponent, computed, onBeforeUnmount, onMounted, ref, watch, unref } from 'vue'
+import { defineComponent, onBeforeUnmount, onMounted, watch } from 'vue'
 import { kebabCase, fromPairs, mergeWith } from 'lodash-es'
 import makeClassnames from 'classnames'
+import { $ } from 'd2-projects/d2-utils/vue.js'
 import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import os from 'overlayscrollbars'
 
@@ -44,16 +45,16 @@ export default defineComponent({
     'scroll-bottom'
   ],
   setup (props, { emit }) {
-    const target = ref(null)
+    const target = $(null)
 
-    const instance = ref(null)
+    const instance = $(null)
 
-    const isValid = () => os.valid(unref(instance))
+    const isValid = () => os.valid($(instance))
 
-    const themeClassName = computed(() => `os-theme-${props.theme}`)
+    const themeClassName = $(() => `os-theme-${props.theme}`)
 
-    const optionsDefault = computed(() => ({
-      className: unref(themeClassName),
+    const optionsDefault = $(() => ({
+      className: $(themeClassName),
       scrollbars: {
         autoHide: 'scroll',
         autoHideDelay: 300
@@ -64,7 +65,7 @@ export default defineComponent({
         switch (name) {
           case 'onScroll':
             callback = event => {
-              const information = unref(instance).scroll()
+              const information = $(instance).scroll()
               const ratioY = information.ratio.y
               emit(emitName, event)
               const cordonY = information.max.y - information.position.y
@@ -100,21 +101,21 @@ export default defineComponent({
     }
 
     function mergeDefaultOption (options) {
-      return mergeWith({}, unref(optionsDefault), options, customizer)
+      return mergeWith({}, $(optionsDefault), options, customizer)
     }
 
-    const options = computed(() => mergeDefaultOption(props.options))
+    const options = $(() => mergeDefaultOption(props.options))
 
     function reloadOptions () {
       if (isValid()) {
-        unref(instance).options(mergeDefaultOption(options))
+        $(instance).options(mergeDefaultOption(options))
       }
     }
 
     function init () {
       instance.value = os(
-        unref(target),
-        unref(options),
+        $(target),
+        $(options),
         props.extensions
       )
     }
@@ -123,14 +124,14 @@ export default defineComponent({
     
     onBeforeUnmount(() => {
       if (isValid()) {
-        unref(instance).destroy()
+        $(instance).destroy()
         instance.value = null
       }
     })
     
     watch(options, reloadOptions)
     
-    const classnames = computed(() => makeClassnames(classname, {}))
+    const classnames = $(() => makeClassnames(classname, {}))
 
     return {
       target,
