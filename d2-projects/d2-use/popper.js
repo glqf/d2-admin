@@ -22,10 +22,10 @@ export function usePopper (props, emit) {
   const refPopper = $(null)
 
   const optionsComputed = $(() => ({
-    placement: 'bottom'
+    placement: 'top'
   }))
 
-  const isManualMode = $(() => props.manualMode || props.trigger === 'manual')
+  const isManual = $(() => props.manualMode || props.trigger === 'manual')
 
   const hasVisibleProp = $(() => isBoolean(props.visible))
   const visible = $(!!props.visible)
@@ -41,7 +41,7 @@ export function usePopper (props, emit) {
     },
     set (val) {
       console.log('visibility set', val);
-      if ($(isManualMode)) return
+      if ($(isManual)) return
       $(hasVisibleProp)
         ? emit('update:visible', val)
         : $(visible, val)
@@ -85,7 +85,7 @@ export function usePopper (props, emit) {
 
   const show = () => {
     console.log('show')
-    if ($(isManualMode) || props.disabled) return
+    if ($(isManual) || props.disabled) return
     clearTimers()
     if (props.showAfter === 0) {
       _show()
@@ -97,7 +97,7 @@ export function usePopper (props, emit) {
   }
 
   const hide = () => {
-    if ($(isManualMode)) return
+    if ($(isManual)) return
     clearTimers()
     if (props.hideAfter > 0) {
       hideTimer = setTimeout(() => {
@@ -148,7 +148,7 @@ export function usePopper (props, emit) {
     }
   }
 
-  if (!$(isManualMode)) {
+  if (!$(isManual)) {
     const toggleState = () => {
       if ($(visibility)) {
         hide()
