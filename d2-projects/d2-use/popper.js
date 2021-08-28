@@ -1,4 +1,4 @@
-import { computed, onBeforeUpdate, watch } from 'vue'
+import { computed, onBeforeUpdate, reactive, watch } from 'vue'
 import { isBoolean, isArray } from 'lodash-es'
 import { createPopper } from '@popperjs/core'
 import { $, findElement } from 'd2-projects/d2-utils/vue.js'
@@ -28,7 +28,8 @@ export function usePopper (props, emit) {
   const isManual = $(() => props.manualMode || props.trigger === 'manual')
 
   const hasVisibleProp = $(() => isBoolean(props.visible))
-  const visible = $(!!props.visible)
+
+  const visibleState = $(!!props.visible)
 
   let showTimer = null
   let hideTimer = null
@@ -37,14 +38,14 @@ export function usePopper (props, emit) {
     get () {
       return props.disabled
         ? false
-        : ($(hasVisibleProp) ? props.visible : $(visible))
+        : ($(hasVisibleProp) ? props.visible : $(visibleState))
     },
     set (val) {
       console.log('visibility set', val);
       if ($(isManual)) return
       $(hasVisibleProp)
         ? emit('update:visible', val)
-        : $(visible, val)
+        : $(visibleState, val)
     },
   })
 
