@@ -229,7 +229,7 @@ export function usePopper (props, emit) {
     popperRefTrigger: refTrigger,
     popperRefPopper: refPopper,
     popperInstance: instance,
-    events,
+    popperEvents: events,
     popperVisible,
     popperDestroy: destroy,
     popperUpdate: update,

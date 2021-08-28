@@ -15,6 +15,7 @@ export default defineComponent({
     visible: { type: Boolean, default: undefined },
     disabled: { type: Boolean },
     manualMode: { type: Boolean },
+    appendToBody: { type: Boolean, default: true },
     autoClose: { type: Number, default: 0 },
     showAfter: { type: Number, default: 0 },
     hideAfter: { type: Number, default: 0 },
@@ -26,35 +27,37 @@ export default defineComponent({
     const classnames = computed(() => makeClassnames(classname, {}))
 
     return {
-      ...popperCtx,
-      classnames
+      classnames,
+      ...popperCtx
     }
   },
   render () {
     const {
+      // props
+      appendToBody,
+      // computed
       classnames,
-      events,
+      // usePopper
+      popperEvents,
       popperVisible
     } = this
 
-    console.log('events', events)
-
     const trigger = renderTrigger(this.$slots.trigger?.(), {
       ref: 'popperRefTrigger',
-      ...events
+      ...popperEvents
     })
 
     const popper = renderPopper(this.$slots.default?.(), {
       transitionName: 'fade',
-      popperRef: 'popperRefPopper',
       popperClassnames: classnames,
+      popperRef: 'popperRefPopper',
       popperVisible: popperVisible
     })
 
     return [
       trigger,
       (
-        <Teleport to="body">
+        <Teleport to="body" disabled={ !appendToBody }>
           { popper }
         </Teleport>
       )
