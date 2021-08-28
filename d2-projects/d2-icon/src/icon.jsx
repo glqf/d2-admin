@@ -1,6 +1,7 @@
-import { defineComponent, ref, unref, computed, onMounted, watch, nextTick, onBeforeUpdate } from 'vue'
+import { defineComponent, onMounted, watch, nextTick, onBeforeUpdate } from 'vue'
 import makeClassnames from 'classnames'
 import iconify from '@iconify/iconify'
+import { $ } from 'd2-projects/d2-utils/vue.js'
 import { clearElement } from 'd2-projects/d2-utils/dom.js'
 import { useConfig } from 'd2-projects/d2-config/index.js'
 import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
@@ -17,35 +18,35 @@ export default defineComponent({
     name: { type: String, default: '' }
   },
   setup (props) {
-    const wrapper = ref(null)
+    const wrapper = $(null)
 
     const { iconCollection } = useConfig()
 
-    const collection = computed(() => props.collection || unref(iconCollection))
+    const collection = $(() => props.collection || $(iconCollection))
 
-    const iconNameComplete = computed(() => {
+    const iconNameComplete = $(() => {
       // like collection:icon
       if (props.name.indexOf(':') > 0) return props.name
       // The icon name does not contain the icon collection name
       // Try to get it from another way
-      return unref(collection) ? `${unref(collection)}:${props.name}` : props.name
+      return $(collection) ? `${$(collection)}:${props.name}` : props.name
     })
 
     async function load () {
-      clearElement(unref(wrapper))
+      clearElement($(wrapper))
       await nextTick()
-      const svg = iconify.renderSVG(unref(iconNameComplete), {})
+      const svg = iconify.renderSVG($(iconNameComplete), {})
       if (svg) {
-        unref(wrapper).appendChild(svg)
+        $(wrapper).appendChild(svg)
       } else {
         const span = document.createElement('span')
         span.className = 'iconify'
-        span.dataset.icon = unref(iconNameComplete)
-        unref(wrapper).appendChild(span)
+        span.dataset.icon = $(iconNameComplete)
+        $(wrapper).appendChild(span)
       }
     }
 
-    const classnames = computed(() => makeClassnames(classname, {}))
+    const classnames = $(() => makeClassnames(classname, {}))
 
     onMounted(load)
     onBeforeUpdate(() => {
@@ -55,7 +56,7 @@ export default defineComponent({
     watch(() => props.icon, load, { flush: 'post' })
 
     return () => (
-      <span class={ unref(classnames) } ref={ wrapper }/>
+      <span class={ $(classnames) } ref={ wrapper }/>
     )
   }
 })
