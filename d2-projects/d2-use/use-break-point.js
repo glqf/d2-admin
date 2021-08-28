@@ -1,6 +1,6 @@
 import { computed, unref } from 'vue'
 import { keys, values, fromPairs, mapValues } from 'lodash-es'
-import { useWindowSize } from './window-size.js'
+import { useWindowSize } from './use-window-size.js'
 import { useConfig } from 'd2-projects/d2-config/index.js'
 
 const minKey = 'min'

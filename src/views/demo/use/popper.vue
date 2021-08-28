@@ -4,7 +4,7 @@
 </template>
 
 <script setup>
-import { usePopper } from 'd2-projects/d2-use/popper.js'
+import { usePopper } from 'd2-projects/d2-use/use-popper.js'
 
 const {
   popperRefTrigger,

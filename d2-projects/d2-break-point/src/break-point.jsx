@@ -1,7 +1,7 @@
 import { defineComponent, computed, unref } from 'vue'
 import { keys, mapValues } from 'lodash-es'
 import { makeComponentName } from 'd2-projects/d2-utils/special/d2-components/name.js'
-import { useBreakPoint } from 'd2-projects/d2-use/break-point.js'
+import { useBreakPoint } from 'd2-projects/d2-use/use-break-point.js'
 import { useConfig } from 'd2-projects/d2-config/index.js'
 
 const namespace = 'break-point'

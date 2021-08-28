@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { useBreakPoint } from 'd2-projects/d2-use/break-point.js'
+import { useBreakPoint } from 'd2-projects/d2-use/use-break-point.js'
 
 const {
   min, sm, md, lg, xl, xxl,
