@@ -3,15 +3,6 @@ import { isBoolean, isArray } from 'lodash-es'
 import { createPopper } from '@popperjs/core'
 import { $, findElement } from 'd2-projects/d2-utils/vue.js'
 
-/**
- * @param {boolean} props.visible
- * @param {boolean} props.disabled
- * @param {boolean} props.manualMode
- * @param {number} props.autoClose
- * @param {number} props.showAfter
- * @param {number} props.hideAfter
- * @param {string} props.trigger click/focus/hover/manual
- */
 export function usePopper (props, emit) {
   let instance = null
 
