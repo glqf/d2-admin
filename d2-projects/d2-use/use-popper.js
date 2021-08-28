@@ -2,7 +2,6 @@ import { computed, onBeforeUpdate } from 'vue'
 import { isBoolean, isArray } from 'lodash-es'
 import { createPopper } from '@popperjs/core'
 import { $, findElement } from 'd2-projects/d2-utils/vue.js'
-import { throwError } from 'd2-projects/d2-utils/error.js'
 
 export const eventNameUpdateVisible = 'update:visible'
 
