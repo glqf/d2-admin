@@ -1,4 +1,4 @@
-import { computed, onBeforeUpdate, reactive, watch } from 'vue'
+import { computed, onBeforeUpdate, watch } from 'vue'
 import { isBoolean, isArray } from 'lodash-es'
 import { createPopper } from '@popperjs/core'
 import { $, findElement } from 'd2-projects/d2-utils/vue.js'

@@ -1,4 +1,5 @@
-import { onMounted, onUnmounted, ref, onBeforeMount } from 'vue'
+import { onMounted, onUnmounted, onBeforeMount } from 'vue'
+import { $ } from 'd2-projects/d2-utils/vue.js'
 import { throttle } from 'lodash-es'
 
 /**
@@ -9,8 +10,8 @@ import { throttle } from 'lodash-es'
  */
 export function useWindowSize(wait = 30) {
 
-  const width = ref(0)
-  const height = ref(0)
+  const width = $(0)
+  const height = $(0)
 
   function update() {
     width.value = window.innerWidth
