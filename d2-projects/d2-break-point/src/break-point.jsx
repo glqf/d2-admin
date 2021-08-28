@@ -1,5 +1,6 @@
-import { defineComponent, computed, unref } from 'vue'
+import { defineComponent } from 'vue'
 import { keys, mapValues } from 'lodash-es'
+import { $ } from 'd2-projects/d2-utils/vue.js'
 import { makeComponentName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import { useBreakPoint } from 'd2-projects/d2-use/use-break-point.js'
 import { useConfig } from 'd2-projects/d2-config/index.js'
@@ -29,20 +30,20 @@ export default defineComponent({
   setup (props, { slots }) {
     const _breakPoints = Object.assign(
       {},
-      unref(useConfig().breakPoints),
+      $(useConfig().breakPoints),
       props.breakPoints
     )
     const status = useBreakPoint(_breakPoints)
-    const data = computed(() => ({
-      ...unref(status),
+    const data = $(() => ({
+      ...$(status),
       data: mapValues(
         props.data,
-        (v, k) => unref(status.responsive(...props.data[k]))
+        (v, k) => $(status.responsive(...props.data[k]))
       )
     }))
     
     return () => {
-      const prop = unref(data)
+      const prop = $(data)
       return [
         slots.default?.(prop),
         slots.min?.(prop),
