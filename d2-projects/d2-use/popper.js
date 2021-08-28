@@ -16,10 +16,12 @@ export function usePopper (props, emit) {
   let instance = null
 
   const popperStyle = $({ zIndex: 1 })
-  let triggerFocused = false
 
   const refTrigger = $(null)
   const refPopper = $(null)
+
+  const visibleState = $(!!props.visible)
+  const triggerFocusedState = $(false)
 
   const optionsComputed = $(() => ({
     placement: 'top'
@@ -28,8 +30,6 @@ export function usePopper (props, emit) {
   const isManual = $(() => props.manualMode || props.trigger === 'manual')
 
   const hasVisibleProp = $(() => isBoolean(props.visible))
-
-  const visibleState = $(!!props.visible)
 
   let showTimer = null
   let hideTimer = null
@@ -159,12 +159,11 @@ export function usePopper (props, emit) {
     }
 
     const popperEventsHandler = (e) => {
-      console.log('popperEventsHandler', e)
       e.stopPropagation()
       switch (e.type) {
         case 'click': {
-          if (triggerFocused) {
-            triggerFocused = false
+          if ($(triggerFocusedState)) {
+            $(triggerFocusedState, false)
           } else {
             toggleState()
           }
@@ -179,12 +178,12 @@ export function usePopper (props, emit) {
           break
         }
         case 'focus': {
-          triggerFocused = true
+          $(triggerFocusedState, true)
           show()
           break
         }
         case 'blur': {
-          triggerFocused = false
+          $(triggerFocusedState, false)
           hide()
           break
         }
