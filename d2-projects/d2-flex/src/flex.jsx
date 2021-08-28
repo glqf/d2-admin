@@ -5,13 +5,13 @@ import { isNumberLike } from 'd2-projects/d2-utils/number.js'
 import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import { isFlexProp } from 'd2-projects/d2-utils/special/d2-components/const.js'
 
-const namespace = 'flex'
+const name = 'flex'
 
-export const name = makeComponentName(namespace)
-export const classname = makeComponentClassName(namespace)
+export const componentName = makeComponentName(name)
+export const classname = makeComponentClassName(name)
 
 export default defineComponent({
-  name,
+  name: componentName,
   props: {
     // display
     inlineFlex: { type: Boolean },

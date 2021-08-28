@@ -21,13 +21,13 @@ export const callbacks = [
 
 export const emits = callbacks.map(name => kebabCase(name.replace(/^on/, '')))
 
-const namespace = 'scroll'
+const name = 'scroll'
 
-export const name = makeComponentName(namespace)
-export const classname = makeComponentClassName(namespace)
+export const componentName = makeComponentName(name)
+export const classname = makeComponentClassName(name)
 
 export default defineComponent({
-  name,
+  name: componentName,
   props: {
     options: { type: Object },
     extensions: { type: [String, Array, Object] },

@@ -5,13 +5,13 @@ import { clearElement } from 'd2-projects/d2-utils/dom.js'
 import { useConfig } from 'd2-projects/d2-config/index.js'
 import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 
-const namespace = 'icon'
+const name = 'icon'
 
-const name = makeComponentName(namespace)
-const classname = makeComponentClassName(namespace)
+const componentName = makeComponentName(name)
+const classname = makeComponentClassName(name)
 
 export default defineComponent({
-  name,
+  name: componentName,
   props: {
     collection: { type: String, default: '' },
     name: { type: String, default: '' }

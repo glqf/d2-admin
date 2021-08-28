@@ -4,13 +4,13 @@ import { usePopper, popperPropsDefault, eventNameUpdateVisible } from 'd2-projec
 import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import { renderTrigger, renderPopper } from './render.jsx'
 
-const namespace = 'popper'
+const name = 'popper'
 
-const name = makeComponentName(namespace)
-const classname = makeComponentClassName(namespace)
+const componentName = makeComponentName(name)
+const classname = makeComponentClassName(name)
 
 export default defineComponent({
-  name,
+  name: componentName,
   props: popperPropsDefault,
   emits: [
     eventNameUpdateVisible

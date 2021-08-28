@@ -4,14 +4,14 @@ import { useContext } from 'd2-projects/d2-use/use-context.js'
 import { makeComponentName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import { breakPoints } from 'd2-projects/d2-utils/special/d2-components/const.js'
 
-const namespace = 'config'
+const name = 'config'
 
-const name = makeComponentName(namespace)
+const componentName = makeComponentName(name)
 
 const {
   provide,
   inject
-} = useContext(namespace)
+} = useContext(name)
 
 export const componentProps = {
   iconCollection: { type: String, default: '' },
@@ -62,7 +62,7 @@ export function useConfig () {
 }
 
 export default defineComponent({
-  name,
+  name: componentName,
   props: componentProps,
   setup (props, { slots }) {
     let provideData = getProvideData(props)
