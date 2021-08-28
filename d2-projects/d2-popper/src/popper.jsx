@@ -46,9 +46,9 @@ export default defineComponent({
 
     const popper = renderPopper(this.$slots.default?.(), {
       transitionName: 'fade',
-      ref: 'popperRefPopper',
-      classnames: classnames,
-      visible: popperVisible
+      popperRef: 'popperRefPopper',
+      popperClassnames: classnames,
+      popperVisible: popperVisible
     })
     
     console.log(popperVisible)
