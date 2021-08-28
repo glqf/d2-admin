@@ -1,4 +1,4 @@
-import { defineComponent, onMounted, watch, nextTick, onBeforeUpdate } from 'vue'
+import { defineComponent, onMounted, nextTick, onBeforeUpdate } from 'vue'
 import makeClassnames from 'classnames'
 import iconify from '@iconify/iconify'
 import { $ } from 'd2-projects/d2-utils/vue.js'
@@ -52,8 +52,8 @@ export default defineComponent({
     onBeforeUpdate(() => {
       wrapper.value = unll
     })
-    watch(() => props.collection, load, { flush: 'post' })
-    watch(() => props.icon, load, { flush: 'post' })
+    $(() => props.collection, load, { flush: 'post' })
+    $(() => props.icon, load, { flush: 'post' })
 
     return () => (
       <span class={ $(classnames) } ref={ wrapper }/>

@@ -1,4 +1,4 @@
-import { computed, onBeforeUpdate, watch } from 'vue'
+import { computed, onBeforeUpdate } from 'vue'
 import { isBoolean, isArray } from 'lodash-es'
 import { createPopper } from '@popperjs/core'
 import { $, findElement } from 'd2-projects/d2-utils/vue.js'
@@ -211,12 +211,12 @@ export function usePopper (props, emit) {
   }
   // ----
 
-  watch(optionsComputed, options => {
+  $(optionsComputed, options => {
     setOptions(options)
     update()
   })
 
-  watch(popperVisible, onpopperVisibleChange)
+  $(popperVisible, onpopperVisibleChange)
 
   onBeforeUpdate(() => {
     $(refTrigger, null)

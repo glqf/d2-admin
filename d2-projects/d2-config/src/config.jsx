@@ -1,5 +1,5 @@
 import { isFunction, keys, mapValues, isEqual, last, isUndefined } from 'lodash-es'
-import { defineComponent, reactive, watch } from 'vue'
+import { defineComponent, reactive } from 'vue'
 import { $ } from 'd2-projects/d2-utils/vue.js'
 import { useContext } from 'd2-projects/d2-use/use-context.js'
 import { makeComponentName } from 'd2-projects/d2-utils/special/d2-components/name.js'
@@ -68,7 +68,7 @@ export default defineComponent({
   setup (props, { slots }) {
     let provideData = getProvideData(props)
     keys(props).forEach(key => {
-      watch(
+      $(
         () => props[key],
         () => {
           provideData[key] = props[key]
