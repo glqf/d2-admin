@@ -34,7 +34,8 @@ export default defineComponent({
       classnames,
       // usePopper
       popperEvents,
-      popperVisible
+      popperVisible,
+      popperStyle
     } = this
 
     const trigger = renderTrigger(this.$slots.trigger?.(), {
@@ -46,7 +47,8 @@ export default defineComponent({
       transitionName: 'fade',
       popperClassnames: classnames,
       popperRef: 'popperRefPopper',
-      popperVisible: popperVisible
+      popperVisible: popperVisible,
+      popperStyle: popperStyle
     })
 
     return [

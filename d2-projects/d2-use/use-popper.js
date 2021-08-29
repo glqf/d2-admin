@@ -2,6 +2,7 @@ import { computed, onBeforeUpdate } from 'vue'
 import { isBoolean, isArray } from 'lodash-es'
 import { createPopper } from '@popperjs/core'
 import { $, findElement } from 'd2-projects/d2-utils/vue.js'
+import { PopupManager } from 'd2-projects/d2-utils/popup-manager.js'
 
 export const eventNameUpdateVisible = 'update:visible'
 
@@ -13,13 +14,11 @@ export const popperPropsDefault = {
   autoClose: { type: Number, default: 0 },
   showAfter: { type: Number, default: 0 },
   hideAfter: { type: Number, default: 0 },
-  trigger: { type: [String, Array], default: 'hover' } // click | focus | hover | manual
+  trigger: { type: [String, Array], default: 'click' } // click | focus | hover | manual
 }
 
 export function usePopper (props, emit) {
   let instance = null
-
-  const popperStyle = $({ zIndex: 1 })
 
   const refTrigger = $(null)
   const refPopper = $(null)
@@ -32,6 +31,10 @@ export function usePopper (props, emit) {
   }))
 
   const isManual = $(() => props.manualMode || props.trigger === 'manual')
+
+  const popperStyle = $({
+    zIndex: PopupManager.nextZIndex()
+  })
 
   const hasVisibleProp = $(() => isBoolean(props.visible))
 
@@ -230,7 +233,8 @@ export function usePopper (props, emit) {
     popperRefPopper: refPopper,
     popperInstance: instance,
     popperEvents: events,
-    popperVisible,
+    popperVisible: popperVisible,
+    popperStyle: popperStyle,
     popperDestroy: destroy,
     popperUpdate: update,
     popperSetOptions: setOptions

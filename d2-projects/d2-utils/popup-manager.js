@@ -1,7 +1,7 @@
-import { isServer } from './is-server.js'
 import { useConfig } from 'd2-projects/d2-config/index.js'
-import { addClass, removeClass, on } from './dom'
+import { isServer } from './is-server.js'
 import { eventCode } from './aria.js'
+import { addClass, removeClass, on } from './dom.js'
 
 const onTouchMove = e => {
   e.preventDefault()
