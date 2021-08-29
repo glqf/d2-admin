@@ -3,7 +3,7 @@ import { useConfig } from 'd2-projects/d2-config/index.js'
 import { addClass, removeClass, on } from './dom'
 import { eventCode } from './aria.js'
 
-const onTouchMove = (e) => {
+const onTouchMove = e => {
   e.preventDefault()
   e.stopPropagation()
 }
@@ -39,30 +39,30 @@ export const PopupManager = {
   modalDom: undefined,
   zIndex,
 
-  getInstance: function(id) {
+  getInstance: function (id) {
     return instances[id]
   },
 
-  register: function(id, instance) {
+  register: function (id, instance) {
     if (id && instance) {
       instances[id] = instance
     }
   },
 
-  deregister: function(id) {
+  deregister: function (id) {
     if (id) {
       instances[id] = null
       delete instances[id]
     }
   },
 
-  nextZIndex: function() {
+  nextZIndex: function () {
     return ++PopupManager.zIndex
   },
 
   modalStack: [],
 
-  doOnModalClick: function() {
+  doOnModalClick: function () {
     const topItem = PopupManager.modalStack[PopupManager.modalStack.length - 1]
     if (!topItem) return
 
@@ -72,7 +72,7 @@ export const PopupManager = {
     }
   },
 
-  openModal: function(id, zIndex, dom, modalClass, modalFade) {
+  openModal: function (id, zIndex, dom, modalClass, modalFade) {
     if (isServer) return
     if (!id || zIndex === undefined) return
     this.modalFade = modalFade
@@ -115,7 +115,7 @@ export const PopupManager = {
     this.modalStack.push({ id: id, zIndex: zIndex, modalClass: modalClass })
   },
 
-  closeModal: function(id) {
+  closeModal: function (id) {
     const modalStack = this.modalStack
     const modalDom = getModal()
 
@@ -187,7 +187,7 @@ function getTopPopup () {
 
 if (!isServer) {
   // handle `esc` key when the popup is shown
-  on(window, 'keydown', function(event) {
+  on(window, 'keydown', function (event) {
     if (event.code === eventCode.esc) {
       const topPopup = getTopPopup()
 
