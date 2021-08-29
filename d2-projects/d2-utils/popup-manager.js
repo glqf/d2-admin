@@ -1,4 +1,5 @@
 import { useConfig } from 'd2-projects/d2-config/index.js'
+import { $ } from 'd2-projects/d2-utils/vue.js'
 import { isServer } from './is-server.js'
 import { eventCode } from './aria.js'
 import { addClass, removeClass, on } from './dom.js'
@@ -13,7 +14,7 @@ const onModalClick = () => {
 }
 
 let hasModal = false
-let zIndex = 0
+let zIndex
 
 function getModal() {
   if (isServer) return
