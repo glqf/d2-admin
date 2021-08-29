@@ -18,7 +18,8 @@ export const componentProps = {
   iconCollection: { type: String, default: '' },
   svgSymbolId: { type: String, default: 'icon-[dir]-[name]' },
   svgDir: { type: String, default: '' },
-  breakPoints: { type: Object, default: () => breakPoints }
+  breakPoints: { type: Object, default: () => breakPoints },
+  zIndex: { type: Number, default: 2000 }
 }
 
 export const provideDataDefault = mapValues(
