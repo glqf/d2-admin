@@ -1,5 +1,5 @@
 import { computed, onBeforeUpdate } from 'vue'
-import { isBoolean, isArray } from 'lodash-es'
+import { isBoolean, isArray, uniqueId } from 'lodash-es'
 import { createPopper } from '@popperjs/core'
 import { $, findElement } from 'd2-projects/d2-utils/vue.js'
 import { OverlayManager } from 'd2-projects/d2-utils/overlay.js'
@@ -21,17 +21,19 @@ export const popperEmits = [
 ]
 
 export function usePopper (props, emit) {
-  let instance = null
+  let popperInstance = null
 
-  const refTrigger = $(null)
-  const refPopper = $(null)
-  const refArrow = $(null)
+  const popperId = `d2-popper-${uniqueId()}`
+
+  const popperRefTrigger = $(null)
+  const popperRefPopper = $(null)
+  const popperRefArrow = $(null)
 
   const visibleState = $(!!props.visible)
   const triggerFocusedState = $(false)
 
   const popperOptions = usePopperOptions(props, {
-    arrow: refArrow
+    arrow: popperRefArrow
   })
 
   function isManualMode () {
@@ -47,7 +49,7 @@ export function usePopper (props, emit) {
   let showTimer = null
   let hideTimer = null
 
-  const popperVisible = computed({
+  const visibility = computed({
     get () {
       return props.disabled
         ? false
@@ -61,18 +63,18 @@ export function usePopper (props, emit) {
     },
   })
 
-  const instanceMethod = name => instance[name] || (() => {})
+  const popperInstanceMethod = name => popperInstance[name] || (() => {})
 
-  const setOptions = options => instanceMethod('setOptions')(options)
+  const setOptions = options => popperInstanceMethod('setOptions')(options)
 
   function initializePopper () {
-    if (!$(popperVisible)) {
+    if (!$(visibility)) {
       return
     }
-    const _trigger = findElement($(refTrigger))
-    const _popper = $(refPopper)
+    const _trigger = findElement($(popperRefTrigger))
+    const _popper = $(popperRefPopper)
     const _options = $(popperOptions)
-    instance = createPopper(_trigger, _popper, _options)
+    popperInstance = createPopper(_trigger, _popper, _options)
     update()
   }
 
@@ -82,11 +84,11 @@ export function usePopper (props, emit) {
         _hide()
       }, props.autoClose)
     }
-    popperVisible.value = true
+    visibility.value = true
   }
 
   function _hide() {
-    popperVisible.value = false
+    visibility.value = false
   }
 
   function clearTimers() {
@@ -149,29 +151,29 @@ export function usePopper (props, emit) {
   }
 
   function doDestroy(force) {
-    if (!instance || ($(popperVisible) && !force)) return
+    if (!popperInstance || ($(visibility) && !force)) return
     detachPopper()
   }
 
   function detachPopper() {
-    instanceMethod('destroy')()
-    instance = null
+    popperInstanceMethod('destroy')()
+    popperInstance = null
   }
 
   const events = {}
 
   function update() {
-    if (!$(popperVisible)) {
+    if (!$(visibility)) {
       return
     }
-    if (instance) {
-      instanceMethod('update')()
+    if (popperInstance) {
+      popperInstanceMethod('update')()
     } else {
       initializePopper()
     }
   }
 
-  function onpopperVisibleChange(visible) {
+  function onVisibilityChange(visible) {
     if (visible) {
       popperStyle.value.zIndex = OverlayManager.nextZIndex()
       initializePopper()
@@ -180,7 +182,7 @@ export function usePopper (props, emit) {
 
   if (!isManualMode()) {
     const toggleState = () => {
-      if ($(popperVisible)) {
+      if ($(visibility)) {
         hide()
       } else {
         show()
@@ -243,11 +245,11 @@ export function usePopper (props, emit) {
     update()
   })
 
-  $(popperVisible, onpopperVisibleChange)
+  $(visibility, onVisibilityChange)
 
   onBeforeUpdate(() => {
-    $(refTrigger, null)
-    $(refPopper, null)
+    $(popperRefTrigger, null)
+    $(popperRefPopper, null)
   })
 
   function onAfterEnter () {
@@ -280,14 +282,13 @@ export function usePopper (props, emit) {
     onBeforeLeave,
     initializePopper,
     isManualMode,
-    //
-    popperRefTrigger: refTrigger,
-    popperRefPopper: refPopper,
-    popperInstance: instance,
-    popperEvents: events,
-    popperVisible: popperVisible,
-    popperStyle: popperStyle,
-    popperUpdate: update,
-    popperSetOptions: setOptions
+    popperRefTrigger,
+    popperRefPopper,
+    popperRefArrow,
+    events,
+    popperId,
+    popperInstance,
+    popperStyle,
+    visibility
   }
 }
