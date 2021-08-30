@@ -1,5 +1,26 @@
-import { Transition, createVNode, cloneVNode, withDirectives, withCtx, vShow } from 'vue'
-import { getFirstValidNode } from 'd2-projects/d2-utils/vnode.js'
+import { Transition, createVNode, cloneVNode, withDirectives, withCtx, vShow, openBlock, createBlock, Comment} from 'vue'
+import { getFirstValidNode, patchFlags } from 'd2-projects/d2-utils/vnode.js'
+
+export function renderArrow (showArrow) {
+  return showArrow
+    ? (
+      openBlock(),
+      createBlock(
+        'div',
+        {
+          ref: 'arrowRef',
+          class: 'd2-popper__arrow',
+          'data-popper-arrow': '',
+        },
+        null,
+        patchFlags.NEED_PATCH,
+      )
+    )
+    : (
+      openBlock(),
+      createBlock(Comment, null, '')
+    )
+}
 
 export function renderTrigger (trigger, extraProps = {}) {
   const element = getFirstValidNode(trigger, 1)

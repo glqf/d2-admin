@@ -1,11 +1,11 @@
-import makeClassnames from 'classnames'
+// import makeClassnames from 'classnames'
 import { defineComponent, Teleport, onMounted, onBeforeUnmount, onActivated, onDeactivated } from 'vue'
 import { $ } from 'd2-projects/d2-utils/vue.js'
 import { throwError } from 'd2-projects/d2-utils/error.js'
 import { usePopper, popperEmits } from 'd2-projects/d2-use/use-popper/index.js'
 import { popperPropsDefault } from 'd2-projects/d2-use/use-popper/props-default.js'
 import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
-import { renderTrigger, renderPopper } from './render.jsx'
+import { renderTrigger, renderPopper, renderArrow } from './render.jsx'
 
 const name = 'popper'
 
@@ -31,24 +31,41 @@ export default defineComponent({
     onActivated(popperStates.initializePopper)
     onDeactivated(forceDestroy)
 
-    const classnames = $(() => makeClassnames(classname, {}))
+    // const classnames = $(() => makeClassnames(classname, {}))
 
     return {
-      classnames,
+      // classnames,
       ...popperStates
     }
   },
   render () {
     const {
-      // props
+      $slots,
       appendToBody,
-      // computed
-      classnames,
-      // usePopper
-      events,
+      class: kls,
+      style,
+      effect,
+      hide,
+      onPopperMouseEnter,
+      onPopperMouseLeave,
+      onAfterEnter,
+      onAfterLeave,
+      onBeforeEnter,
+      onBeforeLeave,
+      popperClass,
+      popperId,
+      popperStyle,
+      pure,
+      showArrow,
+      transition,
       visibility,
-      popperStyle
+      stopPopperMouseEvent,
+      isManualMode,
+      events
     } = this
+
+    const isManual = isManualMode()
+    const arrow = renderArrow(showArrow)
 
     const trigger = renderTrigger(this.$slots.trigger?.(), {
       ref: 'triggerRef',
@@ -57,7 +74,7 @@ export default defineComponent({
 
     const popper = renderPopper(this.$slots.default?.(), {
       transitionName: 'fade',
-      popperClassnames: classnames,
+      popperClassnames: '',
       popperRef: 'popperRef',
       visibility: visibility,
       popperStyle: popperStyle
