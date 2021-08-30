@@ -10,8 +10,9 @@ import Jsx from '@vitejs/plugin-vue-jsx'
 // https://github.com/nekocode/antd-dayjs-vite-plugin
 import AntdDayjs from 'antd-dayjs-vite-plugin'
 
-// https://github.com/antfu/vite-plugin-components
-// import Components, { AntDesignVueResolver } from 'vite-plugin-components'
+// https://github.com/antfu/unplugin-vue-components
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // https://github.com/hannoeru/vite-plugin-pages
 import Pages from 'vite-plugin-pages'
@@ -26,11 +27,11 @@ export default defineConfig({
   plugins: [
     Vue(),
     Jsx(),
-    // Components({
-    //   customComponentResolvers: [
-    //     AntDesignVueResolver()
-    //   ]
-    // }),
+    Components({
+      resolvers: [
+        ElementPlusResolver()
+      ]
+    }),
     Pages({
       pagesDir: 'src/views',
       exclude: [

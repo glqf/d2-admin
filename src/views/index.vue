@@ -7,13 +7,11 @@
 </route>
 
 <template>
-  <a-space direction="vertical">
-    <a-button v-for="route in routes" :key="route.name">
-      <router-link :to="route.path">
-        {{ route?.meta?.title || route.path }}
-      </router-link>
-    </a-button>
-  </a-space>
+  <el-button v-for="route in routes" :key="route.name">
+    <router-link :to="route.path">
+      {{ route?.meta?.title || route.path }}
+    </router-link>
+  </el-button>
 </template>
 
 <script setup>
