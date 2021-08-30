@@ -3,6 +3,7 @@ import { isBoolean, isArray } from 'lodash-es'
 import { createPopper } from '@popperjs/core'
 import { $, findElement } from 'd2-projects/d2-utils/vue.js'
 import { OverlayManager } from 'd2-projects/d2-utils/overlay.js'
+import { usePopperOptions } from './popper-options'
 
 export const eventUpdateVisible = 'update:visible'
 
@@ -19,55 +20,19 @@ export const popperEmits = [
   eventBeforeLeave
 ]
 
-export const popperPropsDefault = {
-  visible: {
-    type: Boolean,
-    default: undefined
-  },
-  enterable: {
-    type: Boolean,
-    default: true
-  },
-  disabled: {
-    type: Boolean
-  },
-  manualMode: {
-    type: Boolean
-  },
-  appendToBody: {
-    type: Boolean,
-    default: true
-  },
-  autoClose: {
-    type: Number,
-    default: 0
-  },
-  showAfter: {
-    type: Number,
-    default: 0
-  },
-  hideAfter: {
-    type: Number,
-    default: 0
-  },
-  trigger: {
-    type: [String, Array], // click | focus | hover | manual
-    default: 'click'
-  }
-}
-
 export function usePopper (props, emit) {
   let instance = null
 
   const refTrigger = $(null)
   const refPopper = $(null)
+  const refArrow = $(null)
 
   const visibleState = $(!!props.visible)
   const triggerFocusedState = $(false)
 
-  const optionsComputed = $(() => ({
-    placement: 'top'
-  }))
+  const popperOptions = usePopperOptions(props, {
+    arrow: refArrow
+  })
 
   function isManualMode () {
     return props.manualMode || props.trigger === 'manual'
@@ -106,7 +71,7 @@ export function usePopper (props, emit) {
     }
     const _trigger = findElement($(refTrigger))
     const _popper = $(refPopper)
-    const _options = $(optionsComputed)
+    const _options = $(popperOptions)
     instance = createPopper(_trigger, _popper, _options)
     update()
   }
@@ -273,7 +238,7 @@ export function usePopper (props, emit) {
     }
   }
 
-  $(optionsComputed, options => {
+  $(popperOptions, options => {
     setOptions(options)
     update()
   })

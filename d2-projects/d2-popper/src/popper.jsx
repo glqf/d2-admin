@@ -1,7 +1,8 @@
 import makeClassnames from 'classnames'
 import { defineComponent, Teleport } from 'vue'
 import { $ } from 'd2-projects/d2-utils/vue.js'
-import { usePopper, popperPropsDefault, popperEmits } from 'd2-projects/d2-use/use-popper.js'
+import { usePopper, popperEmits } from 'd2-projects/d2-use/use-popper/index.js'
+import { popperPropsDefault } from 'd2-projects/d2-use/use-popper/props-default.js'
 import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import { renderTrigger, renderPopper } from './render.jsx'
 
