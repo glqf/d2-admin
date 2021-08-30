@@ -35,13 +35,12 @@ export default defineComponent({
     )
     const status = useBreakPoint(_breakPoints)
     const data = $(() => ({
-      ...$(status),
+      ...status,
       data: mapValues(
         props.data,
         (v, k) => $(status.responsive(...props.data[k]))
       )
     }))
-    
     return () => {
       const prop = $(data)
       return [
