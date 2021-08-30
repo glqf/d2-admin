@@ -1,5 +1,5 @@
 import { Transition, createVNode, cloneVNode, withDirectives, withCtx, vShow, openBlock, createBlock, Comment} from 'vue'
-import { getFirstValidNode, patchFlags } from 'd2-projects/d2-utils/vnode.js'
+import { getFirstValidNode, PatchFlags } from 'd2-projects/d2-utils/vnode.js'
 
 export function renderArrow (showArrow) {
   return showArrow
@@ -13,7 +13,7 @@ export function renderArrow (showArrow) {
           'data-popper-arrow': '',
         },
         null,
-        patchFlags.NEED_PATCH,
+        PatchFlags.NEED_PATCH,
       )
     )
     : (

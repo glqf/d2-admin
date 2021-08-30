@@ -10,7 +10,7 @@ export const isComment = node => node.type === Comment
 
 export const isTemplate = node => node.type === TEMPLATE
 
-export const patchFlags = {
+export const PatchFlags = {
   TEXT: 1,
   CLASS: 2,
   STYLE: 4,
