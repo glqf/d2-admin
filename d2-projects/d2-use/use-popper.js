@@ -20,15 +20,40 @@ export const popperEmits = [
 ]
 
 export const popperPropsDefault = {
-  visible: { type: Boolean, default: undefined },
-  enterable: { type: Boolean, default: true },
-  disabled: { type: Boolean },
-  manualMode: { type: Boolean },
-  appendToBody: { type: Boolean, default: true },
-  autoClose: { type: Number, default: 0 },
-  showAfter: { type: Number, default: 0 },
-  hideAfter: { type: Number, default: 0 },
-  trigger: { type: [String, Array], default: 'click' } // click | focus | hover | manual
+  visible: {
+    type: Boolean,
+    default: undefined
+  },
+  enterable: {
+    type: Boolean,
+    default: true
+  },
+  disabled: {
+    type: Boolean
+  },
+  manualMode: {
+    type: Boolean
+  },
+  appendToBody: {
+    type: Boolean,
+    default: true
+  },
+  autoClose: {
+    type: Number,
+    default: 0
+  },
+  showAfter: {
+    type: Number,
+    default: 0
+  },
+  hideAfter: {
+    type: Number,
+    default: 0
+  },
+  trigger: {
+    type: [String, Array], // click | focus | hover | manual
+    default: 'click'
+  }
 }
 
 export function usePopper (props, emit) {
