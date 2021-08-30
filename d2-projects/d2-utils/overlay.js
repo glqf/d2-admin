@@ -10,7 +10,7 @@ const onTouchMove = e => {
 }
 
 const onModalClick = () => {
-  PopupManager?.doOnModalClick()
+  OverlayManager?.doOnModalClick()
 }
 
 let hasModal = false
@@ -18,13 +18,13 @@ let zIndex
 
 function getModal() {
   if (isServer) return
-  let modalDom = PopupManager.modalDom
+  let modalDom = OverlayManager.modalDom
   if (modalDom) {
     hasModal = true
   } else {
     hasModal = false
     modalDom = document.createElement('div')
-    PopupManager.modalDom = modalDom
+    OverlayManager.modalDom = modalDom
 
     on(modalDom, 'touchmove', onTouchMove)
     on(modalDom, 'click', onModalClick)
@@ -35,7 +35,7 @@ function getModal() {
 
 const instances = {}
 
-export const PopupManager = {
+export const OverlayManager = {
   modalFade: true,
   modalDom: undefined,
   zIndex,
@@ -58,16 +58,16 @@ export const PopupManager = {
   },
 
   nextZIndex: function () {
-    return ++PopupManager.zIndex
+    return ++OverlayManager.zIndex
   },
 
   modalStack: [],
 
   doOnModalClick: function () {
-    const topItem = PopupManager.modalStack[PopupManager.modalStack.length - 1]
+    const topItem = OverlayManager.modalStack[OverlayManager.modalStack.length - 1]
     if (!topItem) return
 
-    const instance = PopupManager.getInstance(topItem.id)
+    const instance = OverlayManager.getInstance(topItem.id)
     if (instance && instance.closeOnClickModal.value) {
       instance.close()
     }
@@ -152,7 +152,7 @@ export const PopupManager = {
           modalDom.style.display = 'none'
           // off(modalDom, 'touchmove', onTouchMove)
           // off(modalDom, 'click', onModalClick)
-          PopupManager.modalDom = undefined
+          OverlayManager.modalDom = undefined
         }
         removeClass(modalDom, 'v-modal-leave')
       }, 200)
@@ -160,7 +160,7 @@ export const PopupManager = {
   },
 }
 
-Object.defineProperty(PopupManager, 'zIndex', {
+Object.defineProperty(OverlayManager, 'zIndex', {
   configurable: true,
   get() {
     if (zIndex === undefined) {
@@ -176,11 +176,11 @@ Object.defineProperty(PopupManager, 'zIndex', {
 
 function getTopPopup () {
   if (isServer) return
-  if (PopupManager.modalStack.length > 0) {
+  if (OverlayManager.modalStack.length > 0) {
     const topPopup =
-      PopupManager.modalStack[PopupManager.modalStack.length - 1]
+      OverlayManager.modalStack[OverlayManager.modalStack.length - 1]
     if (!topPopup) return
-    const instance = PopupManager.getInstance(topPopup.id)
+    const instance = OverlayManager.getInstance(topPopup.id)
 
     return instance
   }

@@ -2,7 +2,7 @@ import { computed, onBeforeUpdate } from 'vue'
 import { isBoolean, isArray } from 'lodash-es'
 import { createPopper } from '@popperjs/core'
 import { $, findElement } from 'd2-projects/d2-utils/vue.js'
-import { PopupManager } from 'd2-projects/d2-utils/popup-manager.js'
+import { OverlayManager } from 'd2-projects/d2-utils/overlay.js'
 
 export const eventNameUpdateVisible = 'update:visible'
 
@@ -33,7 +33,7 @@ export function usePopper (props, emit) {
   const isManual = $(() => props.manualMode || props.trigger === 'manual')
 
   const popperStyle = $({
-    zIndex: PopupManager.nextZIndex()
+    zIndex: OverlayManager.nextZIndex()
   })
 
   const hasVisibleProp = $(() => isBoolean(props.visible))
