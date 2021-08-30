@@ -58,7 +58,7 @@ export const OverlayManager = {
   },
 
   nextZIndex: function () {
-    return ++OverlayManager.zIndex
+    return ++ OverlayManager.zIndex
   },
 
   modalStack: [],
@@ -174,30 +174,26 @@ Object.defineProperty(OverlayManager, 'zIndex', {
   },
 })
 
-function getTopPopup () {
+function getTopLay () {
   if (isServer) return
   if (OverlayManager.modalStack.length > 0) {
-    const topPopup =
-      OverlayManager.modalStack[OverlayManager.modalStack.length - 1]
-    if (!topPopup) return
-    const instance = OverlayManager.getInstance(topPopup.id)
-
+    const topLay = OverlayManager.modalStack[OverlayManager.modalStack.length - 1]
+    if (!topLay) return
+    const instance = OverlayManager.getInstance(topLay.id)
     return instance
   }
 }
 
 if (!isServer) {
-  // handle `esc` key when the popup is shown
   on(window, 'keydown', function (event) {
     if (event.code === eventCode.esc) {
-      const topPopup = getTopPopup()
-
-      if (topPopup && topPopup.closeOnPressEscape.value) {
-        topPopup.handleClose
-          ? topPopup.handleClose()
-          : topPopup.handleAction
-            ? topPopup.handleAction('cancel')
-            : topPopup.close()
+      const topLay = getTopLay()
+      if (topLay && topLay.closeOnPressEscape.value) {
+        topLay.handleClose
+          ? topLay.handleClose()
+          : topLay.handleAction
+            ? topLay.handleAction('cancel')
+            : topLay.close()
       }
     }
   })
