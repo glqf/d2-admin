@@ -44,7 +44,9 @@ export function usePopper (props, emit) {
     placement: 'top'
   }))
 
-  const isManualMode = $(() => props.manualMode || props.trigger === 'manual')
+  function isManualMode () {
+    return props.manualMode || props.trigger === 'manual'
+  }
 
   const popperStyle = $({
     zIndex: OverlayManager.nextZIndex()
@@ -62,7 +64,7 @@ export function usePopper (props, emit) {
         : ($(hasVisibleProp) ? props.visible : $(visibleState))
     },
     set (val) {
-      if ($(isManualMode)) return
+      if (isManualMode()) return
       $(hasVisibleProp)
         ? emit(eventUpdateVisible, val)
         : $(visibleState, val)
@@ -103,7 +105,7 @@ export function usePopper (props, emit) {
   }
 
   const show = () => {
-    if ($(isManualMode) || props.disabled) return
+    if (isManualMode() || props.disabled) return
     clearTimers()
     if (props.showAfter === 0) {
       _show()
@@ -115,7 +117,7 @@ export function usePopper (props, emit) {
   }
 
   const hide = () => {
-    if ($(isManualMode)) return
+    if (isManualMode()) return
     clearTimers()
     if (props.hideAfter > 0) {
       hideTimer = setTimeout(() => {
@@ -186,7 +188,7 @@ export function usePopper (props, emit) {
     }
   }
 
-  if (!$(isManualMode)) {
+  if (!isManualMode()) {
     const toggleState = () => {
       if ($(popperVisible)) {
         hide()
@@ -258,6 +260,23 @@ export function usePopper (props, emit) {
     $(refPopper, null)
   })
 
+  function onAfterEnter () {
+    emit(eventAfterEnter)
+  }
+
+  function onAfterLeave () {
+    detachPopper()
+    emit(eventAfterLeave)
+  }
+
+  function onBeforeEnter () {
+    emit(eventBeforeEnter)
+  }
+
+  function onBeforeLeave () {
+    emit(eventBeforeLeave)
+  }
+
   return {
     update,
     doDestroy,
@@ -265,19 +284,10 @@ export function usePopper (props, emit) {
     hide,
     onPopperMouseEnter,
     onPopperMouseLeave,
-    onAfterEnter: () => {
-      emit(eventAfterEnter)
-    },
-    onAfterLeave: () => {
-      detachPopper()
-      emit(eventAfterLeave)
-    },
-    onBeforeEnter: () => {
-      emit(eventBeforeEnter)
-    },
-    onBeforeLeave: () => {
-      emit(eventBeforeLeave)
-    },
+    onAfterEnter,
+    onAfterLeave,
+    onBeforeEnter,
+    onBeforeLeave,
     initializePopper,
     isManualMode,
     //
