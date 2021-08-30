@@ -247,11 +247,6 @@ export function usePopper (props, emit) {
 
   $(visibility, onVisibilityChange)
 
-  onBeforeUpdate(() => {
-    $(triggerRef, null)
-    $(popperRef, null)
-  })
-
   function onAfterEnter () {
     emit(eventAfterEnter)
   }
