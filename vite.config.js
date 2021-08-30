@@ -23,13 +23,20 @@ import SvgIcons from 'vite-plugin-svg-icons'
 // https://github.com/antfu/purge-icons
 import PurgeIcons from 'vite-plugin-purge-icons'
 
+// https://github.com/antfu/unplugin-icons
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+
 export default defineConfig({
   plugins: [
     Vue(),
     Jsx(),
     Components({
       resolvers: [
-        ElementPlusResolver()
+        ElementPlusResolver(),
+        IconsResolver({
+          componentPrefix: 'icon'
+        })
       ]
     }),
     Pages({
@@ -53,6 +60,10 @@ export default defineConfig({
       iconDirs: [
         path.resolve(process.cwd(), 'src/assets/svg/icon')
       ]
+    }),
+    Icons({
+      scale: 1,
+      compiler: 'vue3'
     })
   ],
   resolve: {

@@ -1,4 +1,5 @@
 <template>
+  <icon-carbon-accessibility/>
   <d2-icon name="home"/>
   <d2-icon name="account-supervisor-circle"/>
   <d2-icon name="menu-open"/>
