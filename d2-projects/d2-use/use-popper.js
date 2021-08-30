@@ -4,10 +4,24 @@ import { createPopper } from '@popperjs/core'
 import { $, findElement } from 'd2-projects/d2-utils/vue.js'
 import { OverlayManager } from 'd2-projects/d2-utils/overlay.js'
 
-export const eventNameUpdateVisible = 'update:visible'
+export const eventUpdateVisible = 'update:visible'
+
+export const eventAfterEnter = 'after-enter'
+export const eventAfterLeave = 'after-leave'
+export const eventBeforeEnter = 'before-enter'
+export const eventBeforeLeave = 'before-leave'
+
+export const popperEmits = [
+  eventUpdateVisible,
+  eventAfterEnter,
+  eventAfterLeave,
+  eventBeforeEnter,
+  eventBeforeLeave
+]
 
 export const popperPropsDefault = {
   visible: { type: Boolean, default: undefined },
+  enterable: { type: Boolean, default: true },
   disabled: { type: Boolean },
   manualMode: { type: Boolean },
   appendToBody: { type: Boolean, default: true },
@@ -30,7 +44,7 @@ export function usePopper (props, emit) {
     placement: 'top'
   }))
 
-  const isManual = $(() => props.manualMode || props.trigger === 'manual')
+  const isManualMode = $(() => props.manualMode || props.trigger === 'manual')
 
   const popperStyle = $({
     zIndex: OverlayManager.nextZIndex()
@@ -48,19 +62,18 @@ export function usePopper (props, emit) {
         : ($(hasVisibleProp) ? props.visible : $(visibleState))
     },
     set (val) {
-      if ($(isManual)) return
+      if ($(isManualMode)) return
       $(hasVisibleProp)
-        ? emit(eventNameUpdateVisible, val)
+        ? emit(eventUpdateVisible, val)
         : $(visibleState, val)
     },
   })
 
   const instanceMethod = name => instance[name] || (() => {})
 
-  const destroy = () => instanceMethod('destroy')()
   const setOptions = options => instanceMethod('setOptions')(options)
 
-  function init () {
+  function initializePopper () {
     if (!$(popperVisible)) {
       return
     }
@@ -90,7 +103,7 @@ export function usePopper (props, emit) {
   }
 
   const show = () => {
-    if ($(isManual) || props.disabled) return
+    if ($(isManualMode) || props.disabled) return
     clearTimers()
     if (props.showAfter === 0) {
       _show()
@@ -102,7 +115,7 @@ export function usePopper (props, emit) {
   }
 
   const hide = () => {
-    if ($(isManual)) return
+    if ($(isManualMode)) return
     clearTimers()
     if (props.hideAfter > 0) {
       hideTimer = setTimeout(() => {
@@ -120,18 +133,38 @@ export function usePopper (props, emit) {
     }
   }
 
+
+
+  function onPopperMouseEnter () {
+    // if trigger is click, user won't be able to close popper when
+    // user tries to move the mouse over popper contents
+    if (props.enterable && props.trigger !== 'click') {
+      clearTimeout(hideTimer)
+    }
+  }
+
+  function onPopperMouseLeave () {
+    const { trigger } = props
+    const shouldPrevent =
+      (isString(trigger) && (trigger === 'click' || trigger === 'focus'))
+        // we'd like to test array type trigger here, but the only case we need to cover is trigger === 'click' or
+        // trigger === 'focus', because that when trigger is string
+        // trigger.length === 1 and trigger[0] === 5 chars string is mutually exclusive.
+        // so there will be no need to test if trigger is array type.
+        || (trigger.length === 1 && (trigger[0] === 'click' || trigger[0] === 'focus'))
+    if (shouldPrevent) return
+    hide()
+  }
+
   function doDestroy(force) {
     if (!instance || ($(popperVisible) && !force)) return
     detachPopper()
   }
 
   function detachPopper() {
-    destroy()
+    instanceMethod('destroy')()
     instance = null
   }
-
-  // ----
-
 
   const events = {}
 
@@ -142,18 +175,18 @@ export function usePopper (props, emit) {
     if (instance) {
       instanceMethod('update')()
     } else {
-      init()
+      initializePopper()
     }
   }
 
   function onpopperVisibleChange(visible) {
     if (visible) {
       popperStyle.value.zIndex = OverlayManager.nextZIndex()
-      init()
+      initializePopper()
     }
   }
 
-  if (!$(isManual)) {
+  if (!$(isManualMode)) {
     const toggleState = () => {
       if ($(popperVisible)) {
         hide()
@@ -212,7 +245,6 @@ export function usePopper (props, emit) {
       mapEvents(props.trigger)
     }
   }
-  // ----
 
   $(optionsComputed, options => {
     setOptions(options)
@@ -227,13 +259,34 @@ export function usePopper (props, emit) {
   })
 
   return {
+    update,
+    doDestroy,
+    show,
+    hide,
+    onPopperMouseEnter,
+    onPopperMouseLeave,
+    onAfterEnter: () => {
+      emit(eventAfterEnter)
+    },
+    onAfterLeave: () => {
+      detachPopper()
+      emit(eventAfterLeave)
+    },
+    onBeforeEnter: () => {
+      emit(eventBeforeEnter)
+    },
+    onBeforeLeave: () => {
+      emit(eventBeforeLeave)
+    },
+    initializePopper,
+    isManualMode,
+    //
     popperRefTrigger: refTrigger,
     popperRefPopper: refPopper,
     popperInstance: instance,
     popperEvents: events,
     popperVisible: popperVisible,
     popperStyle: popperStyle,
-    popperDestroy: destroy,
     popperUpdate: update,
     popperSetOptions: setOptions
   }
