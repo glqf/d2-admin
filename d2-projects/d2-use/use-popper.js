@@ -148,7 +148,7 @@ export function usePopper (props, emit) {
 
   function onpopperVisibleChange(visible) {
     if (visible) {
-      popperStyle.value.zIndex ++
+      popperStyle.value.zIndex = OverlayManager.nextZIndex()
       init()
     }
   }
