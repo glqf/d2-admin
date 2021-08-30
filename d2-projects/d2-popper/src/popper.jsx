@@ -5,7 +5,8 @@ import { throwError } from 'd2-projects/d2-utils/error.js'
 import { usePopper, popperEmits } from 'd2-projects/d2-use/use-popper/index.js'
 import { popperPropsDefault } from 'd2-projects/d2-use/use-popper/props-default.js'
 import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
-import { renderTrigger, renderPopper, renderArrow } from './render.jsx'
+import { renderTrigger, renderPopper } from './render.jsx'
+import { renderArrow } from './render/arrow.js'
 
 const name = 'popper'
 
