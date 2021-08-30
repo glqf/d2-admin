@@ -146,8 +146,8 @@ export function usePopper (props, emit) {
     }
   }
 
-  function onpopperVisibleChange(toState) {
-    if (toState) {
+  function onpopperVisibleChange(visible) {
+    if (visible) {
       popperStyle.value.zIndex ++
       init()
     }
@@ -225,8 +225,6 @@ export function usePopper (props, emit) {
     $(refTrigger, null)
     $(refPopper, null)
   })
-
-  // watchPostEffect(init)
 
   return {
     popperRefTrigger: refTrigger,
