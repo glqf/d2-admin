@@ -12,10 +12,10 @@ export function renderTrigger (trigger, extraProps = {}) {
 export function renderPopper (children, config = {}) {
   const {
     transitionName = 'fade',
-    popperRef = 'popperRefPopper',
+    popperRef = 'popperRef',
     popperClassnames = '',
     popperStyle = {},
-    popperVisible = false
+    visibility = false
   } = config
   return createVNode(
     Transition,
@@ -35,7 +35,7 @@ export function renderPopper (children, config = {}) {
             children
           ),
           [
-            [vShow, popperVisible]
+            [vShow, visibility]
           ],
         )
       ])

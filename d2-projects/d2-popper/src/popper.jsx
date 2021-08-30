@@ -19,7 +19,7 @@ export default defineComponent({
     ...popperEmits
   ],
   setup (props, { slots, emit }) {
-    if (slots.trigger) {
+    if (!slots.trigger) {
       throwError(componentName, 'Trigger must be provided')
     }
 
@@ -45,21 +45,21 @@ export default defineComponent({
       // computed
       classnames,
       // usePopper
-      popperEvents,
-      popperVisible,
+      events,
+      visibility,
       popperStyle
     } = this
 
     const trigger = renderTrigger(this.$slots.trigger?.(), {
-      ref: 'popperRefTrigger',
-      ...popperEvents
+      ref: 'triggerRef',
+      ...events
     })
 
     const popper = renderPopper(this.$slots.default?.(), {
       transitionName: 'fade',
       popperClassnames: classnames,
-      popperRef: 'popperRefPopper',
-      popperVisible: popperVisible,
+      popperRef: 'popperRef',
+      visibility: visibility,
       popperStyle: popperStyle
     })
 

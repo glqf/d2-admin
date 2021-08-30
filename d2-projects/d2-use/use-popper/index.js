@@ -25,15 +25,15 @@ export function usePopper (props, emit) {
 
   const popperId = `d2-popper-${uniqueId()}`
 
-  const popperRefTrigger = $(null)
-  const popperRefPopper = $(null)
-  const popperRefArrow = $(null)
+  const triggerRef = $(null)
+  const popperRef = $(null)
+  const arrowRef = $(null)
 
   const visibleState = $(!!props.visible)
   const triggerFocusedState = $(false)
 
   const popperOptions = usePopperOptions(props, {
-    arrow: popperRefArrow
+    arrow: arrowRef
   })
 
   function isManualMode () {
@@ -71,8 +71,8 @@ export function usePopper (props, emit) {
     if (!$(visibility)) {
       return
     }
-    const _trigger = findElement($(popperRefTrigger))
-    const _popper = $(popperRefPopper)
+    const _trigger = findElement($(triggerRef))
+    const _popper = $(popperRef)
     const _options = $(popperOptions)
     popperInstance = createPopper(_trigger, _popper, _options)
     update()
@@ -248,8 +248,8 @@ export function usePopper (props, emit) {
   $(visibility, onVisibilityChange)
 
   onBeforeUpdate(() => {
-    $(popperRefTrigger, null)
-    $(popperRefPopper, null)
+    $(triggerRef, null)
+    $(popperRef, null)
   })
 
   function onAfterEnter () {
@@ -282,9 +282,9 @@ export function usePopper (props, emit) {
     onBeforeLeave,
     initializePopper,
     isManualMode,
-    popperRefTrigger,
-    popperRefPopper,
-    popperRefArrow,
+    triggerRef,
+    popperRef,
+    arrowRef,
     events,
     popperId,
     popperInstance,
