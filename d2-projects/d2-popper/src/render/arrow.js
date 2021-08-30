@@ -1,7 +1,7 @@
 import { openBlock, createBlock, Comment } from 'vue'
 import { PatchFlags } from 'd2-projects/d2-utils/vnode.js'
 
-export default function renderArrow (showArrow) {
+export function renderArrow (showArrow) {
   return showArrow
     ? (openBlock(),
     createBlock(

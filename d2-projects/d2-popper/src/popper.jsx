@@ -1,11 +1,14 @@
 // import makeClassnames from 'classnames'
-import { defineComponent, Teleport, onMounted, onBeforeUnmount, onActivated, onDeactivated } from 'vue'
+import { toDisplayString, defineComponent, Teleport, Fragment, createVNode, onMounted, onBeforeUnmount, onActivated, onDeactivated, renderSlot, withDirectives } from 'vue'
+import { ClickOutside } from 'd2-projects/d2-directives/click-outside.js'
 import { $ } from 'd2-projects/d2-utils/vue.js'
 import { throwError } from 'd2-projects/d2-utils/error.js'
+import { PatchFlags, renderBlock } from 'd2-projects/d2-utils/vnode.js'
 import { usePopper, popperEmits } from 'd2-projects/d2-use/use-popper/index.js'
 import { popperPropsDefault } from 'd2-projects/d2-use/use-popper/props-default.js'
 import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
-import { renderTrigger, renderPopper } from './render.jsx'
+import { renderTrigger } from './render/trigger.js'
+import { renderPopper } from './render/popper.js'
 import { renderArrow } from './render/arrow.js'
 
 const name = 'popper'
@@ -68,29 +71,60 @@ export default defineComponent({
     const isManual = isManualMode()
     const arrow = renderArrow(showArrow)
 
-    const trigger = renderTrigger(this.$slots.trigger?.(), {
+    const popper = renderPopper(
+      {
+        effect,
+        name: transition,
+        popperClass,
+        popperId,
+        popperStyle,
+        pure,
+        stopPopperMouseEvent,
+        onMouseenter: onPopperMouseEnter,
+        onMouseleave: onPopperMouseLeave,
+        onAfterEnter,
+        onAfterLeave,
+        onBeforeEnter,
+        onBeforeLeave,
+        visibility,
+      },
+      [
+        renderSlot($slots, 'default', {}, () => {
+          return [toDisplayString(this.content || '123123')]
+        }),
+        arrow,
+      ],
+    )
+
+    const _t = $slots.trigger?.()
+
+    const triggerProps = {
+      ariaDescribedby: popperId,
+      class: kls,
+      style,
       ref: 'triggerRef',
-      ...events
-    })
+      ...events,
+    }
 
-    const popper = renderPopper(this.$slots.default?.(), {
-      transitionName: 'fade',
-      popperClassnames: '',
-      popperRef: 'popperRef',
-      visibility: visibility,
-      popperStyle: popperStyle
-    })
+    const trigger = isManual
+      ? renderTrigger(_t, triggerProps)
+      : withDirectives(renderTrigger(_t, triggerProps), [[ClickOutside, hide]])
 
-    return [
+    console.log('popper', popper)
+    console.log('trigger', trigger)
+
+    return renderBlock(Fragment, null, [
       trigger,
-      (
-        <Teleport
-          to="body"
-          disabled={ !appendToBody }
-        >
-          { popper }
-        </Teleport>
-      )
-    ]
+      createVNode(
+        Teleport, // Vue did not support createVNode for Teleport
+        {
+          to: 'body',
+          disabled: !appendToBody,
+        },
+        [popper],
+        PatchFlags.PROPS,
+        ['disabled'],
+      ),
+    ])
   }
 })

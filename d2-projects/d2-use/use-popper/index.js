@@ -63,7 +63,7 @@ export function usePopper (props, emit) {
     },
   })
 
-  const popperInstanceMethod = name => popperInstance[name] || (() => {})
+  const popperInstanceMethod = name => (popperInstance && popperInstance[name] || (() => {}))
 
   const setOptions = options => popperInstanceMethod('setOptions')(options)
 

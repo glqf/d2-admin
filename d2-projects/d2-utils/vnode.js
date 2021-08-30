@@ -1,4 +1,4 @@
-import { Fragment, Text, Comment } from 'vue'
+import { openBlock, createBlock, Fragment, Text, Comment } from 'vue'
 
 const TEMPLATE = 'template'
 
@@ -42,4 +42,8 @@ export function getFirstValidNode (nodes, maxDepth = 3,) {
   } else {
     return getChildren(nodes, maxDepth)
   }
+}
+
+export function renderBlock(node, props, children, patchFlag, patchProps) {
+  return (openBlock(), createBlock(node, props, children, patchFlag, patchProps))
 }
