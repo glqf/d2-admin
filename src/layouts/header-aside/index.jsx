@@ -14,21 +14,41 @@ const classname = makeComponentClassName(name)
 export default defineComponent({
   componentName,
   setup () {
-    const classnames = $(() => makeClassnames(classname, {}))
+    const headerClassnames = $(() => makeClassnames(`${classname}__header`, {}))
+    const asideClassnames = $(() => makeClassnames(`${classname}__aside`, {}))
+    const bodyClassnames = $(() => makeClassnames(`${classname}__body`, {}))
     return {
-      classnames
+      headerClassnames,
+      asideClassnames,
+      bodyClassnames
     }
   },
   render () {
     const {
       $slots,
-      classnames
+      headerClassnames,
+      asideClassnames,
+      bodyClassnames
     } = this
-    return (
-      <div class={ classnames }>
-        layout
+    const header = (
+      <div class={ headerClassnames }>
+        header
+      </div>
+    )
+    const aside = (
+      <div class={ asideClassnames }>
+        side
+      </div>
+    )
+    const body = (
+      <div class={ bodyClassnames }>
         { $slots.default?.() }
       </div>
     )
+    return [
+      body,
+      header,
+      aside
+    ]
   }
 })

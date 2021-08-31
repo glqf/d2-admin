@@ -7,7 +7,7 @@
 </route>
 
 <template>
-  <D2LayoutHeaderAside>
+  <d2-layout-header-aside>
     <router-link
       v-for="route in routes"
       :key="route.name"
@@ -17,7 +17,7 @@
         {{ route?.meta?.title || route.path }}
       </el-button>
     </router-link>
-  </D2LayoutHeaderAside>
+  </d2-layout-header-aside>
 </template>
 
 <script setup>
