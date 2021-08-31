@@ -1,4 +1,4 @@
-import mkCls from 'classnames'
+import makeClassnames from 'classnames'
 import { defineComponent, onMounted, nextTick, onBeforeUpdate } from 'vue'
 import iconify from '@iconify/iconify'
 import { $ } from 'd2-projects/d2-utils/vue.js'
@@ -46,7 +46,7 @@ export default defineComponent({
       }
     }
 
-    const classnames = $(() => mkCls(classname, {}))
+    const classnames = $(() => makeClassnames(classname, {}))
 
     onMounted(load)
     onBeforeUpdate(() => {
