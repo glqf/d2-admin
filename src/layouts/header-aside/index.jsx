@@ -1,4 +1,4 @@
-import makeClassnames from 'classnames'
+import mkCls from 'classnames'
 import { defineComponent } from 'vue'
 import { $ } from 'd2-projects/d2-utils/vue.js'
 import {
@@ -14,9 +14,9 @@ const classname = makeComponentClassName(name)
 export default defineComponent({
   componentName,
   setup () {
-    const headerClassnames = $(() => makeClassnames(`${classname}__header`, {}))
-    const asideClassnames = $(() => makeClassnames(`${classname}__aside`, {}))
-    const bodyClassnames = $(() => makeClassnames(`${classname}__body`, {}))
+    const headerClassnames = $(() => mkCls(`${classname}__header`, {}))
+    const asideClassnames = $(() => mkCls(`${classname}__aside`, {}))
+    const bodyClassnames = $(() => mkCls(`${classname}__body`, {}))
     return {
       headerClassnames,
       asideClassnames,

@@ -1,4 +1,4 @@
-import makeClassnames from 'classnames'
+import mkCls from 'classnames'
 import { defineComponent } from 'vue'
 import { pickBy, isUndefined } from 'lodash-es'
 import { $ } from 'd2-projects/d2-utils/vue.js'
@@ -40,7 +40,7 @@ export default defineComponent({
     const center = $(() => props.center ? 'center' : '')
     const main = $(() => $(center) || props.main)
     const cross = $(() => $(center) || props.cross)
-    const classnames = $(() => makeClassnames(
+    const classnames = $(() => mkCls(
       classname,
       {
         'is-inline-flex': props.inlineFlex,

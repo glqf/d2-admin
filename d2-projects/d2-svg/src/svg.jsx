@@ -1,4 +1,4 @@
-import makeClassnames from 'classnames'
+import mkCls from 'classnames'
 import { defineComponent } from 'vue'
 import { $ } from 'd2-projects/d2-utils/vue.js'
 import { useConfig } from 'd2-projects/d2-config/index.js'
@@ -27,7 +27,7 @@ export default defineComponent({
         .replace(/\[name\]/g, props.name)
     })
 
-    const classnames = $(() => makeClassnames(classname, {}))
+    const classnames = $(() => mkCls(classname, {}))
 
     return () => (
       <svg class={ $(classnames) } aria-hidden="true">

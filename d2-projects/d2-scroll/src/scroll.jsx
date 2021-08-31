@@ -1,4 +1,4 @@
-import makeClassnames from 'classnames'
+import mkCls from 'classnames'
 import { defineComponent, onBeforeUnmount, onMounted } from 'vue'
 import { kebabCase, fromPairs, mergeWith } from 'lodash-es'
 import { $ } from 'd2-projects/d2-utils/vue.js'
@@ -132,7 +132,7 @@ export default defineComponent({
     
     $(options, reloadOptions)
     
-    const classnames = $(() => makeClassnames(classname, {}))
+    const classnames = $(() => mkCls(classname, {}))
 
     return {
       target,
