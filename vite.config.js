@@ -6,6 +6,12 @@ import Vue from '@vitejs/plugin-vue'
 
 import { visualizer } from 'rollup-plugin-visualizer'
 
+// https://github.com/antfu/vite-plugin-md
+import Markdown from 'vite-plugin-md'
+
+// https://github.com/visualfanatic/vite-svg/tree/vite-plugin-svg
+import Svg from 'vite-plugin-vue-svg'
+
 // https://github.com/vitejs/vite/tree/main/packages/plugin-vue-jsx
 import Jsx from '@vitejs/plugin-vue-jsx'
 
@@ -33,9 +39,20 @@ import IconsResolver from 'unplugin-icons/resolver'
 
 export default defineConfig({
   plugins: [
-    Vue(),
+    Vue({
+      include: [/\.vue$/, /\.md$/],
+    }),
+    Markdown(),
     Jsx(),
+    Svg(),
     Components({
+      dirs: ['d2-admin/components'],
+      extensions: ['vue', 'md', 'svg'],
+      include: [/\.vue$/, /\.md$/],
+      directoryAsNamespace: true,
+      globalNamespaces: ['global'],
+      importPathTransform: path => path.endsWith('.svg') ? `${path}?component` : undefined,
+      deep: true,
       resolvers: [
         ElementPlusResolver(),
         IconsResolver({

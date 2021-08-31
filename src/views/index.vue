@@ -8,6 +8,9 @@
 
 <template>
   <d2-layout-header-aside>
+    <js/>
+    <abc/>
+    <demo-1/>
     <router-link
       v-for="route in routes"
       :key="route.name"
@@ -17,9 +20,10 @@
         {{ route?.meta?.title || route.path }}
       </el-button>
     </router-link>
-    <p v-for="n in 100" :key="n">
-      {{ n }}
-    </p>
+    <!-- <p v-for="n in 100" :key="n">{{ n }}</p> -->
+    <!-- <span class="iconify" data-icon="mdi:ab-testing"></span> -->
+    <icon-mdi-ab-testing/>
+    <icon-carbon-ai-status/>
   </d2-layout-header-aside>
 </template>
 
