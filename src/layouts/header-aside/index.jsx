@@ -1,6 +1,10 @@
-import { defineComponent } from 'vue'
 import makeClassnames from 'classnames'
-import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
+import { defineComponent } from 'vue'
+import { $ } from 'd2-projects/d2-utils/vue.js'
+import {
+  makeComponentName,
+  makeComponentClassName
+} from 'd2-projects/d2-utils/special/d2-components/name.js'
 
 const name = 'layout-header-aside'
 
@@ -16,9 +20,14 @@ export default defineComponent({
     }
   },
   render () {
+    const {
+      $slots,
+      classnames
+    } = this
     return (
       <div class={ classnames }>
-        { this.$slots?.default?.() }
+        layout
+        { $slots.default?.() }
       </div>
     )
   }
