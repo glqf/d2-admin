@@ -1,14 +1,14 @@
-import { $ } from 'v-dollar'
+import { ref, computed, unref } from 'vue'
 
 export function useCssPosition (t = 0, r = 0, b = 0, l = 0) {
-  const top = $(t)
-  const right = $(r)
-  const bottom = $(b)
-  const left = $(l)
+  const top = ref(t)
+  const right = ref(r)
+  const bottom = ref(b)
+  const left = ref(l)
 
-  const px = refValue => $(refValue) + 'px'
+  const px = refValue => unref(refValue) + 'px'
 
-  const positionStyle = $(() => ({
+  const position = computed(() => ({
     top: px(top),
     right: px(right),
     bottom: px(bottom),
@@ -20,6 +20,6 @@ export function useCssPosition (t = 0, r = 0, b = 0, l = 0) {
     right,
     bottom,
     left,
-    positionStyle
+    position
   }
 }

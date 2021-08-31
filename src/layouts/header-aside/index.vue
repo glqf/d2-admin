@@ -2,28 +2,48 @@
 .layout-header-aside__body {
   position: absolute;
 }
+.layout-header-aside__header {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.layout-header-aside__aside {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #F1F3F4;
+}
 </style>
 
 <template>
-  <div class="layout-header-aside__body" :style="positionStyle">
+  <div class="layout-header-aside__body" :style="position">
     <slot/>
   </div>
-  <div class="layout-header-aside__header">
+  <div class="layout-header-aside__header" :style="headerStyle">
     header
   </div>
-  <div class="layout-header-aside__aside">
+  <div class="layout-header-aside__aside" :style="asideStyle">
     aside
   </div>
 </template>
 
 <script setup>
+import { computed, ref } from 'vue'
+import { px } from 'd2-projects/d2-utils/css.js'
 import { useCssPosition } from 'd2-projects/d2-use/use-css-position.js'
 
-const {
-  top,
-  right,
-  bottom,
-  left,
-  positionStyle
-} = useCssPosition(50, 0, 0, 50)
+const headerHeight = ref(50)
+const asideWidth = ref(200)
+
+const { position } = useCssPosition(headerHeight, 0, 0, asideWidth)
+
+const headerStyle = computed(() => ({
+  height: px(headerHeight),
+  left: px(asideWidth)
+}))
+
+const asideStyle = computed(() => ({
+  width: px(asideWidth)
+}))
 </script>
