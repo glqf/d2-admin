@@ -1,5 +1,7 @@
 import path from 'path'
+
 import { defineConfig } from 'vite'
+
 import Vue from '@vitejs/plugin-vue'
 
 import { visualizer } from 'rollup-plugin-visualizer'
