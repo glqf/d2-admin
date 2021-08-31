@@ -6,6 +6,7 @@ import {
   makeComponentName,
   makeComponentClassName
 } from 'd2-projects/d2-utils/special/d2-components/name.js'
+import D2Scrollbar from 'd2-projects/d2-scrollbar/index.js'
 
 const name = 'layout-header-aside'
 
@@ -15,38 +16,34 @@ const classname = makeComponentClassName(name)
 export default defineComponent({
   componentName,
   setup () {
-    const elements = [
-      'header',
-      'aside',
-      'body'
-    ]
-    const classnames = fromPairs(elements.map(e => [
-      e,
-      $(() => makeClassnames(`${classname}__${e}`, {}))
-    ]))
+    function bemE (e, b = classname) {
+      return `${b}__${e}`
+    }
     return {
-      classnames
+      bemE
     }
   },
   render () {
     const {
       $slots,
-      classnames
+      bemE
     } = this
     const header = (
-      <div class={ $(classnames.header) }>
+      <div class={ bemE('header') }>
         header
       </div>
     )
     const aside = (
-      <div class={ $(classnames.aside) }>
+      <div class={ bemE('aside') }>
         side
       </div>
     )
     const body = (
-      <div class={ $(classnames.body) }>
-        { $slots.default?.() }
-      </div>
+      <D2Scrollbar class={ bemE('body-scrollbar') }>
+        <div class={ bemE('body') }>
+          { $slots.default?.() }
+        </div>
+      </D2Scrollbar>
     )
     return [
       body,

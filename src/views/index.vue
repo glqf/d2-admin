@@ -17,6 +17,9 @@
         {{ route?.meta?.title || route.path }}
       </el-button>
     </router-link>
+    <p v-for="n in 100" :key="n">
+      {{ n }}
+    </p>
   </d2-layout-header-aside>
 </template>
 
