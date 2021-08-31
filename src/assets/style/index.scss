@@ -4,11 +4,7 @@
 // themes
 @import './themes/classic/config.css';
 
-// layouts
-@import './layouts/header-aside.scss';
-
 html, body, #app {
   height: 100%;
   width: 100%;
-  position: relative;
 }
