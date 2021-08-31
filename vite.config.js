@@ -21,9 +21,11 @@ import Pages from 'vite-plugin-pages'
 import SvgIcons from 'vite-plugin-svg-icons'
 
 // https://github.com/antfu/purge-icons
+// for support: <span class="iconify" data-icon="fa:home"></span>
 import PurgeIcons from 'vite-plugin-purge-icons'
 
 // https://github.com/antfu/unplugin-icons
+// for support: <i-mdi-account-box/>
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
@@ -44,10 +46,7 @@ export default defineConfig({
       exclude: [
         '**/components/*.vue'
       ],
-      extensions: ['vue', 'jsx'],
-      extendRoute (route, parent) {
-        return route
-      }
+      extensions: ['vue', 'jsx']
     }),
     AntdDayjs({
       preset: 'antdv3'
