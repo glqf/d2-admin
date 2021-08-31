@@ -1,6 +1,7 @@
 import makeClassnames from 'classnames'
 import { defineComponent } from 'vue'
 import { $ } from 'd2-projects/d2-utils/vue.js'
+import { fromPairs } from 'lodash-es'
 import {
   makeComponentName,
   makeComponentClassName
@@ -14,34 +15,36 @@ const classname = makeComponentClassName(name)
 export default defineComponent({
   componentName,
   setup () {
-    const headerClassnames = $(() => makeClassnames(`${classname}__header`, {}))
-    const asideClassnames = $(() => makeClassnames(`${classname}__aside`, {}))
-    const bodyClassnames = $(() => makeClassnames(`${classname}__body`, {}))
+    const elements = [
+      'header',
+      'aside',
+      'body'
+    ]
+    const classnames = fromPairs(elements.map(e => [
+      e,
+      $(() => makeClassnames(`${classname}__${e}`, {}))
+    ]))
     return {
-      headerClassnames,
-      asideClassnames,
-      bodyClassnames
+      classnames
     }
   },
   render () {
     const {
       $slots,
-      headerClassnames,
-      asideClassnames,
-      bodyClassnames
+      classnames
     } = this
     const header = (
-      <div class={ headerClassnames }>
+      <div class={ $(classnames.header) }>
         header
       </div>
     )
     const aside = (
-      <div class={ asideClassnames }>
+      <div class={ $(classnames.aside) }>
         side
       </div>
     )
     const body = (
-      <div class={ bodyClassnames }>
+      <div class={ $(classnames.body) }>
         { $slots.default?.() }
       </div>
     )
