@@ -7,7 +7,7 @@ import '@purge-icons/generated'
 
 import config from 'd2-projects/d2-config/index.js'
 
-import '@/assets/style/index.scss'
+import 'd2-admin/assets/style/index.scss'
 
 createApp(App)
   .use(router)

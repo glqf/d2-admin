@@ -59,7 +59,7 @@ export default defineConfig({
     PurgeIcons(),
     SvgIcons({
       iconDirs: [
-        path.resolve(process.cwd(), 'src/assets/svg/icon')
+        path.resolve(process.cwd(), 'd2-admin/assets/svg/icon')
       ]
     }),
     Icons({
@@ -70,6 +70,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': '/src',
+      'd2-admin': '/d2-admin',
       'd2-projects': '/d2-projects'
     }
   },

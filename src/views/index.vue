@@ -25,5 +25,5 @@
 
 <script setup>
 import routes from 'virtual:generated-pages'
-import D2LayoutHeaderAside from '@/layouts/header-aside/index.vue'
+import D2LayoutHeaderAside from 'd2-admin/layouts/header-aside/index.vue'
 </script>
