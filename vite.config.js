@@ -47,15 +47,15 @@ export default defineConfig({
     Jsx(),
     Svg(),
     Components({
-      extensions: ['vue', 'md', 'svg'],
-      include: [/\.vue$/, /\.md$/],
+      extensions: ['vue', 'md', 'svg', 'jsx'],
+      include: [/\.vue$/, /\.md$/, /\.jsx$/],
       dirs: [
         'd2-admin/components',
         'src/components'
       ],
       dts: true,
       directoryAsNamespace: true,
-      globalNamespaces: ['foo-directory-name'],
+      globalNamespaces: ['ignore-directory-name'],
       importPathTransform: path => path.endsWith('.svg') ? `${path}?component` : undefined,
       deep: true,
       resolvers: [

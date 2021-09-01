@@ -12,6 +12,7 @@
     <demo-abc/>
     <hello-world/>
     <d2-admin-pre-auto/>
+    <jsx-demo/>
     <demo-1/>
     <router-link
       v-for="route in routes"
