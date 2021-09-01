@@ -23,8 +23,8 @@
     </router-link>
     <!-- <p v-for="n in 100" :key="n">{{ n }}</p> -->
     <!-- <span class="iconify" data-icon="mdi:ab-testing"></span> -->
-    <icon-mdi-ab-testing/>
-    <icon-carbon-ai-status/>
+    <iconify-mdi-ab-testing/>
+    <iconify-carbon-ai-status/>
   </d2-layout-header-aside>
 </template>
 

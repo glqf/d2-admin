@@ -48,12 +48,12 @@ export default defineConfig({
     Jsx(),
     Svg(),
     Components({
+      extensions: ['vue', 'md', 'svg'],
+      include: [/\.vue$/, /\.md$/],
       dirs: [
         'd2-admin/components',
         'src/components'
       ],
-      extensions: ['vue', 'md', 'svg'],
-      include: [/\.vue$/, /\.md$/],
       directoryAsNamespace: true,
       globalNamespaces: ['global'],
       importPathTransform: path => path.endsWith('.svg') ? `${path}?component` : undefined,
@@ -61,7 +61,7 @@ export default defineConfig({
       resolvers: [
         ElementPlusResolver(),
         IconsResolver({
-          componentPrefix: 'icon'
+          componentPrefix: 'iconify'
         })
       ]
     }),
