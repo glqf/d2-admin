@@ -12,9 +12,6 @@ import Markdown from 'vite-plugin-md'
 // https://github.com/vitejs/vite/tree/main/packages/plugin-vue-jsx
 import Jsx from '@vitejs/plugin-vue-jsx'
 
-// https://github.com/nekocode/antd-dayjs-vite-plugin
-import AntdDayjs from 'antd-dayjs-vite-plugin'
-
 // https://github.com/antfu/unplugin-vue-components
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
@@ -71,9 +68,6 @@ export default defineConfig({
         '**/components/*.vue'
       ],
       extensions: ['vue', 'jsx']
-    }),
-    AntdDayjs({
-      preset: 'antdv3'
     }),
     visualizer({
       open: true
