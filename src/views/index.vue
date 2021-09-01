@@ -13,7 +13,7 @@
     <hello-world/>
     <d2-admin-pre-auto/>
     <jsx-demo/>
-    <demo-1/>
+    <demo-one/>
     <router-link
       v-for="route in routes"
       :key="route.name"
