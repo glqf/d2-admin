@@ -36,6 +36,8 @@ import PurgeIcons from 'vite-plugin-purge-icons'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
+import { D2AdminComponentsResolver } from './d2-admin/components/resolver.js'
+
 export default defineConfig({
   plugins: [
     Vue({
@@ -60,7 +62,8 @@ export default defineConfig({
         ElementPlusResolver(),
         IconsResolver({
           componentPrefix: 'iconify'
-        })
+        }),
+        D2AdminComponentsResolver()
       ]
     }),
     Pages({

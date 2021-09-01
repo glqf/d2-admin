@@ -11,6 +11,7 @@
     <demo-js/>
     <demo-abc/>
     <hello-world/>
+    <d2-admin-pre-auto/>
     <demo-1/>
     <router-link
       v-for="route in routes"
