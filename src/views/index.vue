@@ -10,7 +10,7 @@
   <d2-layout-header-aside>
     <demo-js/>
     <demo-abc/>
-    <src-component-demo/>
+    <hello-world/>
     <demo-1/>
     <router-link
       v-for="route in routes"
