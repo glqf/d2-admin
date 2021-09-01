@@ -53,7 +53,7 @@ export default defineConfig({
       ],
       dts: true,
       directoryAsNamespace: true,
-      globalNamespaces: ['global'],
+      globalNamespaces: ['foo-directory-name'],
       importPathTransform: path => path.endsWith('.svg') ? `${path}?component` : undefined,
       deep: true,
       resolvers: [

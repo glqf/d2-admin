@@ -101,15 +101,13 @@ export default defineComponent({
       }
     }
 
-    function mergeDefaultOption (options) {
-      return mergeWith({}, $(optionsDefault), options, customizer)
-    }
+    const merge = options => mergeWith({}, $(optionsDefault), options, customizer)
 
-    const options = $(() => mergeDefaultOption(props.options))
+    const options = $(() => merge(props.options))
 
     function reloadOptions () {
       if (isValid()) {
-        $(instance).options(mergeDefaultOption(options))
+        $(instance).options(merge(options))
       }
     }
 
