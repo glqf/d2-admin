@@ -1,15 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from '@/router/index.js'
 
-import 'virtual:svg-icons-register'
-import '@purge-icons/generated'
-
-import config from 'd2-projects/d2-config/index.js'
-
-import 'd2-admin/assets/style/index.scss'
+import d2Admin from './plugins/d2-admin.js'
+import d2Projects from './plugins/d2-projects.js'
 
 createApp(App)
-  .use(router)
-  .use(config)
+  .use(d2Admin)
+  .use(d2Projects)
   .mount('#app')
