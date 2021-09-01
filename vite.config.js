@@ -48,7 +48,10 @@ export default defineConfig({
     Jsx(),
     Svg(),
     Components({
-      dirs: ['d2-admin/components'],
+      dirs: [
+        'd2-admin/components',
+        'src/components'
+      ],
       extensions: ['vue', 'md', 'svg'],
       include: [/\.vue$/, /\.md$/],
       directoryAsNamespace: true,

@@ -8,8 +8,9 @@
 
 <template>
   <d2-layout-header-aside>
-    <js/>
-    <abc/>
+    <demo-js/>
+    <demo-abc/>
+    <src-component-demo/>
     <demo-1/>
     <router-link
       v-for="route in routes"
