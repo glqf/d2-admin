@@ -51,6 +51,7 @@ export default defineConfig({
         'd2-admin/components',
         'src/components'
       ],
+      dts: true,
       directoryAsNamespace: true,
       globalNamespaces: ['global'],
       importPathTransform: path => path.endsWith('.svg') ? `${path}?component` : undefined,
