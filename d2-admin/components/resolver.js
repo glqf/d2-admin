@@ -8,7 +8,7 @@ export function D2AdminComponentsResolver () {
     if (namespace.test(name)) {
       return path.resolve(
         process.cwd(),
-        `d2-admin/components/${kebabCase(name.replace(namespace, ''))}.vue`
+        `d2-admin/components/${kebabCase(name.replace(namespace, ''))}/index.js`
       )
     }
   }
