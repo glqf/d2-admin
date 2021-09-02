@@ -60,7 +60,7 @@ export default defineConfig({
       resolvers: [
         ElementPlusResolver(),
         IconsResolver({
-          componentPrefix: 'iconify'
+          componentPrefix: 'icon'
         }),
         D2AdminComponentsResolver()
       ]
