@@ -28,11 +28,11 @@ import Svg from 'vite-plugin-vue-svg'
 import SvgIcons from 'vite-plugin-svg-icons'
 
 // https://github.com/antfu/purge-icons
-// support: <span class="iconify" data-icon="fa:home"></span>
+// support: <span class="iconify" data-icon="fa:home"/>
 import PurgeIcons from 'vite-plugin-purge-icons'
 
 // https://github.com/antfu/unplugin-icons
-// support: <i-mdi-account-box/>
+// support: <icon-mdi-account-box/>
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 

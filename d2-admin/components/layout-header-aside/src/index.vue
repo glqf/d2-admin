@@ -18,6 +18,15 @@
 
 <template>
   <div class="layout-header-aside__body" :style="position">
+    <router-link
+      v-for="route in routes"
+      :key="route.name"
+      :to="route.path"
+    >
+      <el-button>
+        {{ route?.meta?.title || route.path }}
+      </el-button>
+    </router-link>
     <slot/>
   </div>
   <div class="layout-header-aside__header" :style="headerStyle">
@@ -29,6 +38,7 @@
 </template>
 
 <script setup>
+import routes from 'virtual:generated-pages'
 import { computed, ref } from 'vue'
 import { px } from 'd2-projects/d2-utils/css.js'
 import { useCssPosition } from 'd2-projects/d2-use/use-css-position.js'
