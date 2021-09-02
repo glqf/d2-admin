@@ -36,7 +36,9 @@ import PurgeIcons from 'vite-plugin-purge-icons'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
-import { D2AdminComponentsResolver } from './d2-admin/components/resolver.js'
+import { D2AdminComponentsResolver } from './d2-admin/build/resolver.js'
+
+const resolve = p => path.resolve(process.cwd(), p)
 
 export default defineConfig({
   plugins: [
@@ -49,13 +51,10 @@ export default defineConfig({
     Components({
       extensions: ['vue', 'md', 'svg', 'jsx'],
       include: [/\.vue$/, /\.md$/, /\.jsx$/],
-      dirs: [
-        'd2-admin/components',
-        'src/components'
-      ],
+      dirs: ['src/components'],
       dts: true,
       directoryAsNamespace: true,
-      globalNamespaces: ['ignore-directory-name'],
+      globalNamespaces: ['your-ignore-directory-name'],
       importPathTransform: path => path.endsWith('.svg') ? `${path}?component` : undefined,
       deep: true,
       resolvers: [
@@ -79,7 +78,7 @@ export default defineConfig({
     PurgeIcons(),
     SvgIcons({
       iconDirs: [
-        path.resolve(process.cwd(), 'd2-admin/assets/svg/icon')
+        resolve('d2-admin/assets/svg/icon')
       ]
     }),
     Icons({
