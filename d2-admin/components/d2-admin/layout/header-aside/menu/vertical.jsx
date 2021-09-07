@@ -1,12 +1,24 @@
 import { defineComponent } from 'vue'
-import { routesToMenus } from 'd2-admin/utils/vite-plugin-pages.js'
-import { renderMenu } from './render.jsx'
-import routes from 'virtual:generated-pages'
+import { renderMenus } from './render.jsx'
+import menus from '@/menus/index.js'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
+  setup () {
+    const router = useRouter()
+
+    function onSelect (menuLink) {
+      router.push(menuLink)
+    }
+
+    return {
+      onSelect
+    }
+  },
   render () {
-    return renderMenu({
-      menu: routesToMenus(routes)
+    return renderMenus({
+      menus,
+      onSelect: this.onSelect
     })
   }
 })

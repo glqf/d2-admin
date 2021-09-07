@@ -3,17 +3,15 @@ import { uniqueId } from 'lodash-es'
 export function routesToMenus (routes) {
   function getItem (item) {
     const result = {
-      label: item.meta?.title || item.name || item.path,
+      label: item.meta?.title || 'label',
       index: uniqueId()
     }
     if (item.children) {
-      result.children = item.children.map(r => getItem(r))
+      result.children = item.children.map(getItem)
     } else {
       result.name = item.name
     }
     return result
   }
-  
-  const menus = routes.map(r => getItem(r))
-  return menus
+  return routes.map(getItem)
 }
