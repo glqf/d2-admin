@@ -16,8 +16,16 @@ export default defineComponent({
     }
   },
   render () {
+    const {
+      onSelect
+    } = this
+
+    const props = {
+      onSelect
+    }
+    
     return (
-      <el-menu onSelect={ this.onSelect }>
+      <el-menu {...props}>
         { menus.map(renderMenu) }
       </el-menu>
     )
