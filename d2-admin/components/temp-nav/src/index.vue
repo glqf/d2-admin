@@ -10,6 +10,7 @@
       </el-button>
     </router-link>
   </div>
+  <pre>{{ routes }}</pre>
 </template>
 
 <script setup>
