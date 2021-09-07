@@ -6,9 +6,6 @@ import Vue from '@vitejs/plugin-vue'
 
 import { visualizer } from 'rollup-plugin-visualizer'
 
-// https://github.com/antfu/unplugin-auto-import
-import AutoImport from 'unplugin-auto-import/vite'
-
 // https://github.com/antfu/vite-plugin-md
 import Markdown from 'vite-plugin-md'
 
@@ -47,10 +44,6 @@ export default defineConfig({
   plugins: [
     Vue({
       include: [/\.vue$/, /\.md$/],
-    }),
-    AutoImport({
-      include: [/\.[tj]sx?$/, /\.vue\??/],
-      imports: ['vue', 'vue-router']
     }),
     Markdown(),
     Jsx(),

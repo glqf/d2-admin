@@ -28,7 +28,6 @@
     "lodash": "^4.17.21",
     "rollup-plugin-visualizer": "^5.5.2",
     "sass": "^1.38.0",
-    "unplugin-auto-import": "^0.3.2",
     "unplugin-icons": "^0.7.3",
     "unplugin-vue-components": "^0.14.4",
     "vite": "^2.4.4",
