@@ -1,20 +1,4 @@
-export function renderMenus ({
-  menus = [],
-  onSelect = function () {}
-}) {
-  return (
-    <el-menu onSelect={ onSelect }>
-      {
-        menus.map(menu => {
-          if (menu.children) return renderSubmenu(menu)
-          return renderMenuItem(menu)
-        })
-      }
-    </el-menu>
-  )
-}
-
-export function renderMenuItem (menu) {
+export function renderItem (menu) {
   return (
     <el-menu-item index={ menu.link }>
       {
@@ -27,7 +11,7 @@ export function renderMenuItem (menu) {
   )
 }
 
-export function renderSubmenu (menu) {
+export function renderSub (menu) {
   return (
     <el-sub-menu>
       {
@@ -36,12 +20,11 @@ export function renderSubmenu (menu) {
             <i class="el-icon-location"></i>,
             <span>{ menu.title }</span>
           ],
-          default: () => menu.children.map(menu => {
-            if (menu.children) { return renderSubmenu(menu) }
-            return renderMenuItem(menu)
-          })
+          default: () => menu.children.map(menu => renderMenu(menu))
         }
       }
     </el-sub-menu>
   )
 }
+
+export const renderMenu = menu => menu.children ? renderSub(menu) : renderItem(menu)

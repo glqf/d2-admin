@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { renderMenus } from './render.jsx'
+import { renderMenu } from './render.jsx'
 import menus from '@/menus/index.js'
 import { useRouter } from 'vue-router'
 
@@ -16,9 +16,10 @@ export default defineComponent({
     }
   },
   render () {
-    return renderMenus({
-      menus,
-      onSelect: this.onSelect
-    })
+    return (
+      <el-menu onSelect={ this.onSelect }>
+        { menus.map(renderMenu) }
+      </el-menu>
+    )
   }
 })
