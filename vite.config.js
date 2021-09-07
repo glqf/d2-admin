@@ -67,9 +67,7 @@ export default defineConfig({
     }),
     Pages({
       pagesDir: 'src/views',
-      exclude: [
-        '**/components/*.vue'
-      ],
+      exclude: ['**/components/*.vue'],
       extensions: ['vue', 'jsx']
     }),
     visualizer({

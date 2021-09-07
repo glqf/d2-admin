@@ -24,7 +24,7 @@
     header
   </div>
   <div class="layout-header-aside__aside" :style="asideStyle">
-    aside
+    <d2-admin-layout-header-aside-menu-vertical/>
   </div>
 </template>
 
