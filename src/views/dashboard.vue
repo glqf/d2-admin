@@ -1,13 +1,13 @@
 <route>
 {
   meta: {
-    title: '首页'
+    title: 'dashboard'
   }
 }
 </route>
 
 <template>
   <d2-admin-layout-header-aside>
-    <p v-for="n in 100" :key="n">{{ n }}</p>
+    <router-view/>
   </d2-admin-layout-header-aside>
 </template>
