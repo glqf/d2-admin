@@ -5,9 +5,7 @@
       :key="route.name"
       :to="route.path"
     >
-      <el-button>
-        {{ route?.meta?.title || route.path }}
-      </el-button>
+      {{ route?.meta?.title || route.path }} | 
     </router-link>
   </div>
   <pre>{{ routes }}</pre>

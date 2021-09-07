@@ -36,8 +36,6 @@ import PurgeIcons from 'vite-plugin-purge-icons'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
-import { D2AdminComponentsResolver } from './d2-admin/build/resolver.js'
-
 const resolve = p => path.resolve(process.cwd(), p)
 
 export default defineConfig({
@@ -51,7 +49,10 @@ export default defineConfig({
     Components({
       extensions: ['vue', 'md', 'svg', 'jsx'],
       include: [/\.vue$/, /\.md$/, /\.jsx$/],
-      dirs: ['src/components'],
+      dirs: [
+        'd2-admin/components',
+        'src/components'
+      ],
       dts: true,
       directoryAsNamespace: true,
       globalNamespaces: ['your-ignore-directory-name'],
@@ -61,8 +62,7 @@ export default defineConfig({
         ElementPlusResolver(),
         IconsResolver({
           componentPrefix: 'icon'
-        }),
-        D2AdminComponentsResolver()
+        })
       ]
     }),
     Pages({

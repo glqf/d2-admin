@@ -7,5 +7,5 @@
 </route>
 
 <template>
-  首页
+  <d2-admin-temp-nav/>
 </template>
