@@ -36,7 +36,10 @@ export function renderSubmenu (menu) {
             <i class="el-icon-location"></i>,
             <span>{ menu.title }</span>
           ],
-          default: () => menu.children.map(menu => renderMenuItem(menu))
+          default: () => menu.children.map(menu => {
+            if (menu.children) { return renderSubmenu(menu) }
+            return renderMenuItem(menu)
+          })
         }
       }
     </el-sub-menu>
