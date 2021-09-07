@@ -1,14 +1,13 @@
 <route>
 {
   meta: {
-    title: 'HOME'
+    title: '登录'
   }
 }
 </route>
 
 <template>
   <div>
-    HOME
-    <d2-admin-temp-nav/>
+    登录
   </div>
 </template>
