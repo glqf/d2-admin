@@ -1,5 +1,7 @@
+import { menuIdKey } from 'd2-admin/utils/menu.js'
+
 export const renderItem = menu => (
-  <el-menu-item index={ menu.link }>
+  <el-menu-item index={ menu[menuIdKey] }>
     {
       {
         title: () => menu.title,
@@ -10,7 +12,7 @@ export const renderItem = menu => (
 )
 
 export const renderSub = menu => (
-  <el-sub-menu>
+  <el-sub-menu index={ menu[menuIdKey] }>
     {
       {
         title: () => [

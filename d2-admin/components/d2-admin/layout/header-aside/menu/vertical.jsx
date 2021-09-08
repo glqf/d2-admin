@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 import { menusAside } from '@/menus/index.js'
+import { useLayoutMenu } from 'd2-admin/utils/menu.js'
 import { renderMenus } from './render.jsx'
-import { useLayoutMenu } from './use-layout-menu.js'
 
 export default defineComponent({
   setup () {
