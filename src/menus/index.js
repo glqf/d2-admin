@@ -1,4 +1,4 @@
-export default [
+export const menusAside = [
   {
     title: '演示',
     icon: 'fluent:phone-vertical-scroll-24-filled',

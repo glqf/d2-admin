@@ -1,33 +1,19 @@
 import { defineComponent } from 'vue'
-import { renderMenu } from './render.jsx'
-import menus from '@/menus/index.js'
-import { useRouter } from 'vue-router'
+import { menusAside } from '@/menus/index.js'
+import { renderMenus } from './render.jsx'
+import { useLayoutMenu } from './use-layout-menu.js'
 
 export default defineComponent({
   setup () {
-    const router = useRouter()
-
-    function onSelect (menuLink) {
-      router.push(menuLink)
-    }
+    const { onMenuSelect } = useLayoutMenu()
 
     return {
-      onSelect
+      onMenuSelect
     }
   },
   render () {
-    const {
-      onSelect
-    } = this
-
-    const props = {
-      onSelect
-    }
-    
-    return (
-      <el-menu {...props}>
-        { menus.map(renderMenu) }
-      </el-menu>
-    )
+    return renderMenus(menusAside, {
+      onSelect: this.onMenuSelect
+    })
   }
 })
