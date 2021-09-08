@@ -4,6 +4,23 @@ export const menusAside = [
     icon: 'fluent:phone-vertical-scroll-24-filled',
     children: [
       {
+        title: '文档',
+        children: [
+          {
+            title: 'document 1',
+            link: '/dashboard/document/page1'
+          },
+          {
+            title: 'document 2',
+            link: '/dashboard/document/page2'
+          },
+          {
+            title: 'document 3',
+            link: '/dashboard/document/page3'
+          }
+        ]
+      },
+      {
         title: '组件',
         children: [
           {
