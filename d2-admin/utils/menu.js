@@ -20,32 +20,45 @@ export function menuValue (source) {
 }
 
 export class Menu {
-  constructor ({
-    title = '',
-    icon = '',
-    url = ''
-  } = {}) {
+  constructor (title = '') {
     this.data = {
       [menuIdKey]: uniqueId(menuIdKey),
       title: title,
-      icon: icon,
-      url: url
+      icon: '',
+      url: ''
     }
     this._scope = ''
+    this.__scope = ''
   }
-  add (item) {
-    if (!this.data[menuChildrenKey]) {
-      this.data[menuChildrenKey] = []
-    }
-    this.data[menuChildrenKey].push(item)
+  icon (value) {
+    this.data.icon = value
     return this
   }
-  value () {
-    return this.data
+  url (value) {
+    this.data.url = value
+    return this
+  }
+  add (item) {
+    const k = menuChildrenKey
+    if (!this.data[k]) {
+      this.data[k] = []
+    }
+    if (item instanceof Menu && this._scope) {
+      item.__scope = this._scope
+    }
+    this.data[k].push(item)
+    return this
   }
   scope (value) {
     this._scope = value
     return this
+  }
+  value () {
+    const value = this.data
+    if (this.__scope) {
+      value.url = this.__scope + value.url
+    }
+    return value
   }
 }
 
