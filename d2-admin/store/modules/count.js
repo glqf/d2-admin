@@ -1,10 +1,10 @@
-import { $ } from 'v-dollar'
+import { ref } from 'vue'
 
 export function countStore () {
-  const count = $(0)
+  const count = ref(0)
 
   function countIncrease () {
-    $(count, $(count) + 1)
+    count.value ++
   }
 
   return {
