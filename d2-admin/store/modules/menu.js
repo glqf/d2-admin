@@ -3,17 +3,17 @@ import { shallowRef } from 'vue'
 export function menuStore () {
   const menus = shallowRef([])
 
-  function menusUpdate (newMenus) {
+  function menuUpdate (newMenus) {
     menus.value = newMenus
   }
 
-  function menusClear () {
+  function menuClear () {
     menus.value = []
   }
 
   return {
     menus,
-    menusUpdate,
-    menusClear
+    menuUpdate,
+    menuClear
   }
 }

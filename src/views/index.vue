@@ -14,7 +14,7 @@
 <script setup>
 import { useStore } from 'd2-admin/store/index.js'
 import { countStore } from 'd2-admin/store/modules/count.js'
-import { headerMenuStore } from 'd2-admin/store/modules/menu-header.js'
+import { headerMenuStore } from 'd2-admin/store/modules/header-menu.js'
 
 const {
   count,
@@ -23,10 +23,10 @@ const {
 
 const {
   headerMenus,
-  headerMenusUpdate
+  headerMenuUpdate
 } = useStore(headerMenuStore)
 
-headerMenusUpdate([
+headerMenuUpdate([
   { name: '1' }
 ])
 </script>
