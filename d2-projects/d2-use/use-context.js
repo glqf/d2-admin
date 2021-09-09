@@ -1,8 +1,7 @@
 import { provide, inject } from 'vue'
-import { camelCase } from 'lodash-es'
 
-export function useContext (name = '') {
-  const id = Symbol(camelCase(`${name}-symbol`))
+export function useContext () {
+  const id = Symbol('context')
   const post = value => {
     provide(id, value)
   }

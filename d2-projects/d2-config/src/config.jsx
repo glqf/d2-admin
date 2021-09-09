@@ -12,7 +12,7 @@ const componentName = makeComponentName(name)
 const {
   provide,
   inject
-} = useContext(name)
+} = useContext()
 
 export const componentProps = {
   iconCollection: { type: String, default: '' },
