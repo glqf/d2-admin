@@ -1,3 +1,3 @@
 <template>
-  document / page 2
+  <p>document / page 2</p>
 </template>

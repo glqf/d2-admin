@@ -1,6 +1,6 @@
 import { $ } from 'd2-projects/d2-utils/vue.js'
 
-export function useCount () {
+export function countStore () {
   const count = $(0)
 
   function countIncrease () {
