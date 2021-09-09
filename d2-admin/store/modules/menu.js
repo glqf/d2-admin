@@ -1,14 +1,19 @@
-import { shallowReactive } from 'vue'
+import { shallowRef } from 'vue'
 
 export function menuStore () {
-  const menus = shallowReactive([])
+  const menus = shallowRef([])
 
-  function setMenus (newMenus) {
-    menus = newMenus
+  function menusUpdate (newMenus) {
+    menus.value = newMenus
+  }
+
+  function menusClear () {
+    menus.value = []
   }
 
   return {
     menus,
-    setMenus
+    menusUpdate,
+    menusClear
   }
 }
