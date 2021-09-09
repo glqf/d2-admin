@@ -1,4 +1,4 @@
-import { camelCase, mapKeys } from 'lodash-es'
+import { keyPrefix } from 'd2-projects/d2-utils/object.js'
 import { menuStore } from './menu.js'
 
-export const asideMenuStore = mapKeys(menuStore(), (_, key) => camelCase(`aside-${key}`))
+export const asideMenuStore = keyPrefix(menuStore(), 'aside')
