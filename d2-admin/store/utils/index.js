@@ -1,3 +1,4 @@
+import { fromPairs } from 'lodash'
 import { provide, inject } from 'vue'
 
 function registerModule (hook) {
@@ -7,7 +8,12 @@ function registerModule (hook) {
   return depends
 }
 
-export const registerModules = (...hooks) => hooks.map(hook => registerModule(hook))
+export const registerModules = hooks => fromPairs(
+  hooks.map(hook => [
+    hook.name,
+    registerModule(hook)
+  ])
+)
 
 export function getModule (hook) {
   const injected = inject(hook.token)

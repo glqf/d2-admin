@@ -6,6 +6,11 @@
 
 <script setup>
 import { creatStore } from 'd2-admin/store/index.js'
+import { menusAside } from '@/menus/index.js'
 
-creatStore()
+const { headerMenuStore } = creatStore()
+
+const { headerMenuUpdate } = headerMenuStore
+
+headerMenuUpdate(menusAside)
 </script>
