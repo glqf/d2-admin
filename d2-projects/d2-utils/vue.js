@@ -15,7 +15,7 @@ export function $ (r, v, options) {
     // computed
     if (typeof r === 'function') return computed(r)
     // unref
-    else if (isRef(r)) return r.value
+    else if (isRef(r)) return unref(r)
     // ref
     else return ref(r)
   }
