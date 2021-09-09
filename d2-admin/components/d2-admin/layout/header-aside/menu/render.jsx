@@ -1,31 +1,41 @@
-import { menuIdKey } from 'd2-admin/utils/menu.js'
+import {
+  getMenuId,
+  getMenuTitle,
+  getMenuIcon,
+  getMenuChildren,
+  hasChildren
+} from 'd2-admin/utils/menu.js'
 
 export const renderItem = menu => (
-  <el-menu-item index={ menu[menuIdKey] }>
+  <el-menu-item index={ getMenuId(menu) }>
     {
       {
-        title: () => menu.title,
-        default: () => <d2-icon name={ menu.icon }/>
+        title: () => getMenuTitle(menu),
+        default: () => <d2-icon name={ getMenuIcon(menu) }/>
       }
     }
   </el-menu-item>
 )
 
 export const renderSub = menu => (
-  <el-sub-menu index={ menu[menuIdKey] }>
+  <el-sub-menu index={ getMenuId(menu) }>
     {
       {
         title: () => [
           <i class="el-icon-location"></i>,
-          <span>{ menu.title }</span>
+          <span>{ getMenuTitle(menu) }</span>
         ],
-        default: () => menu.children.map(menu => renderMenu(menu))
+        default: () => getMenuChildren(menu).map(menu => renderMenu(menu))
       }
     }
   </el-sub-menu>
 )
 
-export const renderMenu = menu => (menu.children ? renderSub : renderItem)(menu)
+export const renderMenu = menu => (
+  hasChildren(menu)
+    ? renderSub
+    : renderItem
+)(menu)
 
 export const renderMenus = (menus = [], props = {}) => (
   <el-menu {...props}>

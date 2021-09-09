@@ -15,7 +15,7 @@ export default defineComponent({
   },
   render () {
     return renderMenus(menusAside, {
-      onSelect: this.onMenuSelect
+      onSelect: (index, indexPath, item, routeResult) => this.onMenuSelect(item)
     })
   }
 })
