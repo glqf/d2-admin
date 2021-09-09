@@ -1,7 +1,7 @@
+import { $ } from 'v-dollar'
 import makeClassnames from 'classnames'
 import { defineComponent } from 'vue'
 import { pickBy, isUndefined } from 'lodash-es'
-import { $ } from 'd2-projects/d2-utils/vue.js'
 import { isNumberLike } from 'd2-projects/d2-utils/number.js'
 import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import { isFlexProp } from 'd2-projects/d2-utils/special/d2-components/const.js'

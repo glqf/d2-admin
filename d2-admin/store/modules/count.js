@@ -1,4 +1,4 @@
-import { $ } from 'd2-projects/d2-utils/vue.js'
+import { $ } from 'v-dollar'
 
 export function countStore () {
   const count = $(0)

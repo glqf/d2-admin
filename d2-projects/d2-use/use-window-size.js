@@ -1,6 +1,6 @@
-import { onMounted, onUnmounted, onBeforeMount } from 'vue'
-import { $ } from 'd2-projects/d2-utils/vue.js'
+import { $ } from 'v-dollar'
 import { throttle } from 'lodash-es'
+import { onMounted, onUnmounted, onBeforeMount } from 'vue'
 
 /**
  * Get window size status

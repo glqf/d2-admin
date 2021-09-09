@@ -1,6 +1,6 @@
+import { $ } from 'v-dollar'
 import { isFunction, keys, mapValues, isEqual, last, isUndefined } from 'lodash-es'
 import { defineComponent, reactive } from 'vue'
-import { $ } from 'd2-projects/d2-utils/vue.js'
 import { useContext } from 'd2-projects/d2-use/use-context.js'
 import { makeComponentName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import { breakPoints } from 'd2-projects/d2-utils/special/d2-components/const.js'
