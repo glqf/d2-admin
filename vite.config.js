@@ -6,33 +6,41 @@ import Vue from '@vitejs/plugin-vue'
 
 import { visualizer } from 'rollup-plugin-visualizer'
 
+// Use Markdown as Vue components
+// Use Vue components in Markdown
 // https://github.com/antfu/vite-plugin-md
 import Markdown from 'vite-plugin-md'
 
+// Provides Vue 3 JSX & TSX support with HMR
 // https://github.com/vitejs/vite/tree/main/packages/plugin-vue-jsx
 import Jsx from '@vitejs/plugin-vue-jsx'
 
+// On-demand components auto importing for Vue
 // https://github.com/antfu/unplugin-vue-components
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
+// File system based routing for Vue 3 applications using Vite
 // https://github.com/hannoeru/vite-plugin-pages
 import Pages from 'vite-plugin-pages'
 
+// Extend Vite with ability to use SVG files as Vue components
 // https://github.com/visualfanatic/vite-svg/tree/vite-plugin-svg
-// support: load svg image as vue component
 import Svg from 'vite-plugin-vue-svg'
 
+// Used to generate svg sprite map
 // https://github.com/anncwb/vite-plugin-svg-icons
-// support: load all SVG images from the specified folder as icons
 import SvgIcons from 'vite-plugin-svg-icons'
 
+// Bundles only the icons you use
 // https://github.com/antfu/purge-icons
-// support: <span class="iconify" data-icon="fa:home"/>
+// browser: https://icones.netlify.app/ or https://iconify.design/icon-sets/
+// example: <span class="iconify" data-icon="fa:home"/>
 import PurgeIcons from 'vite-plugin-purge-icons'
 
+// Access thousands of icons as components on-demand universally
 // https://github.com/antfu/unplugin-icons
-// support: <icon-mdi-account-box/>
+// example: <icon-mdi-account-box/>
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
