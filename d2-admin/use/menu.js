@@ -1,6 +1,10 @@
+import { useRouter } from 'vue-router'
+
 export function useMenu () {
-  function onMenuSelect (id) {
-    console.log(id)
+  const router = useRouter()
+
+  function onMenuSelect (menu) {
+    router.push(menu.url)
   }
 
   return {
