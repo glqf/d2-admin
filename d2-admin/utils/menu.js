@@ -53,7 +53,13 @@ export class Menu {
     return {
       ...result,
       [_k_url]: this.prefix + result[_k_url],
-      ...hasChildren(result) ? { [_k_children]: result[_k_children].map(e => e.value()) } : {}
+      ...hasChildren(result) ?
+        {
+          [_k_children]: result[_k_children].map(
+            item => item instanceof Menu ? item.value() : item
+          )
+        } :
+        {}
     }
   }
 }
