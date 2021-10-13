@@ -1,11 +1,11 @@
 import { registerModules, getModule } from './utils/index.js'
 import { countStore } from './modules/count.js'
-import { headerMenuStore } from './modules/header-menu.js'
+import { menuSecondaryStore } from './modules/menu-secondary.js'
 import { menuMainStore } from './modules/menu-main.js'
 
 const modules = [
   countStore,
-  headerMenuStore,
+  menuSecondaryStore,
   menuMainStore
 ]
 
