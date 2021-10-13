@@ -6,9 +6,11 @@ export const menusAside = [
     .add(
       new Menu('文档')
         .scope('/dashboard/document')
-        .add(new Menu('doc-1').url('/page1'))
-        .add(new Menu('doc-2').url('/page2'))
-        .add(new Menu('doc-3').url('/page3'))
+        .add([
+          new Menu('doc-1').url('/page1'),
+          new Menu('doc-2').url('/page2'),
+          new Menu('doc-3').url('/page3')
+        ])
     )
     .add(
       new Menu('组件')
