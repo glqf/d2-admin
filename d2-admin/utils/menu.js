@@ -1,6 +1,5 @@
 import { nanoid } from 'nanoid'
 import { isArray } from 'lodash-es'
-import { useRouter } from 'vue-router'
 
 export const _k_id = '_id'
 export const _k_children = 'children'
@@ -16,6 +15,7 @@ export const getMenuChildren = menu => menu[_k_children] || []
 export const hasChildren = menu => isArray(menu[_k_children]) && menu[_k_children].length > 0
 
 export function getMenuData (source) {
+  console.log(source)
   if (isArray(source)) {
     return source.map(item => getMenuData(item))
   }
@@ -73,8 +73,6 @@ export class Menu {
 }
 
 export function useLayoutMenu () {
-  const router = useRouter()
-
   function onMenuSelect (menu) {
     console.log(menu)
     // router.push(menuLink)
