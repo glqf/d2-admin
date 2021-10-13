@@ -1,6 +1,6 @@
-import { Menu, getMenuData } from 'd2-admin/utils/menu.js'
+import { Menu } from 'd2-admin/utils/menu.js'
 
-export const menusAside = getMenuData([
+export const menusAside = [
   new Menu('演示')
     .icon('fluent:phone-vertical-scroll-24-filled')
     .add(
@@ -19,4 +19,5 @@ export const menusAside = getMenuData([
             .icon('fluent:phone-vertical-scroll-24-filled')
         )
     )
-])
+    .value()
+]
