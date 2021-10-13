@@ -31,11 +31,7 @@ export const renderSub = menu => (
   </el-sub-menu>
 )
 
-export const renderMenu = menu => (
-  hasChildren(menu)
-    ? renderSub
-    : renderItem
-)(menu)
+export const renderMenu = menu => (hasChildren(menu) ? renderSub : renderItem)(menu)
 
 export const renderMenus = (menus = [], props = {}) => (
   <el-menu {...props}>

@@ -2,14 +2,14 @@ import { defineComponent, reactive } from 'vue'
 import { menusAside } from '@/menus/index.js'
 import { useStore } from 'd2-admin/store/index.js'
 import { useLayoutMenu } from 'd2-admin/utils/menu.js'
-import { headerMenuStore } from 'd2-admin/store/modules/header-menu.js'
+import { asideMenuStore } from 'd2-admin/store/modules/aside-menu.js'
 import { renderMenus } from './render.jsx'
 
 export default defineComponent({
   setup () {
-    const { headerMenus } = reactive(useStore(headerMenuStore))
+    const { asideMenus } = reactive(useStore(asideMenuStore))
 
-    console.log(headerMenus)
+    console.log(asideMenus)
 
     const { onMenuSelect } = useLayoutMenu()
 

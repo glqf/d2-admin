@@ -8,9 +8,9 @@
 import { creatStore } from 'd2-admin/store/index.js'
 import { menusAside } from '@/menus/index.js'
 
-const { headerMenuStore } = creatStore()
+const { asideMenuStore } = creatStore()
 
-const { headerMenuUpdate } = headerMenuStore
+const { asideMenuUpdate } = asideMenuStore
 
-headerMenuUpdate(menusAside)
+asideMenuUpdate(menusAside)
 </script>
