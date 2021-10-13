@@ -23,7 +23,7 @@ export class Menu {
       [_k_url]: ''
     }
     this._scope = ''
-    this.prefix = ''
+    this._prefix = ''
   }
   icon (value) {
     this.data[_k_icon] = value
@@ -33,15 +33,20 @@ export class Menu {
     this.data[_k_url] = value
     return this
   }
-  add (item) {
-    const k = _k_children
-    if (!this.data[k]) {
-      this.data[k] = []
+  add (data) {
+    if (!this.data[_k_children]) {
+      this.data[_k_children] = []
     }
-    if (item instanceof Menu && this._scope) {
-      item.prefix = this._scope
+    if (isArray(data)) {
+      data.forEach(item => {
+        if (item instanceof Menu && this._scope) {
+          item._prefix = this._scope
+        }
+      })
+    } else if (data instanceof Menu && this._scope) {
+      data._prefix = this._scope
     }
-    this.data[k].push(item)
+    this.data[_k_children].push(...(isArray(data) ? data : [data]))
     return this
   }
   scope (value) {
@@ -52,7 +57,7 @@ export class Menu {
     const result = cloneDeep(this.data)
     return {
       ...result,
-      [_k_url]: this.prefix + result[_k_url],
+      [_k_url]: this._prefix + result[_k_url],
       ...hasChildren(result) ?
         {
           [_k_children]: result[_k_children].map(
@@ -67,7 +72,6 @@ export class Menu {
 export function useLayoutMenu () {
   function onMenuSelect (menu) {
     console.log(menu)
-    // router.push(menuLink)
   }
 
   return {
