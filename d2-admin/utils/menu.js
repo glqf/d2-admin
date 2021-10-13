@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid'
-import { isArray, cloneDeep } from 'lodash-es'
+import { isArray, cloneDeep, omit } from 'lodash-es'
 
 export const _k_id = '_id'
 export const _k_children = 'children'
@@ -12,7 +12,19 @@ export const getMenuTitle = menu => menu[_k_title]
 export const getMenuIcon = menu => menu[_k_icon]
 export const getMenuUrl = menu => menu[_k_url]
 export const getMenuChildren = menu => menu[_k_children] || []
-export const hasChildren = menu => isArray(menu[_k_children]) && menu[_k_children].length > 0
+
+export const getFlattenMenus = menus => {
+  const result = []
+  menus.forEach(menu => {
+    result.push(omit(menu, _k_children))
+    if (hasChildren(menu)) {
+      result.push(...getFlattenMenus(getMenuChildren(menu)))
+    }
+  })
+  return result
+}
+
+export const hasChildren = menu => isArray(getMenuChildren(menu)) && getMenuChildren(menu).length > 0
 
 export class Menu {
   constructor (title = '') {
@@ -66,15 +78,5 @@ export class Menu {
         } :
         {}
     }
-  }
-}
-
-export function useLayoutMenu () {
-  function onMenuSelect (menu) {
-    console.log(menu)
-  }
-
-  return {
-    onMenuSelect
   }
 }
