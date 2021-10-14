@@ -10,7 +10,7 @@ import { menusAside } from '@/menus/index.js'
 
 const { menuMainStore } = creatStore()
 
-const { menuUpdate } = menuMainStore
+const { updateMenus } = menuMainStore
 
-menuUpdate(menusAside)
+updateMenus(menusAside)
 </script>

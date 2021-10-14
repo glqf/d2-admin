@@ -1,35 +1,28 @@
 import { fromPairs } from 'lodash-es'
-import { shallowRef, computed, watchEffect } from 'vue'
-import { getFlattenMenus, getMenuId } from 'd2-admin/utils/menu.js'
+import { shallowRef, unref, computed } from 'vue'
+import { flattenMenus, getMenuId } from 'd2-admin/utils/menu.js'
 
 export function menuStore () {
   // [ tree, ... ]
   const menus = shallowRef([])
 
   // [ menu, ... ]
-  const menusDatabase = computed(() => getFlattenMenus(menus.value))
+  const _flat = computed(() => flattenMenus(unref(menus)))
 
   // { id: index, ... }
-  const menusDatabaseIndex = computed(() => fromPairs(menusDatabase.value.map((e, i) => [getMenuId(e), i])))
+  const _index = computed(() => fromPairs(unref(_flat).map((e, i) => [getMenuId(e), i])))
 
-  function menuUpdate (newMenus) {
-    menus.value = newMenus
+  function updateMenus (value) {
+    menus.value = value
   }
 
-  function menuClear () {
-    menus.value = []
-  }
-
-  function getMenuItemById (id) {
-    return menusDatabase.value[menusDatabaseIndex.value[id]]
+  function getMenuById (id) {
+    return unref(_flat)[unref(_index)[id]]
   }
 
   return {
     menus,
-    menusDatabase,
-    menusDatabaseIndex,
-    menuUpdate,
-    menuClear,
-    getMenuItemById
+    updateMenus,
+    getMenuById
   }
 }

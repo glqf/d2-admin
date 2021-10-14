@@ -13,12 +13,12 @@ export const getMenuIcon = menu => menu[_k_icon]
 export const getMenuUrl = menu => menu[_k_url]
 export const getMenuChildren = menu => menu[_k_children] || []
 
-export const getFlattenMenus = menus => {
+export const flattenMenus = menus => {
   const result = []
   menus.forEach(menu => {
     result.push(omit(menu, _k_children))
     if (hasChildren(menu)) {
-      result.push(...getFlattenMenus(getMenuChildren(menu)))
+      result.push(...flattenMenus(getMenuChildren(menu)))
     }
   })
   return result

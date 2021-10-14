@@ -6,20 +6,20 @@ import { renderMenus } from './render.jsx'
 
 export default defineComponent({
   setup () {
-    const { menus, getMenuItemById } = useStore(menuMainStore)
+    const { menus, getMenuById } = useStore(menuMainStore)
 
     const { onMenuSelect } = useMenu()
 
     return {
       menus,
       onMenuSelect,
-      getMenuItemById
+      getMenuById
     }
   },
   render () {
     return renderMenus(this.menus, {
       onSelect: id => {
-        this.onMenuSelect(this.getMenuItemById(id))
+        this.onMenuSelect(this.getMenuById(id))
       }
     })
   }
