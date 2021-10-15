@@ -22,7 +22,7 @@ export const renderSub = menu => (
     {
       {
         title: () => [
-          <i class="el-icon-location"></i>,
+          <i class="el-icon-location"/>,
           <span>{ getMenuTitle(menu) }</span>
         ],
         default: () => getMenuChildren(menu).map(menu => renderMenu(menu))
