@@ -12,10 +12,19 @@ export function menuStore () {
   // { id: index, ... }
   const flatMenusIndex = computed(() => fromPairs(unref(flatMenus).map((e, i) => [getMenuId(e), i])))
 
+  /**
+   * Set menus value
+   * @param {array} value menus
+   */
   function setMenus (value) {
     menus.value = value
   }
 
+  /**
+   * Find menu item by menu id
+   * @param {string} id menu id
+   * @returns menu item
+   */
   function getMenuById (id) {
     return unref(flatMenus)[unref(flatMenusIndex)[id]]
   }
