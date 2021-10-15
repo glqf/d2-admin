@@ -3,11 +3,11 @@ import { useRouter } from 'vue-router'
 export function useMenu () {
   const router = useRouter()
 
-  function onMenuSelect (menu) {
+  function navigateByMenu (menu) {
     router.push(menu.url)
   }
 
   return {
-    onMenuSelect
+    navigateByMenu
   }
 }
