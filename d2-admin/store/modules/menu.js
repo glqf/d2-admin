@@ -7,21 +7,23 @@ export function menuStore () {
   const menus = shallowRef([])
 
   // [ menu, ... ]
-  const _flat = computed(() => flattenMenus(unref(menus)))
+  const flatMenus = computed(() => flattenMenus(unref(menus)))
 
   // { id: index, ... }
-  const _index = computed(() => fromPairs(unref(_flat).map((e, i) => [getMenuId(e), i])))
+  const flatMenusIndex = computed(() => fromPairs(unref(flatMenus).map((e, i) => [getMenuId(e), i])))
 
   function updateMenus (value) {
     menus.value = value
   }
 
   function getMenuById (id) {
-    return unref(_flat)[unref(_index)[id]]
+    return unref(flatMenus)[unref(flatMenusI)[id]]
   }
 
   return {
     menus,
+    flatMenus,
+    flatMenusIndex,
     updateMenus,
     getMenuById
   }
