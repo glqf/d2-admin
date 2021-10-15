@@ -7,11 +7,13 @@ export const _k_title = 'title'
 export const _k_icon = 'icon'
 export const _k_url = 'url'
 
-export const getMenuId = menu => menu[_k_id]
-export const getMenuTitle = menu => menu[_k_title]
-export const getMenuIcon = menu => menu[_k_icon]
-export const getMenuUrl = menu => menu[_k_url]
-export const getMenuChildren = menu => menu[_k_children] || []
+const _get = (k, d) => m => m?.[k] || d
+
+export const getMenuId = _get(_k_id)
+export const getMenuTitle = _get(_k_title)
+export const getMenuIcon = _get(_k_icon)
+export const getMenuUrl = _get(_k_url)
+export const getMenuChildren = _get(_k_children, [])
 
 export const flattenMenus = menus => {
   const result = []

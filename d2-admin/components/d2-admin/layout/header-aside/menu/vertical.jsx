@@ -19,17 +19,21 @@ export default defineComponent({
 
     const defaultActive = computed(() => getMenuId(getMenuByUrl(route.fullPath)))
 
-    const menuProps = {
-      onSelect,
-      defaultActive: unref(defaultActive)
-    }
-
     return {
       menus,
-      menuProps
+      onSelect,
+      defaultActive
     }
   },
   render () {
-    return renderMenus(this.menus, this.menuProps)
+    const {
+      menus,
+      onSelect,
+      defaultActive
+    } = this
+    return renderMenus(menus, {
+      onSelect,
+      defaultActive
+    })
   }
 })
