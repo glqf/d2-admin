@@ -13,7 +13,7 @@ export function menuStore () {
   const flatMenusIdIndex = computed(() => fromPairs(unref(flatMenus).map((e, i) => [getMenuId(e), i])))
   // { url: index, ... }
   const flatMenusUrlIndex = computed(() => fromPairs(unref(flatMenus).map((e, i) => [getMenuUrl(e), i])))
-
+  
   /**
    * Set menus value
    * @param {array} value menus
