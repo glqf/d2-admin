@@ -1,6 +1,6 @@
 import { fromPairs } from 'lodash-es'
 import { shallowRef, unref, computed } from 'vue'
-import { flattenMenus, getMenuId } from 'd2-admin/utils/menu.js'
+import { flattenMenus, getMenuId, getMenuUrl } from 'd2-admin/utils/menu.js'
 
 export function menuStore () {
   // [ tree, ... ]
@@ -10,7 +10,9 @@ export function menuStore () {
   const flatMenus = computed(() => flattenMenus(unref(menus)))
 
   // { id: index, ... }
-  const flatMenusIndex = computed(() => fromPairs(unref(flatMenus).map((e, i) => [getMenuId(e), i])))
+  const flatMenusIdIndex = computed(() => fromPairs(unref(flatMenus).map((e, i) => [getMenuId(e), i])))
+  // { url: index, ... }
+  const flatMenusUrlIndex = computed(() => fromPairs(unref(flatMenus).map((e, i) => [getMenuUrl(e), i])))
 
   /**
    * Set menus value
@@ -26,14 +28,25 @@ export function menuStore () {
    * @returns menu item
    */
   function getMenuById (id) {
-    return unref(flatMenus)[unref(flatMenusIndex)[id]]
+    return unref(flatMenus)[unref(flatMenusIdIndex)[id]]
+  }
+
+  /**
+   * Find menu item by menu url
+   * @param {string} url menu url
+   * @returns menu item
+   */
+   function getMenuByUrl (url) {
+    return unref(flatMenus)[unref(flatMenusUrlIndex)[url]]
   }
 
   return {
     menus,
     flatMenus,
-    flatMenusIndex,
+    flatMenusIdIndex,
+    flatMenusUrlIndex,
     setMenus,
-    getMenuById
+    getMenuById,
+    getMenuByUrl
   }
 }
