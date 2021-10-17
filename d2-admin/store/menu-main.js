@@ -1,31 +1,54 @@
-import { defineStore } from 'pinia'
+import { shallowRef, computed, unref } from 'vue'
 import { fromPairs } from 'lodash-es'
+import { defineStore } from 'pinia'
 import { flattenMenus, getMenuId, getMenuUrl } from 'd2-admin/utils/menu.js'
 
-export const useStoreOfMenuMain = defineStore('menu-main', {
-  state: () => ({
-    menus: []
-  }),
-  getters: {
-    flatMenus () {
-      return flattenMenus(this.menus)
-    },
-    flatMenusIdIndex () {
-      return fromPairs(this.flatMenus.map((e, i) => [getMenuId(e), i]))
-    },
-    flatMenusUrlIndex () {
-      return fromPairs(this.flatMenus.map((e, i) => [getMenuUrl(e), i]))
-    }
-  },
-  actions: {
-    setMenus (value) {
-      this.menus = value
-    },
-    getMenuById (id) {
-      return this.flatMenus[this.flatMenusIdIndex[id]]
-    },
-    getMenuByUrl (url) {
-      return this.flatMenus[this.flatMenusUrlIndex[url]]
-    }
+export const useMenuMainStore = defineStore('menu-main', () => {
+  
+  // [ tree, ... ]
+  const menus = shallowRef([])
+
+  // [ menu, ... ]
+  const flatMenus = computed(() => flattenMenus(unref(menus)))
+
+  // { id: index, ... }
+  const flatMenusIdIndex = computed(() => fromPairs(unref(flatMenus).map((e, i) => [getMenuId(e), i])))
+  // { url: index, ... }
+  const flatMenusUrlIndex = computed(() => fromPairs(unref(flatMenus).map((e, i) => [getMenuUrl(e), i])))
+
+  /**
+   * Set menus value
+   * @param {array} value menus
+   */
+  function setMenus (value) {
+    menus.value = value
+  }
+
+  /**
+   * Find menu item by menu id
+   * @param {string} id menu id
+   * @returns menu item
+   */
+  function getMenuById (id) {
+    return unref(flatMenus)[unref(flatMenusIdIndex)[id]]
+  }
+
+  /**
+   * Find menu item by menu url
+   * @param {string} url menu url
+   * @returns menu item
+   */
+  function getMenuByUrl (url) {
+    return unref(flatMenus)[unref(flatMenusUrlIndex)[url]]
+  }
+
+  return {
+    menus,
+    flatMenus,
+    flatMenusIdIndex,
+    flatMenusUrlIndex,
+    setMenus,
+    getMenuById,
+    getMenuByUrl
   }
 })

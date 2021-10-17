@@ -5,12 +5,12 @@ import { getMenuId } from 'd2-admin/utils/menu.js'
 import { renderMenus } from './render.jsx'
 
 import { storeToRefs } from 'pinia'
-import { useStoreOfMenuMain } from 'd2-admin/store/menu-main.js'
+import { useMenuMainStore } from 'd2-admin/store/menu-main.js'
 
 export default defineComponent({
   setup () {
     const route = useRoute()
-    const store = useStoreOfMenuMain()
+    const store = useMenuMainStore()
 
     const { menus } = storeToRefs(store)
 
