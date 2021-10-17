@@ -21,7 +21,7 @@
     <slot/>
   </div>
   <div class="layout-header-aside__header" :style="headerStyle">
-    <button @click="countIncrease">click | {{ count }}</button>
+    header
   </div>
   <div class="layout-header-aside__aside" :style="asideStyle">
     <d2-admin-layout-header-aside-menu-vertical/>
@@ -32,14 +32,6 @@
 import { computed, ref } from 'vue'
 import { px } from 'd2-projects/d2-utils/css.js'
 import { useCssPosition } from 'd2-projects/d2-use/use-css-position.js'
-
-import { useStore } from 'd2-admin/store/index.js'
-import { countStore } from 'd2-admin/store/modules/count.js'
-
-const {
-  count,
-  countIncrease
-} = useStore(countStore)
 
 const headerHeight = ref(50)
 const asideWidth = ref(200)

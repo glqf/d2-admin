@@ -5,12 +5,10 @@
 </template>
 
 <script setup>
-import { creatStore } from 'd2-admin/store/index.js'
+import { useStoreOfMenuMain } from 'd2-admin/store/menu-main.js'
 import { menusAside } from '@/menus/index.js'
 
-const { menuMainStore } = creatStore()
+const menuMainStore = useStoreOfMenuMain()
 
-const { setMenus } = menuMainStore
-
-setMenus(menusAside)
+menuMainStore.setMenus(menusAside)
 </script>

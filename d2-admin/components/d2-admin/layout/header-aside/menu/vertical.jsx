@@ -1,23 +1,28 @@
 import { defineComponent, computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useStore } from 'd2-admin/store/index.js'
-import { menuMainStore } from 'd2-admin/store/modules/menu-main.js'
 import { useMenu } from 'd2-admin/use/menu.js'
 import { getMenuId } from 'd2-admin/utils/menu.js'
 import { renderMenus } from './render.jsx'
 
+import { storeToRefs } from 'pinia'
+import { useStoreOfMenuMain } from 'd2-admin/store/menu-main.js'
+
 export default defineComponent({
   setup () {
     const route = useRoute()
+    const store = useStoreOfMenuMain()
 
-    const { menus, getMenuById, getMenuByUrl } = useStore(menuMainStore)
+    const { menus } = storeToRefs(store)
+
+    console.log(store.getMenuByUrl)
+
     const { navigateByMenu } = useMenu()
 
     function onSelect (id) {
-      navigateByMenu(getMenuById(id))
+      navigateByMenu(store.getMenuById(id))
     }
 
-    const defaultActive = computed(() => getMenuId(getMenuByUrl(route.fullPath)))
+    const defaultActive = computed(() => getMenuId(store.getMenuByUrl(route.fullPath)))
 
     return {
       menus,
