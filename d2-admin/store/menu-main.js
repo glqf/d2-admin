@@ -9,12 +9,25 @@ export const useMenuMainStore = defineStore('menu-main', () => {
   const menus = shallowRef([])
 
   // [ menu, ... ]
-  const flatMenus = computed(() => flattenMenus(unref(menus)))
+  const flatMenus = computed(
+    () => flattenMenus(unref(menus))
+  )
 
   // { id: index, ... }
-  const flatMenusIdIndex = computed(() => fromPairs(unref(flatMenus).map((e, i) => [getMenuId(e), i])))
+  const flatMenusIdIndex = computed(
+    () => fromPairs(
+      unref(flatMenus)
+        .map((e, i) => [getMenuId(e), i])
+    )
+  )
   // { url: index, ... }
-  const flatMenusUrlIndex = computed(() => fromPairs(unref(flatMenus).map((e, i) => [getMenuUrl(e), i])))
+  const flatMenusUrlIndex = computed(
+    () => fromPairs(
+      unref(flatMenus)
+        .map((e, i) => [getMenuUrl(e), i])
+        .filter(e => e[0])
+    )
+  )
 
   /**
    * Set menus value
