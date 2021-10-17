@@ -17,6 +17,7 @@
     "lodash-es": "^4.17.21",
     "nanoid": "^3.1.25",
     "overlayscrollbars": "^1.13.1",
+    "pinia": "^2.0.0-rc.13",
     "v-dollar": "^0.1.0",
     "vue": "^3.2.6",
     "vue-router": "^4.0.11"
