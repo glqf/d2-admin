@@ -36,7 +36,7 @@ export default defineComponent({
       defaultActive
     } = this
     return renderMenus(menus, {
-      mode: 'vertical',
+      mode: 'horizontal',
       onSelect,
       defaultActive
     })

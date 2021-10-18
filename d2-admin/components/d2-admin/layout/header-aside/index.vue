@@ -21,7 +21,7 @@
     <slot/>
   </div>
   <div class="layout-header-aside__header" :style="headerStyle">
-    header
+    <d2-admin-layout-header-aside-menu-horizontal/>
   </div>
   <div class="layout-header-aside__aside" :style="asideStyle">
     <d2-admin-layout-header-aside-menu-vertical/>
