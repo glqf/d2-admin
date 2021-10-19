@@ -6,10 +6,12 @@ import { getMenuId } from 'd2-admin/utils/menu.js'
 import { renderMenus } from './render.jsx'
 
 export function defineMenuComponent ({
+  name,
   store,
   props = {}
 } = {}) {
   return defineComponent({
+    name,
     setup () {
       const route = useRoute()
   
