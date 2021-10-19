@@ -64,13 +64,12 @@ export default defineConfig({
       ],
       dts: true,
       directoryAsNamespace: true,
-      globalNamespaces: ['your-ignore-directory-name'],
       importPathTransform: path => path.endsWith('.svg') ? `${path}?component` : undefined,
       deep: true,
       resolvers: [
         ElementPlusResolver(),
         IconsResolver({
-          componentPrefix: 'icon'
+          componentPrefix: 'D2Icon'
         })
       ]
     }),
