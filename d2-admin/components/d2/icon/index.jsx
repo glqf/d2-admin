@@ -1,6 +1,5 @@
-import { $ } from 'v-dollar'
 import makeClassnames from 'classnames'
-import { defineComponent, onMounted, nextTick, onBeforeUpdate } from 'vue'
+import { defineComponent, ref, unref, computed, watch, onMounted, nextTick, onBeforeUpdate } from 'vue'
 import iconify from '@iconify/iconify'
 import { clearElement } from 'd2-projects/d2-utils/dom.js'
 import { useConfig } from 'd2-projects/d2-config/index.js'
@@ -18,45 +17,54 @@ export default defineComponent({
     name: { type: String, default: '' }
   },
   setup (props) {
-    const wrapper = $(null)
+    const wrapper = ref(null)
 
     const { iconCollection } = useConfig()
 
-    const collection = $(() => props.collection || $(iconCollection))
+    const collection = computed(() => props.collection || unref(iconCollection))
 
-    const iconNameComplete = $(() => {
+    const iconNameComplete = computed(() => {
       // like collection:icon
       if (props.name.indexOf(':') > 0) return props.name
       // The icon name does not contain the icon collection name
       // Try to get it from another way
-      return $(collection) ? `${$(collection)}:${props.name}` : props.name
+      return unref(collection) ? `${unref(collection)}:${props.name}` : props.name
     })
 
     async function load () {
-      clearElement($(wrapper))
+      clearElement(unref(wrapper))
       await nextTick()
-      const svg = iconify.renderSVG($(iconNameComplete), {})
+      const svg = iconify.renderSVG(unref(iconNameComplete), {})
       if (svg) {
-        $(wrapper).appendChild(svg)
+        unref(wrapper).appendChild(svg)
       } else {
         const span = document.createElement('span')
         span.className = 'iconify'
-        span.dataset.icon = $(iconNameComplete)
-        $(wrapper).appendChild(span)
+        span.dataset.icon = unref(iconNameComplete)
+        unref(wrapper).appendChild(span)
       }
     }
 
-    const classnames = $(() => makeClassnames(classname, {}))
+    const classnames = computed(() => makeClassnames(classname, {}))
 
     onMounted(load)
     onBeforeUpdate(() => {
       wrapper.value = unll
     })
-    $(() => props.collection, load, { flush: 'post' })
-    $(() => props.icon, load, { flush: 'post' })
+    watch(() => props.collection, load, { flush: 'post' })
+    watch(() => props.icon, load, { flush: 'post' })
 
-    return () => (
-      <span class={ $(classnames) } ref={ wrapper }/>
+    return {
+      wrapper,
+      classnames
+    }
+  },
+  render () {
+    const {
+      classnames
+    } = this
+    return (
+      <span class={ classnames } ref="wrapper"/>
     )
   }
 })
