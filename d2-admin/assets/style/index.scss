@@ -1,7 +1,7 @@
-// normalize
-@import 'd2-projects/d2-normalize/index.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-// themes
 @import './themes/classic/config.css';
 
 html, body, #app {
