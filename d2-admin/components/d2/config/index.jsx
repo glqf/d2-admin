@@ -1,6 +1,5 @@
-import { $ } from 'v-dollar'
 import { isFunction, keys, mapValues, isEqual, last, isUndefined } from 'lodash-es'
-import { defineComponent, reactive } from 'vue'
+import { defineComponent, reactive, computed, watch } from 'vue'
 import { useContext } from 'd2-projects/d2-use/use-context.js'
 import { makeComponentName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import { breakPoints } from 'd2-projects/d2-utils/special/d2-components/const.js'
@@ -23,7 +22,7 @@ export const componentProps = {
 
 export const provideDataDefault = mapValues(
   componentProps,
-  (value, key) => getDefault(key)
+  (_, key) => getDefault(key)
 )
 
 function getDefault (key) {
@@ -57,7 +56,7 @@ export function useConfig () {
   const config = inject(provideDataDefault)
   const result = mapValues(
     componentProps,
-    (value, key) => $(() => config[key])
+    (_, key) => computed(() => config[key])
   )
   return reactive(result)
 }
@@ -68,7 +67,7 @@ export default defineComponent({
   setup (props, { slots }) {
     let provideData = getProvideData(props)
     keys(props).forEach(key => {
-      $(
+      watch(
         () => props[key],
         () => {
           provideData[key] = props[key]
