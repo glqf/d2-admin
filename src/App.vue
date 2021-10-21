@@ -9,9 +9,9 @@
 
 <script setup>
 import { useMenuMainStore } from 'd2-admin/store/menu-main.js'
-import { menusAside } from '@/menus/index.js'
+import { menus } from '@/menus/index.js'
 
 const menuMainStore = useMenuMainStore()
 
-menuMainStore.setMenus(menusAside)
+menuMainStore.setMenus(menus)
 </script>

@@ -23,7 +23,7 @@ export const callbacks = [
 
 export const emits = callbacks.map(name => kebabCase(name.replace(/^on/, '')))
 
-const name = 'scrollbar'
+const name = 'scroll'
 
 export const componentName = makeComponentName(name)
 export const classname = makeComponentClassName(name)

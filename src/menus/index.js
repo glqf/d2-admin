@@ -1,6 +1,6 @@
 import { Menu } from 'd2-admin/utils/menu.js'
 
-export const menusAside = [
+export const menus = [
   new Menu('演示')
     .icon('fluent:phone-vertical-scroll-24-filled')
     .add(
@@ -16,21 +16,16 @@ export const menusAside = [
       new Menu('组件')
         .add(
           new Menu('滚动容器')
-            .scope('/dashboard/demo/component')
-            .add(
-            new Menu('基础')
-              .url('/scrollbar')
-              .icon('fluent:phone-vertical-scroll-24-filled')
-          )
+            .scope('/dashboard/demo/component/scroll')
+            .add(new Menu('基础').url('/base').icon('fluent:phone-vertical-scroll-24-filled'))
         )
         .add(
           new Menu('svg 图标')
-            .scope('/dashboard/demo/component')
-            .add(
-            new Menu('基础')
-              .url('/svg')
-          )
+            .scope('/dashboard/demo/component/svg')
+            .add(new Menu('基础').url('/base'))
         )
     )
     .value()
 ]
+
+console.log('menus', menus)

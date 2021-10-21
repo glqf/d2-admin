@@ -1,5 +1,5 @@
 <template>
   <div>
-    scrollbar
+    base
   </div>
 </template>
