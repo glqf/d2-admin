@@ -1,6 +1,5 @@
-import { $ } from 'v-dollar'
 import makeClassnames from 'classnames'
-import { defineComponent } from 'vue'
+import { defineComponent, ref, unref, watch, computed } from 'vue'
 import { useConfig } from 'd2-projects/d2-config/index.js'
 import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 
@@ -18,20 +17,30 @@ export default defineComponent({
   setup (props) {
     const { svgSymbolId, svgDir } = useConfig()
 
-    const dir = $(() => props.dir || $(svgDir))
+    const dir = computed(() => props.dir || unref(svgDir))
 
-    const href = $(() => {
-      const result = $(svgSymbolId)
+    const href = computed(() => {
+      const result = unref(svgSymbolId)
       return '#' + result
-        .replace(/\[dir\]/g, $(dir))
+        .replace(/\[dir\]/g, unref(dir))
         .replace(/\[name\]/g, props.name)
     })
 
-    const classnames = $(() => makeClassnames(classname, {}))
+    const classnames = computed(() => makeClassnames(classname, {}))
 
-    return () => (
-      <svg class={ $(classnames) } aria-hidden="true">
-        <use xlink:href={ $(href) }/>
+    return {
+      classnames,
+      href
+    }
+  },
+  render () {
+    const {
+      classnames,
+      href
+    } = this
+    return (
+      <svg class={ classnames } aria-hidden="true">
+        <use xlink:href={ href }/>
       </svg>
     )
   }
