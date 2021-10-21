@@ -29,13 +29,13 @@ export default defineComponent({
     const dir = computed(() => props.dir || svgDir)
 
     const href = computed(() => {
-      let iconName = '#' + unref(symbolId)
+      let _href = '#' + unref(symbolId)
         .replace(/\[dir\]/g, unref(dir))
         .replace(/\[name\]/g, props.name)
       if (!unref(dir)) {
-        iconName = iconName.replace('--', '-')
+        _href = _href.replace('--', '-')
       }
-      return iconName
+      return _href
     })
 
     const classnames = computed(() => makeClassnames(classname, {}))
