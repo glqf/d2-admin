@@ -1,5 +1,8 @@
 <template>
-  <d2-config icon-collection="mdi">
+  <d2-config
+    icon-collection="mdi"
+    svg-symbol-id="icon-[dir]-[name]"
+  >
     <router-view/>
   </d2-config>
 </template>

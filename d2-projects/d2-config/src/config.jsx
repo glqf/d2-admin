@@ -7,7 +7,7 @@ import { breakPoints } from 'd2-projects/d2-utils/special/d2-components/const.js
 
 const name = 'config'
 
-const componentName = makeComponentName(name)
+export const componentName = makeComponentName(name)
 
 const {
   provide,
@@ -16,7 +16,7 @@ const {
 
 export const componentProps = {
   iconCollection: { type: String, default: '' },
-  svgSymbolId: { type: String, default: 'icon-[dir]-[name]' },
+  svgSymbolId: { type: String, default: '' },
   svgDir: { type: String, default: '' },
   breakPoints: { type: Object, default: () => breakPoints }
 }
