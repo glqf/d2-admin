@@ -85,7 +85,8 @@ export default defineConfig({
     SvgIcons({
       iconDirs: [
         resolve('d2-admin/assets/svg/icon')
-      ]
+      ],
+      symbolId: 'icon-[dir]-[name]'
     }),
     Icons({
       scale: 1,

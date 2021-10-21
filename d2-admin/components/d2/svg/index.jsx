@@ -11,19 +11,25 @@ const classname = makeComponentClassName(name)
 export default defineComponent({
   name: componentName,
   props: {
+    symbolId: { type: String, default: '' },
     dir: { type: String, default: '' },
     name: { type: String, default: '' }
   },
   setup (props) {
     const { svgSymbolId, svgDir } = useConfig()
-    
+
+    const symbolId = computed(() => props.symbolId || svgSymbolId)
+
     const dir = computed(() => props.dir || svgDir)
 
     const href = computed(() => {
-      const result = svgSymbolId
-      return '#' + result
+      let result = unref(symbolId)
         .replace(/\[dir\]/g, unref(dir))
         .replace(/\[name\]/g, props.name)
+      if (!unref(dir)) {
+        result = result.replace('--', '-')
+      }
+      return '#' + result
     })
 
     const classnames = computed(() => makeClassnames(classname, {}))
