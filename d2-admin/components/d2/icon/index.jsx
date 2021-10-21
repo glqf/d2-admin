@@ -25,7 +25,7 @@ export default defineComponent({
 
     const collection = computed(() => props.collection || unref(iconCollection))
 
-    const iconNameComplete = computed(() => {
+    const iconName = computed(() => {
       // like collection:icon
       if (props.name.indexOf(':') > 0) return props.name
       // The icon name does not contain the icon collection name
@@ -36,13 +36,13 @@ export default defineComponent({
     async function load () {
       clearElement(unref(wrapper))
       await nextTick()
-      const svg = iconify.renderSVG(unref(iconNameComplete), {})
+      const svg = iconify.renderSVG(unref(iconName), {})
       if (svg) {
         unref(wrapper).appendChild(svg)
       } else {
         const span = document.createElement('span')
         span.className = 'iconify'
-        span.dataset.icon = unref(iconNameComplete)
+        span.dataset.icon = unref(iconName)
         unref(wrapper).appendChild(span)
       }
     }
