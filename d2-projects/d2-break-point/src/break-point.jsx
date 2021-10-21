@@ -30,7 +30,7 @@ export default defineComponent({
   setup (props, { slots }) {
     const _breakPoints = Object.assign(
       {},
-      $(useConfig().breakPoints),
+      useConfig().breakPoints,
       props.breakPoints
     )
     const status = useBreakPoint(_breakPoints)

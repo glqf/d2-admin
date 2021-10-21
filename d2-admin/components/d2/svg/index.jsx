@@ -16,11 +16,11 @@ export default defineComponent({
   },
   setup (props) {
     const { svgSymbolId, svgDir } = useConfig()
-
-    const dir = computed(() => props.dir || unref(svgDir))
+    
+    const dir = computed(() => props.dir || svgDir)
 
     const href = computed(() => {
-      const result = unref(svgSymbolId)
+      const result = svgSymbolId
       return '#' + result
         .replace(/\[dir\]/g, unref(dir))
         .replace(/\[name\]/g, props.name)

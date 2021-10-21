@@ -21,7 +21,7 @@ export function useBreakPoint (breakPoints) {
     {
       [minKey]: minWidth
     },
-    $(useConfig().breakPoints),
+    useConfig().breakPoints,
     breakPoints
   )
 

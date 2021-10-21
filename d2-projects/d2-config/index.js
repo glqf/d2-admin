@@ -1,6 +1,4 @@
-import config, {
-  useConfig as use
-} from './src/config.jsx'
+import config, { useConfig as _useConfig } from './src/config.jsx'
 
 config.install = app => {
   app.component(config.name, config)
@@ -8,4 +6,4 @@ config.install = app => {
 
 export default config
 
-export const useConfig = use
+export const useConfig = _useConfig

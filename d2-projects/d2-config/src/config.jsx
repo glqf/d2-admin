@@ -47,7 +47,7 @@ function getProvideData (props) {
     return reactive(
       mapValues(
         props,
-        (value, key) => getValid(key, value, $(config[key]))
+        (value, key) => getValid(key, value, config[key])
       )
     )
   }
@@ -59,7 +59,7 @@ export function useConfig () {
     componentProps,
     (value, key) => $(() => config[key])
   )
-  return result
+  return reactive(result)
 }
 
 export default defineComponent({

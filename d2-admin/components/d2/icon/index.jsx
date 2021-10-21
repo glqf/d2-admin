@@ -23,7 +23,7 @@ export default defineComponent({
 
     const { iconCollection } = useConfig()
 
-    const collection = computed(() => props.collection || unref(iconCollection))
+    const collection = computed(() => props.collection || iconCollection)
 
     const iconName = computed(() => {
       // like collection:icon
