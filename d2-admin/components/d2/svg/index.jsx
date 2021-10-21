@@ -1,9 +1,9 @@
 import makeClassnames from 'classnames'
 import { defineComponent, unref, computed } from 'vue'
-import { useConfig } from 'd2-projects/d2-config/index.js'
+import { useConfig } from 'd2-admin/components/d2/config/use.js'
 import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import { warn } from 'd2-projects/d2-utils/error.js'
-import { componentName as configComponentName } from 'd2-projects/d2-config/src/config.jsx'
+import { componentName as configComponentName } from 'd2-admin/components/d2/config/index.jsx'
 
 const name = 'svg'
 
