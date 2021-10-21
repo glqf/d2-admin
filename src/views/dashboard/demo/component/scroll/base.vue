@@ -4,7 +4,10 @@
   width: 200px;
   @apply border border-gray-800 rounded;
   .row {
-    @apply px-4 py-2 bg-gray-700 text-gray-100 border-b border-gray-800;
+    @apply cursor-pointer px-4 py-2 bg-gray-700 text-gray-100 border-b border-gray-800;
+    &:hover {
+      @apply bg-gray-800 text-gray-200;
+    }
     &:last-child {
       @apply border-b-0;
     }
