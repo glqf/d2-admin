@@ -18,13 +18,17 @@
 
 <template>
   <div class="layout-header-aside__body" :style="position">
-    <slot/>
+    <d2-scroll class="w-full h-full">
+      <slot/>
+    </d2-scroll>
   </div>
   <div class="layout-header-aside__header" :style="headerStyle">
     <d2-admin-layout-header-aside-menu-horizontal/>
   </div>
   <div class="layout-header-aside__aside" :style="asideStyle">
-    <d2-admin-layout-header-aside-menu-vertical/>
+    <d2-scroll class="w-full h-full">
+      <d2-admin-layout-header-aside-menu-vertical/>
+    </d2-scroll>
   </div>
 </template>
 
