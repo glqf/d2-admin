@@ -1,4 +1,4 @@
-import { $ } from 'v-dollar'
+import { unref, computed } from 'vue'
 import { keys, values, fromPairs, mapValues } from 'lodash-es'
 import { useWindowSize } from './use-window-size.js'
 import { useConfig } from 'd2-admin/components/d2/config/use.js'
@@ -18,22 +18,21 @@ export function useBreakPoint (breakPoints) {
   const { width } = useWindowSize()
   
   const _points = Object.assign(
-    {
-      [minKey]: minWidth
-    },
+    { [minKey]: minWidth },
     useConfig().breakPoints,
     breakPoints
   )
 
   const names = keys(_points)
   const widths = values(_points).sort((a, b) => a - b)
-  // eg: { 640: 'sm' }
   const dict = fromPairs(widths.map((w, i) => [w, names[i]]))
 
-  const activeWidth = $(() => widths.reduce((r, e) => $(width) >= e ? e : r, minWidth))
-  const activeName = $(() => dict[$(activeWidth)])
+  const activeWidth = computed(() => widths.reduce((r, e) => unref(width) >= e ? e : r, minWidth))
+  const activeName = computed(() => dict[unref(activeWidth)])
 
-  const status = mapValues(_points, (v, k) => $(() => $(activeName) === k))
+  const status = mapValues(_points, (v, k) => computed(() => unref(activeName) === k))
+
+  console.log('status0', status)
 
   /**
    * match data based on breakpoints
@@ -42,12 +41,12 @@ export function useBreakPoint (breakPoints) {
    * @returns a matched data
    */
   function responsive (data, dataSet = {}) {
-    return $(() => {
+    return computed(() => {
       const activeName = dict[
         Math.max(
           ...keys(dataSet)
             .map(k => _points[k])
-            .filter(w => w <= $(activeWidth))
+            .filter(w => w <= unref(activeWidth))
         )
       ]
       return dataSet[activeName] || data
