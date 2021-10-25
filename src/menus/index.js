@@ -25,6 +25,13 @@ export const menus = [
             .add(new Menu('基础').url('/base'))
         )
         .add(
+          new Menu('断点组件')
+            .scope('/dashboard/demo/component/break-point')
+            .add(new Menu('base').url('/base'))
+            .add(new Menu('data').url('/data'))
+            .add(new Menu('slot').url('/slot'))
+        )
+        .add(
           new Menu('flex 布局')
             .scope('/dashboard/demo/component/flex')
             .add(new Menu('base').url('/base'))
