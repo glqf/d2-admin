@@ -15,7 +15,7 @@
     ".gitignore": true,
     "README.md": true,
     "package.json": true,
-    "components.d.ts": true,
+    "components.d.ts": false,
     "tailwind.config.js": true,
     "postcss.config.js": true
   },

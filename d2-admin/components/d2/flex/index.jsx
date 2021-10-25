@@ -1,10 +1,10 @@
-import { $ } from 'v-dollar'
 import makeClassnames from 'classnames'
-import { defineComponent } from 'vue'
+import { defineComponent, unref, computed } from 'vue'
 import { pickBy, isUndefined } from 'lodash-es'
 import { isNumberLike } from 'd2-projects/d2-utils/number.js'
 import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import { isFlexProp } from 'd2-projects/d2-utils/special/d2-components/const.js'
+import './index.scss'
 
 const name = 'flex'
 
@@ -37,10 +37,10 @@ export default defineComponent({
     tag: { type: String, default: 'div' }
   },
   setup (props, { slots }) {
-    const center = $(() => props.center ? 'center' : '')
-    const main = $(() => $(center) || props.main)
-    const cross = $(() => $(center) || props.cross)
-    const classnames = $(() => makeClassnames(
+    const center = computed(() => props.center ? 'center' : '')
+    const main = computed(() => unref(center) || props.main)
+    const cross = computed(() => unref(center) || props.cross)
+    const classnames = computed(() => makeClassnames(
       classname,
       {
         'is-inline-flex': props.inlineFlex,
@@ -50,20 +50,20 @@ export default defineComponent({
         'is-wrap': props.wrap,
         'is-wrap-r': props.wrapR,
         [`is-dir-${props.dir}`]: props.dir,
-        [`is-main-${$(main)}`]: $(main),
-        [`is-cross-${$(cross)}`]: $(cross),
+        [`is-main-${unref(main)}`]: unref(main),
+        [`is-cross-${unref(cross)}`]: unref(cross),
         [`is-box-${props.box}`]: props.box,
         [`is-content-${props.content}`]: props.content,
         [`is-self-${props.self}`]: props.self
       }
     ))
-    const style = $(() => pickBy({
+    const style = computed(() => pickBy({
       order: props.order,
       flexGrow: props.grow,
       flexShrink: props.shrink
     }, value => !isUndefined(value)))
     return () => (
-      <props.tag class={ $(classnames) } style={ $(style) }>
+      <props.tag class={ unref(classnames) } style={ unref(style) }>
         { slots.default?.() }
       </props.tag>
     )
