@@ -1,5 +1,5 @@
 <template>
-  <the-section title="nesting with out d2-flex if no special settings">
+  <demo-section title="nesting with out d2-flex if no special settings">
     <d2-flex class="outer" cross="center" box="mean" space>
       <div class="inner">
         <div v-for="n in 3" :key="n">{{ n }}</div>
@@ -8,8 +8,8 @@
         <div v-for="n in 3" :key="n">{{ n }}</div>
       </d2-flex>
     </d2-flex>
-  </the-section>
-  <the-section title="nesting by d2-flex and has special settings">
+  </demo-section>
+  <demo-section title="nesting by d2-flex and has special settings">
     <d2-flex class="outer" cross="center" box="mean" space>
       <d2-flex class="inner" self="bottom" block>
         <div v-for="n in 3" :key="n">{{ n }}</div>
@@ -18,7 +18,7 @@
         <div v-for="n in 3" :key="n">{{ n }}</div>
       </d2-flex>
     </d2-flex>
-  </the-section>
+  </demo-section>
 </template>
 
 <style lang="scss" scoped>

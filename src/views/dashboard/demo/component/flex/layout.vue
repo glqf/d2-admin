@@ -1,12 +1,12 @@
 <template>
-  <the-section title="layout">
+  <demo-section title="layout">
     <d2-flex class="layout" dir="top" box="justify">
       <div class="layout__header">header</div>
       <d2-flex class="layout__body" center>body</d2-flex>
       <div class="layout__footer">footer</div>
     </d2-flex>
-  </the-section>
-  <the-section title="layout">
+  </demo-section>
+  <demo-section title="layout">
     <d2-flex class="layout" box="first">
       <d2-flex class="layout__side" center>side</d2-flex>
       <d2-flex dir="top" box="justify">
@@ -15,8 +15,8 @@
         <div class="layout__footer">footer</div>
       </d2-flex>
     </d2-flex>
-  </the-section>
-  <the-section title="layout">
+  </demo-section>
+  <demo-section title="layout">
     <d2-flex class="layout" dir="top" box="first">
       <div class="layout__header">header</div>
       <d2-flex box="first">
@@ -27,7 +27,7 @@
         </d2-flex>
       </d2-flex>
     </d2-flex>
-  </the-section>
+  </demo-section>
 </template>
 
 <style lang="scss" scoped>

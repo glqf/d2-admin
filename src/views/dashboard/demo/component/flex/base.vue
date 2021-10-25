@@ -1,5 +1,5 @@
 <template>
-  <the-section title="flex">
+  <demo-section title="flex">
     <template v-for="_dir in dir" :key="_dir">
       <template v-for="_main in main" :key="_main">
         <template v-for="_cross in cross" :key="_cross">
@@ -21,7 +21,7 @@
         </template>
       </template>
     </template>
-  </the-section>
+  </demo-section>
 </template>
 
 <script>

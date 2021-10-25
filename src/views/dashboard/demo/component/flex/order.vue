@@ -1,11 +1,11 @@
 <template>
-  <the-section title="order">
+  <demo-section title="order">
     <d2-flex class="group" center space>
       <d2-flex class="item" v-for="n in orders.length" :key="n" :order="orders[n - 1]">
         {{ orders[n - 1] }}
       </d2-flex>
     </d2-flex>
-  </the-section>
+  </demo-section>
 </template>
 
 <script>

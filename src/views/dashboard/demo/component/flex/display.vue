@@ -1,29 +1,29 @@
 <template>
-  <the-section title="default">
+  <demo-section title="default">
     <d2-flex class="flex" space>
       <div class="flex__item" v-for="n in 3" :key="n"></div>
     </d2-flex>
-  </the-section>
-  <the-section title="inline-flex">
+  </demo-section>
+  <demo-section title="inline-flex">
     <d2-flex class="flex" inline-flex space>
       <div class="flex__item" v-for="n in 3" :key="n"></div>
     </d2-flex>
-  </the-section>
-  <the-section title="inline">
+  </demo-section>
+  <demo-section title="inline">
     <d2-flex class="flex" inline>
       <span class="flex__item" v-for="n in 3" :key="n">{{ n }}</span>
     </d2-flex>
-  </the-section>
-  <the-section title="inline-block">
+  </demo-section>
+  <demo-section title="inline-block">
     <d2-flex class="flex" inline-block>
       <span class="flex__item" v-for="n in 3" :key="n">{{ n }}</span>
     </d2-flex>
-  </the-section>
-  <the-section title="block">
+  </demo-section>
+  <demo-section title="block">
     <d2-flex class="flex" block>
       <div class="flex__item" v-for="n in 3" :key="n"></div>
     </d2-flex>
-  </the-section>
+  </demo-section>
 </template>
 
 <style lang="scss" scoped>

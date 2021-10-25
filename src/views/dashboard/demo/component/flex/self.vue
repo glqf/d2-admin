@@ -1,5 +1,5 @@
 <template>
-  <the-section v-for="_self in self" :key="_self" :title="_self || 'default'">
+  <demo-section v-for="_self in self" :key="_self" :title="_self || 'default'">
     <d2-flex class="flex" box="mean" space>
       <d2-flex class="flex__item"></d2-flex>
       <d2-flex class="flex__item"></d2-flex>
@@ -7,7 +7,7 @@
       <d2-flex class="flex__item"></d2-flex>
       <d2-flex class="flex__item"></d2-flex>
     </d2-flex>
-  </the-section>
+  </demo-section>
 </template>
 
 <script>

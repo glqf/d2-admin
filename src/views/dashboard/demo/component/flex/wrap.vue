@@ -1,19 +1,19 @@
 <template>
-  <the-section title="default">
+  <demo-section title="default">
     <d2-flex class="flex" cross="top" space>
       <div class="flex__item flex__item--size" :class="`flex__item--${n}`" v-for="n in 6" :key="n"></div>
     </d2-flex>
-  </the-section>
-  <the-section title="wrap">
+  </demo-section>
+  <demo-section title="wrap">
     <d2-flex class="flex" cross="top" wrap space>
       <div class="flex__item flex__item--size" :class="`flex__item--${n}`" v-for="n in 6" :key="n"></div>
     </d2-flex>
-  </the-section>
-  <the-section title="wrap-r">
+  </demo-section>
+  <demo-section title="wrap-r">
     <d2-flex class="flex" cross="top" wrap-r space>
       <div class="flex__item flex__item--size" :class="`flex__item--${n}`" v-for="n in 6" :key="n"></div>
     </d2-flex>
-  </the-section>
+  </demo-section>
 </template>
 
 <style lang="scss" scoped>

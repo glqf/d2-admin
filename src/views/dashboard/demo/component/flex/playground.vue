@@ -1,5 +1,5 @@
 <template>
-  <the-section title="playground">
+  <demo-section title="playground">
     <d2-flex dir="left" cross="top" box="first">
       <d2-flex main="center" cross="center" class="view">
         <d2-flex
@@ -21,13 +21,13 @@
         </d2-flex>
       </d2-flex>
       <div>
-        <playground-control label="dir" :options="dir" v-model:value="dirValue"></playground-control>
-        <playground-control label="main" :options="main" v-model:value="mainValue"></playground-control>
-        <playground-control label="cross" :options="cross" v-model:value="crossValue"></playground-control>
-        <playground-control label="box" :options="box" v-model:value="boxValue"></playground-control>
+        <demo-playground-control label="dir" :options="dir" v-model:value="dirValue"></demo-playground-control>
+        <demo-playground-control label="main" :options="main" v-model:value="mainValue"></demo-playground-control>
+        <demo-playground-control label="cross" :options="cross" v-model:value="crossValue"></demo-playground-control>
+        <demo-playground-control label="box" :options="box" v-model:value="boxValue"></demo-playground-control>
       </div>
     </d2-flex>
-  </the-section>
+  </demo-section>
 </template>
 
 <script>
