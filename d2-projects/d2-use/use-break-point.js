@@ -1,4 +1,4 @@
-import { unref, computed } from 'vue'
+import { reactive, unref, computed } from 'vue'
 import { keys, values, fromPairs, mapValues } from 'lodash-es'
 import { useWindowSize } from './use-window-size.js'
 import { useConfig } from 'd2-admin/components/d2/config/use.js'
@@ -31,8 +31,6 @@ export function useBreakPoint (breakPoints) {
   const activeName = computed(() => dict[unref(activeWidth)])
 
   const status = mapValues(_points, (v, k) => computed(() => unref(activeName) === k))
-
-  console.log('status0', status)
 
   /**
    * match data based on breakpoints

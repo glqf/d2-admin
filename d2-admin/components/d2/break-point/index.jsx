@@ -1,5 +1,4 @@
-import { $ } from 'v-dollar'
-import { defineComponent } from 'vue'
+import { unref, reactive, defineComponent } from 'vue'
 import { keys, mapValues } from 'lodash-es'
 import { makeComponentName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import { useBreakPoint } from 'd2-projects/d2-use/use-break-point.js'
@@ -27,29 +26,42 @@ export default defineComponent({
     data: { type: Object, default: () => ({}) },
     breakPoints: { type: Object, default: () => ({}) }
   },
-  setup (props, { slots }) {
-    const _breakPoints = Object.assign(
+  setup (props) {
+    const breakPoints = Object.assign(
       {},
       useConfig().breakPoints,
       props.breakPoints
     )
-    const status = useBreakPoint(_breakPoints)
-    console.log('status', status)
-    const data = $(() => ({
-      ...status,
-      data: mapValues(
-        props.data,
-        (v, k) => $(status.responsive(...props.data[k]))
-      )
-    }))
-    console.log('data', data)
-    return () => {
-      const prop = $(data)
-      return [
-        slots.default?.(prop),
-        slots.min?.(prop),
-        ...keys(_breakPoints).map(e => slots?.[e]?.(prop))
-      ]
+    
+    const status = useBreakPoint(breakPoints)
+
+    const data = mapValues(
+      props.data,
+      (_, k) => unref(status.responsive(...props.data[k]))
+    )
+    
+    return {
+      breakPoints,
+      status,
+      data
     }
+  },
+  render () {
+    const {
+      breakPoints,
+      status,
+      data
+    } = this
+    const scope = {
+      ...reactive(status),
+      data
+    }
+    const slot = name => this.$slots?.[name]?.(scope)
+    return [
+      slot('default'),
+      slot('min'),
+      ...keys(breakPoints)
+        .map(e => slot(e))
+    ]
   }
 })
