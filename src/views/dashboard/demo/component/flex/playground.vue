@@ -21,10 +21,26 @@
         </d2-flex>
       </d2-flex>
       <div>
-        <demo-playground-control label="dir" :options="dir" v-model:value="dirValue"></demo-playground-control>
-        <demo-playground-control label="main" :options="main" v-model:value="mainValue"></demo-playground-control>
-        <demo-playground-control label="cross" :options="cross" v-model:value="crossValue"></demo-playground-control>
-        <demo-playground-control label="box" :options="box" v-model:value="boxValue"></demo-playground-control>
+        <demo-playground-controller
+          label="dir"
+          :options="dir"
+          v-model:value="dirValue"
+        />
+        <demo-playground-controller
+          label="main"
+          :options="main"
+          v-model:value="mainValue"
+        />
+        <demo-playground-controller
+          label="cross"
+          :options="cross"
+          v-model:value="crossValue"
+        />
+        <demo-playground-controller
+          label="box"
+          :options="box"
+          v-model:value="boxValue"
+        />
       </div>
     </d2-flex>
   </demo-section>

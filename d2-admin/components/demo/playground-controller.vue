@@ -3,16 +3,19 @@
     {{ label }}
   </p>
   <section class="body">
-    <button
+    <el-button
       v-for="item in options"
       :key="item"
-      :color="value === item ? 'indigo' : ''"
-      :icon="buttonIcon(item)"
-      size="small"
+      :type="value === item ? 'primary' : ''"
+      size="mini"
       @click="onClick(item)"
     >
+      <d2-icon
+        v-if="buttonIcon(item)"
+        :name="buttonIcon(item)"
+      />
       {{ buttonLabel(item) }}
-    </button>
+    </el-button>
   </section>
 </template>
 

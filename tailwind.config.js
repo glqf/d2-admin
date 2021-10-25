@@ -1,8 +1,10 @@
 module.exports = {
   mode: 'jit',
   purge: [
-    './public/**/*.html',
-    './src/**/*.{js,jsx,ts,tsx,vue}'
+    './*.html',
+    './src/**/*.{js,jsx,vue}',
+    './d2-admin/**/*.{js,jsx,vue}',
+    './d2-projects/**/*.{js,jsx,vue}'
   ],
   darkMode: false,
   theme: {
