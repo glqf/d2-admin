@@ -62,10 +62,21 @@ export default defineComponent({
       flexGrow: props.grow,
       flexShrink: props.shrink
     }, value => !isUndefined(value)))
-    return () => (
-      <props.tag class={ unref(classnames) } style={ unref(style) }>
-        { slots.default?.() }
-      </props.tag>
+    return {
+      classnames,
+      style
+    }
+  },
+  render () {
+    const {
+      classnames,
+      style
+    } = this
+    const Tag = this.tag
+    return (
+      <Tag class={ classnames } style={ style }>
+        { this.$slots?.default?.() }
+      </Tag>
     )
   }
 })
