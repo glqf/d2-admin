@@ -6,6 +6,10 @@ import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/
 import os from 'overlayscrollbars'
 import 'overlayscrollbars/css/OverlayScrollbars.css'
 
+const themes = import.meta.globEager('./os-theme/*.css')
+
+console.log('themes', themes)
+
 export const callbacks = [
   'onInitialized',
   'onInitializationWithdrawn',
@@ -33,7 +37,7 @@ export default defineComponent({
   props: {
     options: { type: Object },
     extensions: { type: [String, Array, Object] },
-    theme: { type: String, default: 'dark' },
+    theme: { type: String, default: 'thin-dark' },
     cordonX: { type: Number, default: 0 },
     cordonY: { type: Number, default: 0 },
     full: { type: Boolean }
