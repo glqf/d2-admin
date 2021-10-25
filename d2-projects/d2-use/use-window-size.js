@@ -1,4 +1,4 @@
-import { $ } from 'v-dollar'
+import { ref } from 'vue'
 import { throttle } from 'lodash-es'
 import { onMounted, onUnmounted, onBeforeMount } from 'vue'
 
@@ -10,8 +10,8 @@ import { onMounted, onUnmounted, onBeforeMount } from 'vue'
  */
 export function useWindowSize(wait = 30) {
 
-  const width = $(0)
-  const height = $(0)
+  const width = ref(0)
+  const height = ref(0)
 
   function update() {
     width.value = window.innerWidth
