@@ -84,7 +84,7 @@ export default defineConfig({
     PurgeIcons(),
     SvgIcons({
       iconDirs: [
-        resolve('d2-admin/assets/svg/icon')
+        resolve('d2-admin/svg/icon')
       ],
       symbolId: 'icon-[dir]-[name]'
     }),
@@ -93,6 +93,13 @@ export default defineConfig({
       compiler: 'vue3'
     })
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@use "d2-admin/style/utils/index.scss" as *;'
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': '/src',
