@@ -1,7 +1,6 @@
-import { $ } from 'v-dollar'
 import makeClassnames from 'classnames'
-import { defineComponent, onBeforeUnmount, onMounted } from 'vue'
-import { kebabCase, fromPairs, mergeWith, keys } from 'lodash-es'
+import { defineComponent, ref, unref, computed, watch, onBeforeUnmount, onMounted } from 'vue'
+import { kebabCase, fromPairs, mergeWith } from 'lodash-es'
 import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import os from 'overlayscrollbars'
 import 'overlayscrollbars/css/OverlayScrollbars.css'
@@ -48,16 +47,16 @@ export default defineComponent({
     'scroll-bottom'
   ],
   setup (props, { emit }) {
-    const target = $(null)
+    const target = ref(null)
 
-    const instance = $(null)
+    const instance = ref(null)
 
-    const isValid = () => os.valid($(instance))
+    const isValid = () => os.valid(unref(instance))
 
-    const themeClassName = $(() => `os-theme-${props.theme}`)
+    const themeClassName = computed(() => `os-theme-${props.theme}`)
 
-    const optionsDefault = $(() => ({
-      className: $(themeClassName),
+    const optionsDefault = computed(() => ({
+      className: unref(themeClassName),
       scrollbars: {
         autoHide: 'scroll',
         autoHideDelay: 300
@@ -68,7 +67,7 @@ export default defineComponent({
         switch (name) {
           case 'onScroll':
             callback = event => {
-              const information = $(instance).scroll()
+              const information = unref(instance).scroll()
               const ratioY = information.ratio.y
               emit(emitName, event)
               const cordonY = information.max.y - information.position.y
@@ -100,23 +99,23 @@ export default defineComponent({
             }
           }
         })
-      }
+      }``
     }
 
-    const merge = options => mergeWith({}, $(optionsDefault), options, customizer)
+    const merge = options => mergeWith({}, unref(optionsDefault), options, customizer)
 
-    const options = $(() => merge(props.options))
+    const options = computed(() => merge(props.options))
 
     function reloadOptions () {
       if (isValid()) {
-        $(instance).options(merge(options))
+        unref(instance).options(merge(options))
       }
     }
 
     function init () {
       instance.value = os(
-        $(target),
-        $(options),
+        unref(target),
+        unref(options),
         props.extensions
       )
     }
@@ -125,14 +124,14 @@ export default defineComponent({
     
     onBeforeUnmount(() => {
       if (isValid()) {
-        $(instance).destroy()
+        unref(instance).destroy()
         instance.value = null
       }
     })
     
-    $(options, reloadOptions)
+    watch(options, reloadOptions)
     
-    const classnames = $(() => makeClassnames(classname, {}))
+    const classnames = computed(() => makeClassnames(classname, {}))
 
     return {
       target,
@@ -140,8 +139,11 @@ export default defineComponent({
     }
   },
   render () {
+    const {
+      classnames
+    } = this
     return (
-      <div ref="target" class="os-host" class={ this.classnames }>
+      <div ref="target" class="os-host" class={ classnames }>
         <div class="os-resize-observer-host"/>
         <div class="os-padding">
           <div class="os-viewport">
@@ -150,7 +152,7 @@ export default defineComponent({
             </div>
           </div>
         </div>
-        <div class="os-scrollbar os-scrollbar-horizontal ">
+        <div class="os-scrollbar os-scrollbar-horizontal">
           <div class="os-scrollbar-track">
             <div class="os-scrollbar-handle"/>
           </div>
