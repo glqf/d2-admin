@@ -34,7 +34,6 @@ export const menus = [
         .add(
           new Menu('flex 布局')
             .scope('/dashboard/demo/component/flex')
-            .add(new Menu('base').url('/base'))
             .add(new Menu('display').url('/display'))
             .add(new Menu('nesting').url('/nesting'))
             .add(new Menu('self').url('/self'))
@@ -46,6 +45,7 @@ export const menus = [
             .add(new Menu('layout').url('/layout'))
             .add(new Menu('playground').url('/playground'))
             .add(new Menu('tag').url('/tag'))
+            .add(new Menu('base').url('/base'))
         )
     )
     .value()
