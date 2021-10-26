@@ -1,14 +1,12 @@
 import { $ } from 'v-dollar'
 import makeClassnames from 'classnames'
 import { defineComponent, onBeforeUnmount, onMounted } from 'vue'
-import { kebabCase, fromPairs, mergeWith } from 'lodash-es'
+import { kebabCase, fromPairs, mergeWith, keys } from 'lodash-es'
 import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
 import os from 'overlayscrollbars'
 import 'overlayscrollbars/css/OverlayScrollbars.css'
 
-const themes = import.meta.globEager('./os-theme/*.css')
-
-console.log('themes', themes)
+export const themes = import.meta.globEager('./os-theme/*.css')
 
 export const callbacks = [
   'onInitialized',
