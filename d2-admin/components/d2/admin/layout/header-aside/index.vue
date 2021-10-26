@@ -43,7 +43,7 @@ export default {
 <script setup>
 import { computed, ref } from 'vue'
 import { px } from 'd2-projects/d2-utils/css.js'
-import { useCssPosition } from 'd2-projects/d2-use/use-css-position.js'
+import { useCssPosition } from 'd2-admin/use/css-position.js'
 
 const headerHeight = ref(61)
 const asideWidth = ref(200)
