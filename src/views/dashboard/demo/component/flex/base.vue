@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { flexProps } from 'd2-projects/d2-utils/special/d2-components/const.js'
+import { flexProps } from 'd2-admin/utils/special/d2-components/const.js'
 
 const { dir, main, cross, box } = flexProps
 

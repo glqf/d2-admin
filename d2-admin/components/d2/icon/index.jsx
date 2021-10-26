@@ -1,9 +1,9 @@
 import makeClassnames from 'classnames'
 import { defineComponent, ref, unref, computed, watch, onMounted, nextTick, onBeforeUpdate } from 'vue'
 import iconify from '@iconify/iconify'
-import { clearElement } from 'd2-projects/d2-utils/dom.js'
+import { clearElement } from 'd2-admin/utils/dom.js'
 import { useConfig } from 'd2-admin/components/d2/config/use.js'
-import { makeComponentName, makeComponentClassName } from 'd2-projects/d2-utils/special/d2-components/name.js'
+import { makeComponentName, makeComponentClassName } from 'd2-admin/utils/special/d2-components/name.js'
 
 import './index.scss'
 

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { breakPointsName } from 'd2-projects/d2-utils/special/d2-components/const.js'
+import { breakPointsName } from 'd2-admin/utils/special/d2-components/const.js'
 
 export default {
   props: {

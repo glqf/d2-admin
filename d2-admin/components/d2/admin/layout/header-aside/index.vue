@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { makeComponentName } from 'd2-projects/d2-utils/special/d2-components/name.js'
+import { makeComponentName } from 'd2-admin/utils/special/d2-components/name.js'
 
 export default {
   name: makeComponentName('admin/layout/header-aside')
@@ -42,7 +42,7 @@ export default {
 
 <script setup>
 import { computed, ref } from 'vue'
-import { px } from 'd2-projects/d2-utils/css.js'
+import { px } from 'd2-admin/utils/css.js'
 import { useCssPosition } from 'd2-admin/use/css-position.js'
 
 const headerHeight = ref(61)
