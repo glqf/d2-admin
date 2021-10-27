@@ -3,8 +3,7 @@ module.exports = {
   purge: [
     './*.html',
     './src/**/*.{js,jsx,vue}',
-    './d2-admin/**/*.{js,jsx,vue}',
-    './d2-projects/**/*.{js,jsx,vue}'
+    './d2/**/*.{js,jsx,vue}'
   ],
   darkMode: false,
   theme: {

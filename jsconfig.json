@@ -5,8 +5,7 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "d2-admin/*": ["d2-admin/*"],
-      "d2-projects/*": ["d2-projects/*"]
+      "d2/*": ["d2/*"]
     },
     // strict and moduleResolution is for volar
     // https://github.com/johnsoncodehk/volar#note
