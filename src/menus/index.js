@@ -8,8 +8,7 @@ export const menus = [
         .scope('/dashboard/document')
         .add([
           new Menu('doc-1').url('/page1'),
-          new Menu('doc-2').url('/page2'),
-          new Menu('doc-3').url('/page3')
+          new Menu('doc-2').url('/page2')
         ])
     )
     .add(
