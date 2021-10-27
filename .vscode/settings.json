@@ -1,0 +1,16 @@
+{
+  "files.exclude": {
+    "node_modules": true,
+    "postcss.config.js": true,
+    "components.d.ts": true,
+    "index.html": true,
+    "jsconfig.json": true,
+    "package-lock.json": true,
+    "package.json": true,
+    "README.md": true,
+    "tailwind.config.js": true,
+    ".gitignore": true,
+    ".vscode": true,
+    "public": true
+  }
+}
