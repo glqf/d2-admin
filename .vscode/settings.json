@@ -1,7 +1,6 @@
 {
   "files.exclude": {
     "node_modules": true,
-    "components.d.ts": true,
     "index.html": true,
     "package-lock.json": true,
     "package.json": true,
