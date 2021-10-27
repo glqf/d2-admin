@@ -74,7 +74,10 @@ export default defineConfig({
       ]
     }),
     Pages({
-      pagesDir: 'src/views',
+      pagesDir: [
+        { dir: 'src/views', baseRoute: '' },
+        { dir: 'd2-admin/views', baseRoute: '' }
+      ],
       exclude: ['**/components/*.vue'],
       extensions: ['vue', 'jsx']
     }),
