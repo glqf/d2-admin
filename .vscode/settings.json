@@ -8,6 +8,9 @@
     "README.md": true,
     ".gitignore": true,
     ".vscode": true,
-    "public": true
+    "public": true,
+    "jsconfig.json": true,
+    "postcss.config.js": true,
+    "tailwind.config.js": true
   }
 }

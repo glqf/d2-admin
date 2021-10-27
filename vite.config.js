@@ -79,7 +79,7 @@ export default defineConfig({
         { dir: 'd2/views', baseRoute: '' }
       ],
       exclude: ['**/components/*.vue'],
-      extensions: ['vue', 'jsx']
+      extensions: ['vue', 'jsx', 'md']
     }),
     visualizer({
       open: true
