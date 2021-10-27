@@ -4,7 +4,7 @@ export const demoMenus = new Menu('组件')
   .add(
     new Menu('滚动容器')
       .scope('/dashboard/demo/component/scroll')
-      .add(new Menu('基础').url('/base').icon('fluent:phone-vertical-scroll-24-filled'))
+      .add(new Menu('基础').url('/base').icon('icon-park-outline:application-menu'))
   )
   .add(
     new Menu('svg 图标')
