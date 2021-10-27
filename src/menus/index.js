@@ -1,4 +1,4 @@
-import { Menu } from 'd2-admin/utils/menu.js'
+import { Menu } from 'd2/utils/menu.js'
 
 export const menus = [
   new Menu('演示')

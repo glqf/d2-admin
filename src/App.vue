@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { useMenuMainStore } from 'd2-admin/store/menu-main.js'
+import { useMenuMainStore } from 'd2/store/menu-main.js'
 import { menus } from '@/menus/index.js'
 
 const menuMainStore = useMenuMainStore()

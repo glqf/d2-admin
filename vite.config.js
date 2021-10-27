@@ -59,7 +59,7 @@ export default defineConfig({
       extensions: ['vue', 'md', 'svg', 'jsx'],
       include: [/\.vue$/, /\.md$/, /\.jsx$/],
       dirs: [
-        'd2-admin/components',
+        'd2/components',
         'src/components'
       ],
       dts: true,
@@ -76,7 +76,7 @@ export default defineConfig({
     Pages({
       pagesDir: [
         { dir: 'src/views', baseRoute: '' },
-        { dir: 'd2-admin/views', baseRoute: '' }
+        { dir: 'd2/views', baseRoute: '' }
       ],
       exclude: ['**/components/*.vue'],
       extensions: ['vue', 'jsx']
@@ -87,7 +87,7 @@ export default defineConfig({
     PurgeIcons(),
     SvgIcons({
       iconDirs: [
-        resolve('d2-admin/svg/icon')
+        resolve('d2/svg/icon')
       ],
       symbolId: 'icon-[dir]-[name]'
     }),
@@ -99,15 +99,14 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@use "d2-admin/style/utils/index.scss" as *;'
+        additionalData: '@use "d2/style/utils/index.scss" as *;'
       }
     }
   },
   resolve: {
     alias: {
       '@': '/src',
-      'd2-admin': '/d2-admin',
-      'd2-projects': '/d2-projects'
+      'd2': '/d2'
     }
   },
   server: {
