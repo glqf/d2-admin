@@ -13,7 +13,6 @@ export const renderItem = menu => (
         title: () => getMenuTitle(menu),
         default: () => {
           const icon = getMenuIcon(menu)
-          // return <i class="el-icon-location"/>
           return icon ? <d2-icon name={ icon }/> : null
         }
       }
@@ -25,10 +24,14 @@ export const renderSub = menu => (
   <el-sub-menu index={ getMenuId(menu) }>
     {
       {
-        title: () => [
-          <i class="el-icon-location"/>,
-          <span>{ getMenuTitle(menu) }</span>
-        ],
+        title: () => {
+          const icon = getMenuIcon(menu)
+          const title = getMenuTitle(menu)
+          return [
+            icon ? <d2-icon name={ icon }/> : null,
+            title
+          ]
+        },
         default: () => getMenuChildren(menu).map(menu => renderMenu(menu))
       }
     }

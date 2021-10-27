@@ -1,0 +1,13 @@
+.el-menu {
+  .el-sub-menu__title,
+  .el-menu-item {
+    & > .d2-icon {
+      vertical-align: -0.2em;
+      margin-right: 5px;
+      width: 24px;
+      text-align: center;
+      font-size: 18px;
+      color: inherit;
+    }
+  }
+}

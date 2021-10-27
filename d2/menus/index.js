@@ -1,6 +1,7 @@
 import { Menu } from 'd2/utils/menu.js'
 
 export const demoMenus = new Menu('组件')
+  .icon('icon-park-outline:application-menu')
   .add(
     new Menu('滚动容器')
       .scope('/dashboard/demo/component/scroll')
