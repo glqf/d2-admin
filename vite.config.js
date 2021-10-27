@@ -58,6 +58,7 @@ export default defineConfig({
     Components({
       extensions: ['vue', 'md', 'svg', 'js', 'jsx'],
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/, /\.js$/, /\.jsx$/],
+      exclude: [/node_modules/, /\.git/, /\.nuxt/],
       dirs: [
         'd2/components',
         'src/components'
