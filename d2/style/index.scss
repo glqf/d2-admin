@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './themes/index.scss';
+@import 'github-markdown-css';
 
+@import './themes/index.scss';
 @import './themes/classic/config.css';
 
 html, body, #app {
