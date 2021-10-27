@@ -12,3 +12,16 @@
     }
   }
 }
+
+// Optimize the display effect of multi-level menu
+// - Remove duplicate borders
+// - Increase the border-radius of the popup menu
+//   so that the border of the popper can be displayed completely
+.el-popper {
+  .el-menu--horizontal {
+    border-bottom: none;
+    .el-menu.el-menu--popup {
+      border-radius: calc(var(--el-border-radius-small) + 1px);
+    }
+  }
+}
