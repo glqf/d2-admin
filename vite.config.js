@@ -56,13 +56,12 @@ export default defineConfig({
     Jsx(),
     Svg(),
     Components({
-      extensions: ['vue', 'md', 'svg', 'js', 'jsx'],
-      include: [/\.vue$/, /\.vue\?vue/, /\.md$/, /\.js$/, /\.jsx$/],
-      exclude: [/node_modules/, /\.git/, /\.nuxt/, /_/],
       dirs: [
         'd2/components',
         'src/components'
       ],
+      extensions: ['vue', 'md', 'svg', 'js', 'jsx'],
+      include: [/\.vue$/, /\.vue\?vue/, /\.md$/, /\.js$/, /\.jsx$/],
       dts: true,
       directoryAsNamespace: true,
       importPathTransform: path => path.endsWith('.svg') ? `${path}?component` : undefined,
