@@ -6,8 +6,6 @@
     "package.json": true,
     ".gitignore": true,
     ".vscode": true,
-    "public": true,
-    "postcss.config.js": true,
-    "tailwind.config.js": true
+    "public": true
   }
 }
