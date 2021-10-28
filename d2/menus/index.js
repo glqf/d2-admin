@@ -15,6 +15,12 @@ export const demoMenus = new Menu('组件')
       .add(new Menu('基础').url('/base'))
   )
   .add(
+    new Menu('图标')
+      .icon('icon-park-outline:emotion-happy')
+      .scope('/dashboard/demo/component/icon')
+      .add(new Menu('基础').url('/base'))
+  )
+  .add(
     new Menu('断点')
       .icon('icon-park-outline:distribute-horizontally')
       .scope('/dashboard/demo/component/break-point')

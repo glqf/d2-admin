@@ -5,8 +5,6 @@ import { makeComponentName, makeComponentClassName } from 'd2/utils/special/d2-c
 import os from 'overlayscrollbars'
 import 'overlayscrollbars/css/OverlayScrollbars.css'
 
-export const themes = import.meta.globEager('./os-theme/*.css')
-
 export const callbacks = [
   'onInitialized',
   'onInitializationWithdrawn',

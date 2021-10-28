@@ -4,7 +4,6 @@ import { pickBy, isUndefined } from 'lodash-es'
 import { isNumberLike } from 'd2/utils/number.js'
 import { makeComponentName, makeComponentClassName } from 'd2/utils/special/d2-components/name.js'
 import { isFlexProp } from 'd2/utils/special/d2-components/const.js'
-import './index.scss'
 
 const name = 'flex'
 

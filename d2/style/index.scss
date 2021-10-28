@@ -3,9 +3,8 @@
 @tailwind utilities;
 
 @import 'github-markdown-css';
-
-@import './themes/index.scss';
-@import './themes/classic/config.css';
+@import './themes-scrollbar/thin-dark.css';
+@import './themes/classic/index.scss';
 
 html, body, #app {
   height: 100%;
