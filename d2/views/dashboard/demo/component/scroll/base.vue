@@ -2,7 +2,6 @@
 .d2-scroll--demo {
   height: 200px;
   width: 200px;
-  @apply border border-gray-800 rounded;
   .row {
     @apply cursor-pointer px-4 py-2 bg-gray-700 text-gray-100 border-b border-gray-800;
     &:hover {
@@ -17,8 +16,8 @@
 
 <template>
   <d2-scroll class="d2-scroll--demo">
-    <p class="row" v-for="n in 100" :key="n">
+    <div class="row" v-for="n in 100" :key="n">
       n: {{ n }}
-    </p>
+    </div>
   </d2-scroll>
 </template>
