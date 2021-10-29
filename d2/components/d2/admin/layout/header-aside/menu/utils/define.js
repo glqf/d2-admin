@@ -1,5 +1,6 @@
 import { defineComponent, computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { compact } from 'lodash-es'
 import { storeToRefs } from 'pinia'
 import { useMenu } from 'd2/use/menu.js'
 import { getMenuId } from 'd2/utils/menu.js'
@@ -26,23 +27,23 @@ export function defineMenuComponent ({
         navigateByMenu(getMenuById(key))
       }
   
-      const defaultActive = computed(() => getMenuId(getMenuByUrl(route.fullPath)))
+      const selectedKeys = computed(() => compact([getMenuId(getMenuByUrl(route.fullPath))]))
   
       return {
         menus,
         onSelect,
-        defaultActive
+        selectedKeys
       }
     },
     render () {
       const {
         menus,
         onSelect,
-        defaultActive
+        selectedKeys
       } = this
       return renderMenus(menus, {
         onSelect,
-        defaultActive,
+        selectedKeys,
         ...props
       })
     }

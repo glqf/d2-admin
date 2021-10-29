@@ -23,7 +23,7 @@ export const renderItem = menu => (
 )
 
 export const renderSub = menu => (
-  <a-sub-menu>
+  <a-sub-menu key={ getMenuId(menu) }>
     {
       {
         title: () => getMenuTitle(menu),
