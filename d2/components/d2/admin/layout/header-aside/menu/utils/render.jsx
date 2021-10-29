@@ -4,7 +4,7 @@ import {
   getMenuIcon,
   getMenuChildren,
   hasChildren
-} from 'd2/utils/menu.js'
+} from 'd2/utils/menu.jsx'
 
 function renderMenuIcon (menu) {
   const icon = getMenuIcon(menu)

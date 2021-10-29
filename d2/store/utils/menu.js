@@ -1,7 +1,7 @@
 import { shallowRef, computed, unref } from 'vue'
 import { fromPairs } from 'lodash-es'
 import { defineStore } from 'pinia'
-import { flattenMenus, getMenuId, getMenuUrl } from 'd2/utils/menu.js'
+import { flattenMenus, getMenuId, getMenuUrl } from 'd2/utils/menu.jsx'
 
 export function defineMenuStore (namespace) {
   return defineStore(namespace, () => {

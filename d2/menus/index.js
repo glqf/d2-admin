@@ -1,4 +1,4 @@
-import { Menu } from 'd2/utils/menu.js'
+import { Menu } from 'd2/utils/menu.jsx'
 
 export const demoMenus = new Menu('组件')
   .icon('icon-park-outline:components')
