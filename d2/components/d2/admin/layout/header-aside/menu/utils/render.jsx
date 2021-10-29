@@ -6,36 +6,32 @@ import {
   hasChildren
 } from 'd2/utils/menu.js'
 
+function renderMenuIcon (menu) {
+  const icon = getMenuIcon(menu)
+  return icon ? <d2-icon name={ icon }/> : null
+}
+
 export const renderItem = menu => (
-  <el-menu-item index={ getMenuId(menu) }>
+  <a-menu-item key={ getMenuId(menu) }>
     {
       {
-        title: () => getMenuTitle(menu),
-        default: () => {
-          const icon = getMenuIcon(menu)
-          return icon ? <d2-icon name={ icon }/> : null
-        }
+        default: () => getMenuTitle(menu),
+        icon: () => renderMenuIcon(menu)
       }
     }
-  </el-menu-item>
+  </a-menu-item>
 )
 
 export const renderSub = menu => (
-  <el-sub-menu index={ getMenuId(menu) }>
+  <a-sub-menu>
     {
       {
-        title: () => {
-          const icon = getMenuIcon(menu)
-          const title = getMenuTitle(menu)
-          return [
-            icon ? <d2-icon name={ icon }/> : null,
-            title
-          ]
-        },
+        title: () => getMenuTitle(menu),
+        icon: () => renderMenuIcon(menu),
         default: () => getMenuChildren(menu).map(menu => renderMenu(menu))
       }
     }
-  </el-sub-menu>
+  </a-sub-menu>
 )
 
 export const renderMenu = menu => (hasChildren(menu) ? renderSub : renderItem)(menu)
@@ -44,7 +40,7 @@ export const renderMenus = (
   menus = [],
   props = {}
 ) => (
-  <el-menu {...props}>
+  <a-menu {...props}>
     { menus.map(renderMenu) }
-  </el-menu>
+  </a-menu>
 )

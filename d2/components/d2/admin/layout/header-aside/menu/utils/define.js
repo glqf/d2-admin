@@ -22,8 +22,8 @@ export function defineMenuComponent ({
       const { menus } = storeToRefs(menuStore)
       const { getMenuById, getMenuByUrl } = menuStore
   
-      function onSelect (id) {
-        navigateByMenu(getMenuById(id))
+      function onSelect ({ item, key, selectedKeys }) {
+        navigateByMenu(getMenuById(key))
       }
   
       const defaultActive = computed(() => getMenuId(getMenuByUrl(route.fullPath)))

@@ -3,7 +3,7 @@
     {{ label }}
   </p>
   <section class="body">
-    <el-button
+    <a-button
       v-for="item in options"
       :key="item"
       :type="value === item ? 'primary' : ''"
@@ -15,7 +15,7 @@
         :name="buttonIcon(item)"
       />
       {{ buttonLabel(item) }}
-    </el-button>
+    </a-button>
   </section>
 </template>
 

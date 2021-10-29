@@ -18,7 +18,7 @@ import Jsx from '@vitejs/plugin-vue-jsx'
 // On-demand components auto importing for Vue
 // [website] https://github.com/antfu/unplugin-vue-components
 import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 
 // File system based routing for Vue 3 applications using Vite
 // [website] https://github.com/hannoeru/vite-plugin-pages
@@ -67,7 +67,7 @@ export default defineConfig({
       importPathTransform: path => path.endsWith('.svg') ? `${path}?component` : undefined,
       deep: true,
       resolvers: [
-        ElementPlusResolver(),
+        AntDesignVueResolver(),
         IconsResolver({
           componentPrefix: 'D2Icon'
         })

@@ -6,6 +6,6 @@ export default defineMenuComponent({
   name: makeComponentName('admin/layout/header-aside/menu/vertical'),
   store: useMenuMainStore,
   props: {
-    mode: 'vertical'
+    mode: 'inline'
   }
 })

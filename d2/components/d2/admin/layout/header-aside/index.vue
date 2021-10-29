@@ -45,7 +45,7 @@ import { computed, ref } from 'vue'
 import { px } from 'd2/utils/css.js'
 import { useCssPosition } from 'd2/use/css-position.js'
 
-const headerHeight = ref(61)
+const headerHeight = ref(46)
 const asideWidth = ref(200)
 
 const { position } = useCssPosition(headerHeight, 0, 0, asideWidth)
