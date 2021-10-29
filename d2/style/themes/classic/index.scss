@@ -1,2 +1,12 @@
 @import './components/flex.scss';
 @import './components/icon.scss';
+
+.d2-admin {
+  .ant-menu-vertical,
+  .ant-menu-vertical-left,
+  .ant-menu-vertical-right {
+    &.ant-menu-sub {
+      max-height: 100vh;
+    }
+  }
+}
