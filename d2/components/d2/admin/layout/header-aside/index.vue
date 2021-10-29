@@ -23,11 +23,11 @@
     </d2-scroll>
   </div>
   <div class="layout-header-aside__header" :style="headerStyle">
-    <d2-admin-layout-header-aside-menu-horizontal/>
+    <d2-admin-layout-header-aside-menu-header/>
   </div>
   <div class="layout-header-aside__aside" :style="asideStyle">
     <d2-scroll class="w-full h-full">
-      <d2-admin-layout-header-aside-menu-vertical/>
+      <d2-admin-layout-header-aside-menu-aside/>
     </d2-scroll>
   </div>
 </template>

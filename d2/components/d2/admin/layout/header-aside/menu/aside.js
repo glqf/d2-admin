@@ -3,7 +3,7 @@ import { makeComponentName } from 'd2/utils/special/d2-components/name.js'
 import { defineMenuComponent } from './utils/define.js'
 
 export default defineMenuComponent({
-  name: makeComponentName('admin/layout/header-aside/menu/vertical'),
+  name: makeComponentName('admin/layout/header-aside/menu/aside'),
   store: useMenuMainStore,
   props: {
     mode: 'inline'
