@@ -44,6 +44,13 @@ import PurgeIcons from 'vite-plugin-purge-icons'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
+// Inspect the intermediate state of Vite plugins. Useful for debugging and authoring plugins
+// [website] https://github.com/antfu/vite-plugin-inspect
+import Inspect from 'vite-plugin-inspect'
+
+// Set import.meta.url as the file path at build timed
+import MetaUrl from './d2/build/meta-url.js'
+
 // path.resolve wrapper
 const resolve = p => path.resolve(process.cwd(), p)
 
@@ -82,7 +89,7 @@ export default defineConfig({
       extensions: ['vue', 'jsx', 'md']
     }),
     visualizer({
-      open: true
+      open: false
     }),
     PurgeIcons(),
     SvgIcons({
@@ -94,7 +101,9 @@ export default defineConfig({
     Icons({
       scale: 1,
       compiler: 'vue3'
-    })
+    }),
+    MetaUrl(),
+    Inspect()
   ],
   css: {
     preprocessorOptions: {
