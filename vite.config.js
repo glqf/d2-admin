@@ -55,6 +55,7 @@ import MetaUrl from './d2/build/meta-url.js'
 const resolve = p => path.resolve(process.cwd(), p)
 
 export default defineConfig({
+  base: '/',
   plugins: [
     Vue({
       include: [/\.vue$/, /\.md$/],

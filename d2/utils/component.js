@@ -32,12 +32,12 @@ export function makeNameByUrl (url) {
   const base = 'd2/components/'
   if (import.meta.env.DEV) {
     url = url
-      .replace(RegExp(`^${window.location.origin}/${base}(d2/)?`), '')
+      .replace(RegExp(`^${window.location.origin}${import.meta.env.BASE_URL}${base}(d2/)?`), '')
       .replace(/\?t=\d+$/, '')
       .replace(/(\/index)?\.(vue|js|jsx)$/, '')
   } else {
     url = url
-      .replace(RegExp(base), '')
+      .replace(RegExp(`${base}(d2/)?`), '')
       .replace(/(\/index)?\.(vue|js|jsx)$/, '')
   }
   console.log('makeNameByUrl [url]', url)
