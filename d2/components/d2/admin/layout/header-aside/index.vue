@@ -33,10 +33,10 @@
 </template>
 
 <script>
-import { makeName } from 'd2/utils/component.js'
+import { makeNameByUrl } from 'd2/utils/component.js'
 
 export default {
-  name: makeName('admin/layout/header-aside')
+  name: makeNameByUrl(import.meta.url)
 }
 </script>
 

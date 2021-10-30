@@ -17,7 +17,10 @@
 </template>
 
 <script>
+import { makeNameByUrl } from 'd2/utils/component.js'
+
 export default {
+  name: makeNameByUrl(import.meta.url),
   props: {
     value: { type: Boolean },
     name: { type: String }
