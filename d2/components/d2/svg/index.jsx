@@ -1,7 +1,7 @@
 import makeClassnames from 'classnames'
 import { defineComponent, unref, computed } from 'vue'
 import { useConfig } from 'd2/components/d2/config/use.js'
-import { makeComponentName, makeComponentClassName } from 'd2/utils/special/d2-components/name.js'
+import { makeComponentName, makeComponentClassName } from 'd2/utils/component.js'
 import { warn } from 'd2/utils/error.js'
 import { componentName as configComponentName } from 'd2/components/d2/config/index.jsx'
 

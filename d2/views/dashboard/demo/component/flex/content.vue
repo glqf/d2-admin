@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { flexProps } from 'd2/utils/special/d2-components/const.js'
+import { flexProps } from 'd2/utils/const.js'
 
 const { content } = flexProps
 

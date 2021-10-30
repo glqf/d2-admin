@@ -1,5 +1,5 @@
 import { useMenuMainStore } from 'd2/store/menu-main.js'
-import { makeComponentName } from 'd2/utils/special/d2-components/name.js'
+import { makeComponentName } from 'd2/utils/component.js'
 import { defineComponent, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { compact } from 'lodash-es'

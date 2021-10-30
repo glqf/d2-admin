@@ -1,8 +1,8 @@
 import { isFunction, keys, mapValues, isEqual, last, isUndefined } from 'lodash-es'
 import { defineComponent, reactive, computed, watch } from 'vue'
 import { useContext } from 'd2/use/context.js'
-import { makeComponentName } from 'd2/utils/special/d2-components/name.js'
-import { breakPoints } from 'd2/utils/special/d2-components/const.js'
+import { makeComponentName } from 'd2/utils/component.js'
+import { breakPoints } from 'd2/utils/const.js'
 
 const name = 'config'
 

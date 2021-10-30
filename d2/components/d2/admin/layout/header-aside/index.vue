@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { makeComponentName } from 'd2/utils/special/d2-components/name.js'
+import { makeComponentName } from 'd2/utils/component.js'
 
 export default {
   name: makeComponentName('admin/layout/header-aside')

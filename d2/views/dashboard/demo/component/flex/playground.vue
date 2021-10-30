@@ -48,7 +48,7 @@
 
 <script>
 import { ref } from 'vue'
-import { flexProps } from 'd2/utils/special/d2-components/const.js'
+import { flexProps } from 'd2/utils/const.js'
 
 const { dir, main, cross, box } = flexProps
 
