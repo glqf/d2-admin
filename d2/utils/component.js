@@ -8,7 +8,7 @@ import { namespace } from './const.js'
  *                      eg: 'Foo Bar' '--foo-bar--' '__FOO_BAR__' 'foo/bar'
  * @returns {string} eg: 'NamespaceFooBar'
  */
-export function makeComponentName (name) {
+export function makeName (name) {
   return pascalCase(`${namespace}-${name}`)
 }
 
@@ -18,6 +18,6 @@ export function makeComponentName (name) {
  *                      eg 'Foo Bar' 'fooBar' '__FOO_BAR__' 'foo/bar'
  * @returns {string} eg: 'namespace-foo-bar'
  */
-export function makeComponentClassName (name) {
+export function makeClassName (name) {
   return `${namespace}-${kebabCase(name)}`
 }

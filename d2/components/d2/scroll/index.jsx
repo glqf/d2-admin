@@ -1,7 +1,7 @@
 import makeClassnames from 'classnames'
 import { defineComponent, ref, unref, computed, watch, onBeforeUnmount, onMounted } from 'vue'
 import { kebabCase, fromPairs, mergeWith } from 'lodash-es'
-import { makeComponentName, makeComponentClassName } from 'd2/utils/component.js'
+import { makeName, makeClassName } from 'd2/utils/component.js'
 import os from 'overlayscrollbars'
 import 'overlayscrollbars/css/OverlayScrollbars.css'
 
@@ -24,8 +24,8 @@ export const emits = callbacks.map(name => kebabCase(name.replace(/^on/, '')))
 
 const name = 'scroll'
 
-export const componentName = makeComponentName(name)
-export const classname = makeComponentClassName(name)
+export const componentName = makeName(name)
+export const classname = makeClassName(name)
 
 export default defineComponent({
   name: componentName,

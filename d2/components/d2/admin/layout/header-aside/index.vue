@@ -33,10 +33,10 @@
 </template>
 
 <script>
-import { makeComponentName } from 'd2/utils/component.js'
+import { makeName } from 'd2/utils/component.js'
 
 export default {
-  name: makeComponentName('admin/layout/header-aside')
+  name: makeName('admin/layout/header-aside')
 }
 </script>
 

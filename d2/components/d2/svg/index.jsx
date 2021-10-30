@@ -1,14 +1,14 @@
 import makeClassnames from 'classnames'
 import { defineComponent, unref, computed } from 'vue'
 import { useConfig } from 'd2/components/d2/config/use.js'
-import { makeComponentName, makeComponentClassName } from 'd2/utils/component.js'
+import { makeName, makeClassName } from 'd2/utils/component.js'
 import { warn } from 'd2/utils/error.js'
 import { componentName as configComponentName } from 'd2/components/d2/config/index.jsx'
 
 const name = 'svg'
 
-const componentName = makeComponentName(name)
-const classname = makeComponentClassName(name)
+const componentName = makeName(name)
+const classname = makeClassName(name)
 
 export default defineComponent({
   name: componentName,

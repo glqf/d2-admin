@@ -1,12 +1,12 @@
 import { unref, reactive, defineComponent } from 'vue'
 import { keys, mapValues } from 'lodash-es'
-import { makeComponentName } from 'd2/utils/component.js'
+import { makeName } from 'd2/utils/component.js'
 import { useBreakPoint } from 'd2/use/break-point.js'
 import { useConfig } from 'd2/components/d2/config/use.js'
 
 const name = 'break-point'
 
-export const componentName = makeComponentName(name)
+export const componentName = makeName(name)
 
 export default defineComponent({
   name: componentName,

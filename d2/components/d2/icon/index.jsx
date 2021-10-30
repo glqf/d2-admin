@@ -3,12 +3,12 @@ import { defineComponent, ref, unref, computed, watch, onMounted, nextTick, onBe
 import iconify from '@iconify/iconify'
 import { clearElement } from 'd2/utils/dom.js'
 import { useConfig } from 'd2/components/d2/config/use.js'
-import { makeComponentName, makeComponentClassName } from 'd2/utils/component.js'
+import { makeName, makeClassName } from 'd2/utils/component.js'
 
 const name = 'icon'
 
-const componentName = makeComponentName(name)
-const classname = makeComponentClassName(name)
+const componentName = makeName(name)
+const classname = makeClassName(name)
 
 export default defineComponent({
   name: componentName,

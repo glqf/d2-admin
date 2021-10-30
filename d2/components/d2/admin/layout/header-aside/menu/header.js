@@ -1,5 +1,5 @@
 import { useMenuMainStore } from 'd2/store/menu-main.js'
-import { makeComponentName } from 'd2/utils/component.js'
+import { makeName } from 'd2/utils/component.js'
 import { defineComponent, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { compact } from 'lodash-es'
@@ -8,7 +8,7 @@ import { useMenu } from 'd2/use/menu.js'
 import { getMenuId, renderMenus } from 'd2/utils/menu.jsx'
 
 export default defineComponent({
-  name: makeComponentName('admin/layout/header-aside/menu/header'),
+  name: makeName('admin/layout/header-aside/menu/header'),
   setup () {
     const route = useRoute()
 

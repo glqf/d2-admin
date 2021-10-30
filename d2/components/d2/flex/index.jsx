@@ -2,13 +2,13 @@ import makeClassnames from 'classnames'
 import { defineComponent, unref, computed } from 'vue'
 import { pickBy, isUndefined } from 'lodash-es'
 import { isNumberLike } from 'd2/utils/number.js'
-import { makeComponentName, makeComponentClassName } from 'd2/utils/component.js'
+import { makeName, makeClassName } from 'd2/utils/component.js'
 import { isFlexProp } from 'd2/utils/const.js'
 
 const name = 'flex'
 
-export const componentName = makeComponentName(name)
-export const classname = makeComponentClassName(name)
+export const componentName = makeName(name)
+export const classname = makeClassName(name)
 
 export default defineComponent({
   name: componentName,
