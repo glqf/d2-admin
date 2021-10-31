@@ -34,28 +34,34 @@
 
 <script>
 import { makeNameByUrl } from 'd2/utils/component.js'
-
-export default {
-  name: makeNameByUrl(import.meta.url)
-}
-</script>
-
-<script setup>
 import { computed, ref } from 'vue'
 import { px } from 'd2/utils/css.js'
 import { useCssPosition } from 'd2/use/css-position.js'
 
-const headerHeight = ref(46)
-const asideWidth = ref(200)
+export default {
+  name: makeNameByUrl(import.meta.url),
+  setup () {
+    const headerHeight = ref(46)
+    const asideWidth = ref(200)
 
-const { position } = useCssPosition(headerHeight, 0, 0, asideWidth)
+    const { position } = useCssPosition(headerHeight, 0, 0, asideWidth)
 
-const headerStyle = computed(() => ({
-  height: px(headerHeight),
-  left: px(asideWidth)
-}))
+    const headerStyle = computed(() => ({
+      height: px(headerHeight),
+      left: px(asideWidth)
+    }))
 
-const asideStyle = computed(() => ({
-  width: px(asideWidth)
-}))
+    const asideStyle = computed(() => ({
+      width: px(asideWidth)
+    }))
+
+    return {
+      position,
+      headerStyle,
+      asideStyle
+    }
+  }
+}
+
+
 </script>
