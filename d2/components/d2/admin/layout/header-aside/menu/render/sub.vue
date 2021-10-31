@@ -17,7 +17,7 @@
 <script>
 import { makeNameByUrl } from 'd2/utils/component.js'
 import { defineComponent } from 'vue'
-import { getMenuId, getMenuTitle, getMenuIcon, getMenuChildren } from 'd2/utils/menu.jsx'
+import { getMenuId, getMenuTitle, getMenuIcon, getMenuChildren } from 'd2/utils/menu.js'
 
 export default defineComponent({
   name: makeNameByUrl(import.meta.url),

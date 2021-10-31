@@ -20,7 +20,7 @@ import { useRoute } from 'vue-router'
 import { compact } from 'lodash-es'
 import { storeToRefs } from 'pinia'
 import { useMenu } from 'd2/use/menu.js'
-import { getMenuId } from 'd2/utils/menu.jsx'
+import { getMenuId } from 'd2/utils/menu.js'
 
 export default {
   name: makeNameByUrl(import.meta.url),

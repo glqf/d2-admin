@@ -11,7 +11,7 @@
 
 <script>
 import { makeNameByUrl } from 'd2/utils/component.js'
-import { hasChildren } from 'd2/utils/menu.jsx'
+import { hasChildren } from 'd2/utils/menu.js'
 
 export default {
   name: makeNameByUrl(import.meta.url),
