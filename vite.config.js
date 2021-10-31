@@ -49,7 +49,7 @@ import IconsResolver from 'unplugin-icons/resolver'
 import Inspect from 'vite-plugin-inspect'
 
 // Set import.meta.url as the file path at build timed
-import MetaUrl from './d2/build/meta-url.js'
+import MetaUrl from './d2/build/rollup-plugin-meta-url.js'
 
 // path.resolve wrapper
 const resolve = p => path.resolve(process.cwd(), p)
