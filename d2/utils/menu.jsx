@@ -111,7 +111,7 @@ export const renderSub = menu => (
   </a-sub-menu>
 )
 
-export const renderMenu = menu => (hasChildren(menu) ? renderSub : renderItem)(menu)
+export const renderMenu = menu => hasChildren(menu) ? renderSub(menu) : renderItem(menu)
 
 export const renderMenus = (
   menus = [],
