@@ -1,14 +1,29 @@
+<template>
+  <a-menu
+    mode="inline"
+    :selected-keys="selectedKeys"
+    @select="onSelect"
+  >
+    <d2-admin-layout-header-aside-menu-render
+      v-for="menu of menus"
+      :key="getMenuId(menu)"
+      :menu="menu"
+    />
+  </a-menu>
+</template>
+
+<script>
+import { makeNameByUrl } from 'd2/utils/component.js'
 import { useMenuMainStore } from 'd2/store/menu-main.js'
-import { makeName } from 'd2/utils/component.js'
-import { defineComponent, computed } from 'vue'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { compact } from 'lodash-es'
 import { storeToRefs } from 'pinia'
 import { useMenu } from 'd2/use/menu.js'
-import { getMenuId, renderMenus } from 'd2/utils/menu.jsx'
+import { getMenuId } from 'd2/utils/menu.jsx'
 
-export default defineComponent({
-  name: makeName('admin/layout/header-aside/menu/aside'),
+export default {
+  name: makeNameByUrl(import.meta.url),
   setup () {
     const route = useRoute()
 
@@ -28,19 +43,9 @@ export default defineComponent({
     return {
       menus,
       onSelect,
-      selectedKeys
-    }
-  },
-  render () {
-    const {
-      menus,
-      onSelect,
-      selectedKeys
-    } = this
-    return renderMenus(menus, {
-      onSelect,
       selectedKeys,
-      mode: 'inline'
-    })
+      getMenuId
+    }
   }
-})
+}
+</script>
