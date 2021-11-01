@@ -34,8 +34,8 @@
 
 <script>
 import { makeNameByUrl } from 'd2/utils/component.js'
-import { computed, ref } from 'vue'
-import { px } from 'd2/utils/css.js'
+import { computed, ref, unref } from 'vue'
+import { cssUnit } from 'd2/utils/css.js'
 import { useCssPosition } from 'd2/use/css-position.js'
 
 export default {
@@ -47,12 +47,12 @@ export default {
     const { position } = useCssPosition(headerHeight, 0, 0, asideWidth)
 
     const headerStyle = computed(() => ({
-      height: px(headerHeight),
-      left: px(asideWidth)
+      height: cssUnit(unref(headerHeight)),
+      left: cssUnit(unref(asideWidth))
     }))
 
     const asideStyle = computed(() => ({
-      width: px(asideWidth)
+      width: cssUnit(unref(asideWidth))
     }))
 
     return {

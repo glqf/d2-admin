@@ -15,7 +15,10 @@ export default defineComponent({
   props: {
     symbolId: { type: String, default: '' },
     dir: { type: String, default: '' },
-    name: { type: String, default: '' }
+    name: { type: String, default: '' },
+    height: { type: [String, Number], default: '' },
+    width: { type: [String, Number], default: '' },
+    size: { type: [String, Number], default: '' }
   },
   setup (props) {
     const { svgSymbolId, svgDir } = useConfig()
