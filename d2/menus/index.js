@@ -13,6 +13,7 @@ export const demoMenus = new Menu('组件')
       .icon('icon-park-outline:pic-one')
       .scope('/dashboard/demo/component/svg')
       .add(new Menu('基础').url('/base'))
+      .add(new Menu('尺寸').url('/size'))
   )
   .add(
     new Menu('图标')

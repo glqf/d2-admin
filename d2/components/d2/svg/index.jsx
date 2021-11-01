@@ -1,7 +1,9 @@
 import makeClassnames from 'classnames'
 import { defineComponent, unref, computed } from 'vue'
+import { omitBy, isEmpty } from 'lodash-es'
 import { useConfig } from 'd2/components/d2/config/use.js'
 import { makeName, makeClassName } from 'd2/utils/component.js'
+import { cssUnit } from 'd2/utils/css.js'
 import { warn } from 'd2/utils/error.js'
 import { componentName as configComponentName } from 'd2/components/d2/config/index.jsx'
 
@@ -41,20 +43,40 @@ export default defineComponent({
       return _href
     })
 
+    const height = computed(() => {
+      const v = props.height || props.size
+      return v ? cssUnit(v) : ''
+    })
+    const width = computed(() => {
+      const v = props.width || props.size
+      return v ? cssUnit(v) : ''
+    })
+
+    const style = computed(() => omitBy({
+      height: unref(height),
+      width: unref(width)
+    }, isEmpty))
+
     const classnames = computed(() => makeClassnames(classname, {}))
 
     return {
+      style,
       classnames,
       href
     }
   },
   render () {
     const {
+      style,
       classnames,
       href
     } = this
     return (
-      <svg class={ classnames } aria-hidden="true">
+      <svg
+        class={ classnames }
+        style={ style }
+        aria-hidden="true"
+      >
         <use xlink:href={ href }/>
       </svg>
     )
