@@ -10,6 +10,12 @@ import { visualizer } from 'rollup-plugin-visualizer'
 // Use Vue components in Markdown
 // [website] https://github.com/antfu/vite-plugin-md
 import Markdown from 'vite-plugin-md'
+// Markdown parser done right. Fast and easy to extend
+// [website] https://markdown-it.github.io/markdown-it/
+import MarkdownIt from 'markdown-it'
+// Syntax highlighting for the Web
+// [website] https://highlightjs.org/
+import hljs from 'highlight.js'
 
 // Provides Vue 3 JSX & TSX support with HMR
 // [website] https://github.com/vitejs/vite/tree/main/packages/plugin-vue-jsx
@@ -60,7 +66,21 @@ export default defineConfig({
     Vue({
       include: [/\.vue$/, /\.md$/],
     }),
-    Markdown(),
+    Markdown({
+      markdownItOptions: {
+        highlight: function (str, lang) {
+          const md = new MarkdownIt()
+          if (lang && hljs.getLanguage(lang)) {
+            try {
+              return `<pre class="p-0"><code class="language-${lang} hljs">` +
+                     hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
+                     '</code></pre>'
+            } catch (__) {}
+          }
+          return '<pre class="p-0"><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>'
+        }
+      }
+    }),
     Jsx(),
     Svg(),
     Components({
