@@ -60,6 +60,11 @@ import MetaUrl from './d2/build/rollup-plugin-meta-url.js'
 // path.resolve wrapper
 const resolve = p => path.resolve(process.cwd(), p)
 
+// For markdownItOptions
+const md = new MarkdownIt()
+const pre = h => `<pre class="p-0">${h}</pre>`
+const code = (h, l) => `<code class="${l ? `language-${l} ` : ''}hljs">${h}</code>`
+
 export default defineConfig({
   base: '/',
   plugins: [
@@ -68,16 +73,17 @@ export default defineConfig({
     }),
     Markdown({
       markdownItOptions: {
-        highlight: function (str, lang) {
-          const md = new MarkdownIt()
+        highlight (str, lang) {
           if (lang && hljs.getLanguage(lang)) {
             try {
-              return `<pre class="p-0"><code class="language-${lang} hljs">` +
-                     hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
-                     '</code></pre>'
+              const html = hljs.highlight(str, {
+                language: lang,
+                ignoreIllegals: true
+              }).value
+              return pre(code(html, lang))
             } catch (__) {}
           }
-          return '<pre class="p-0"><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>'
+          return pre(code(md.utils.escapeHtml(str)))
         }
       }
     }),
