@@ -1,5 +1,15 @@
 import { Menu } from 'd2/utils/menu.js'
 
+export const dashboardIndexMenu = new Menu('控制台')
+  .url('/dashboard')
+  .icon('icon-park-outline:dashboard')
+  .value()
+
+export const indexMenu = new Menu('首页')
+  .url('/')
+  .icon('icon-park-outline:home')
+  .value()
+
 export const demoMenus = new Menu('组件')
   .icon('icon-park-outline:components')
   .add(
