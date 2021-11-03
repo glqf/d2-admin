@@ -2,6 +2,7 @@
   <a-menu
     mode="inline"
     :selected-keys="selectedKeys"
+    :open-keys="openKeys"
     @select="onSelect"
   >
     <d2-admin-layout-header-aside-menu-render
@@ -15,7 +16,7 @@
 <script>
 import { makeNameByUrl } from 'd2/utils/component.js'
 import { useMenuMainStore } from 'd2/store/menu-main.js'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { compact } from 'lodash-es'
 import { storeToRefs } from 'pinia'
@@ -32,18 +33,23 @@ export default {
 
     const menuStore = useMenuMainStore()
     const { menus } = storeToRefs(menuStore)
-    const { getMenuById, getMenuByUrl } = menuStore
+    const { getMenuById, getMenuByUrl, getMenuPids } = menuStore
 
     function onSelect ({ key }) {
       navigateByMenu(getMenuById(key))
     }
 
-    const selectedKeys = computed(() => compact([getMenuId(getMenuByUrl(route.fullPath))]))
+    const selectedKey = computed(() => getMenuId(getMenuByUrl(route.fullPath)))
+
+    const selectedKeys = computed(() => compact([selectedKey.value]))
+
+    const openKeys = computed(() => getMenuPids(selectedKey.value))
 
     return {
       menus,
       onSelect,
       selectedKeys,
+      openKeys,
       getMenuId
     }
   }

@@ -26,6 +26,17 @@ export const flattenMenus = menus => {
   return result
 }
 
+export function getMenuPidIndex (menus, pid) {
+  const result = {}
+  menus.forEach(menu => {
+    result[getMenuId(menu)] = pid
+    if (hasChildren(menu)) {
+      Object.assign(result, getMenuPidIndex(getMenuChildren(menu), getMenuId(menu)))
+    }
+  })
+  return result
+}
+
 export const hasChildren = menu => isArray(getMenuChildren(menu)) && getMenuChildren(menu).length > 0
 
 export class Menu {

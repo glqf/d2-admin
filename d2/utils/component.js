@@ -40,8 +40,6 @@ export function makeNameByUrl (url) {
       .replace(RegExp(`${base}(d2/)?`), '')
       .replace(/(\/index)?\.(vue|js|jsx)$/, '')
   }
-  console.log('makeNameByUrl [url]', url)
-  console.log('makeNameByUrl [name]', makeName(url))
   return makeName(url)
 }
 

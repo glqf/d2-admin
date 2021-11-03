@@ -34,6 +34,7 @@ export default defineComponent({
     async function load () {
       clearElement(unref(wrapper))
       await nextTick()
+      if (!unref(wrapper)) return
       const svg = iconify.renderSVG(unref(iconName), {})
       if (svg) {
         unref(wrapper).appendChild(svg)

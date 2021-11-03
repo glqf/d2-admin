@@ -1,6 +1,6 @@
 import { fromPairs } from 'lodash-es'
 import { defineStore } from 'pinia'
-import { flattenMenus, getMenuId, getMenuUrl } from 'd2/utils/menu.js'
+import { flattenMenus, getMenuId, getMenuUrl, getMenuPidIndex } from 'd2/utils/menu.js'
 
 export function defineMenuStore (namespace) {
   return defineStore(namespace, {
@@ -15,13 +15,17 @@ export function defineMenuStore (namespace) {
       flatMenus: state => {
         return flattenMenus(state.menus)
       },
-      // eg: { id: index, ... }
-      flatMenusIdIndex () {
+      // eg: { id: flatMenusIndex, ... }
+      menuIdIndex () {
         return fromPairs(this.flatMenus.map((e, i) => [getMenuId(e), i]))
       },
-      // eg: { url: index, ... }
-      flatMenusUrlIndex () {
+      // eg: { url: flatMenusIndex, ... }
+      menuUrlIndex () {
         return fromPairs(this.flatMenus.map((e, i) => [getMenuUrl(e), i]).filter(e => e[0]))
+      },
+      // eg: { id: pid, ... }
+      menuPidIndex () {
+        return getMenuPidIndex(this.menus)
       }
     },
     actions: {
@@ -38,7 +42,7 @@ export function defineMenuStore (namespace) {
        * @returns menu item
        */
       getMenuById (id) {
-        return this.flatMenus[this.flatMenusIdIndex[id]]
+        return this.flatMenus[this.menuIdIndex[id]]
       },
       /**
        * Find menu item by menu url
@@ -46,7 +50,29 @@ export function defineMenuStore (namespace) {
        * @returns menu item
        */
       getMenuByUrl (url) {
-        return this.flatMenus[this.flatMenusUrlIndex[url]]
+        return this.flatMenus[this.menuUrlIndex[url]]
+      },
+      /**
+       * Find the parent menu id of the menu
+       * @param {string} id menu id
+       * @returns parent menu id
+       */
+      getMenuPid (id) {
+        return this.menuPidIndex[id]
+      },
+      /**
+       * Find the all parent menus id of the menu
+       * @param {string} id menu id
+       * @returns parent menus id
+       */
+      getMenuPids (id) {
+        const result = []
+        const pid = this.getMenuPid(id)
+        if (pid) {
+          result.push(pid)
+          result.push(...this.getMenuPids(pid))
+        }
+        return result
       }
     }
   })

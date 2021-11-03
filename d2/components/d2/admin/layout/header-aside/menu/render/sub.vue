@@ -1,5 +1,5 @@
 <template>
-  <a-sub-menu>
+  <a-sub-menu :key="getMenuId(menu)">
     <template #icon>
       <d2-icon :name="getMenuIcon(menu)"/>
     </template>
