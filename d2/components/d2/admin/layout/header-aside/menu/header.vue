@@ -14,7 +14,7 @@
 
 <script>
 import { makeNameByUrl } from 'd2/utils/component.js'
-import { useMenuMainStore } from 'd2/store/menu-main.js'
+import { useMenuSecondaryStore } from 'd2/store/menu-secondary.js'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { compact } from 'lodash-es'
@@ -30,7 +30,7 @@ export default {
     const menu = useMenu()
     const { navigateByMenu } = menu
 
-    const menuStore = useMenuMainStore()
+    const menuStore = useMenuSecondaryStore()
     const { menus } = storeToRefs(menuStore)
     const { getMenuById, getMenuByUrl } = menuStore
 

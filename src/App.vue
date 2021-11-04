@@ -9,9 +9,12 @@
 
 <script setup>
 import { useMenuMainStore } from 'd2/store/menu-main.js'
-import { menus } from '@/menus/index.js'
+import { useMenuSecondaryStore } from 'd2/store/menu-secondary.js'
+import { menuMain, menuSecondary } from '@/menus/index.js'
 
 const menuMainStore = useMenuMainStore()
+const menuSecondaryStore = useMenuSecondaryStore()
 
-menuMainStore.setMenus(menus)
+menuMainStore.setMenus(menuMain)
+menuSecondaryStore.setMenus(menuSecondary)
 </script>

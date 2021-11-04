@@ -1,3 +1,3 @@
 import { defineMenuStore } from './utils/menu.js'
 
-export const useMenuMainStore = defineMenuStore('menu-secondary')
+export const useMenuSecondaryStore = defineMenuStore('menu-secondary')
