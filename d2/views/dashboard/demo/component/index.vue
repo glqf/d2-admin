@@ -1,3 +1,3 @@
 <template>
-  component index  
+  <demo-page-placeholder/>
 </template>

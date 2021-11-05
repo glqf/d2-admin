@@ -1,3 +1,3 @@
 <template>
-  Hello World
+  <demo-page-placeholder/>
 </template>

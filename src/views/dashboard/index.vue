@@ -1,3 +1,3 @@
 <template>
-  dashboard index
+  <demo-page-placeholder/>
 </template>
