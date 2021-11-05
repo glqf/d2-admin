@@ -5,6 +5,7 @@ export const dashboardIndexMenu = new Menu('控制台')
   .icon('icon-park-outline:dashboard')
 
 export const indexMenu = new Menu('首页')
+  .url('/')
   .icon('icon-park-outline:home')
 
 export const demoScrollMenus = new Menu('滚动')
