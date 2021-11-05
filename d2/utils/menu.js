@@ -1,5 +1,6 @@
 import { nanoid } from 'nanoid'
 import { isArray, cloneDeep, omit } from 'lodash-es'
+import { warn } from 'd2/utils/error.js'
 
 export const _k_id = '_id'
 export const _k_children = 'children'
@@ -37,7 +38,7 @@ export function getMenuPidIndex (menus, pid) {
   return result
 }
 
-export const hasChildren = menu => isArray(getMenuChildren(menu)) && getMenuChildren(menu).length > 0
+export const hasChildren = menu => getMenuChildren(menu).length > 0
 
 export class Menu {
   constructor (title = '') {
@@ -45,8 +46,10 @@ export class Menu {
       [_k_id]: nanoid(10),
       [_k_title]: title,
       [_k_icon]: '',
-      [_k_url]: ''
+      [_k_url]: '',
+      [_k_children]: []
     }
+    this._isIndex = false
     this._scope = ''
     this._prefix = ''
   }
@@ -59,9 +62,6 @@ export class Menu {
     return this
   }
   add (data) {
-    if (!this.data[_k_children]) {
-      this.data[_k_children] = []
-    }
     if (isArray(data)) {
       data.forEach(item => {
         if (item instanceof Menu && this._scope) {
@@ -74,6 +74,16 @@ export class Menu {
     this.data[_k_children].push(...(isArray(data) ? data : [data]))
     return this
   }
+  index () {
+    this._isIndex = true
+    return this
+  }
+  findIndex () {
+    return this.data[_k_children].reduce((result, menu) => {
+      if (result) return result
+      if (menu instanceof Menu && menu._isIndex) return menu
+    }, undefined)
+  }
   scope (value) {
     this._scope = value
     return this
@@ -83,13 +93,9 @@ export class Menu {
     return {
       ...result,
       [_k_url]: this._prefix + result[_k_url],
-      ...hasChildren(result) ?
-        {
-          [_k_children]: result[_k_children].map(
-            item => item instanceof Menu ? item.value() : item
-          )
-        } :
-        {}
+      [_k_children]: result[_k_children].map(
+        item => item instanceof Menu ? item.value() : item
+      )
     }
   }
 }
