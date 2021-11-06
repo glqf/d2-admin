@@ -1,4 +1,4 @@
-@include b(flex) {
+.d2-flex {
   display: flex;
 
   &.d2-flex--inline-flex { display: inline-flex; }
@@ -43,7 +43,7 @@
   &.d2-flex--box-first > *,
   &.d2-flex--box-last > *,
   &.d2-flex--box-justify > * {
-    // width: 0%;
+    width: 0%;
     height: auto;
     flex-grow: 1;
     flex-shrink: 1;
@@ -52,7 +52,7 @@
   &.d2-flex--box-last > :last-child,
   &.d2-flex--box-justify > :first-child,
   &.d2-flex--box-justify > :last-child {
-    // width: auto;
+    width: auto;
     flex-grow: 0;
     flex-shrink: 0;
   }
@@ -65,7 +65,7 @@
   &.d2-flex--dir-bottom.d2-flex--box-first > *,
   &.d2-flex--dir-bottom.d2-flex--box-last > *,
   &.d2-flex--dir-bottom.d2-flex--box-justify > * {
-    // width: auto;
+    width: auto;
     height: 0;
     flex-grow: 1;
     flex-shrink: 1;
