@@ -2,7 +2,8 @@ import { Menu } from 'd2/utils/menu.js'
 import {
   indexMenu,
   dashboardIndexMenu,
-  demoMenus,
+  demoComponentMenus,
+  demoLayoutMenus,
   documentMenus
 } from 'd2/menus/index.js'
 
@@ -15,12 +16,13 @@ export const menuMain = [
   indexMenu.value(),
   dashboardIndexMenu.value(),
   startMenu,
-  demoMenus.value(),
+  demoComponentMenus.value(),
+  demoLayoutMenus.value(),
   documentMenus.value()
 ]
 
 export const menuSecondary = [
-  demoMenus.value(),
+  demoComponentMenus.value(),
   documentMenus.value()
 ]
 
