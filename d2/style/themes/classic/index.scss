@@ -1,5 +1,17 @@
-@import './components/flex.scss';
-@import './components/icon.scss';
+@import './src/flex.scss';
+@import './src/highlight.scss';
+@import './src/icon.scss';
+@import './src/markdown.scss';
+@import './src/scrollbar.scss';
+
+html, body, #app {
+  height: 100%;
+  width: 100%;
+}
+
+#app {
+  position: relative;
+}
 
 .d2-admin {
   // When the menu exceeds the screen height

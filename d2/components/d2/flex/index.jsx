@@ -35,25 +35,25 @@ export default defineComponent({
     center: { type: Boolean },
     tag: { type: String, default: 'div' }
   },
-  setup (props, { slots }) {
+  setup (props) {
     const center = computed(() => props.center ? 'center' : '')
     const main = computed(() => unref(center) || props.main)
     const cross = computed(() => unref(center) || props.cross)
     const classnames = computed(() => makeClassnames(
       classname,
       {
-        'is-inline-flex': props.inlineFlex,
-        'is-block': props.block,
-        'is-inline': props.inline,
-        'is-inline-block': props.inlineBlock,
-        'is-wrap': props.wrap,
-        'is-wrap-r': props.wrapR,
-        [`is-dir-${props.dir}`]: props.dir,
-        [`is-main-${unref(main)}`]: unref(main),
-        [`is-cross-${unref(cross)}`]: unref(cross),
-        [`is-box-${props.box}`]: props.box,
-        [`is-content-${props.content}`]: props.content,
-        [`is-self-${props.self}`]: props.self
+        [`${classname}--inline-flex`]: props.inlineFlex,
+        [`${classname}--block`]: props.block,
+        [`${classname}--inline`]: props.inline,
+        [`${classname}--inline-block`]: props.inlineBlock,
+        [`${classname}--wrap`]: props.wrap,
+        [`${classname}--wrap-r`]: props.wrapR,
+        [`${classname}--dir-${props.dir}`]: props.dir,
+        [`${classname}--main-${unref(main)}`]: unref(main),
+        [`${classname}--cross-${unref(cross)}`]: unref(cross),
+        [`${classname}--box-${props.box}`]: props.box,
+        [`${classname}--content-${props.content}`]: props.content,
+        [`${classname}--self-${props.self}`]: props.self
       }
     ))
     const style = computed(() => pickBy({
