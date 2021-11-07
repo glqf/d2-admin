@@ -1,7 +1,6 @@
 import { customAlphabet } from 'nanoid'
 import { kebabCase, camelCase } from 'lodash-es'
 import { pascalCase } from 'd2/utils/string.js'
-import { namespace } from './const.js'
 
 const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyz', 10)
 
@@ -9,15 +8,15 @@ const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyz', 10)
  * Format component name
  * @param {string} name simple component name has no prefix
  *                      eg: 'Foo Bar' '--foo-bar--' '__FOO_BAR__' 'foo/bar'
- * @returns {string} component name. eg: 'NamespaceFooBar'
+ * @returns {string} component name. eg: 'D2FooBar'
  */
 export function makeName (name) {
-  return pascalCase(`${namespace}-${name}`)
+  return pascalCase(`d2-${name}`)
 }
 
 /**
  * Randomly generate a component name
- * @returns {string} component name. eg: 'NamespaceAisjkxuednj'
+ * @returns {string} component name. eg: 'D2Aisjkxuednj'
  */
 export function makeRandomName () {
   return makeName(nanoid())
@@ -26,7 +25,7 @@ export function makeRandomName () {
 /**
  * Format component name by component file url
  * @param {string} url component file url
- * @returns {string} component name. eg: 'NamespaceFooBar'
+ * @returns {string} component name. eg: 'D2FooBar'
  */
 export function makeNameByUrl (url) {
   console.log('makeNameByUrl', url)
@@ -49,10 +48,10 @@ export function makeNameByUrl (url) {
  * Format component main class name
  * @param {string} name simple component name has no prefix
  *                      eg 'Foo Bar' 'fooBar' '__FOO_BAR__' 'foo/bar'
- * @returns {string} component name. eg: 'namespace-foo-bar'
+ * @returns {string} component name. eg: 'd2-foo-bar'
  */
 export function makeClassName (name) {
-  return `${namespace}-${kebabCase(name)}`
+  return `d2-${kebabCase(name)}`
 }
 
 /**

@@ -1,8 +1,6 @@
 import { fromPairs } from 'lodash-es'
 import { isEmptyString } from 'd2/utils/string.js'
 
-export const namespace = 'd2'
-
 export const flexProps = {
   dir: ['top', 'right', 'bottom', 'left'],
   main: ['right', 'left', 'justify', 'center'],
