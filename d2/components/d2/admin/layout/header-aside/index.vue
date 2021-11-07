@@ -1,21 +1,3 @@
-<style lang="scss" scoped>
-.layout-header-aside__body {
-  position: absolute;
-}
-.layout-header-aside__header {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.layout-header-aside__aside {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #F1F3F4;
-}
-</style>
-
 <template>
   <div class="layout-header-aside__body" :style="position">
     <d2-scroll class="w-full h-full">

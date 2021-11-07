@@ -1,0 +1,11 @@
+.d2-admin {
+  // When the menu exceeds the screen height
+  // Display it as the maximum screen height
+  .ant-menu-vertical,
+  .ant-menu-vertical-left,
+  .ant-menu-vertical-right {
+    &.ant-menu-sub {
+      max-height: 100vh;
+    }
+  }
+}

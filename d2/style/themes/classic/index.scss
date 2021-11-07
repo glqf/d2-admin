@@ -1,26 +1,11 @@
-@import './src/flex.scss';
-@import './src/highlight.scss';
-@import './src/icon.scss';
-@import './src/markdown.scss';
-@import './src/scrollbar.scss';
+@import './src/ui/base.scss';
+@import './src/ui/ant.scss';
 
-html, body, #app {
-  height: 100%;
-  width: 100%;
-}
+@import './src/layout/header-aside.scss';
 
-#app {
-  position: relative;
-}
+@import './src/component/flex.scss';
+@import './src/component/icon.scss';
 
-.d2-admin {
-  // When the menu exceeds the screen height
-  // Display it as the maximum screen height
-  .ant-menu-vertical,
-  .ant-menu-vertical-left,
-  .ant-menu-vertical-right {
-    &.ant-menu-sub {
-      max-height: 100vh;
-    }
-  }
-}
+@import './src/system/highlight.scss';
+@import './src/system/markdown.scss';
+@import './src/system/scrollbar.scss';
