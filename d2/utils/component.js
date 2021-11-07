@@ -1,5 +1,5 @@
 import { customAlphabet } from 'nanoid'
-import { kebabCase } from 'lodash-es'
+import { kebabCase, camelCase } from 'lodash-es'
 import { pascalCase } from 'd2/utils/string.js'
 import { namespace } from './const.js'
 
@@ -29,10 +29,12 @@ export function makeRandomName () {
  * @returns {string} component name. eg: 'NamespaceFooBar'
  */
 export function makeNameByUrl (url) {
+  console.log('makeNameByUrl', url)
   const base = 'd2/components/'
   if (import.meta.env.DEV) {
     url = url
       .replace(RegExp(`^${window.location.origin}${import.meta.env.BASE_URL}${base}(d2/)?`), '')
+      .replace(/\?import.+$/, '')
       .replace(/\?t=\d+$/, '')
       .replace(/(\/index)?\.(vue|js|jsx)$/, '')
   } else {
@@ -51,4 +53,13 @@ export function makeNameByUrl (url) {
  */
 export function makeClassName (name) {
   return `${namespace}-${kebabCase(name)}`
+}
+
+/**
+ * Format component main class name by component file url
+ * @param {string} url component file url
+ * @returns {string} component name. eg: 'name-space-foo-bar'
+ */
+export function makeClassNameByUrl (url) {
+  return kebabCase(camelCase(makeNameByUrl(url)))
 }

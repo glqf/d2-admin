@@ -15,10 +15,12 @@
 </template>
 
 <script>
-import { makeNameByUrl } from 'd2/utils/component.js'
+import { makeNameByUrl, makeClassNameByUrl } from 'd2/utils/component.js'
 import { computed, ref, unref } from 'vue'
 import { cssUnit } from 'd2/utils/css.js'
 import { useCssPosition } from 'd2/use/css-position.js'
+
+console.log(makeClassNameByUrl(import.meta.url))
 
 export default {
   name: makeNameByUrl(import.meta.url),
