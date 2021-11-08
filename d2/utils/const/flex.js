@@ -18,7 +18,7 @@ export const flexProps = {
  */
 export function isFlexProp (type, value, empty) {
   if (empty && isEmptyString(value)) {
-    return false
+    return true
   }
   return !!flexProps[type]?.includes(value)
 }
