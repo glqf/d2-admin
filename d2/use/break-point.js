@@ -2,25 +2,32 @@ import { unref, computed } from 'vue'
 import { keys, values, mapValues, invert } from 'lodash-es'
 import { useWindowSize } from 'd2/use/window-size.js'
 import { useConfig } from 'd2/components/d2/config/use.js'
+import { breakPoints } from 'd2/utils/const/break-point.js'
 
 const minKey = 'min'
 const minWidth = 0
 
 /**
  * Get breakpoint status
- * @param {Object} breakPoints break point setting, if do not set this parameter, use global config
+ * @param {Object} breakPointsParam break point setting, if do not set this parameter, use global config
  *                             eg: { sm: 640, md: 768, lg: 1024, xl: 1280, xxl: 1536 }
  * @returns {Object} status {String} breakPoint now active break point name
- * @returns {Object} status {String} ...breakPoints.keys active state of each breakpoint
+ * @returns {Object} status {String} ...breakPointsParam.keys active state of each breakpoint
  * @returns {Object} status {String} min less than the minimum breakpoint
  */
-export function useBreakPoint (breakPoints) {
+export function useBreakPoint (breakPointsParam) {
   const { width } = useWindowSize()
+
+  const { breakPoints: breakPointsConfig } = useConfig()
   
   const _points = Object.assign(
-    { [minKey]: minWidth },
-    useConfig().breakPoints,
-    breakPoints
+    {},
+    breakPoints,
+    breakPointsConfig,
+    breakPointsParam,
+    {
+      [minKey]: minWidth
+    }
   )
 
   const widths = values(_points).sort((a, b) => a - b)
@@ -32,9 +39,9 @@ export function useBreakPoint (breakPoints) {
   const status = mapValues(_points, (v, k) => computed(() => unref(activeName) === k))
 
   /**
-   * match data based on breakpoints
+   * match data based on size
    * @param {*} data default data
-   * @param {*} dataSet set of datas matched by breakpoints
+   * @param {*} dataSet set of datas matched by size
    * @returns a matched data
    */
   function responsive (data, dataSet = {}) {
