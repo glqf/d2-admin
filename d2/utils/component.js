@@ -1,5 +1,5 @@
 import { customAlphabet } from 'nanoid'
-import { kebabCase, camelCase } from 'lodash-es'
+import { kebabCase } from 'lodash-es'
 import { pascalCase } from 'd2/utils/string.js'
 
 const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyz', 10)
@@ -57,7 +57,7 @@ export function makeClassName (name) {
 /**
  * Format component main class name by component file url
  * @param {string} url component file url
- * @returns {string} component name. eg: 'name-space-foo-bar'
+ * @returns {string} component name. eg: 'd2-foo-bar'
  */
 export function makeClassNameByUrl (url) {
   return kebabCase(makeNameByUrl(url)).replace(/-(\d)/g, '$1')

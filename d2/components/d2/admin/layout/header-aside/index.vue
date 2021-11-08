@@ -1,13 +1,13 @@
 <template>
-  <div class="d2-admin-layout-header-aside__body" :style="position">
+  <div :class="`${classname}__body`" :style="position">
     <d2-scroll class="w-full h-full">
       <slot/>
     </d2-scroll>
   </div>
-  <div class="d2-admin-layout-header-aside__header" :style="headerStyle">
+  <div :class="`${classname}__header`" :style="headerStyle">
     <d2-admin-layout-header-aside-menu-header/>
   </div>
-  <div class="d2-admin-layout-header-aside__aside" :style="asideStyle">
+  <div :class="`${classname}__aside`" :style="asideStyle">
     <d2-scroll class="w-full h-full">
       <d2-admin-layout-header-aside-menu-aside/>
     </d2-scroll>
@@ -20,7 +20,7 @@ import { computed, ref, unref } from 'vue'
 import { cssUnit } from 'd2/utils/css.js'
 import { useCssPosition } from 'd2/use/css-position.js'
 
-console.log(makeClassNameByUrl(import.meta.url))
+const classname = makeClassNameByUrl(import.meta.url)
 
 export default {
   name: makeNameByUrl(import.meta.url),
@@ -40,6 +40,7 @@ export default {
     }))
 
     return {
+      classname,
       position,
       headerStyle,
       asideStyle
