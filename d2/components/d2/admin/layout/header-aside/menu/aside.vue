@@ -16,7 +16,7 @@
 <script>
 import { makeNameByUrl } from 'd2/utils/component.js'
 import { useMenuMainStore } from 'd2/store/menu-main.js'
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { compact } from 'lodash-es'
 import { storeToRefs } from 'pinia'
@@ -40,14 +40,6 @@ export default {
     }
 
     const selectedKey = computed(() => getMenuId(getMenuByUrl(route.fullPath)))
-
-    watch(() => route.fullPath, value => {
-      console.log('route.fullPath', value)
-    })
-
-    watch(selectedKey, value => {
-      console.log('selectedKey', value)
-    })
 
     const selectedKeys = computed(() => compact([selectedKey.value]))
 

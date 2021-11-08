@@ -60,5 +60,5 @@ export function makeClassName (name) {
  * @returns {string} component name. eg: 'name-space-foo-bar'
  */
 export function makeClassNameByUrl (url) {
-  return kebabCase(camelCase(makeNameByUrl(url)))
+  return kebabCase(makeNameByUrl(url)).replace(/-(\d)/g, '$1')
 }
