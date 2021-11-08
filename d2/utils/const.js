@@ -1,4 +1,3 @@
-import { fromPairs } from 'lodash-es'
 import { isEmptyString } from 'd2/utils/string.js'
 
 export const flexProps = {
@@ -9,12 +8,6 @@ export const flexProps = {
   content: ['start', 'end', 'center', 'between', 'around', 'stretch'],
   self: ['auto', 'top', 'bottom', 'baseline', 'center', 'stretch']
 }
-
-export const breakPointsName = ['sm', 'md', 'lg', 'xl', 'xxl']
-
-export const breakPointsWidth = [640, 768, 1024, 1280, 1536]
-
-export const breakPoints = fromPairs(breakPointsName.map((e, i) => [e, breakPointsWidth[i]]))
 
 /**
  * Check a flex property is available

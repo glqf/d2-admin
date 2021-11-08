@@ -17,7 +17,7 @@
 
 <script>
 import { makeNameByUrl } from 'd2/utils/component.js'
-import { breakPointsName } from 'd2/utils/const.js'
+import { breakPointsName } from 'd2/utils/const/break-point.js'
 
 export default {
   name: makeNameByUrl(import.meta.url),
