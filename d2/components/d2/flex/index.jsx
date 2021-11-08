@@ -3,7 +3,7 @@ import { defineComponent, unref, computed } from 'vue'
 import { pickBy, isUndefined } from 'lodash-es'
 import { isNumberLike } from 'd2/utils/number.js'
 import { makeName, makeClassName } from 'd2/utils/component.js'
-import { isFlexProp } from 'd2/utils/const.js'
+import { isFlexProp } from 'd2/utils/const/flex.js'
 
 const name = 'flex'
 

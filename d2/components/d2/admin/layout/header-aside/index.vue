@@ -20,11 +20,11 @@ import { computed, ref } from 'vue'
 import { cssUnit } from 'd2/utils/css.js'
 import { useCssPosition } from 'd2/use/css-position.js'
 
-const classname = makeClassNameByUrl(import.meta.url)
-
 export default {
   name: makeNameByUrl(import.meta.url),
   setup () {
+    const classname = makeClassNameByUrl(import.meta.url)
+    
     const headerHeight = ref(46)
     const asideWidth = ref(200)
 

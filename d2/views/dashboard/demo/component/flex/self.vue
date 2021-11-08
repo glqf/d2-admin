@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { flexProps } from 'd2/utils/const.js'
+import { flexProps } from 'd2/utils/const/flex.js'
 
 const { self } = flexProps
 
