@@ -19,11 +19,16 @@ import { makeNameByUrl, makeClassNameByUrl } from 'd2/utils/component.js'
 import { computed, ref } from 'vue'
 import { cssUnit } from 'd2/utils/css.js'
 import { useCssPosition } from 'd2/use/css-position.js'
+import { useLayoutHeaderAsideStore } from 'd2/components/d2/admin/layout/header-aside/store/index.js'
 
 export default {
   name: makeNameByUrl(import.meta.url),
   setup () {
     const classname = makeClassNameByUrl(import.meta.url)
+
+    const layoutHeaderAsideStore = useLayoutHeaderAsideStore()
+
+    console.log(layoutHeaderAsideStore.customBody)
     
     const headerHeight = ref(46)
     const asideWidth = ref(200)
