@@ -1,5 +1,5 @@
 import { unref, computed } from 'vue'
-import { keys, values, fromPairs, mapValues } from 'lodash-es'
+import { keys, values, mapValues, invert } from 'lodash-es'
 import { useWindowSize } from 'd2/use/window-size.js'
 import { useConfig } from 'd2/components/d2/config/use.js'
 
@@ -23,9 +23,8 @@ export function useBreakPoint (breakPoints) {
     breakPoints
   )
 
-  const names = keys(_points)
   const widths = values(_points).sort((a, b) => a - b)
-  const dict = fromPairs(widths.map((w, i) => [w, names[i]]))
+  const dict = invert(_points)
 
   const activeWidth = computed(() => widths.reduce((r, e) => unref(width) >= e ? e : r, minWidth))
   const activeName = computed(() => dict[unref(activeWidth)])
