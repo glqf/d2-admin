@@ -1,8 +1,6 @@
-import { customAlphabet } from 'nanoid'
+import { id } from 'd2/utils/id.js'
 import { kebabCase } from 'lodash-es'
 import { pascalCase } from 'd2/utils/string.js'
-
-const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyz', 10)
 
 /**
  * Format component name
@@ -19,7 +17,7 @@ export function makeName (name) {
  * @returns {string} component name. eg: 'D2Aisjkxuednj'
  */
 export function makeRandomName () {
-  return makeName(nanoid())
+  return makeName(id())
 }
 
 /**
