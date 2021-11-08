@@ -1,0 +1,17 @@
+$classname: 'd2-admin-layout-header-aside';
+
+.#{$classname}__body {
+  @apply absolute;
+  .body__scroll {
+    @apply w-full h-full select-none cursor-pointer;
+  }
+}
+.#{$classname}__header {
+  @apply absolute top-0 right-0;
+}
+.#{$classname}__aside {
+  @apply absolute top-0 bottom-0 left-0 bg-gray-100;
+  .aside__scroll {
+    @apply w-full h-full select-none cursor-pointer;
+  }
+}

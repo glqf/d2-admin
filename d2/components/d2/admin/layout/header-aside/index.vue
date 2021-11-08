@@ -1,6 +1,6 @@
 <template>
   <div :class="`${classname}__body`" :style="bodyStyle">
-    <d2-scroll class="w-full h-full">
+    <d2-scroll class="body__scroll">
       <slot/>
     </d2-scroll>
   </div>
@@ -8,7 +8,7 @@
     <d2-admin-layout-header-aside-menu-header/>
   </div>
   <div :class="`${classname}__aside`" :style="asideStyle">
-    <d2-scroll class="w-full h-full">
+    <d2-scroll class="aside__scroll">
       <d2-admin-layout-header-aside-menu-aside/>
     </d2-scroll>
   </div>
