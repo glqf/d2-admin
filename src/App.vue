@@ -8,12 +8,12 @@
 </template>
 
 <script setup>
-import { useMenuMainStore } from 'd2/store/menu-main.js'
-import { useMenuSecondaryStore } from 'd2/store/menu-secondary.js'
+import { useD2AdminMenuMainStore } from 'd2/store/menu-main.js'
+import { useD2AdminMenuSecondaryStore } from 'd2/store/menu-secondary.js'
 import { menuMain, menuSecondary } from '@/menus/index.js'
 
-const menuMainStore = useMenuMainStore()
-const menuSecondaryStore = useMenuSecondaryStore()
+const menuMainStore = useD2AdminMenuMainStore()
+const menuSecondaryStore = useD2AdminMenuSecondaryStore()
 
 menuMainStore.setMenus(menuMain)
 menuSecondaryStore.setMenus(menuSecondary)

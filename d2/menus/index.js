@@ -69,7 +69,6 @@ export const demoLayoutHeaderAsideMenus = new Menu('HeaderAside')
   .add(new Menu('absolute').url('/absolute'))
   .add(new Menu('full').url('/full'))
   .add(new Menu('page-width').url('/page-width'))
-  .add(new Menu('custom-body').url('/custom-body'))
 
 export const demoLayoutMenus = new Menu('布局')
   .icon('icon-park-outline:page')

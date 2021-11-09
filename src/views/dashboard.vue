@@ -7,7 +7,5 @@
 </route>
 
 <template>
-  <d2-admin-layout-header-aside>
-    <router-view/>
-  </d2-admin-layout-header-aside>
+  <d2-admin-layout-header-aside/>
 </template>

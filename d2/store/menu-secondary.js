@@ -1,3 +1,3 @@
-import { defineMenuStore } from './utils/menu.js'
+import { defineD2AdminMenuStore } from './utils/menu.js'
 
-export const useMenuSecondaryStore = defineMenuStore('d2-admin-menu-secondary')
+export const useD2AdminMenuSecondaryStore = defineD2AdminMenuStore('d2-admin-menu-secondary')

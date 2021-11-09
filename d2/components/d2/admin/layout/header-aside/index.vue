@@ -1,8 +1,7 @@
 <template>
   <div :class="`${classname}__body`" :style="bodyStyle">
-    <slot v-if="isCustomBody"/>
-    <d2-scroll v-else class="body__scroll">
-      <slot/>
+    <d2-scroll class="body__scroll">
+      <router-view/>
     </d2-scroll>
   </div>
   <div :class="`${classname}__header`" :style="headerStyle">
@@ -18,17 +17,18 @@
 <script>
 import { makeNameByUrl, makeClassNameByUrl } from 'd2/utils/component.js'
 import { computed, ref } from 'vue'
-import { storeToRefs } from 'pinia'
+// import { storeToRefs } from 'pinia'
 import { cssUnit } from 'd2/utils/css.js'
 import { useCssPosition } from 'd2/use/css-position.js'
-import { useD2AdminLayoutHeaderAsideStore } from 'd2/components/d2/admin/layout/header-aside/store/index.js'
+// import { useD2AdminLayoutHeaderAsideStore } from 'd2/components/d2/admin/layout/header-aside/store/index.js'
 
 export default {
   name: makeNameByUrl(import.meta.url),
   setup () {
     const classname = makeClassNameByUrl(import.meta.url)
 
-    const { isCustomBody } = storeToRefs(useD2AdminLayoutHeaderAsideStore())
+    // const d2AdminLayoutHeaderAsideStore = useD2AdminLayoutHeaderAsideStore()
+    // const { isCustomBody } = storeToRefs(d2AdminLayoutHeaderAsideStore)
     
     const headerHeight = ref(46)
     const asideWidth = ref(200)
@@ -48,8 +48,7 @@ export default {
       classname,
       bodyStyle,
       headerStyle,
-      asideStyle,
-      isCustomBody
+      asideStyle
     }
   }
 }
