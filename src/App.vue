@@ -16,5 +16,5 @@ const menuMainStore = useD2AdminMenuMainStore()
 const menuSecondaryStore = useD2AdminMenuSecondaryStore()
 
 menuMainStore.setMenus(menuMain)
-menuSecondaryStore.setMenus(menuSecondary)
+menuSecondaryStore.setMenus(menuMain)
 </script>
