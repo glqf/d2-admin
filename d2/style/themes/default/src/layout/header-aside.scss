@@ -1,27 +1,31 @@
 $classname: '#{$namespace}-layout-header-aside';
 
 @function --key ($name) {
-  @return '--d2-admin-layout-header-aside-#{$name}';
+  @return --d2-admin-layout-header-aside-#{$name};
 }
 
 @function --var ($name) {
   @return var(#{--key($name)});
 }
 
-// :root {
-//   #{--key('border-color')}: #E5E7EB;
-// }
+:root {
+  #{--key('header-height')}: 46px;
+  #{--key('header-button-font-size')}: 14px;
+  #{--key('header-button-height')}: --var('header-height');
+  #{--key('header-button-line-height')}: --var('header-height');
+  #{--key('header-button-min-width')}: --var('header-height');
+  #{--key('header-button-padding-x')}: calc((#{--var('header-height')} - #{--var('header-button-font-size')}) / 2);
+}
 
 .#{$classname}__body {
   @apply absolute;
   >.body__scroll {
-    @apply w-full h-full select-none cursor-pointer;
+    @apply w-full h-full cursor-pointer select-none;
   }
 }
 .#{$classname}__header {
-  @apply absolute top-0 right-0 border-gray-200 border-b;
-  height: 46px;
-  box-sizing: content-box;
+  @apply box-content absolute top-0 right-0 border-b border-gray-200;
+  height: --var('header-height');
   >.header__column {
     &.header__column--border {
       @apply border-gray-200;
@@ -33,11 +37,12 @@ $classname: '#{$namespace}-layout-header-aside';
       }
     }
     >.header__button {
-      @apply bg-transparent transition-colors;
-      height: 46px;
-      line-height: 46px;
-      min-width: 46px;
-      padding: 0 16px;
+      @apply text-center transition-colors bg-transparent;
+      font-size: --var('header-button-font-size');
+      height: --var('header-button-height');
+      line-height: --var('header-button-line-height');
+      min-width: --var('header-button-min-width');
+      padding: 0 --var('header-button-padding-x');
       &:hover {
         @apply bg-gray-100;
       }
@@ -53,6 +58,6 @@ $classname: '#{$namespace}-layout-header-aside';
 .#{$classname}__aside {
   @apply absolute top-0 bottom-0 left-0 bg-gray-100;
   .aside__scroll {
-    @apply w-full h-full select-none cursor-pointer;
+    @apply w-full h-full cursor-pointer select-none;
   }
 }
