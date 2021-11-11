@@ -1,0 +1,59 @@
+html, body, #app {
+  height: 100%;
+  width: 100%;
+}
+
+@include inLayoutHeaderAside {
+  #app {
+    position: relative;
+    background-color: --var('background-color');
+  }
+
+  .#{$classname}__body {
+    position: absolute;
+    >.body__scroll {
+      @apply w-full h-full;
+    }
+  }
+  
+  .#{$classname}__header {
+    @apply box-content absolute top-0 right-0 cursor-pointer select-none;
+    height: --var('header-height');
+    >.header__column {
+      >.header__button {
+        @apply transition-colors bg-transparent;
+        font-size: --var('font-size');
+        &.header__button--icon {
+          min-width: --var('header-height');
+        }
+        &.header__button--text {
+          line-height: --var('header-height');
+          padding: 0 calc((#{--var('header-height')} - #{--var('font-size')}) / 2);
+        }
+        &:hover {
+          @apply bg-gray-100;
+        }
+        &:active {
+          @apply bg-gray-200;
+        }
+      }
+    }
+  }
+  
+  .#{$classname}__aside {
+    @apply box-content absolute top-0 bottom-0 left-0 cursor-pointer select-none;
+    >.aside__header {
+      @apply box-content;
+      min-height: --var('header-height');
+    }
+    >.aside__body {
+      >.aside__scroll {
+        @apply w-full h-full;
+      }
+    }
+    >.aside__footer {
+      @apply box-content;
+      min-height: --var('header-height');
+    }
+  }
+}
