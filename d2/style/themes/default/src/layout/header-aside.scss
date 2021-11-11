@@ -13,12 +13,33 @@ $classname: '#{$namespace}-layout-header-aside';
   #{--key('header-height')}: 46px;
 }
 
+html, body, #app {
+  height: 100%;
+  width: 100%;
+}
+
+body.#{$classname} {
+  #app {
+    position: relative;
+  }
+  // When the menu exceeds the screen height
+  // Display it as the maximum screen height
+  .ant-menu-vertical,
+  .ant-menu-vertical-left,
+  .ant-menu-vertical-right {
+    &.ant-menu-sub {
+      max-height: 100vh;
+    }
+  }
+}
+
 .#{$classname}__body {
   position: absolute;
   >.body__scroll {
     @apply w-full h-full;
   }
 }
+
 .#{$classname}__header {
   @apply box-content absolute top-0 right-0 border-b border-gray-200 cursor-pointer select-none;
   height: --var('header-height');
@@ -64,6 +85,7 @@ $classname: '#{$namespace}-layout-header-aside';
     }
   }
 }
+
 .#{$classname}__aside {
   @apply box-content absolute top-0 bottom-0 left-0 bg-gray-100 border-r border-gray-200 cursor-pointer select-none;
   >.aside__header {
@@ -75,8 +97,15 @@ $classname: '#{$namespace}-layout-header-aside';
     >.aside__scroll {
       @apply w-full h-full;
     }
-    .ant-menu-inline {
+    .ant-menu-inline,
+    .ant-menu-vertical,
+    .ant-menu-vertical-left {
       @apply border-r-0;
+    }
+    .ant-menu-vertical-right {
+      @apply border-l-0;
+    }
+    .ant-menu-inline {
       .ant-menu-item,
       .ant-menu-submenu-title {
         width: 100%;
