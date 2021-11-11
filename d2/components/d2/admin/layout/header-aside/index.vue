@@ -5,26 +5,49 @@
     </d2-scroll>
   </div>
   <d2-flex :class="`${classname}__header`" :style="headerStyle" dir="left" box="justify">
-    <div class="header__column header__column--border header__column--border-right">
-      <d2-flex class="header__button" center>
+    <d2-flex class="header__column header__column--border header__column--border-right">
+      <d2-flex class="header__button header__button--icon" tag="button" center>
         <d2-icon name="icon-park-outline:menu-unfold-one"/>
       </d2-flex>
-    </div>
+    </d2-flex>
     <div class="header__column">
       <d2-admin-layout-header-aside-menu-header/>
     </div>
     <d2-flex class="header__column header__column--border header__column--border-left" dir="right">
-      <d2-flex class="header__button" tag="button" center grow="0">Btn</d2-flex>
-      <d2-flex class="header__button" tag="button" center grow="0">Btn</d2-flex>
-      <d2-flex class="header__button" tag="button" center grow="0">Btn</d2-flex>
-      <d2-flex class="header__button" tag="button" center grow="0">Btn</d2-flex>
+      <d2-flex class="header__button header__button--text" tag="button" center>
+        <span class="mr-2">Hello Admin</span>
+        <a-avatar src="https://p3-passport.byteacctimg.com/img/user-avatar/e7130f55d45d06a8106c9dbd0e3f0c18~300x300.image"/>
+      </d2-flex>
+      <d2-flex class="header__button header__button--text" tag="button" center>
+        Hello Admin
+      </d2-flex>
+      <d2-flex class="header__button header__button--icon" tag="button" center>
+        <a-avatar src="https://p3-passport.byteacctimg.com/img/user-avatar/e7130f55d45d06a8106c9dbd0e3f0c18~300x300.image"/>
+      </d2-flex>
+      <d2-flex class="header__button header__button--icon" tag="button" center>
+        <d2-icon name="icon-park-outline:application-menu"/>
+      </d2-flex>
+      <d2-flex class="header__button header__button--icon" tag="button" center>
+        <d2-icon name="icon-park-outline:lock"/>
+      </d2-flex>
+      <d2-flex class="header__button header__button--icon" tag="button" center>
+        <d2-icon name="icon-park-outline:message"/>
+      </d2-flex>
     </d2-flex>
   </d2-flex>
-  <div :class="`${classname}__aside`" :style="asideStyle">
-    <d2-scroll class="aside__scroll">
-      <d2-admin-layout-header-aside-menu-aside/>
-    </d2-scroll>
-  </div>
+  <d2-flex :class="`${classname}__aside`" :style="asideStyle" dir="top">
+    <d2-flex class="aside__header" grow="0" center>
+      Hello World
+    </d2-flex>
+    <d2-flex class="aside__body" grow="1">
+      <d2-scroll class="aside__scroll">
+        <d2-admin-layout-header-aside-menu-aside/>
+      </d2-scroll>
+    </d2-flex>
+    <d2-flex class="aside__footer" grow="0" center>
+      footer
+    </d2-flex>
+  </d2-flex>
 </template>
 
 <script>
