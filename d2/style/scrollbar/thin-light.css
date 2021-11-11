@@ -46,6 +46,7 @@ os-theme-thin-light
     width: 2px;
     left: 50%;
     margin-left: -1px;
+    border-radius: 10px;
 }
 .os-theme-thin-light > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle:before {
     content: '';

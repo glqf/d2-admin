@@ -35,16 +35,16 @@
       </d2-flex>
     </d2-flex>
   </d2-flex>
-  <d2-flex :class="`${classname}__aside`" :style="asideStyle" dir="top">
-    <d2-flex class="aside__header" grow="0" center>
+  <d2-flex :class="`${classname}__aside`" :style="asideStyle" dir="top" box="justify">
+    <d2-flex class="aside__header" center>
       Hello World
     </d2-flex>
-    <d2-flex class="aside__body" grow="1">
+    <d2-flex class="aside__body" block>
       <d2-scroll class="aside__scroll">
         <d2-admin-layout-header-aside-menu-aside/>
       </d2-scroll>
     </d2-flex>
-    <d2-flex class="aside__footer" grow="0" center>
+    <d2-flex class="aside__footer" center>
       footer
     </d2-flex>
   </d2-flex>
