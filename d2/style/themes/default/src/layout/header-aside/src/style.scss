@@ -11,7 +11,6 @@ html, body, #app {
 
   .layout__body {
     position: absolute;
-    background-color: --var('color-bg-body');
     >.body__scroll {
       @apply w-full h-full;
     }
@@ -21,21 +20,28 @@ html, body, #app {
     @apply box-content absolute top-0 right-0 cursor-pointer select-none;
     height: --var('header-height');
     >.header__column {
+      &.header__button-group {
+        padding: 0 calc(#{--var('header-menu-margin-x')} / 2);
+      }
       >.header__button {
         @apply transition-colors bg-transparent;
         font-size: --var('font-size');
+        height: --var('header-menu-line-height');
+        margin: --var('header-menu-margin-y') calc(#{--var('header-menu-margin-x')} / 2);
+        border-radius: --var('menu-radius');
         &.header__button--icon {
-          min-width: --var('header-height');
+          min-width: --var('header-menu-line-height');
         }
         &.header__button--text {
-          line-height: --var('header-height');
-          padding: 0 calc((#{--var('header-height')} - #{--var('font-size')}) / 2);
+          line-height: --var('header-menu-line-height');
+          padding: 0 calc((#{--var('header-menu-line-height')} - #{--var('font-size')}) / 2);
         }
         &:hover {
           background-color: --var('color-bg-menu-hover');
         }
         &:active {
           background-color: --var('color-bg-menu-selected');
+          color: --var('color-text-menu-selected');
         }
       }
     }
