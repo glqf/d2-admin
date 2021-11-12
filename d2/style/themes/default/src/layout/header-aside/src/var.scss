@@ -16,12 +16,12 @@ $classname: '#{$namespace}-layout-header-aside';
 
 :root {
   // color
-  #{--key('color-bg')}: #ECF1F6;
-  #{--key('color-bg-hover')}: #F6F8FB;
-  #{--key('color-bg-selected')}: #FCFCFC;
+  #{--key('color-bg-app')}: #ECF1F6;
+  #{--key('color-bg-menu-hover')}: #F6F8FB;
+  #{--key('color-bg-menu-selected')}: #FCFCFC;
   #{--key('color-bg-body')}: #FFFFFF;
-  #{--key('color-text')}: #606266;
-  #{--key('color-text-selected')}: #2F74FF;
+  #{--key('color-text-menu')}: #606266;
+  #{--key('color-text-menu-selected')}: #2F74FF;
   #{--key('color-border')}: #CFD7E5;
   // size
   #{--key('font-size')}: 14px;
