@@ -6,12 +6,12 @@ html, body, #app {
 @include inLayoutHeaderAside {
   #app {
     position: relative;
-    background-color: --var('bg-color');
+    background-color: --var('color-bg');
   }
 
   .layout__body {
     position: absolute;
-    background-color: --var('bg-color-lighten-max');
+    background-color: --var('color-bg-body');
     >.body__scroll {
       @apply w-full h-full;
     }
@@ -32,10 +32,10 @@ html, body, #app {
           padding: 0 calc((#{--var('header-height')} - #{--var('font-size')}) / 2);
         }
         &:hover {
-          background-color: --var('bg-color-lighten-1');
+          background-color: --var('color-bg-hover');
         }
         &:active {
-          background-color: --var('bg-color-lighten-2');
+          background-color: --var('color-bg-selected');
         }
       }
     }

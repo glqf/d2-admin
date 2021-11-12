@@ -15,17 +15,13 @@ $classname: '#{$namespace}-layout-header-aside';
 }
 
 :root {
-  // background
-  #{--key('bg-color')}: #ECF1F6;
-  #{--key('bg-color-lighten-1')}: #F6F8FB;
-  #{--key('bg-color-lighten-2')}: #FCFCFC;
-  #{--key('bg-color-lighten-max')}: #FFFFFF;
-  // text
-  #{--key('text-color')}: #606266;
-  #{--key('text-color-darken')}: #2F74FF;
-  // border
-  #{--key('border-color')}: #CFD7E5;
-  // size
+  #{--key('color-bg')}: #ECF1F6;
+  #{--key('color-bg-hover')}: #F6F8FB;
+  #{--key('color-bg-selected')}: #FCFCFC;
+  #{--key('color-bg-body')}: #FFFFFF;
+  #{--key('color-text')}: #606266;
+  #{--key('color-text-selected')}: #2F74FF;
+  #{--key('color-border')}: #CFD7E5;
   #{--key('font-size')}: 14px;
   #{--key('header-height')}: 46px;
 }
