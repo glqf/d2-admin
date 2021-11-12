@@ -6,5 +6,6 @@
     "scss": "\\B@apply\\s+([_a-zA-Z0-9\\s\\-\\:\\/]+);",
     "vue": "\\B@apply\\s+([_a-zA-Z0-9\\s\\-\\:\\/]+);",
     "javascript": "(?:\\bclassName\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\'])|(?:\\btw\\s*`([_a-zA-Z0-9\\s\\-\\:\\/]*)`)",
-  }
+  },
+  "scss.lint.emptyRules": "ignore"
 }

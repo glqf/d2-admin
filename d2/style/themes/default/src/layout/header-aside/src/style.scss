@@ -6,17 +6,18 @@ html, body, #app {
 @include inLayoutHeaderAside {
   #app {
     position: relative;
-    background-color: --var('background-color');
+    background-color: --var('bg-color');
   }
 
-  .#{$classname}__body {
+  .layout__body {
     position: absolute;
+    background-color: --var('bg-color-lighten-max');
     >.body__scroll {
       @apply w-full h-full;
     }
   }
   
-  .#{$classname}__header {
+  .layout__header {
     @apply box-content absolute top-0 right-0 cursor-pointer select-none;
     height: --var('header-height');
     >.header__column {
@@ -40,7 +41,7 @@ html, body, #app {
     }
   }
   
-  .#{$classname}__aside {
+  .layout__aside {
     @apply box-content absolute top-0 bottom-0 left-0 cursor-pointer select-none;
     >.aside__header {
       @apply box-content;

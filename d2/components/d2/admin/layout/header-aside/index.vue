@@ -1,10 +1,10 @@
 <template>
-  <div :class="`${classname}__body`" :style="bodyStyle">
+  <div class="layout__body" :style="bodyStyle">
     <d2-scroll class="body__scroll">
       <router-view/>
     </d2-scroll>
   </div>
-  <d2-flex :class="`${classname}__header`" :style="headerStyle" dir="left" box="justify">
+  <d2-flex class="layout__header" :style="headerStyle" dir="left" box="justify">
     <d2-flex class="header__column">
       <d2-flex class="header__button header__button--icon" tag="button" center>
         <d2-icon name="icon-park-outline:menu-unfold-one"/>
@@ -35,7 +35,7 @@
       </d2-flex>
     </d2-flex>
   </d2-flex>
-  <d2-flex :class="`${classname}__aside`" :style="asideStyle" dir="top" box="justify">
+  <d2-flex class="layout__aside" :style="asideStyle" dir="top" box="justify">
     <d2-flex class="aside__header" center>
       Hello World
     </d2-flex>
