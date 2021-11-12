@@ -66,7 +66,7 @@ export default {
     const d2AdminLayoutHeaderAsideStore = useD2AdminLayoutHeaderAsideStore()
     const { fold } = storeToRefs(d2AdminLayoutHeaderAsideStore)
     
-    const headerHeight = ref(46)
+    const headerHeight = ref(50)
     const asideWidth = ref(200)
 
     const { style: bodyStyle } = useCssPosition(headerHeight, 0, 0, asideWidth)

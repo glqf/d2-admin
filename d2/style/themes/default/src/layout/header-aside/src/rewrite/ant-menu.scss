@@ -355,9 +355,9 @@
     color: --var('color-text-selected'); // color: #1890ff;
   }
   .ant-menu-horizontal {
-    // line-height: 46px;
+    line-height: --var('header-menu-line-height'); // line-height: 46px;
     // border: 0;
-    // border-bottom: 1px solid #f0f0f0;
+    border-bottom: none; // border-bottom: 1px solid #f0f0f0;
     // box-shadow: none;
   }
   .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item,
@@ -399,9 +399,16 @@
   .ant-menu-horizontal > .ant-menu-item,
   .ant-menu-horizontal > .ant-menu-submenu {
     // position: relative;
-    // top: 1px;
+    top: 0px; // top: 1px;
     // display: inline-block;
     // vertical-align: bottom;
+    // ---- new style ----
+    border-radius: --var('menu-radius');
+    margin: --var('header-menu-margin-y') 0;
+    &:not(:last-child) {
+      margin-right: --var('header-menu-margin-x');
+    }
+    // ---- new style end ----
   }
   .ant-menu-horizontal > .ant-menu-item::after,
   .ant-menu-horizontal > .ant-menu-submenu::after {
@@ -463,8 +470,11 @@
   .ant-menu-vertical-right .ant-menu-submenu-title,
   .ant-menu-inline .ant-menu-submenu-title {
     // height: 40px;
-    // margin-top: 4px;
-    // margin-bottom: 4px;
+    margin-top: --var('aside-menu-margin-y'); // margin-top: 4px;
+    margin-bottom: --var('aside-menu-margin-y'); // margin-bottom: 4px;
+    margin-right: --var('aside-menu-margin-x'); // new
+    margin-left: --var('aside-menu-margin-x'); // new
+    border-radius: --var('menu-radius'); // new
     // padding: 0 16px;
     // overflow: hidden;
     // line-height: 40px;
@@ -480,7 +490,7 @@
   .ant-menu-vertical-left .ant-menu-item:not(:last-child),
   .ant-menu-vertical-right .ant-menu-item:not(:last-child),
   .ant-menu-inline .ant-menu-item:not(:last-child) {
-    // margin-bottom: 8px;
+    margin-bottom: --var('aside-menu-margin-y'); // margin-bottom: 8px;
   }
   .ant-menu-vertical > .ant-menu-item,
   .ant-menu-vertical-left > .ant-menu-item,
@@ -508,7 +518,7 @@
   }
   .ant-menu-inline .ant-menu-item,
   .ant-menu-inline .ant-menu-submenu-title {
-    width: 100%; // width: calc(100% + 1px);
+    width: auto; // width: calc(100% + 1px);
   }
   .ant-menu-inline .ant-menu-item-group-list .ant-menu-submenu-title,
   .ant-menu-inline .ant-menu-submenu-title {
