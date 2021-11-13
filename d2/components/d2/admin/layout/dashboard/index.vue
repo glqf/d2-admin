@@ -33,16 +33,16 @@
       </d2-flex>
     </d2-flex>
   </d2-flex>
-  <d2-flex class="layout__aside" :style="asideStyle" dir="top" box="justify">
-    <d2-flex class="aside__header" center>
+  <d2-flex class="layout__side" :style="sideStyle" dir="top" box="justify">
+    <d2-flex class="side__header" center>
       Hello World
     </d2-flex>
-    <d2-flex class="aside__body" block>
-      <d2-scroll class="aside__scroll">
-        <d2-admin-layout-dashboard-menu-aside/>
+    <d2-flex class="side__body" block>
+      <d2-scroll class="side__scroll">
+        <d2-admin-layout-dashboard-menu-side/>
       </d2-scroll>
     </d2-flex>
-    <d2-flex class="aside__footer" center>
+    <d2-flex class="side__footer" center>
       footer
     </d2-flex>
   </d2-flex>
@@ -72,23 +72,23 @@ export default {
     } = storeToRefs(d2AdminUserStore)
 
     const headerHeight = ref(50)
-    const asideWidth = ref(200)
+    const sideWidth = ref(200)
 
-    const { style: bodyStyle } = useCssPosition(headerHeight, 0, 0, asideWidth)
+    const { style: bodyStyle } = useCssPosition(headerHeight, 0, 0, sideWidth)
 
     const headerStyle = computed(() => ({
-      left: cssUnit(asideWidth)
+      left: cssUnit(sideWidth)
     }))
 
-    const asideStyle = computed(() => ({
-      width: cssUnit(asideWidth)
+    const sideStyle = computed(() => ({
+      width: cssUnit(sideWidth)
     }))
 
     return {
       classname,
       bodyStyle,
       headerStyle,
-      asideStyle,
+      sideStyle,
       userAvatar,
       userName
     }

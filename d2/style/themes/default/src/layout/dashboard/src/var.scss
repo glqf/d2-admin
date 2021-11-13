@@ -17,21 +17,29 @@ $classname: '#{$namespace}-layout-dashboard';
 :root {
   // color
   #{--key('color-bg-app')}: #ECF1F6;
-  #{--key('color-bg-menu-hover')}: #F6F8FB;
-  #{--key('color-bg-menu-selected')}: #FFFFFF;
-  #{--key('color-bg-menu-popup')}: #FFFFFF;
-  #{--key('color-text-menu')}: #606266;
-  #{--key('color-text-menu-selected')}: #2F74FF;
-  #{--key('color-border')}: #CFD7E5;
+  #{--key('color-bg-item-hover')}: #F6F8FB;
+  #{--key('color-bg-item-selected')}: #FFFFFF;
+  #{--key('color-bg-item-popup')}: #FFFFFF;
+  #{--key('color-text-item')}: #606266;
+  #{--key('color-text-item-selected')}: #2F74FF;
   // size
   #{--key('font-size')}: 14px;
-  #{--key('menu-radius')}: 4px;
+  #{--key('radius')}: 4px;
   // header
   #{--key('header-height')}: 50px;
-  #{--key('header-menu-line-height')}: 40px;
+  #{--key('header-line-height')}: 40px;
+  #{--key('header-item-radius')}: --var('radius');
+  // header menu
+  #{--key('header-menu-radius')}: --var('header-item-radius');
+  #{--key('header-menu-line-height')}: --var('header-line-height');
   #{--key('header-menu-margin-y')}: calc((#{--var('header-height')} - #{--var('header-menu-line-height')}) / 2);
   #{--key('header-menu-margin-x')}: --var('header-menu-margin-y');
-  // aside
-  #{--key('aside-menu-margin-x')}: --var('header-menu-margin-x');
-  #{--key('aside-menu-margin-y')}: --var('header-menu-margin-y');
+  // header button
+  #{--key('header-button-radius')}: --var('header-item-radius');
+  #{--key('header-button-line-height')}: --var('header-line-height');
+  #{--key('header-button-margin-y')}: calc((#{--var('header-height')} - #{--var('header-button-line-height')}) / 2);
+  #{--key('header-button-margin-x')}: --var('header-button-margin-y');
+  // side
+  #{--key('side-menu-margin-x')}: --var('header-menu-margin-x');
+  #{--key('side-menu-margin-y')}: --var('header-menu-margin-y');
 }

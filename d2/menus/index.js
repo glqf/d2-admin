@@ -63,7 +63,7 @@ export const demoComponentMenus = new Menu('组件')
 
 export const demoLayoutDashboardMenus = new Menu('LayoutDashboard')
   .icon('icon-park-outline:page')
-  .scope('/dashboard/demo/layout/header-aside')
+  .scope('/dashboard/demo/layout/header-side')
   .add(new Menu('概览').index())
   .add(new Menu('基础').url('/base'))
   .add(new Menu('absolute').url('/absolute'))

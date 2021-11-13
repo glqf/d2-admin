@@ -20,43 +20,43 @@ html, body, #app {
     @apply box-content absolute top-0 right-0 cursor-pointer select-none;
     height: --var('header-height');
     >.header__button-group {
-      padding: 0 calc(#{--var('header-menu-margin-x')} / 2);
+      padding: 0 calc(#{--var('header-button-margin-x')} / 2);
       >.header__button {
         @apply transition-colors bg-transparent;
         font-size: --var('font-size');
-        height: --var('header-menu-line-height');
-        margin: --var('header-menu-margin-y') calc(#{--var('header-menu-margin-x')} / 2);
-        border-radius: --var('menu-radius');
+        height: --var('header-button-line-height');
+        margin: --var('header-button-margin-y') calc(#{--var('header-button-margin-x')} / 2);
+        border-radius: --var('header-button-radius');
         &.header__button--icon {
-          min-width: --var('header-menu-line-height');
+          min-width: --var('header-button-line-height');
         }
         &.header__button--text {
-          line-height: --var('header-menu-line-height');
-          padding: 0 calc((#{--var('header-menu-line-height')} - #{--var('font-size')}) / 2);
+          line-height: --var('header-button-line-height');
+          padding: 0 calc((#{--var('header-button-line-height')} - #{--var('font-size')}) / 2);
         }
         &:hover {
-          background-color: --var('color-bg-menu-hover');
+          background-color: --var('color-bg-item-hover');
         }
         &:active {
-          background-color: --var('color-bg-menu-selected');
-          color: --var('color-text-menu-selected');
+          background-color: --var('color-bg-item-selected');
+          color: --var('color-text-item-selected');
         }
       }
     }
   }
   
-  .layout__aside {
+  .layout__side {
     @apply box-content absolute top-0 bottom-0 left-0 cursor-pointer select-none;
-    >.aside__header {
+    >.side__header {
       @apply box-content;
       min-height: --var('header-height');
     }
-    >.aside__body {
-      >.aside__scroll {
+    >.side__body {
+      >.side__scroll {
         @apply w-full h-full;
       }
     }
-    >.aside__footer {
+    >.side__footer {
       @apply box-content;
       min-height: --var('header-height');
     }
