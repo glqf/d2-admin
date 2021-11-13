@@ -1,14 +1,14 @@
-$classname: '#{$namespace}-layout-header-aside';
+$classname: '#{$namespace}-layout-dashboard';
 
 @function --key ($name) {
-  @return --d2-admin-layout-header-aside-#{$name};
+  @return --d2-admin-layout-dashboard-#{$name};
 }
 
 @function --var ($name) {
   @return var(#{--key($name)});
 }
 
-@mixin inLayoutHeaderAside () {
+@mixin inLayoutDashboard () {
   body.#{$classname} {
     @content;
   }

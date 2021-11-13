@@ -3,7 +3,7 @@ html, body, #app {
   width: 100%;
 }
 
-@include inLayoutHeaderAside {
+@include inLayoutDashboard {
   #app {
     position: relative;
     background-color: --var('color-bg-app');

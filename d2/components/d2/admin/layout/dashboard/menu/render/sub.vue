@@ -6,7 +6,7 @@
     <template #title>
       {{ getMenuTitle(menu) }}
     </template>
-    <d2-admin-layout-header-aside-menu-render
+    <d2-admin-layout-dashboard-menu-render
       v-for="child of getMenuChildren(menu)"
       :key="getMenuId(child)"
       :menu="child"

@@ -1,11 +1,10 @@
 <template>
   <a-menu
-    mode="inline"
+    mode="horizontal"
     :selected-keys="selectedKeys"
-    :open-keys="openKeys"
     @select="onSelect"
   >
-    <d2-admin-layout-header-aside-menu-render
+    <d2-admin-layout-dashboard-menu-render
       v-for="menu of menus"
       :key="getMenuId(menu)"
       :menu="menu"
@@ -15,7 +14,7 @@
 
 <script>
 import { makeNameByUrl } from 'd2/utils/component.js'
-import { useD2AdminMenuMainStore } from 'd2/store/menu-main.js'
+import { useD2AdminMenuSecondaryStore } from 'd2/store/menu-secondary.js'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { compact } from 'lodash-es'
@@ -31,25 +30,20 @@ export default {
     const menu = useMenu()
     const { navigateByMenu } = menu
 
-    const menuStore = useD2AdminMenuMainStore()
+    const menuStore = useD2AdminMenuSecondaryStore()
     const { menus } = storeToRefs(menuStore)
-    const { getMenuById, getMenuByUrl, getMenuPids } = menuStore
+    const { getMenuById, getMenuByUrl } = menuStore
 
     function onSelect ({ key }) {
       navigateByMenu(getMenuById(key))
     }
 
-    const selectedKey = computed(() => getMenuId(getMenuByUrl(route.fullPath)))
-
-    const selectedKeys = computed(() => compact([selectedKey.value]))
-
-    const openKeys = computed(() => getMenuPids(selectedKey.value))
+    const selectedKeys = computed(() => compact([getMenuId(getMenuByUrl(route.fullPath))]))
 
     return {
       menus,
       onSelect,
       selectedKeys,
-      openKeys,
       getMenuId
     }
   }

@@ -1,9 +1,9 @@
 <template>
-  <d2-admin-layout-header-aside-menu-render-sub
+  <d2-admin-layout-dashboard-menu-render-sub
     v-if="hasChildren(menu)"
     :menu="menu"
   />
-  <d2-admin-layout-header-aside-menu-render-item
+  <d2-admin-layout-dashboard-menu-render-item
     v-else
     :menu="menu"
   />

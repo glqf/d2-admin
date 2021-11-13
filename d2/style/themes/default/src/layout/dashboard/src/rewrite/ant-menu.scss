@@ -12,7 +12,7 @@
 // Ignore warning
 // Add "scss.lint.emptyRules": "ignore" in .vscode/settings.json
 
-@include inLayoutHeaderAside {
+@include inLayoutDashboard {
   .ant-menu-item-danger.ant-menu-item {
     // color: #ff4d4f;
   }

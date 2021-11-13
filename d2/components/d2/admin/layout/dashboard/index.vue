@@ -10,7 +10,7 @@
         <d2-icon name="icon-park-outline:menu-unfold-one"/>
       </d2-flex>
     </d2-flex>
-    <d2-admin-layout-header-aside-menu-header/>
+    <d2-admin-layout-dashboard-menu-header/>
     <d2-flex class="header__button-group" dir="right">
       <d2-flex class="header__button header__button--text" tag="button" center>
         {{ userName }}
@@ -39,7 +39,7 @@
     </d2-flex>
     <d2-flex class="aside__body" block>
       <d2-scroll class="aside__scroll">
-        <d2-admin-layout-header-aside-menu-aside/>
+        <d2-admin-layout-dashboard-menu-aside/>
       </d2-scroll>
     </d2-flex>
     <d2-flex class="aside__footer" center>
@@ -54,7 +54,7 @@ import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { cssUnit } from 'd2/utils/css.js'
 import { useCssPosition } from 'd2/use/css-position.js'
-import { useD2AdminLayoutHeaderAsideStore } from 'd2/components/d2/admin/layout/header-aside/store/index.js'
+import { useD2AdminLayoutDashboardStore } from 'd2/components/d2/admin/layout/dashboard/store/index.js'
 import { useD2AdminUserStore } from 'd2/store/user.js'
 
 export default {
@@ -62,11 +62,14 @@ export default {
   setup () {
     const classname = makeClassNameByUrl(import.meta.url)
 
-    const d2AdminLayoutHeaderAsideStore = useD2AdminLayoutHeaderAsideStore()
-    const { fold } = storeToRefs(d2AdminLayoutHeaderAsideStore)
+    const d2AdminLayoutDashboardStore = useD2AdminLayoutDashboardStore()
+    // const { fold } = storeToRefs(d2AdminLayoutDashboardStore)
     
     const d2AdminUserStore = useD2AdminUserStore()
-    const { userAvatar, userName } = storeToRefs(d2AdminUserStore)
+    const {
+      avatar: userAvatar,
+      name: userName
+    } = storeToRefs(d2AdminUserStore)
 
     const headerHeight = ref(50)
     const asideWidth = ref(200)
