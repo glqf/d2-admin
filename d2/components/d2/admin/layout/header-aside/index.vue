@@ -5,15 +5,13 @@
     </d2-scroll>
   </div>
   <d2-flex class="layout__header" :style="headerStyle" dir="left" box="justify">
-    <d2-flex class="header__column header__button-group">
+    <d2-flex class="header__button-group">
       <d2-flex class="header__button header__button--icon" tag="button" center>
         <d2-icon name="icon-park-outline:menu-unfold-one"/>
       </d2-flex>
     </d2-flex>
-    <div class="header__column">
-      <d2-admin-layout-header-aside-menu-header/>
-    </div>
-    <d2-flex class="header__column header__button-group" dir="right">
+    <d2-admin-layout-header-aside-menu-header/>
+    <d2-flex class="header__button-group" dir="right">
       <d2-flex class="header__button header__button--text" tag="button" center>
         <span class="mr-2">Hello Admin</span>
         <a-avatar src="https://p3-passport.byteacctimg.com/img/user-avatar/e7130f55d45d06a8106c9dbd0e3f0c18~300x300.image"/>

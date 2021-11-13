@@ -20,9 +20,9 @@ html, body, #app {
     @apply box-content absolute top-0 right-0 cursor-pointer select-none;
     height: --var('header-height');
     >.header__column {
-      &.header__button-group {
-        padding: 0 calc(#{--var('header-menu-margin-x')} / 2);
-      }
+    }
+    >.header__button-group {
+      padding: 0 calc(#{--var('header-menu-margin-x')} / 2);
       >.header__button {
         @apply transition-colors bg-transparent;
         font-size: --var('font-size');
