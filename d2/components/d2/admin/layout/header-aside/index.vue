@@ -13,14 +13,14 @@
     <d2-admin-layout-header-aside-menu-header/>
     <d2-flex class="header__button-group" dir="right">
       <d2-flex class="header__button header__button--text" tag="button" center>
-        <span class="mr-2">Hello Admin</span>
-        <a-avatar src="https://p3-passport.byteacctimg.com/img/user-avatar/e7130f55d45d06a8106c9dbd0e3f0c18~300x300.image"/>
-      </d2-flex>
-      <d2-flex class="header__button header__button--text" tag="button" center>
-        Hello Admin
+        {{ userName }}
       </d2-flex>
       <d2-flex class="header__button header__button--icon" tag="button" center>
-        <a-avatar src="https://p3-passport.byteacctimg.com/img/user-avatar/e7130f55d45d06a8106c9dbd0e3f0c18~300x300.image"/>
+        <a-avatar size="small" :src="userAvatar"/>
+      </d2-flex>
+      <d2-flex class="header__button header__button--text" tag="button" center>
+        <span class="mr-2">{{ userName }}</span>
+        <a-avatar size="small" :src="userAvatar"/>
       </d2-flex>
       <d2-flex class="header__button header__button--icon" tag="button" center>
         <d2-icon name="icon-park-outline:application-menu"/>
@@ -55,6 +55,7 @@ import { storeToRefs } from 'pinia'
 import { cssUnit } from 'd2/utils/css.js'
 import { useCssPosition } from 'd2/use/css-position.js'
 import { useD2AdminLayoutHeaderAsideStore } from 'd2/components/d2/admin/layout/header-aside/store/index.js'
+import { useD2AdminUserStore } from 'd2/store/user.js'
 
 export default {
   name: makeNameByUrl(import.meta.url),
@@ -64,6 +65,9 @@ export default {
     const d2AdminLayoutHeaderAsideStore = useD2AdminLayoutHeaderAsideStore()
     const { fold } = storeToRefs(d2AdminLayoutHeaderAsideStore)
     
+    const d2AdminUserStore = useD2AdminUserStore()
+    const { userAvatar, userName } = storeToRefs(d2AdminUserStore)
+
     const headerHeight = ref(50)
     const asideWidth = ref(200)
 
@@ -81,7 +85,9 @@ export default {
       classname,
       bodyStyle,
       headerStyle,
-      asideStyle
+      asideStyle,
+      userAvatar,
+      userName
     }
   }
 }
