@@ -11,6 +11,7 @@ html, body, #app {
 
   .layout__body {
     position: absolute;
+    background-color: --var('color-bg-content');
     >.body__scroll {
       @apply w-full h-full;
     }

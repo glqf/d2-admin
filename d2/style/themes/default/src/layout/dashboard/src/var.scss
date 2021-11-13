@@ -17,9 +17,10 @@ $classname: '#{$namespace}-layout-dashboard';
 :root {
   // color
   #{--key('color-bg-app')}: #ECF1F6;
+  #{--key('color-bg-content')}: #FFFFFF;
+  #{--key('color-bg-popup')}: #FFFFFF;
   #{--key('color-bg-item-hover')}: #F6F8FB;
   #{--key('color-bg-item-selected')}: #FFFFFF;
-  #{--key('color-bg-item-popup')}: #FFFFFF;
   #{--key('color-text-item')}: #606266;
   #{--key('color-text-item-selected')}: #2F74FF;
   // size
@@ -28,18 +29,18 @@ $classname: '#{$namespace}-layout-dashboard';
   // header
   #{--key('header-height')}: 50px;
   #{--key('header-line-height')}: 40px;
-  #{--key('header-item-radius')}: --var('radius');
   // header menu
-  #{--key('header-menu-radius')}: --var('header-item-radius');
+  #{--key('header-menu-radius')}: --var('radius');
   #{--key('header-menu-line-height')}: --var('header-line-height');
   #{--key('header-menu-margin-y')}: calc((#{--var('header-height')} - #{--var('header-menu-line-height')}) / 2);
   #{--key('header-menu-margin-x')}: --var('header-menu-margin-y');
   // header button
-  #{--key('header-button-radius')}: --var('header-item-radius');
+  #{--key('header-button-radius')}: --var('radius');
   #{--key('header-button-line-height')}: --var('header-line-height');
   #{--key('header-button-margin-y')}: calc((#{--var('header-height')} - #{--var('header-button-line-height')}) / 2);
   #{--key('header-button-margin-x')}: --var('header-button-margin-y');
-  // side
-  #{--key('side-menu-margin-x')}: --var('header-menu-margin-x');
+  // side menu
+  #{--key('side-menu-radius')}: --var('radius');
   #{--key('side-menu-margin-y')}: --var('header-menu-margin-y');
+  #{--key('side-menu-margin-x')}: --var('header-menu-margin-x');
 }
