@@ -87,11 +87,6 @@
   .ant-menu-overflow-item {
     // flex: none;
   }
-  // new
-  .ant-menu-overflow-item-rest {
-    // padding: 0;
-  }
-  // new end
   .ant-menu-hidden,
   .ant-menu-submenu-hidden {
     // display: none;
@@ -369,7 +364,7 @@
   .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu {
     // margin-top: -1px;
     // margin-bottom: 0;
-    // padding: 0 20px;
+    padding: 0 calc((#{--var('header-menu-line-height')} - #{--var('font-size')}) / 2); // padding: 0 20px;
   }
   .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover,
   .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover,
