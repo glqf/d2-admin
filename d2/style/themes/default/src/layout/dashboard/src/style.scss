@@ -27,7 +27,7 @@ html, body, #app {
         font-size: --var('font-size');
         height: --var('header-button-line-height');
         margin: --var('header-button-margin-y') calc(#{--var('header-button-margin-x')} / 2);
-        border-radius: --var('header-button-radius');
+        border-radius: --var('radius');
         &.header__button--icon {
           min-width: --var('header-button-line-height');
         }
@@ -50,7 +50,7 @@ html, body, #app {
     @apply box-content absolute top-0 bottom-0 left-0 cursor-pointer select-none;
     >.side__header {
       @apply box-content;
-      min-height: --var('side-header-height');
+      min-height: --var('item-box-height');
     }
     >.side__body {
       >.side__scroll {
@@ -59,7 +59,7 @@ html, body, #app {
     }
     >.side__footer {
       @apply box-content;
-      min-height: --var('side-footer-height');
+      min-height: --var('item-box-height');
     }
   }
 }
