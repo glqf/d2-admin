@@ -33,17 +33,17 @@
       </d2-flex>
     </d2-flex>
   </d2-flex>
-  <d2-flex class="layout__side" :style="sideStyle" dir="top" box="justify">
-    <d2-flex class="side__header" center>
+  <d2-flex class="layout__side" :style="sideStyle" dir="top">
+    <d2-flex class="side__header" grow="0" center>
       Hello World
     </d2-flex>
-    <d2-flex class="side__body" block>
+    <d2-flex class="side__body" grow="1" block>
       <d2-scroll class="side__scroll">
         <d2-admin-layout-dashboard-menu-side/>
       </d2-scroll>
     </d2-flex>
-    <d2-flex class="side__footer" center>
-      footer
+    <d2-flex class="side__footer" grow="0" block>
+      <slot name="side-footer"/>
     </d2-flex>
   </d2-flex>
 </template>
@@ -72,7 +72,7 @@ export default {
     } = storeToRefs(d2AdminUserStore)
 
     const headerHeight = ref(50)
-    const sideWidth = ref(200)
+    const sideWidth = ref(220)
 
     const { style: bodyStyle } = useCssPosition(headerHeight, 0, 0, sideWidth)
 

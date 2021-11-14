@@ -3,6 +3,7 @@
     mode="inline"
     :selected-keys="selectedKeys"
     :open-keys="openKeys"
+    :inline-indent="16"
     @select="onSelect"
   >
     <d2-admin-layout-dashboard-menu-render
