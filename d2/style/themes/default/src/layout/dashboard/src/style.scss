@@ -19,21 +19,21 @@ html, body, #app {
   
   .layout__header {
     @apply box-content absolute top-0 right-0 cursor-pointer select-none;
-    height: --var('header-height');
+    height: --var('item-height');
     >.header__button-group {
-      padding: 0 calc(#{--var('header-button-margin-x')} / 2);
+      padding: 0 calc(#{--var('item-margin-x')} / 2);
       >.header__button {
         @apply transition-colors bg-transparent;
         font-size: --var('font-size');
-        height: --var('header-button-line-height');
-        margin: --var('header-button-margin-y') calc(#{--var('header-button-margin-x')} / 2);
+        height: --var('item-line-height');
+        margin: --var('item-margin-y') calc(#{--var('item-margin-x')} / 2);
         border-radius: --var('radius');
         &.header__button--icon {
-          min-width: --var('header-button-line-height');
+          min-width: --var('item-line-height');
         }
         &.header__button--text {
-          line-height: --var('header-button-line-height');
-          padding: 0 calc((#{--var('header-button-line-height')} - #{--var('font-size')}) / 2);
+          line-height: --var('item-line-height');
+          padding: 0 calc((#{--var('item-line-height')} - #{--var('font-size')}) / 2);
         }
         &:hover {
           background-color: --var('color-bg-item-hover');
@@ -50,7 +50,7 @@ html, body, #app {
     @apply box-content absolute top-0 bottom-0 left-0 cursor-pointer select-none;
     >.side__header {
       @apply box-content;
-      min-height: --var('item-box-height');
+      min-height: --var('item-height');
     }
     >.side__body {
       >.side__scroll {
@@ -59,7 +59,7 @@ html, body, #app {
     }
     >.side__footer {
       @apply box-content;
-      min-height: --var('item-box-height');
+      min-height: --var('item-height');
     }
   }
 }

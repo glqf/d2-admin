@@ -355,7 +355,7 @@
     color: --var('color-text-item-selected'); // color: #1890ff;
   }
   .ant-menu-horizontal {
-    line-height: --var('header-menu-line-height'); // line-height: 46px;
+    line-height: --var('item-line-height'); // line-height: 46px;
     // border: 0;
     border-bottom: none; // border-bottom: 1px solid #f0f0f0;
     // box-shadow: none;
@@ -364,7 +364,7 @@
   .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu {
     // margin-top: -1px;
     // margin-bottom: 0;
-    padding: 0 calc((#{--var('header-menu-line-height')} - #{--var('font-size')}) / 2); // padding: 0 20px;
+    padding: 0 calc((#{--var('item-line-height')} - #{--var('font-size')}) / 2); // padding: 0 20px;
   }
   .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover,
   .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover,
@@ -404,9 +404,9 @@
     // vertical-align: bottom;
     // ---- new ----
     border-radius: --var('radius');
-    margin: --var('header-menu-margin-y') 0;
+    margin: --var('item-margin-y') 0;
     &:not(:last-child) {
-      margin-right: --var('header-menu-margin-x');
+      margin-right: --var('item-margin-x');
     }
     // ---- new end ----
   }
@@ -469,15 +469,15 @@
   .ant-menu-vertical-left .ant-menu-submenu-title,
   .ant-menu-vertical-right .ant-menu-submenu-title,
   .ant-menu-inline .ant-menu-submenu-title {
-    height: --var('side-menu-line-height'); // height: 40px;
-    margin-top: --var('side-menu-margin-y'); // margin-top: 4px;
-    margin-bottom: --var('side-menu-margin-y'); // margin-bottom: 4px;
-    margin-right: --var('side-menu-margin-x'); // new
-    margin-left: --var('side-menu-margin-x'); // new
+    height: --var('item-line-height'); // height: 40px;
+    margin-top: --var('item-margin-y'); // margin-top: 4px;
+    margin-bottom: --var('item-margin-y'); // margin-bottom: 4px;
+    margin-right: --var('item-margin-x'); // new
+    margin-left: --var('item-margin-x'); // new
     border-radius: --var('radius'); // new
     // padding: 0 16px;
     // overflow: hidden;
-    line-height: --var('side-menu-line-height'); // line-height: 40px;
+    line-height: --var('item-line-height'); // line-height: 40px;
     // text-overflow: ellipsis;
   }
   .ant-menu-vertical .ant-menu-submenu,
@@ -490,7 +490,7 @@
   .ant-menu-vertical-left .ant-menu-item:not(:last-child),
   .ant-menu-vertical-right .ant-menu-item:not(:last-child),
   .ant-menu-inline .ant-menu-item:not(:last-child) {
-    margin-bottom: --var('side-menu-margin-y'); // margin-bottom: 8px;
+    margin-bottom: --var('item-margin-y'); // margin-bottom: 8px;
   }
   .ant-menu-vertical > .ant-menu-item,
   .ant-menu-vertical-left > .ant-menu-item,
@@ -500,8 +500,8 @@
   .ant-menu-vertical-left > .ant-menu-submenu > .ant-menu-submenu-title,
   .ant-menu-vertical-right > .ant-menu-submenu > .ant-menu-submenu-title,
   .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
-    height: --var('side-menu-line-height'); // height: 40px;
-    line-height: --var('side-menu-line-height'); // line-height: 40px;
+    height: --var('item-line-height'); // height: 40px;
+    line-height: --var('item-line-height'); // line-height: 40px;
   }
   .ant-menu-vertical .ant-menu-item-group-list .ant-menu-submenu-title,
   .ant-menu-vertical .ant-menu-submenu-title {
@@ -568,7 +568,7 @@
   .ant-menu.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title .anticon {
     // margin: 0;
     // font-size: 16px;
-    line-height: --var('side-menu-line-height'); // line-height: 40px;
+    line-height: --var('item-line-height'); // line-height: 40px;
   }
   .ant-menu.ant-menu-inline-collapsed > .ant-menu-item .ant-menu-item-icon + span,
   .ant-menu.ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item .ant-menu-item-icon + span,
@@ -630,8 +630,8 @@
   }
   .ant-menu-sub.ant-menu-inline > .ant-menu-item,
   .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
-    height: --var('side-menu-line-height'); // height: 40px;
-    line-height: --var('side-menu-line-height'); // line-height: 40px;
+    height: --var('item-line-height'); // height: 40px;
+    line-height: --var('item-line-height'); // line-height: 40px;
     // list-style-position: inside;
     // list-style-type: disc;
   }

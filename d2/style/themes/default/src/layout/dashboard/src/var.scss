@@ -26,21 +26,9 @@ $classname: '#{$namespace}-layout-dashboard';
   // size
   #{--key('font-size')}: 14px;
   #{--key('radius')}: 4px;
+  // item
   #{--key('item-line-height')}: 40px;
-  #{--key('item-box-height')}: 50px;
-  // header
-  #{--key('header-height')}: --var('item-box-height');
-  #{--key('header-line-height')}: --var('item-line-height');
-  // header menu
-  #{--key('header-menu-line-height')}: --var('header-line-height');
-  #{--key('header-menu-margin-y')}: calc((#{--var('header-height')} - #{--var('header-menu-line-height')}) / 2);
-  #{--key('header-menu-margin-x')}: --var('header-menu-margin-y');
-  // header button
-  #{--key('header-button-line-height')}: --var('header-line-height');
-  #{--key('header-button-margin-y')}: calc((#{--var('header-height')} - #{--var('header-button-line-height')}) / 2);
-  #{--key('header-button-margin-x')}: --var('header-button-margin-y');
-  // side menu
-  #{--key('side-menu-line-height')}: --var('item-line-height');
-  #{--key('side-menu-margin-y')}: --var('header-menu-margin-y');
-  #{--key('side-menu-margin-x')}: --var('header-menu-margin-x');
+  #{--key('item-height')}: 50px;
+  #{--key('item-margin-y')}: calc((#{--var('item-height')} - #{--var('item-line-height')}) / 2);
+  #{--key('item-margin-x')}: --var('item-margin-y');
 }
