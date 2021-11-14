@@ -50,7 +50,7 @@ html, body, #app {
     @apply box-content absolute top-0 bottom-0 left-0 cursor-pointer select-none;
     >.side__header {
       @apply box-content;
-      min-height: --var('header-height');
+      min-height: --var('side-header-height');
     }
     >.side__body {
       >.side__scroll {
@@ -59,7 +59,7 @@ html, body, #app {
     }
     >.side__footer {
       @apply box-content;
-      min-height: --var('header-height');
+      min-height: --var('side-footer-height');
     }
   }
 }

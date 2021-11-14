@@ -469,7 +469,7 @@
   .ant-menu-vertical-left .ant-menu-submenu-title,
   .ant-menu-vertical-right .ant-menu-submenu-title,
   .ant-menu-inline .ant-menu-submenu-title {
-    // height: 40px;
+    height: --var('side-menu-line-height'); // height: 40px;
     margin-top: --var('side-menu-margin-y'); // margin-top: 4px;
     margin-bottom: --var('side-menu-margin-y'); // margin-bottom: 4px;
     margin-right: --var('side-menu-margin-x'); // new
@@ -477,7 +477,7 @@
     border-radius: --var('side-menu-radius'); // new
     // padding: 0 16px;
     // overflow: hidden;
-    // line-height: 40px;
+    line-height: --var('side-menu-line-height'); // line-height: 40px;
     // text-overflow: ellipsis;
   }
   .ant-menu-vertical .ant-menu-submenu,
@@ -500,9 +500,24 @@
   .ant-menu-vertical-left > .ant-menu-submenu > .ant-menu-submenu-title,
   .ant-menu-vertical-right > .ant-menu-submenu > .ant-menu-submenu-title,
   .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
-    // height: 40px;
-    // line-height: 40px;
+    height: --var('side-menu-line-height'); // height: 40px;
+    line-height: --var('side-menu-line-height'); // line-height: 40px;
   }
+  // new
+  .ant-menu-submenu-popup {
+    .ant-menu-vertical .ant-menu-item,
+    .ant-menu-vertical-left .ant-menu-item,
+    .ant-menu-vertical-right .ant-menu-item,
+    .ant-menu-inline .ant-menu-item,
+    .ant-menu-vertical .ant-menu-submenu-title,
+    .ant-menu-vertical-left .ant-menu-submenu-title,
+    .ant-menu-vertical-right .ant-menu-submenu-title,
+    .ant-menu-inline .ant-menu-submenu-title {
+      height: --var('popup-menu-line-height');
+      line-height: --var('popup-menu-line-height');
+    }
+  }
+  // new end
   .ant-menu-vertical .ant-menu-item-group-list .ant-menu-submenu-title,
   .ant-menu-vertical .ant-menu-submenu-title {
     // padding-right: 34px;
@@ -568,7 +583,7 @@
   .ant-menu.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title .anticon {
     // margin: 0;
     // font-size: 16px;
-    // line-height: 40px;
+    line-height: --var('side-menu-line-height'); // line-height: 40px;
   }
   .ant-menu.ant-menu-inline-collapsed > .ant-menu-item .ant-menu-item-icon + span,
   .ant-menu.ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item .ant-menu-item-icon + span,
@@ -630,8 +645,8 @@
   }
   .ant-menu-sub.ant-menu-inline > .ant-menu-item,
   .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
-    // height: 40px;
-    // line-height: 40px;
+    height: --var('side-menu-line-height'); // height: 40px;
+    line-height: --var('side-menu-line-height'); // line-height: 40px;
     // list-style-position: inside;
     // list-style-type: disc;
   }

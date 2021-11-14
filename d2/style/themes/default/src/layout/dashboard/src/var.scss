@@ -26,9 +26,11 @@ $classname: '#{$namespace}-layout-dashboard';
   // size
   #{--key('font-size')}: 14px;
   #{--key('radius')}: 4px;
+  #{--key('item-line-height')}: 40px;
+  #{--key('item-box-height')}: 50px;
   // header
-  #{--key('header-height')}: 50px;
-  #{--key('header-line-height')}: 40px;
+  #{--key('header-height')}: --var('item-box-height');
+  #{--key('header-line-height')}: --var('item-line-height');
   // header menu
   #{--key('header-menu-radius')}: --var('radius');
   #{--key('header-menu-line-height')}: --var('header-line-height');
@@ -40,7 +42,14 @@ $classname: '#{$namespace}-layout-dashboard';
   #{--key('header-button-margin-y')}: calc((#{--var('header-height')} - #{--var('header-button-line-height')}) / 2);
   #{--key('header-button-margin-x')}: --var('header-button-margin-y');
   // side menu
+  #{--key('side-menu-line-height')}: --var('item-line-height');
   #{--key('side-menu-radius')}: --var('radius');
   #{--key('side-menu-margin-y')}: --var('header-menu-margin-y');
   #{--key('side-menu-margin-x')}: --var('header-menu-margin-x');
+  // side header
+  #{--key('side-header-height')}: --var('item-box-height');
+  // side footer
+  #{--key('side-footer-height')}: --var('item-box-height');
+  // popup
+  #{--key('popup-menu-line-height')}: --var('item-line-height');
 }
