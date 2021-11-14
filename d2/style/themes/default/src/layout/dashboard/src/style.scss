@@ -24,16 +24,16 @@ html, body, #app {
       padding: 0 calc(#{--var('item-margin-x')} / 2);
       >.header__button {
         @apply transition-colors bg-transparent;
-        font-size: --var('font-size');
+        font-size: --var('item-font-size');
         height: --var('item-line-height');
         margin: --var('item-margin-y') calc(#{--var('item-margin-x')} / 2);
-        border-radius: --var('radius');
+        border-radius: --var('item-radius');
         &.header__button--icon {
           min-width: --var('item-line-height');
         }
         &.header__button--text {
           line-height: --var('item-line-height');
-          padding: 0 calc((#{--var('item-line-height')} - #{--var('font-size')}) / 2);
+          padding: 0 calc((#{--var('item-line-height')} - #{--var('item-font-size')}) / 2);
         }
         &:hover {
           background-color: --var('color-bg-item-hover');
