@@ -12,15 +12,20 @@
     </d2-flex>
     <d2-admin-layout-dashboard-menu-header/>
     <d2-flex class="header__button-group" dir="right">
-      <d2-flex class="header__button header__button--text" tag="button" center>
-        {{ userName }}
+      <d2-flex class="header__button header__button--padding-text-left" tag="button" center>
+        <span>{{ userName }}</span>
+        <d2-flex class="is-square" center>
+          <a-avatar size="small" :src="userAvatar"/>
+        </d2-flex>
+      </d2-flex>
+      <d2-flex class="header__button header__button--padding-text" tag="button" center>
+        Welcome, {{ userName }}
       </d2-flex>
       <d2-flex class="header__button header__button--icon" tag="button" center>
         <a-avatar size="small" :src="userAvatar"/>
       </d2-flex>
-      <d2-flex class="header__button header__button--text" tag="button" center>
-        <span class="mr-2">{{ userName }}</span>
-        <a-avatar size="small" :src="userAvatar"/>
+      <d2-flex class="header__button header__button--padding-text" tag="button" center>
+        个人中心
       </d2-flex>
       <d2-flex class="header__button header__button--icon" tag="button" center>
         <d2-icon name="icon-park-outline:application-menu"/>
