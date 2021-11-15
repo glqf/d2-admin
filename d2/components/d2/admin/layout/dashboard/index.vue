@@ -6,27 +6,13 @@
   </div>
   <d2-flex class="layout__header" :style="headerStyle" dir="left" box="justify">
     <d2-flex class="header__button-group">
-      <d2-flex class="header__button header__button--icon" tag="button" center>
+      <d2-flex class="header__button header__button--icon" tag="button" @click="collapsedToggle" center>
         <d2-icon name="icon-park-outline:menu-unfold-one"/>
       </d2-flex>
     </d2-flex>
     <d2-admin-layout-dashboard-menu-header/>
     <d2-flex class="header__button-group" dir="right">
-      <d2-flex class="header__button header__button--padding-text-left" tag="button" center>
-        <span>{{ userName }}</span>
-        <d2-flex class="is-square" center>
-          <a-avatar size="small" :src="userAvatar"/>
-        </d2-flex>
-      </d2-flex>
-      <d2-flex class="header__button header__button--padding-text" tag="button" center>
-        Welcome, {{ userName }}
-      </d2-flex>
-      <d2-flex class="header__button header__button--icon" tag="button" center>
-        <a-avatar size="small" :src="userAvatar"/>
-      </d2-flex>
-      <d2-flex class="header__button header__button--padding-text" tag="button" center>
-        个人中心
-      </d2-flex>
+      <d2-admin-layout-dashboard-header-action-user/>
       <d2-flex class="header__button header__button--icon" tag="button" center>
         <d2-icon name="icon-park-outline:application-menu"/>
       </d2-flex>
@@ -68,7 +54,8 @@ export default {
     const classname = makeClassNameByUrl(import.meta.url)
 
     const d2AdminLayoutDashboardStore = useD2AdminLayoutDashboardStore()
-    // const { fold } = storeToRefs(d2AdminLayoutDashboardStore)
+    const { collapsedToggle } = d2AdminLayoutDashboardStore
+    const { collapsed } = storeToRefs(d2AdminLayoutDashboardStore)
     
     const d2AdminUserStore = useD2AdminUserStore()
     const {
@@ -95,7 +82,9 @@ export default {
       headerStyle,
       sideStyle,
       userAvatar,
-      userName
+      userName,
+      collapsed,
+      collapsedToggle
     }
   }
 }
