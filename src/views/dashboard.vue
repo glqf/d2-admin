@@ -9,7 +9,7 @@
 <template>
   <d2-admin-layout-dashboard>
     <template #side-footer>
-      <a-button type="link">
+      <a-button type="link" block>
         <d2-icon name="icon-park-outline:github-one" class="mr-2"/>
         <span>Github</span>
       </a-button>
