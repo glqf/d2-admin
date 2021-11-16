@@ -4,6 +4,7 @@
     :selected-keys="selectedKeys"
     :open-keys="openKeys"
     :inline-indent="16"
+    :inline-collapsed="collapsed"
     @select="onSelect"
   >
     <d2-admin-layout-dashboard-menu-render
@@ -23,6 +24,7 @@ import { compact } from 'lodash-es'
 import { storeToRefs } from 'pinia'
 import { useMenu } from 'd2/use/menu.js'
 import { getMenuId } from 'd2/utils/menu.js'
+import { useD2AdminLayoutDashboardStore } from 'd2/components/d2/admin/layout/dashboard/store/index.js'
 
 export default {
   name: makeNameByUrl(import.meta.url),
@@ -35,6 +37,9 @@ export default {
     const menuStore = useD2AdminMenuMainStore()
     const { menus } = storeToRefs(menuStore)
     const { getMenuById, getMenuByUrl, getMenuPids } = menuStore
+
+    const d2AdminLayoutDashboardStore = useD2AdminLayoutDashboardStore()
+    const { collapsed } = storeToRefs(d2AdminLayoutDashboardStore)
 
     function onSelect ({ key }) {
       navigateByMenu(getMenuById(key))
@@ -51,7 +56,8 @@ export default {
       onSelect,
       selectedKeys,
       openKeys,
-      getMenuId
+      getMenuId,
+      collapsed
     }
   }
 }

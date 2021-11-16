@@ -95,7 +95,7 @@
     // height: 1.5715;
     // padding: 8px 16px;
     // color: rgba(0, 0, 0, 0.45);
-    // font-size: 14px;
+    font-size: --var('item-font-size'); // font-size: 14px;
     // line-height: 1.5715;
     // transition: all 0.3s;
   }
@@ -232,7 +232,7 @@
   .ant-menu-item .anticon,
   .ant-menu-submenu-title .anticon {
     // min-width: 14px;
-    // font-size: 14px;
+    font-size: --var('item-font-size'); // font-size: 14px;
     // transition: font-size 0.15s cubic-bezier(0.215, 0.61, 0.355, 1), margin 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), color 0.3s;
   }
   .ant-menu-item .ant-menu-item-icon + span,
@@ -542,14 +542,14 @@
     // flex: none;
   }
   .ant-menu.ant-menu-inline-collapsed {
-    // width: 80px;
+    width: --var('item-height'); // width: 80px;
   }
   .ant-menu.ant-menu-inline-collapsed > .ant-menu-item,
   .ant-menu.ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item,
   .ant-menu.ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title,
   .ant-menu.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
     // left: 0;
-    // padding: 0 calc(50% - 16px / 2);
+    padding: 0 calc((#{--var('item-line-height')} - #{--var('item-font-size')}) / 2); // padding: 0 calc(50% - 16px / 2);
     // text-overflow: clip;
   }
   .ant-menu.ant-menu-inline-collapsed > .ant-menu-item .ant-menu-submenu-arrow,
@@ -567,7 +567,7 @@
   .ant-menu.ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title .anticon,
   .ant-menu.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title .anticon {
     // margin: 0;
-    // font-size: 16px;
+    font-size: --var('item-font-size'); // font-size: 16px;
     line-height: --var('item-line-height'); // line-height: 40px;
   }
   .ant-menu.ant-menu-inline-collapsed > .ant-menu-item .ant-menu-item-icon + span,
@@ -618,7 +618,7 @@
   }
   .ant-menu-root.ant-menu-inline-collapsed .ant-menu-item > .ant-menu-inline-collapsed-noicon,
   .ant-menu-root.ant-menu-inline-collapsed .ant-menu-submenu .ant-menu-submenu-title > .ant-menu-inline-collapsed-noicon {
-    // font-size: 16px;
+    font-size: --var('item-font-size'); // font-size: 16px;
     // text-align: center;
   }
   .ant-menu-sub.ant-menu-inline {
@@ -925,7 +925,7 @@
     // padding-left: 34px;
   }
   .ant-menu-rtl.ant-menu-inline-collapsed.ant-menu-vertical .ant-menu-submenu-title {
-    // padding: 0 calc(50% - 16px / 2);
+    padding: 0 calc((#{--var('item-line-height')} - #{--var('item-font-size')}) / 2); // padding: 0 calc(50% - 16px / 2);
   }
   .ant-menu-rtl .ant-menu-item-group-list .ant-menu-item,
   .ant-menu-rtl .ant-menu-item-group-list .ant-menu-submenu-title {
