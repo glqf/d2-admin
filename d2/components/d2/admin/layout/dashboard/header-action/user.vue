@@ -25,8 +25,8 @@ export default {
   setup () {
     const d2AdminUserStore = useD2AdminUserStore()
     const {
-      name: userName,
-      avatar: userAvatar
+      userAvatar,
+      userName
     } = storeToRefs(d2AdminUserStore)
 
     const d2AdminLayoutDashboardStore = useD2AdminLayoutDashboardStore()

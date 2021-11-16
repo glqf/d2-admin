@@ -59,8 +59,8 @@ export default {
     
     const d2AdminUserStore = useD2AdminUserStore()
     const {
-      avatar: userAvatar,
-      name: userName
+      userAvatar,
+      userName
     } = storeToRefs(d2AdminUserStore)
 
     const headerHeight = ref(50)
