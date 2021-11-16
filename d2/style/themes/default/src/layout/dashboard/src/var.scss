@@ -30,4 +30,9 @@ $classname: '#{$namespace}-layout-dashboard';
   #{--key('item-height')}: 50px;
   #{--key('item-margin-y')}: calc((#{--var('item-height')} - #{--var('item-line-height')}) / 2);
   #{--key('item-margin-x')}: --var('item-margin-y');
+  //
+  #{--key('header-height')}: --var('item-height');
+  //
+  #{--key('side-width')}: 220px;
+  #{--key('side-width-collapsed')}: --var('item-height');
 }

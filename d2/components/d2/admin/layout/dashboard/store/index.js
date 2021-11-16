@@ -4,8 +4,15 @@ export const useD2AdminLayoutDashboardStore = defineStore('d2-admin-layout-dashb
   state: () => {
     return {
       collapsed: false,
+      collapseIconNormal: 'icon-park-outline:expand-right',
+      collapseIconCollapsed: 'icon-park-outline:expand-left',
       showUserName: true,
       showUserAvatar: true
+    }
+  },
+  getters: {
+    collapseIcon () {
+      return this.collapsed ? this.collapseIconCollapsed : this.collapseIconNormal
     }
   },
   actions: {

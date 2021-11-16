@@ -50,10 +50,10 @@ export default defineComponent({
 
     onMounted(load)
     onBeforeUpdate(() => {
-      wrapper.value = unll
+      wrapper.value = null
     })
     watch(() => props.collection, load, { flush: 'post' })
-    watch(() => props.icon, load, { flush: 'post' })
+    watch(() => props.name, load, { flush: 'post' })
 
     return {
       wrapper,

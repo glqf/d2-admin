@@ -12,14 +12,22 @@ html, body, #app {
   .layout__body {
     position: absolute;
     background-color: --var('color-bg-content');
+    top: --var('header-height');
+    left: --var('side-width');
+    right: 0px;
+    bottom: 0px;
     >.body__scroll {
       @apply w-full h-full;
     }
   }
   
   .layout__header {
-    @apply box-content absolute top-0 right-0 cursor-pointer select-none;
-    height: --var('item-height');
+    @apply cursor-pointer select-none;
+    position: absolute;
+    top: 0px;
+    left: --var('side-width');
+    right: 0px;
+    height: --var('header-height');
     >.header__button-group {
       padding: 0 calc(#{--var('item-margin-x')} / 2);
       >.header__button {
@@ -60,9 +68,14 @@ html, body, #app {
   }
   
   .layout__side {
-    @apply box-content absolute top-0 bottom-0 left-0 cursor-pointer select-none;
+    @apply cursor-pointer select-none;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: --var('side-width');
     >.side__header {
-      min-height: --var('item-height');
+      min-height: --var('header-height');
     }
     >.side__body {
       height: 0; // for safari
@@ -71,7 +84,7 @@ html, body, #app {
       }
     }
     >.side__footer {
-      min-height: --var('item-height');
+      min-height: --var('header-height');
       padding: calc((#{--var('item-line-height')} - #{--var('item-font-size')}) / 2);
     }
   }

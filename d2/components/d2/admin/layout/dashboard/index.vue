@@ -7,7 +7,7 @@
   <d2-flex class="layout__header" :style="headerStyle" dir="left" box="justify">
     <d2-flex class="header__button-group">
       <d2-flex class="header__button header__button--icon" tag="button" @click="collapsedToggle" center>
-        <d2-icon name="icon-park-outline:menu-unfold-one"/>
+        <d2-icon :name="collapseIcon"/>
       </d2-flex>
     </d2-flex>
     <d2-admin-layout-dashboard-menu-header/>
@@ -41,10 +41,7 @@
 
 <script>
 import { makeNameByUrl, makeClassNameByUrl } from 'd2/utils/component.js'
-import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
-import { cssUnit } from 'd2/utils/css.js'
-import { useCssPosition } from 'd2/use/css-position.js'
 import { useD2AdminLayoutDashboardStore } from 'd2/components/d2/admin/layout/dashboard/store/index.js'
 import { useD2AdminUserStore } from 'd2/store/user.js'
 
@@ -55,7 +52,10 @@ export default {
 
     const d2AdminLayoutDashboardStore = useD2AdminLayoutDashboardStore()
     const { collapsedToggle } = d2AdminLayoutDashboardStore
-    const { collapsed } = storeToRefs(d2AdminLayoutDashboardStore)
+    const {
+      collapsed,
+      collapseIcon
+    } = storeToRefs(d2AdminLayoutDashboardStore)
     
     const d2AdminUserStore = useD2AdminUserStore()
     const {
@@ -63,27 +63,12 @@ export default {
       userName
     } = storeToRefs(d2AdminUserStore)
 
-    const headerHeight = ref(50)
-    const sideWidth = ref(220)
-
-    const { style: bodyStyle } = useCssPosition(headerHeight, 0, 0, sideWidth)
-
-    const headerStyle = computed(() => ({
-      left: cssUnit(sideWidth)
-    }))
-
-    const sideStyle = computed(() => ({
-      width: cssUnit(sideWidth)
-    }))
-
     return {
       classname,
-      bodyStyle,
-      headerStyle,
-      sideStyle,
       userAvatar,
       userName,
       collapsed,
+      collapseIcon,
       collapsedToggle
     }
   }
