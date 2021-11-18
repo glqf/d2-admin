@@ -1,10 +1,14 @@
 <template>
-  <div class="layout__body" :style="bodyStyle">
+  <!-- body -->
+  <div class="layout__body-background"/>
+  <div class="layout__body">
     <d2-scroll class="body__scroll">
       <router-view/>
     </d2-scroll>
   </div>
-  <d2-flex class="layout__header" :style="headerStyle" dir="left" box="justify">
+  <!-- header -->
+  <div class="layout__header-background"/>
+  <d2-flex class="layout__header" dir="left" box="justify">
     <d2-flex class="header__button-group">
       <d2-flex class="header__button header__button--icon" tag="button" @click="collapsedToggle" center>
         <d2-icon :name="collapseIcon"/>
@@ -24,7 +28,9 @@
       </d2-flex>
     </d2-flex>
   </d2-flex>
-  <d2-flex class="layout__side" :style="sideStyle" dir="top">
+  <!-- side -->
+  <div class="layout__side-background"/>
+  <d2-flex class="layout__side" dir="top">
     <d2-flex class="side__header" grow="0" center>
       Hello World
     </d2-flex>

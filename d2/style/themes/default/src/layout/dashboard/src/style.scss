@@ -9,25 +9,36 @@ html, body, #app {
     background-color: --var('color-bg-app');
   }
 
+  .layout__body-background,
   .layout__body {
     position: absolute;
-    background-color: --var('color-bg-content');
     top: --var('header-height');
     left: --var('side-width');
     right: 0px;
     bottom: 0px;
+  }
+
+  .layout__body-background {
+    background-color: --var('color-bg-content');
+  }
+
+  .layout__body {
     >.body__scroll {
       @apply w-full h-full;
     }
   }
-  
+
+  .layout__header-background,
   .layout__header {
-    @apply cursor-pointer select-none;
     position: absolute;
     top: 0px;
     left: --var('side-width');
     right: 0px;
     height: --var('header-height');
+  }
+  
+  .layout__header {
+    @apply cursor-pointer select-none;
     >.header__button-group {
       padding: 0 calc(#{--var('item-margin-x')} / 2);
       >.header__button {
@@ -66,14 +77,18 @@ html, body, #app {
       }
     }
   }
-  
+
+  .layout__side-background,
   .layout__side {
-    @apply cursor-pointer select-none;
     position: absolute;
     top: 0px;
     bottom: 0px;
     left: 0px;
     width: --var('side-width');
+  }
+
+  .layout__side {
+    @apply cursor-pointer select-none;
     >.side__header {
       min-height: --var('header-height');
     }
