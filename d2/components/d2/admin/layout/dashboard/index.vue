@@ -39,8 +39,11 @@
         <d2-admin-layout-dashboard-menu-side/>
       </d2-scroll>
     </d2-flex>
-    <d2-flex class="side__footer" grow="0" block>
+    <d2-flex v-if="!collapsed && $slots['side-footer']" class="side__footer" grow="0" block>
       <slot name="side-footer"/>
+    </d2-flex>
+    <d2-flex v-if="collapsed && $slots['side-footer-collapsed']" class="side__footer" grow="0" block>
+      <slot name="side-footer-collapsed"/>
     </d2-flex>
   </d2-flex>
 </template>

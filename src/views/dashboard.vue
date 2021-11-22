@@ -14,5 +14,10 @@
         <span>Github</span>
       </a-button>
     </template>
+    <template #side-footer-collapsed>
+      <a-button type="link" block>
+        <d2-icon name="icon-park-outline:github-one"/>
+      </a-button>
+    </template>
   </d2-admin-layout-dashboard>
 </template>
