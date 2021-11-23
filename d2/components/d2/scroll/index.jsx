@@ -29,6 +29,7 @@ export const classname = makeClassName(name)
 
 export default defineComponent({
   name: componentName,
+  inheritAttrs: false,
   props: {
     options: { type: Object },
     extensions: { type: [String, Array, Object] },
@@ -44,17 +45,17 @@ export default defineComponent({
     'scroll-top',
     'scroll-bottom'
   ],
-  setup (props, { emit }) {
+  setup (props, { emit, attrs }) {
     const target = ref(null)
 
     const instance = ref(null)
 
     const isValid = () => os.valid(unref(instance))
 
-    const themeClassName = computed(() => `os-theme-${props.theme}`)
+    const osClassName = computed(() => makeClassnames(`os-theme-${props.theme}`, attrs.class))
 
     const optionsDefault = computed(() => ({
-      className: unref(themeClassName),
+      className: unref(osClassName),
       scrollbars: {
         autoHide: 'scroll',
         autoHideDelay: 300

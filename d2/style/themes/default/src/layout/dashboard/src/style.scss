@@ -9,36 +9,25 @@ html, body, #app {
     background-color: --var('color-bg-app');
   }
 
-  .layout__body-background,
   .layout__body {
+    background-color: --var('color-bg-content');
     position: absolute;
     top: --var('header-height');
     left: --var('side-width');
     right: 0px;
     bottom: 0px;
-  }
-
-  .layout__body-background {
-    background-color: --var('color-bg-content');
-  }
-
-  .layout__body {
     >.body__scroll {
       @apply w-full h-full;
     }
   }
-
-  .layout__header-background,
+  
   .layout__header {
+    @apply cursor-pointer select-none;
     position: absolute;
     top: 0px;
     left: --var('side-width');
     right: 0px;
     height: --var('header-height');
-  }
-  
-  .layout__header {
-    @apply cursor-pointer select-none;
     >.header__button-group {
       padding: 0 calc(#{--var('item-margin-x')} / 2);
       >.header__button {
@@ -78,29 +67,23 @@ html, body, #app {
     }
   }
 
-  .layout__side-background,
   .layout__side {
+    @apply cursor-pointer select-none;
     position: absolute;
     top: 0px;
     bottom: 0px;
     left: 0px;
     width: --var('side-width');
-  }
-
-  .layout__side {
-    @apply cursor-pointer select-none;
-    >.side__header {
-      min-height: --var('header-height');
-    }
-    >.side__body {
-      height: 0; // for safari
-      >.side__scroll {
-        @apply w-full h-full;
+    >.side__scroll {
+      @apply w-full h-full;
+      .side__container {
+        padding-top: --var('logo-height');
       }
     }
-    >.side__footer {
-      min-height: --var('header-height');
-      padding: calc((#{--var('item-line-height')} - #{--var('item-font-size')}) / 2);
-    }
+  }
+
+  .layout__logo {
+    height: --var('logo-height');
+    width: --var('logo-width');
   }
 }

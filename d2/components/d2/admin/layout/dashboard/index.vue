@@ -1,13 +1,11 @@
 <template>
   <!-- body -->
-  <div class="layout__body-background"/>
   <div class="layout__body">
     <d2-scroll class="body__scroll">
       <router-view/>
     </d2-scroll>
   </div>
   <!-- header -->
-  <div class="layout__header-background"/>
   <d2-flex class="layout__header" dir="left" box="justify">
     <d2-flex class="header__button-group">
       <d2-flex class="header__button header__button--icon" tag="button" @click="collapsedToggle" center>
@@ -29,23 +27,17 @@
     </d2-flex>
   </d2-flex>
   <!-- side -->
-  <div class="layout__side-background"/>
   <d2-flex class="layout__side" dir="top">
-    <d2-flex class="side__header" grow="0" center>
-      Hello World
-    </d2-flex>
-    <d2-flex class="side__body" grow="1" block>
-      <d2-scroll class="side__scroll">
+    <d2-scroll class="side__scroll">
+      <div class="side__container">
         <d2-admin-layout-dashboard-menu-side/>
-      </d2-scroll>
-    </d2-flex>
-    <d2-flex v-if="!collapsed && $slots['side-footer']" class="side__footer" grow="0" block>
-      <slot name="side-footer"/>
-    </d2-flex>
-    <d2-flex v-if="collapsed && $slots['side-footer-collapsed']" class="side__footer" grow="0" block>
-      <slot name="side-footer-collapsed"/>
-    </d2-flex>
+      </div>
+    </d2-scroll>
   </d2-flex>
+  <!-- logo -->
+  <div class="layout__logo">
+    logo
+  </div>
 </template>
 
 <script>

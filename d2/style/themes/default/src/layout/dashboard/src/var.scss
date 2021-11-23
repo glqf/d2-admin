@@ -35,4 +35,7 @@ $classname: '#{$namespace}-layout-dashboard';
   //
   #{--key('side-width')}: 220px;
   #{--key('side-width-collapsed')}: --var('item-height');
+  // logo
+  #{--key('logo-height')}: --var('header-height');
+  #{--key('logo-width')}: --var('side-width');
 }
