@@ -9,9 +9,7 @@
   </d2-flex>
   <!-- body -->
   <div class="layout__body">
-    <d2-scroll class="body__scroll">
-      <router-view/>
-    </d2-scroll>
+    <router-view/>
   </div>
   <!-- header -->
   <div class="layout__header-background layout__blur"/>
