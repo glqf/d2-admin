@@ -36,7 +36,13 @@
   </d2-flex>
   <!-- logo -->
   <div class="layout__logo layout__blur">
-    logo
+    <d2-flex class="h-full w-full" center>
+      Dashboard
+    </d2-flex>
+  </div>
+  <!-- footer -->
+  <div class="layout__footer layout__blur">
+    <slot name="footer"/>
   </div>
 </template>
 

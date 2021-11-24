@@ -78,9 +78,11 @@ html, body, #app {
       @apply w-full h-full;
       >.os-scrollbar-vertical {
         top: --var('logo-height');
+        bottom: --var('footer-height');
       }
       .side__container {
         padding-top: calc(#{--var('logo-height')} + #{--var('logo-border-width')});
+        padding-bottom: calc(#{--var('footer-height')} + #{--var('footer-border-width')});
       }
     }
   }
@@ -93,6 +95,16 @@ html, body, #app {
     width: --var('logo-width');
     border-bottom-style: solid;
     border-bottom-width: --var('logo-border-width');
+  }
+  
+  .layout__footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: --var('footer-height');
+    width: --var('footer-width');
+    border-top-style: solid;
+    border-top-width: --var('footer-border-width');
   }
 
   .layout__blur {

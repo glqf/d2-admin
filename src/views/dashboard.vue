@@ -8,16 +8,13 @@
 
 <template>
   <d2-admin-layout-dashboard>
-    <template #side-footer>
-      <a-button type="link" block>
-        <d2-icon name="icon-park-outline:github-one" class="mr-2"/>
-        <span>Github</span>
-      </a-button>
-    </template>
-    <template #side-footer-collapsed>
-      <a-button type="link" block>
-        <d2-icon name="icon-park-outline:github-one"/>
-      </a-button>
+    <template #footer>
+      <d2-flex class="h-full w-full" center>
+        <a-button type="link">
+          <d2-icon name="icon-park-outline:github-one" class="mr-2"/>
+          <span>Github</span>
+        </a-button>
+      </d2-flex>
     </template>
   </d2-admin-layout-dashboard>
 </template>

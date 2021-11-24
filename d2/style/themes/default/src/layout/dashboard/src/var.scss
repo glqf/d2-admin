@@ -34,13 +34,17 @@ $color-bg-app: #ECF1F6;
   #{--key('item-height')}: 50px;
   #{--key('item-margin-y')}: calc((#{--var('item-height')} - #{--var('item-line-height')}) / 2);
   #{--key('item-margin-x')}: --var('item-margin-y');
-  //
+  // header
   #{--key('header-height')}: --var('item-height');
-  //
+  // side
   #{--key('side-width')}: 220px;
   #{--key('side-width-collapsed')}: --var('item-height');
   // logo
   #{--key('logo-height')}: --var('header-height');
   #{--key('logo-width')}: --var('side-width');
   #{--key('logo-border-width')}: 1px;
+  // footer
+  #{--key('footer-height')}: --var('header-height');
+  #{--key('footer-width')}: --var('side-width');
+  #{--key('footer-border-width')}: 1px;
 }
