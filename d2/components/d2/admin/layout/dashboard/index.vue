@@ -15,15 +15,9 @@
     <d2-admin-layout-dashboard-menu-header/>
     <d2-flex class="header__button-group" dir="right">
       <d2-admin-layout-dashboard-header-action-user/>
-      <d2-flex class="header__button header__button--icon" tag="button" center>
-        <d2-icon name="icon-park-outline:application-menu"/>
-      </d2-flex>
-      <d2-flex class="header__button header__button--icon" tag="button" center>
-        <d2-icon name="icon-park-outline:lock"/>
-      </d2-flex>
-      <d2-flex class="header__button header__button--icon" tag="button" center>
-        <d2-icon name="icon-park-outline:message"/>
-      </d2-flex>
+      <d2-admin-layout-dashboard-header-action-control/>
+      <d2-admin-layout-dashboard-header-action-lock/>
+      <d2-admin-layout-dashboard-header-action-news/>
     </d2-flex>
   </d2-flex>
   <!-- side -->
