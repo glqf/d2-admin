@@ -1,7 +1,7 @@
 <route>
 {
-  meta: {
-    title: '登录'
+  "meta": {
+    "title": "登录"
   }
 }
 </route>

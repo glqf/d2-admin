@@ -1,7 +1,7 @@
 <route>
 {
-  meta: {
-    title: 'dashboard'
+  "meta": {
+    "title": "dashboard"
   }
 }
 </route>

@@ -9,7 +9,10 @@
   </d2-flex>
   <!-- body -->
   <div class="layout__body">
-    <router-view/>
+    <d2-admin-layout-dashboard-container v-if="!isCustomBody">
+      <router-view/>
+    </d2-admin-layout-dashboard-container>
+    <router-view v-else/>
   </div>
   <!-- header -->
   <div class="layout__header-background layout__blur"/>
@@ -41,7 +44,10 @@
 
 <script>
 import { makeNameByUrl, makeClassNameByUrl } from 'd2/utils/component.js'
+import { get } from 'lodash-es'
 import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import { useD2AdminLayoutDashboardStore } from 'd2/components/d2/admin/layout/dashboard/store/index.js'
 import { useD2AdminUserStore } from 'd2/store/user.js'
 
@@ -63,10 +69,14 @@ export default {
       userName
     } = storeToRefs(d2AdminUserStore)
 
+    const route = useRoute()
+    const isCustomBody = computed(() => get(route.meta, 'd2admin.layout.dashboard.customBody', false))
+
     return {
       classname,
       userAvatar,
       userName,
+      isCustomBody,
       collapsed,
       collapseIcon,
       collapsedToggle

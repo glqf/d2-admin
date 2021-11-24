@@ -1,7 +1,7 @@
 <route>
 {
-  meta: {
-    title: '首页'
+  "meta": {
+    "title": "首页"
   }
 }
 </route>
