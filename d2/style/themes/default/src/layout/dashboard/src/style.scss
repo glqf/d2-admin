@@ -76,14 +76,34 @@ html, body, #app {
     width: --var('side-width');
     >.side__scroll {
       @apply w-full h-full;
+      >.os-scrollbar-vertical {
+        top: --var('logo-height');
+      }
       .side__container {
-        padding-top: --var('logo-height');
+        padding-top: calc(#{--var('logo-height')} + #{--var('logo-border-width')});
       }
     }
   }
 
   .layout__logo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
     height: --var('logo-height');
     width: --var('logo-width');
+    border-bottom-style: solid;
+    border-bottom-width: --var('logo-border-width');
+  }
+
+  .layout__blur {
+    background-color: --var('color-bg-app-rgba-blur');
+    backdrop-filter: blur(8px);
+    border-color: --var('color-bg-app');
+    box-sizing: content-box;
+  }
+  @-moz-document url-prefix() {
+    .layout__blur {
+      background-color: --var('color-bg-app-rgba-blur-moz');
+    }
   }
 }

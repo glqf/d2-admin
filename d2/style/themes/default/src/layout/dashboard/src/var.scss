@@ -14,9 +14,13 @@ $classname: '#{$namespace}-layout-dashboard';
   }
 }
 
+$color-bg-app: #ECF1F6;
+
 :root {
   // color
-  #{--key('color-bg-app')}: #ECF1F6;
+  #{--key('color-bg-app')}: $color-bg-app;
+  #{--key('color-bg-app-rgba-blur')}: rgba($color-bg-app, 0.6);
+  #{--key('color-bg-app-rgba-blur-moz')}: rgba($color-bg-app, 0.96);
   #{--key('color-bg-content')}: #FFFFFF;
   #{--key('color-bg-popup')}: #FFFFFF;
   #{--key('color-bg-item-hover')}: #F6F8FB;
@@ -38,4 +42,5 @@ $classname: '#{$namespace}-layout-dashboard';
   // logo
   #{--key('logo-height')}: --var('header-height');
   #{--key('logo-width')}: --var('side-width');
+  #{--key('logo-border-width')}: 1px;
 }

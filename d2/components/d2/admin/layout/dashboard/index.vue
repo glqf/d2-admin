@@ -35,7 +35,7 @@
     </d2-scroll>
   </d2-flex>
   <!-- logo -->
-  <div class="layout__logo">
+  <div class="layout__logo layout__blur">
     logo
   </div>
 </template>
