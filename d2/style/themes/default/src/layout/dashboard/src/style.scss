@@ -9,10 +9,29 @@ html, body, #app {
     background-color: --var('color-bg-app');
   }
 
-  .layout__body {
-    background-color: --var('color-bg-content');
+  .layout__side {
+    @apply cursor-pointer select-none;
     position: absolute;
-    top: --var('header-height');
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: --var('side-width');
+    >.side__scroll {
+      @apply w-full h-full;
+      >.os-scrollbar-vertical {
+        top: --var('logo-height');
+        bottom: --var('footer-height');
+      }
+      .side__container {
+        padding-top: calc(#{--var('logo-height')} + #{--var('logo-border-width')});
+        padding-bottom: calc(#{--var('footer-height')} + #{--var('footer-border-width')});
+      }
+    }
+  }
+
+  .layout__body {
+    position: absolute;
+    top: 0px;
     left: --var('side-width');
     right: 0px;
     bottom: 0px;
@@ -20,14 +39,24 @@ html, body, #app {
       @apply w-full h-full;
     }
   }
+
+  .layout__header-background,
+  .layout__header {
+    position: absolute;
+    height: --var('header-height');
+    top: 0px;
+    left: 0px;
+    right: 0px;
+  }
+
+  .layout__header-background {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+  }
   
   .layout__header {
     @apply cursor-pointer select-none;
-    position: absolute;
-    top: 0px;
     left: --var('side-width');
-    right: 0px;
-    height: --var('header-height');
     >.header__button-group {
       padding: 0 calc(#{--var('item-margin-x')} / 2);
       >.header__button {
@@ -67,34 +96,12 @@ html, body, #app {
     }
   }
 
-  .layout__side {
-    @apply cursor-pointer select-none;
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    width: --var('side-width');
-    >.side__scroll {
-      @apply w-full h-full;
-      >.os-scrollbar-vertical {
-        top: --var('logo-height');
-        bottom: --var('footer-height');
-      }
-      .side__container {
-        padding-top: calc(#{--var('logo-height')} + #{--var('logo-border-width')});
-        padding-bottom: calc(#{--var('footer-height')} + #{--var('footer-border-width')});
-      }
-    }
-  }
-
   .layout__logo {
     position: absolute;
     top: 0px;
     left: 0px;
     height: --var('logo-height');
     width: --var('logo-width');
-    border-bottom-style: solid;
-    border-bottom-width: --var('logo-border-width');
   }
   
   .layout__footer {
@@ -103,6 +110,7 @@ html, body, #app {
     left: 0px;
     height: --var('footer-height');
     width: --var('footer-width');
+    box-sizing: content-box;
     border-top-style: solid;
     border-top-width: --var('footer-border-width');
   }
@@ -111,7 +119,6 @@ html, body, #app {
     background-color: --var('color-bg-app-rgba-blur');
     backdrop-filter: blur(8px);
     border-color: --var('color-bg-app');
-    box-sizing: content-box;
   }
   @-moz-document url-prefix() {
     .layout__blur {

@@ -21,7 +21,7 @@ $color-bg-app: #ECF1F6;
   #{--key('color-bg-app')}: $color-bg-app;
   #{--key('color-bg-app-rgba-blur')}: rgba($color-bg-app, 0.6);
   #{--key('color-bg-app-rgba-blur-moz')}: rgba($color-bg-app, 0.96);
-  #{--key('color-bg-content')}: #FFFFFF;
+  // #{--key('color-bg-content')}: #FFFFFF;
   #{--key('color-bg-popup')}: #FFFFFF;
   #{--key('color-bg-item-hover')}: #F6F8FB;
   #{--key('color-bg-item-selected')}: #FFFFFF;

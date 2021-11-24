@@ -1,4 +1,12 @@
 <template>
+  <!-- side -->
+  <d2-flex class="layout__side" dir="top">
+    <d2-scroll class="side__scroll">
+      <div class="side__container">
+        <d2-admin-layout-dashboard-menu-side/>
+      </div>
+    </d2-scroll>
+  </d2-flex>
   <!-- body -->
   <div class="layout__body">
     <d2-scroll class="body__scroll">
@@ -6,6 +14,7 @@
     </d2-scroll>
   </div>
   <!-- header -->
+  <div class="layout__header-background layout__blur"/>
   <d2-flex class="layout__header" dir="left" box="justify">
     <d2-flex class="header__button-group">
       <d2-flex class="header__button header__button--icon" tag="button" @click="collapsedToggle" center>
@@ -20,16 +29,8 @@
       <d2-admin-layout-dashboard-header-action-news/>
     </d2-flex>
   </d2-flex>
-  <!-- side -->
-  <d2-flex class="layout__side" dir="top">
-    <d2-scroll class="side__scroll">
-      <div class="side__container">
-        <d2-admin-layout-dashboard-menu-side/>
-      </div>
-    </d2-scroll>
-  </d2-flex>
   <!-- logo -->
-  <div class="layout__logo layout__blur">
+  <div class="layout__logo">
     <d2-flex class="h-full w-full" center>
       Dashboard
     </d2-flex>
