@@ -1,55 +1,58 @@
 html, body, #app {
-  height: 100%;
-  width: 100%;
+  @apply w-full h-full;
 }
 
 @include inLayoutDashboard {
   #app {
-    position: relative;
+    @apply relative;
     background-color: --var('color-bg-app');
   }
 
   .layout__side {
-    @apply cursor-pointer select-none;
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
+    @apply absolute top-0 bottom-0 left-0 cursor-pointer select-none;
     width: --var('side-width');
     >.side__scroll {
       @apply w-full h-full;
       >.os-scrollbar-vertical {
-        top: --var('logo-height');
-        bottom: --var('footer-height');
+        top: calc(#{--var('header-height')} + #{--var('header-border-width')});
+        bottom: calc(#{--var('footer-height')} + #{--var('footer-border-width')});
       }
       .side__container {
-        padding-top: calc(#{--var('logo-height')} + #{--var('logo-border-width')});
+        padding-top: calc(#{--var('header-height')} + #{--var('header-border-width')});
         padding-bottom: calc(#{--var('footer-height')} + #{--var('footer-border-width')});
       }
     }
   }
 
   .layout__body {
-    position: absolute;
-    top: 0px;
+    @apply absolute top-0 bottom-0 right-0;
     left: --var('side-width');
-    right: 0px;
-    bottom: 0px;
-    >.body__scroll {
+    .body__container {
       @apply w-full h-full;
+      >.os-scrollbar-vertical {
+        top: calc(#{--var('header-height')} + #{--var('header-border-width')});
+      }
+      .container__space-header {
+        height: calc(#{--var('header-height')} + #{--var('header-border-width')});
+      }
+      .container__body {
+        @apply relative;
+        min-height: calc(100vh - (#{--var('header-height')} + #{--var('header-border-width')}));
+        .container__body-inner {
+          @apply absolute top-0 bottom-0 left-0 right-0;
+        }
+      }
     }
   }
 
   .layout__header-background,
   .layout__header {
-    position: absolute;
+    @apply absolute top-0 left-0 right-0;
     height: --var('header-height');
-    top: 0px;
-    left: 0px;
-    right: 0px;
   }
 
   .layout__header-background {
+    @apply box-content;
     border-bottom-width: 1px;
     border-bottom-style: solid;
   }
@@ -97,20 +100,15 @@ html, body, #app {
   }
 
   .layout__logo {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    height: --var('logo-height');
-    width: --var('logo-width');
+    @apply absolute top-0 left-0;
+    height: --var('header-height');
+    width: --var('side-width');
   }
   
   .layout__footer {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
+    @apply box-content absolute bottom-0 left-0;
     height: --var('footer-height');
     width: --var('footer-width');
-    box-sizing: content-box;
     border-top-style: solid;
     border-top-width: --var('footer-border-width');
   }

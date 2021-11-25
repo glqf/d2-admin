@@ -1,8 +1,12 @@
 <template>
-  <div></div>
-  <div>
-    <slot/>
-  </div>
+  <d2-scroll class="body__container">
+    <div class="container__space-header"/>
+    <div class="container__body">
+      <div class="container__body-inner">
+        <slot/>
+      </div>
+    </div>
+  </d2-scroll>
 </template>
 
 <script>
