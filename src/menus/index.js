@@ -2,9 +2,9 @@ import { Menu } from 'd2/utils/menu.js'
 import {
   indexMenu,
   dashboardIndexMenu,
-  demoComponentMenus,
-  demoLayoutMenus,
-  documentMenus
+  dashboardDemoComponentMenus,
+  dashboardDemoLayoutMenus,
+  dashboardDocumentMenus
 } from 'd2/menus/index.js'
 
 const startMenu = new Menu('第一个页面')
@@ -16,14 +16,14 @@ export const menuMain = [
   indexMenu.value(),
   dashboardIndexMenu.value(),
   startMenu,
-  demoComponentMenus.value(),
-  demoLayoutMenus.value(),
-  documentMenus.value()
+  dashboardDemoComponentMenus.value(),
+  dashboardDemoLayoutMenus.value(),
+  dashboardDocumentMenus.value()
 ]
 
 export const menuSecondary = [
-  demoComponentMenus.value(),
-  documentMenus.value()
+  dashboardDemoComponentMenus.value(),
+  dashboardDocumentMenus.value()
 ]
 
 console.log('menuMain', menuMain)
