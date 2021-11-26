@@ -38,6 +38,7 @@ html, body, #app {
       .container__body {
         @apply relative;
         min-height: calc(100vh - (#{--var('header-height')} + #{--var('header-border-width')}));
+        background-color: --var('color-bg-container');
         .container__body-inner {
           @apply absolute top-0 bottom-0 left-0 right-0;
         }
