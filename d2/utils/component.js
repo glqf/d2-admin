@@ -26,7 +26,6 @@ export function makeRandomName () {
  * @returns {string} component name. eg: 'D2FooBar'
  */
 export function makeNameByUrl (url) {
-  console.log('makeNameByUrl', url)
   const base = 'd2/components/'
   if (import.meta.env.DEV) {
     url = url

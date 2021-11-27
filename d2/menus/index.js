@@ -1,4 +1,7 @@
 import { Menu } from 'd2/utils/menu.js'
+import routes from 'virtual:generated-pages'
+
+console.log('routes', routes)
 
 export const dashboardIndexMenu = new Menu('控制台')
   .url('/dashboard')
