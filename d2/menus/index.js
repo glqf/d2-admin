@@ -1,7 +1,12 @@
+import { pick } from 'lodash-es'
 import { Menu } from 'd2/utils/menu.js'
+import { flattenObjectArray } from 'd2/utils/array.js'
 import routes from 'virtual:generated-pages'
 
+
 console.log('routes', routes)
+
+console.log(flattenObjectArray(routes, 'children', (item, _) => pick(item, ['name', 'path', 'meta'])))
 
 export const dashboardIndexMenu = new Menu('控制台')
   .url('/dashboard')

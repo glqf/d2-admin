@@ -1,6 +1,5 @@
 import { nanoid } from 'nanoid'
 import { isArray, cloneDeep, omit } from 'lodash-es'
-import { warn } from 'd2/utils/error.js'
 
 export const _k_id = '_id'
 export const _k_children = 'children'
