@@ -3,10 +3,15 @@ import { Menu } from 'd2/utils/menu.js'
 import { flattenObjectArray } from 'd2/utils/array.js'
 import routes from 'virtual:generated-pages'
 
+const flatRoutes = flattenObjectArray(
+  routes,
+  'children',
+  (item, _) => pick(item, ['name', 'path', 'meta'])
+)
 
-console.log('routes', routes)
-
-console.log(flattenObjectArray(routes, 'children', (item, _) => pick(item, ['name', 'path', 'meta'])))
+function getRoutes (rule) {
+  return flatRoutes.filter(route => rule.test(route.name))
+}
 
 export const dashboardIndexMenu = new Menu('控制台')
   .url('/dashboard')
@@ -47,18 +52,15 @@ export const dashboardDemoComponentFlexMenus = new Menu('Flex')
   .icon('icon-park-outline:carousel')
   .scope('/dashboard/demo/component/flex')
   .add(new Menu('概览').index())
-  .add(new Menu('display').url('/display'))
-  .add(new Menu('nesting').url('/nesting'))
-  .add(new Menu('self').url('/self'))
-  .add(new Menu('wrap').url('/wrap'))
-  .add(new Menu('center').url('/center'))
-  .add(new Menu('grow').url('/grow'))
-  .add(new Menu('order').url('/order'))
-  .add(new Menu('content').url('/content'))
-  .add(new Menu('layout').url('/layout'))
-  .add(new Menu('playground').url('/playground'))
-  .add(new Menu('tag').url('/tag'))
-  .add(new Menu('all').url('/all'))
+  .add(
+    getRoutes(/^dashboard-demo-component-flex.+/)
+      .map(route => {
+        const pre = 'demo/component/flex'
+        const title = route.path.replace(RegExp(`^${pre}/`), '')
+        const url = route.path.replace(RegExp(`^${pre}`), '')
+        return new Menu(title).url(url)
+      })
+  )
 
 export const dashboardDemoComponentMenus = new Menu('组件')
   .icon('icon-park-outline:components')
