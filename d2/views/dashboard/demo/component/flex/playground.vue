@@ -1,3 +1,11 @@
+<route>
+{
+  "meta": {
+    "d2admin.menu.title": "试验台"
+  }
+}
+</route>
+
 <template>
   <demo-section title="playground">
     <d2-flex dir="left" cross="top" box="first">

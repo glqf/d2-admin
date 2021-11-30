@@ -1,3 +1,11 @@
+<route>
+{
+  "meta": {
+    "d2admin.menu.title": "伸缩"
+  }
+}
+</route>
+
 <template>
   <demo-section title="grow">
     <d2-flex v-for="(configValue, configIndex) in configGrow" :key="configIndex" class="group group--grow" space>
@@ -55,7 +63,7 @@ export default {
     @apply w-96;
   }
   .item {
-    @apply p-1 h-10 bg-gray-500 text-white rounded;
+    @apply h-10 p-1 text-white bg-gray-500 rounded;
     &.item--grow {
       @apply w-10;
     }

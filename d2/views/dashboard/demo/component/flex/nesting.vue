@@ -1,3 +1,11 @@
+<route>
+{
+  "meta": {
+    "d2admin.menu.title": "嵌套"
+  }
+}
+</route>
+
 <template>
   <demo-section title="nesting with out d2-flex if no special settings">
     <d2-flex class="outer" cross="center" box="mean" space>

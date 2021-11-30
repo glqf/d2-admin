@@ -1,3 +1,11 @@
+<route>
+{
+  "meta": {
+    "d2admin.menu.title": "多轴线对齐"
+  }
+}
+</route>
+
 <template>
   <template v-for="_content in content" :key="_content">
     <demo-section :title="_content || 'default'">

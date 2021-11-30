@@ -1,3 +1,11 @@
+<route>
+{
+  "meta": {
+    "d2admin.menu.title": "显示模式"
+  }
+}
+</route>
+
 <template>
   <demo-section title="default">
     <d2-flex class="flex" space>

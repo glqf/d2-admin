@@ -1,3 +1,11 @@
+<route>
+{
+  "meta": {
+    "d2admin.menu.title": "独立对齐"
+  }
+}
+</route>
+
 <template>
   <demo-section v-for="_self in self" :key="_self" :title="_self || 'default'">
     <d2-flex class="flex" box="mean" space>

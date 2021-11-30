@@ -1,3 +1,11 @@
+<route>
+{
+  "meta": {
+    "d2admin.menu.title": "搭建布局"
+  }
+}
+</route>
+
 <template>
   <demo-section title="layout">
     <d2-flex class="layout" dir="top" box="justify">
@@ -32,18 +40,18 @@
 
 <style lang="scss" scoped>
 .layout {
-  @apply text-lg w-96 h-64 p-1 bg-gray-700 rounded overflow-hidden;
+  @apply h-64 p-1 overflow-hidden text-lg bg-gray-700 rounded w-96;
   .layout__side {
     @apply w-24 text-white bg-gray-500;
   }
   .layout__header {
-    @apply text-center text-gray-500 py-2 bg-gray-200;
+    @apply py-2 text-center text-gray-500 bg-gray-200;
   }
   .layout__footer {
-    @apply text-center text-gray-500 py-2 bg-gray-300;
+    @apply py-2 text-center text-gray-500 bg-gray-300;
   }
   .layout__body {
-    @apply bg-gray-100 text-gray-500;
+    @apply text-gray-500 bg-gray-100;
   }
 }
 </style>

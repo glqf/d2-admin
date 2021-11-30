@@ -1,3 +1,11 @@
+<route>
+{
+  "meta": {
+    "d2admin.menu.title": "全部"
+  }
+}
+</route>
+
 <template>
   <demo-section title="flex">
     <template v-for="_dir in dir" :key="_dir">

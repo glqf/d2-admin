@@ -1,11 +1,3 @@
-<route>
-{
-  "meta": {
-    "title": "首页"
-  }
-}
-</route>
-
 <template>
   <router-link to="/dashboard">
     <a-button type="link">控制台</a-button>

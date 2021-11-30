@@ -1,3 +1,11 @@
+<route>
+{
+  "meta": {
+    "d2admin.menu.title": "快速居中"
+  }
+}
+</route>
+
 <template>
   <demo-section title="center">
     <d2-flex class="flex" center space>

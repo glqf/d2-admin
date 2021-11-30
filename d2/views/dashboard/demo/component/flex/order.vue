@@ -1,3 +1,11 @@
+<route>
+{
+  "meta": {
+    "d2admin.menu.title": "顺序"
+  }
+}
+</route>
+
 <template>
   <demo-section title="order">
     <d2-flex class="group" center space>
@@ -21,9 +29,9 @@ export default {
 
 <style lang="scss" scoped>
 .group {
-  @apply w-72 h-16 bg-indigo-500 rounded;
+  @apply h-16 bg-indigo-500 rounded w-72;
   .item {
-    @apply py-1 px-2 bg-white text-indigo-500 rounded;
+    @apply px-2 py-1 text-indigo-500 bg-white rounded;
   }
 }
 </style>

@@ -1,3 +1,11 @@
+<route>
+{
+  "meta": {
+    "d2admin.menu.title": "换行"
+  }
+}
+</route>
+
 <template>
   <demo-section title="default">
     <d2-flex class="flex" cross="top" space>

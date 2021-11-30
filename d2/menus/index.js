@@ -1,17 +1,7 @@
-import { pick } from 'lodash-es'
+import { get, pick } from 'lodash-es'
 import { Menu } from 'd2/utils/menu.js'
 import { flattenObjectArray } from 'd2/utils/array.js'
 import routes from 'virtual:generated-pages'
-
-const flatRoutes = flattenObjectArray(
-  routes,
-  'children',
-  (item, _) => pick(item, ['name', 'path', 'meta'])
-)
-
-function getRoutes (rule) {
-  return flatRoutes.filter(route => rule.test(route.name))
-}
 
 export const dashboardIndexMenu = new Menu('控制台')
   .url('/dashboard')
@@ -48,19 +38,36 @@ export const dashboardDemoComponentBreakPointMenus = new Menu('断点')
   .add(new Menu('data').url('/data'))
   .add(new Menu('slot').url('/slot'))
 
+const flatRoutes = flattenObjectArray(
+  routes,
+  'children',
+  (item, _) => pick(item, ['name', 'path', 'meta'])
+)
+
+function filterRoutes (rule) {
+  return flatRoutes.filter(route => rule.test(route.name))
+}
+
+function creatRouteMenu (route, pre) {
+  const url = route.path.replace(RegExp(`^${pre}`), '')
+  if (!url) {
+    return new Menu('概览').index()
+  }
+  const title = get(route.meta, 'd2admin.menu.title', url)
+  return new Menu(title).url(url)
+}
+
+function creatRouteMenus ({ match = /.+/, basePath = '' } = {}) {
+  return filterRoutes(match).map(route => creatRouteMenu(route, basePath))
+}
+
 export const dashboardDemoComponentFlexMenus = new Menu('Flex')
   .icon('icon-park-outline:carousel')
   .scope('/dashboard/demo/component/flex')
-  .add(new Menu('概览').index())
-  .add(
-    getRoutes(/^dashboard-demo-component-flex.+/)
-      .map(route => {
-        const pre = 'demo/component/flex'
-        const title = route.path.replace(RegExp(`^${pre}/`), '')
-        const url = route.path.replace(RegExp(`^${pre}`), '')
-        return new Menu(title).url(url)
-      })
-  )
+  .add(creatRouteMenus({
+    match: /^dashboard-demo-component-flex/,
+    basePath: 'demo/component/flex'
+  }))
 
 export const dashboardDemoComponentMenus = new Menu('组件')
   .icon('icon-park-outline:components')

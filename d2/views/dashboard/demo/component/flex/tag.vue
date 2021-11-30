@@ -1,3 +1,11 @@
+<route>
+{
+  "meta": {
+    "d2admin.menu.title": "标签"
+  }
+}
+</route>
+
 <template>
   <demo-section v-for="tag in tags" :key="tag" :title="tag">
     <d2-flex class="flex" :tag="tag" space>
