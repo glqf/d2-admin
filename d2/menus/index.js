@@ -48,12 +48,12 @@ function filterRoutes (rule) {
   return flatRoutes.filter(route => rule.test(route.name))
 }
 
-function creatRouteMenu (route, pre) {
-  const url = route.path.replace(RegExp(`^${pre}`), '')
-  if (!url) {
-    return new Menu('概览').index()
-  }
+function creatRouteMenu (route, basePath) {
+  const url = route.path.replace(RegExp(`^${basePath}`), '')
   const title = get(route.meta, 'd2admin.menu.title', url)
+  if (!url) {
+    return new Menu(title).index()
+  }
   return new Menu(title).url(url)
 }
 
