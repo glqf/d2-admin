@@ -1,3 +1,7 @@
+<route>
+{}
+</route>
+
 <template>
   <div>
     登录

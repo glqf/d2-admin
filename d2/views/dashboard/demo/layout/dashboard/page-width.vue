@@ -1,3 +1,7 @@
+<route>
+{}
+</route>
+
 <template>
   <div class="max-w-5xl mx-auto">
     <div class="bg-gray-50">

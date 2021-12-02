@@ -1,3 +1,7 @@
+<route>
+{}
+</route>
+
 <template>
   <d2-flex class="header__button header__button--icon" tag="button" center>
     <d2-icon name="icon-park-outline:lock"/>

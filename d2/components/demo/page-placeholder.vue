@@ -1,3 +1,7 @@
+<route>
+{}
+</route>
+
 <template>
   <d2-flex class="w-full h-full" center dir="top">
     <span class="mb-2 text-4xl text-gray-300">

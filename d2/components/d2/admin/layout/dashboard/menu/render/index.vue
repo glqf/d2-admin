@@ -1,3 +1,7 @@
+<route>
+{}
+</route>
+
 <template>
   <d2-admin-layout-dashboard-menu-render-sub
     v-if="hasChildren(menu)"

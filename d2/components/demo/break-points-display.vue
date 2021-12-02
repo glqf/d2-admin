@@ -1,3 +1,7 @@
+<route>
+{}
+</route>
+
 <template>
   <h1 class="title">{{ status.breakPoint }}</h1>
   <d2-flex class="main" center>

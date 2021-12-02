@@ -1,3 +1,7 @@
+<route>
+{}
+</route>
+
 <template>
   <d2-flex v-if="fullMode" class="header__button header__button--padding-text-left" tag="button" center>
     <span>{{ userName }}</span>

@@ -1,3 +1,7 @@
+<route>
+{}
+</route>
+
 <template>
   <d2-flex dir="top" cross="center" class="item">
     <d2-icon

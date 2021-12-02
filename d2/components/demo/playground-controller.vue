@@ -1,3 +1,7 @@
+<route>
+{}
+</route>
+
 <template>
   <p class="title">
     {{ label }}

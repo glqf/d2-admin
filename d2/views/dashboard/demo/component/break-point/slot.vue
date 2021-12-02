@@ -1,3 +1,7 @@
+<route>
+{}
+</route>
+
 <template>
   <demo-section title="break point">
     <d2-break-point v-slot="{ md }">

@@ -1,3 +1,7 @@
+<route>
+{}
+</route>
+
 <template>
   <d2-scroll class="body__container">
     <div class="container__space-header"/>

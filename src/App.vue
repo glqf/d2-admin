@@ -1,3 +1,7 @@
+<route>
+{}
+</route>
+
 <template>
   <d2-config
     icon-collection="mdi"

@@ -1,3 +1,7 @@
+<route>
+{}
+</route>
+
 <template>
   <a-menu
     mode="horizontal"
