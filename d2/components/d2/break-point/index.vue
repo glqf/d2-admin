@@ -1,4 +1,14 @@
-import { unref, reactive, defineComponent } from 'vue'
+<template>
+  <slot v-bind="{ ...status, data }"/>
+  <slot
+    v-for="breakPoint in breakPointsName"
+    :key="breakPoint"
+    :name="breakPoint"
+    v-bind="{ ...status, data }"/>
+</template>
+
+<script>
+import { unref, reactive, defineComponent, computed } from 'vue'
 import { keys, mapValues } from 'lodash-es'
 import { makeName } from 'd2/utils/component.js'
 import { useBreakPoint } from 'd2/use/break-point.js'
@@ -32,8 +42,10 @@ export default defineComponent({
       useConfig().breakPoints,
       props.breakPoints
     )
+
+    const breakPointsName = keys(breakPoints)
     
-    const status = useBreakPoint(breakPoints)
+    const status = reactive(useBreakPoint(breakPoints))
 
     const data = mapValues(
       props.data,
@@ -42,26 +54,28 @@ export default defineComponent({
     
     return {
       breakPoints,
+      breakPointsName,
       status,
       data
     }
-  },
-  render () {
-    const {
-      breakPoints,
-      status,
-      data
-    } = this
-    const scope = {
-      ...reactive(status),
-      data
-    }
-    const slot = name => this.$slots?.[name]?.(scope)
-    return [
-      slot('default'),
-      slot('min'),
-      ...keys(breakPoints)
-        .map(e => slot(e))
-    ]
   }
+  // render () {
+  //   const {
+  //     breakPoints,
+  //     status,
+  //     data
+  //   } = this
+  //   const scope = {
+  //     ...reactive(status),
+  //     data
+  //   }
+  //   const slot = name => this.$slots?.default?.(scope)
+  //   return [
+  //     slot('default'),
+  //     slot('min'),
+  //     ...keys(breakPoints)
+  //       .map(e => slot(e))
+  //   ]
+  // }
 })
+</script>
