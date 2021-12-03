@@ -4,9 +4,6 @@ import { useWindowSize } from 'd2/use/window-size.js'
 import { useConfig } from 'd2/components/d2/config/use.js'
 import { breakPoints } from 'd2/utils/const/break-point.js'
 
-const minKey = 'min'
-const minWidth = 0
-
 /**
  * Get breakpoint status
  * @param {Object} breakPointsParam break point setting, if do not set this parameter, use global config
@@ -25,15 +22,13 @@ export function useBreakPoint (breakPointsParam) {
     breakPoints,
     breakPointsConfig,
     breakPointsParam,
-    {
-      [minKey]: minWidth
-    }
+    { min: 0 }
   )
 
   const widths = values(_points).sort((a, b) => a - b)
   const dict = invert(_points)
 
-  const activeWidth = computed(() => widths.reduce((r, e) => unref(width) >= e ? e : r, minWidth))
+  const activeWidth = computed(() => widths.reduce((r, e) => unref(width) >= e ? e : r, 0))
   const activeName = computed(() => dict[unref(activeWidth)])
 
   const status = mapValues(_points, (v, k) => computed(() => unref(activeName) === k))
