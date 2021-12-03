@@ -7,6 +7,7 @@ import { unref, reactive, defineComponent, computed } from 'vue'
 import { mapValues } from 'lodash-es'
 import { makeName } from 'd2/utils/component.js'
 import { useBreakPoint } from 'd2/use/break-point.js'
+import { useResponsive } from 'd2/use/responsive.js'
 
 const name = 'break-point'
 
@@ -28,18 +29,24 @@ export default defineComponent({
     //   on xl status:
     //     { foo: 'foo md', bar: 'bar lg' }
     data: { type: Object, default: () => ({}) },
-    breakPoints: { type: Object, default: () => ({}) }
+    breakPoints: { type: Object }
   },
   setup (props) {
-    const breakPoint = useBreakPoint(props.breakPoints)
+    const state = useBreakPoint(props.breakPoints)
 
-    const { responsive } = breakPoint
-
-    const data = mapValues(props.data, (_, k) => unref(responsive(...props.data[k])))
+    const responsiveData = computed(
+      () => mapValues(
+        props.data,
+        (_, k) => {
+          const [data, dataSet = {}] = props.data[k]
+          return unref(useResponsive(data, dataSet, state))
+        }
+      )
+    )
 
     const scope = computed(() => ({
-      ...reactive(breakPoint),
-      data
+      ...reactive(state),
+      data: unref(responsiveData)
     }))
     
     return {

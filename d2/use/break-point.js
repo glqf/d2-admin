@@ -1,8 +1,7 @@
 import { unref, computed } from 'vue'
-import { keys, values, mapValues, invert } from 'lodash-es'
+import { values, mapValues, invert, isEmpty } from 'lodash-es'
 import { useWindowSize } from 'd2/use/window-size.js'
 import { useConfig } from 'd2/components/d2/config/use.js'
-import { breakPoints } from 'd2/utils/const/break-point.js'
 
 /**
  * Get breakpoint status
@@ -17,45 +16,25 @@ export function useBreakPoint (breakPointsParam) {
 
   const { breakPoints: breakPointsConfig } = useConfig()
   
-  const _points = Object.assign(
+  const breakPoints = Object.assign(
     {},
-    breakPoints,
-    breakPointsConfig,
-    breakPointsParam,
+    breakPointsParam || breakPointsConfig,
     { min: 0 }
   )
 
-  const widths = values(_points).sort((a, b) => a - b)
-  const dict = invert(_points)
+  const widths = values(breakPoints).sort((a, b) => a - b)
+  const breakPointsDict = invert(breakPoints)
 
   const activeWidth = computed(() => widths.reduce((r, e) => unref(width) >= e ? e : r, 0))
-  const activeName = computed(() => dict[unref(activeWidth)])
+  const activeName = computed(() => breakPointsDict[unref(activeWidth)])
 
-  const status = mapValues(_points, (v, k) => computed(() => unref(activeName) === k))
-
-  /**
-   * match data based on size
-   * @param {*} data default data
-   * @param {*} dataSet set of datas matched by size
-   * @returns a matched data
-   */
-  function responsive (data, dataSet = {}) {
-    return computed(() => {
-      const activeName = dict[
-        Math.max(
-          ...keys(dataSet)
-            .map(k => _points[k])
-            .filter(w => w <= unref(activeWidth))
-        )
-      ]
-      return dataSet[activeName] || data
-    })
-  }
+  const status = mapValues(breakPoints, (v, k) => computed(() => unref(activeName) === k))
 
   return {
-    responsive,
-    width,
+    breakPoints,
+    breakPointsDict,
     active: activeName,
+    activeWidth,
     ...status
   }
 }

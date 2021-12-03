@@ -5,11 +5,11 @@
 <template>
   <h1 class="title">{{ status.breakPoint }}</h1>
   <d2-flex class="main" center>
-    <demo-break-points-display-item
+    <demo-break-point-display-item
       :value="status.min"
       name="min"
     />
-    <demo-break-points-display-item
+    <demo-break-point-display-item
       v-for="name in breakPointsName"
       :key="name"
       :value="status[name]"

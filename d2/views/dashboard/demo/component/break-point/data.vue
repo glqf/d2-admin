@@ -6,14 +6,11 @@
   <demo-section title="break point">
     <d2-break-point :data="config" v-slot="status">
       <p class="info">
-        <span
-          class="label"
-          :style="{ backgroundColor: status.data.color }"
-        >
+        <span class="label" :style="{ backgroundColor: status.data.color }">
           {{ status.data.color }}
         </span>
       </p>
-      <demo-break-points-display :status="status"/>
+      <demo-break-point-display :status="status"/>
     </d2-break-point>
   </demo-section>
 </template>
