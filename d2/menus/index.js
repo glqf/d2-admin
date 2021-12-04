@@ -36,7 +36,6 @@ export const dashboardDemoComponentBreakPointMenus = new Menu('断点')
   .add(new Menu('概览').index())
   .add(new Menu('基础').url('/base'))
   .add(new Menu('data').url('/data'))
-  .add(new Menu('slot').url('/slot'))
 
 const flatRoutes = flattenObjectArray(
   routes,
