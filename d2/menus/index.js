@@ -3,6 +3,29 @@ import { Menu } from 'd2/utils/menu.js'
 import { flattenObjectArray } from 'd2/utils/array.js'
 import routes from 'virtual:generated-pages'
 
+const flatRoutes = flattenObjectArray(
+  routes,
+  'children',
+  (item, _) => pick(item, ['name', 'path', 'meta'])
+)
+
+function filterRoutes (rule) {
+  return flatRoutes.filter(route => rule.test(route.name))
+}
+
+function creatRouteMenu (route, basePath) {
+  const url = route.path.replace(RegExp(`^${basePath}`), '')
+  const title = get(route.meta, 'd2admin.menu.title', url || '/')
+  if (!url) {
+    return new Menu(title).index()
+  }
+  return new Menu(title).url(url)
+}
+
+function creatRouteMenus ({ match = /.+/, basePath = '' } = {}) {
+  return filterRoutes(match).map(route => creatRouteMenu(route, basePath))
+}
+
 export const dashboardIndexMenu = new Menu('控制台')
   .url('/dashboard')
   .icon('icon-park-outline:dashboard')
@@ -37,29 +60,6 @@ export const dashboardDemoComponentBreakPointMenus = new Menu('断点')
   .add(new Menu('基础').url('/base'))
   .add(new Menu('data').url('/data'))
 
-const flatRoutes = flattenObjectArray(
-  routes,
-  'children',
-  (item, _) => pick(item, ['name', 'path', 'meta'])
-)
-
-function filterRoutes (rule) {
-  return flatRoutes.filter(route => rule.test(route.name))
-}
-
-function creatRouteMenu (route, basePath) {
-  const url = route.path.replace(RegExp(`^${basePath}`), '')
-  const title = get(route.meta, 'd2admin.menu.title', url)
-  if (!url) {
-    return new Menu(title).index()
-  }
-  return new Menu(title).url(url)
-}
-
-function creatRouteMenus ({ match = /.+/, basePath = '' } = {}) {
-  return filterRoutes(match).map(route => creatRouteMenu(route, basePath))
-}
-
 export const dashboardDemoComponentFlexMenus = new Menu('Flex')
   .icon('icon-park-outline:carousel')
   .scope('/dashboard/demo/component/flex')
@@ -80,12 +80,10 @@ export const dashboardDemoComponentMenus = new Menu('组件')
 export const dashboardDemoLayoutDashboardMenus = new Menu('LayoutDashboard')
   .icon('icon-park-outline:page')
   .scope('/dashboard/demo/layout/dashboard')
-  .add(new Menu('概览').index())
-  .add(new Menu('基础').url('/base'))
-  .add(new Menu('absolute').url('/absolute'))
-  .add(new Menu('full').url('/full'))
-  .add(new Menu('page-width').url('/page-width'))
-  .add(new Menu('custom').url('/custom'))
+  .add(creatRouteMenus({
+    match: /^dashboard-demo-layout-dashboard/,
+    basePath: 'demo/layout/dashboard'
+  }))
 
 export const dashboardDemoLayoutMenus = new Menu('布局')
   .icon('icon-park-outline:page')
