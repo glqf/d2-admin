@@ -1,7 +1,7 @@
 <route>
 {
   "meta": {
-    "d2admin.layout.dashboard.customBody": true
+    "d2admin.layout.dashboard.customBody": false
   }
 }
 </route>
