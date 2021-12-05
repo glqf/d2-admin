@@ -1,5 +1,7 @@
 import { nanoid } from 'nanoid'
-import { isArray, cloneDeep, omit } from 'lodash-es'
+import { isArray, cloneDeep, omit, get, pick } from 'lodash-es'
+import { flattenObjectArray } from 'd2/utils/array.js'
+import routes from 'virtual:generated-pages'
 
 export const _k_id = '_id'
 export const _k_children = 'children'
@@ -97,4 +99,27 @@ export class Menu {
       )
     }
   }
+}
+
+const routesFlat = flattenObjectArray(
+  routes,
+  'children',
+  (item, _) => pick(item, ['name', 'path', 'meta'])
+)
+
+function routesFilter (rule) {
+  return routesFlat.filter(route => rule.test(route.name))
+}
+
+function routeMenu (route, basePath) {
+  const url = route.path.replace(RegExp(`^${basePath}`), '')
+  const title = get(route.meta, 'd2admin.menu.title', url || '/')
+  if (!url) {
+    return new Menu(title).index()
+  }
+  return new Menu(title).url(url)
+}
+
+export function routeMenus ({ match = /.+/, basePath = '' } = {}) {
+  return routesFilter(match).map(route => routeMenu(route, basePath))
 }
