@@ -3,8 +3,8 @@
 </route>
 
 <template>
-  <d2-scroll class="body__container">
-    <div class="container__inner">
+  <d2-scroll class="body__scroll">
+    <div class="scroll__inner">
       <slot/>
     </div>
   </d2-scroll>
