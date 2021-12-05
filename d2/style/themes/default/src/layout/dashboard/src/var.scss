@@ -44,4 +44,7 @@ $color-bg-app: #E9EEF1;
   #{--key('footer-height')}: --var('header-height');
   #{--key('footer-width')}: --var('side-width');
   #{--key('footer-border-width')}: 1px;
+  // body
+  #{--key('body-padding')}: 16px;
+  #{--key('body-padding-markdown')}: --var('body-padding');
 }
