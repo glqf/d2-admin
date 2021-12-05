@@ -134,7 +134,8 @@ export default defineComponent({
 
     return {
       target,
-      classnames
+      classnames,
+      instance
     }
   },
   render () {
