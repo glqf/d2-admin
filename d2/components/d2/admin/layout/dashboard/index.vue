@@ -19,7 +19,7 @@
     <router-view v-else/>
   </div>
   <!-- header -->
-  <div class="layout__header-background layout__blur"/>
+  <div class="layout__header-background app__blur"/>
   <d2-flex class="layout__header" dir="left" box="justify">
     <d2-flex class="header__button-group">
       <d2-flex class="header__button header__button--icon" tag="button" @click="collapsedToggle" center>
@@ -41,7 +41,7 @@
     </d2-flex>
   </div>
   <!-- footer -->
-  <div class="layout__footer layout__blur">
+  <div class="layout__footer app__blur">
     <slot name="footer"/>
   </div>
 </template>

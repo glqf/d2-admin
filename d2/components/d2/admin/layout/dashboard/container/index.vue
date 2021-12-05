@@ -8,6 +8,8 @@
       <slot/>
     </div>
   </d2-scroll>
+  <div class="body__header container__blur">header</div>
+  <div class="body__footer container__blur">footer</div>
 </template>
 
 <script>

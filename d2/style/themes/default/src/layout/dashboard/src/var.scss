@@ -15,13 +15,18 @@ $classname: '#{$namespace}-layout-dashboard';
 }
 
 $color-bg-app: #E9EEF1;
+$color-bg-container: #FFFFFF;
 
 :root {
   // color
   #{--key('color-bg-app')}: $color-bg-app;
   #{--key('color-bg-app-rgba-blur')}: rgba($color-bg-app, 0.6);
   #{--key('color-bg-app-rgba-blur-moz')}: rgba($color-bg-app, 0.96);
-  #{--key('color-bg-container')}: #FFFFFF;
+
+  #{--key('color-bg-container')}: $color-bg-container;
+  #{--key('color-bg-container-rgba-blur')}: rgba($color-bg-container, 0.6);
+  #{--key('color-bg-container-rgba-blur-moz')}: rgba($color-bg-container, 0.96);
+  
   #{--key('color-bg-popup')}: #FFFFFF;
   #{--key('color-bg-item-hover')}: #F6F8FB;
   #{--key('color-bg-item-selected')}: #FFFFFF;

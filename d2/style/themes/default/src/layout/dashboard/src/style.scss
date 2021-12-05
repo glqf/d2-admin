@@ -27,13 +27,22 @@ html, body, #app {
   .layout__body {
     @apply absolute top-0 bottom-0 right-0;
     left: --var('side-width');
-    .body__scroll {
-      @apply w-full h-full;
+    >.body__header {
+      @apply absolute;
+      top: calc(#{--var('header-height')} + #{--var('header-border-width')});
+    }
+    >.body__footer {
+      @apply absolute bottom-0;
+    }
+    >.body__scroll {
+      @apply absolute inset-0;
       >.os-scrollbar-vertical {
         top: calc(#{--var('header-height')} + #{--var('header-border-width')});
       }
       .scroll__inner {
         @apply relative overflow-hidden;
+        padding-top: 30px;
+        padding-bottom: 30px;
         margin-top: calc(#{--var('header-height')} + #{--var('header-border-width')});
         min-height: calc(100vh - (#{--var('header-height')} + #{--var('header-border-width')}));
         background-color: --var('color-bg-container');
@@ -111,14 +120,25 @@ html, body, #app {
     border-top-style: solid;
     border-top-width: --var('footer-border-width');
   }
+  
+  .container__blur {
+    background-color: --var('color-bg-container-rgba-blur');
+    backdrop-filter: blur(8px);
+    border-color: --var('color-bg-container');
+  }
+  @-moz-document url-prefix() {
+    .container__blur {
+      background-color: --var('color-bg-container-rgba-blur-moz');
+    }
+  }
 
-  .layout__blur {
+  .app__blur {
     background-color: --var('color-bg-app-rgba-blur');
     backdrop-filter: blur(8px);
     border-color: --var('color-bg-app');
   }
   @-moz-document url-prefix() {
-    .layout__blur {
+    .app__blur {
       background-color: --var('color-bg-app-rgba-blur-moz');
     }
   }
