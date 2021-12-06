@@ -9,10 +9,10 @@
 <template>
   <d2-admin-layout-dashboard-container>
     <template #header>
-      <template v-for="n in 30" :key="n">----------</template>
+      <a-button>Button</a-button>
     </template>
     <template #footer>
-      <template v-for="n in 30" :key="n">----------</template>
+      <a-button>Button</a-button>
     </template>
     <ul>
       <li v-for="n in 100" :key="n">{{ n }}</li>

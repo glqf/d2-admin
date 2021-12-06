@@ -20,11 +20,11 @@ $color-bg-container: #FFFFFF;
 :root {
   // color
   #{--key('color-bg-app')}: $color-bg-app;
-  #{--key('color-bg-app-rgba-blur')}: rgba($color-bg-app, 0.6);
+  #{--key('color-bg-app-rgba-blur')}: rgba($color-bg-app, 0.5);
   #{--key('color-bg-app-rgba-blur-moz')}: rgba($color-bg-app, 0.98);
 
   #{--key('color-bg-container')}: $color-bg-container;
-  #{--key('color-bg-container-rgba-blur')}: rgba($color-bg-container, 0.6);
+  #{--key('color-bg-container-rgba-blur')}: rgba($color-bg-container, 0.5);
   #{--key('color-bg-container-rgba-blur-moz')}: rgba($color-bg-container, 0.98);
 
   #{--key('color-bg-popup')}: #FFFFFF;
