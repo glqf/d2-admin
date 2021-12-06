@@ -39,14 +39,12 @@ html, body, #app {
       >.os-scrollbar-vertical {
         top: calc(#{--var('header-height')} + #{--var('header-border-width')});
       }
-      .scroll__inner {
+      .scroll__body {
         @apply relative overflow-hidden;
         margin-top: calc(#{--var('header-height')} + #{--var('header-border-width')});
         min-height: calc(100vh - (#{--var('header-height')} + #{--var('header-border-width')}));
         background-color: --var('color-bg-container');
-        >.markdown-body {
-          padding: --var('body-padding-markdown');
-        }
+        padding: --var('body-padding');
       }
     }
   }

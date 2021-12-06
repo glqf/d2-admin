@@ -4,7 +4,7 @@
 
 <template>
   <d2-scroll ref="scrollbar" class="body__scroll">
-    <div class="scroll__inner" :style="scrollInnerStyle">
+    <div class="scroll__body" :style="scrollInnerStyle">
       <slot/>
     </div>
   </d2-scroll>
@@ -17,14 +17,14 @@
 </template>
 
 <script>
-import { computed, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onBeforeUpdate, onMounted, ref } from 'vue'
 import { bind, clear } from 'size-sensor'
 import { makeNameByUrl } from 'd2/utils/component.js'
 import { cssUnit } from 'd2/utils/css.js'
 
 export default {
   name: makeNameByUrl(import.meta.url),
-  setup () {
+  setup (props, { slots }) {
     const scrollbar = ref(null)
 
     const header = ref(null)
@@ -38,12 +38,19 @@ export default {
       paddingBottom: cssUnit(footerHeight.value)
     }))
 
+    onBeforeUpdate(() => {
+      console.log('onBeforeUpdate')
+    })
+
     onMounted(() => {
+      console.log(slots.default)
+      console.log(slots.header)
+      console.log(slots.footer)
       bind(header.value, element => {
         headerHeight.value = element.offsetHeight
         const scrollbarElement = scrollbar.value.$el
         const scrollbarVertical = scrollbarElement.getElementsByClassName('os-scrollbar-vertical')[0]
-        const scrollInner = document.getElementsByClassName('scroll__inner')[0]
+        const scrollInner = document.getElementsByClassName('scroll__body')[0]
         let scrollInnerMarginTop = 0
 
 
@@ -61,6 +68,11 @@ export default {
         const scrollbarVertical = scrollbarElement.getElementsByClassName('os-scrollbar-vertical')[0]        
         scrollbarVertical.style.bottom = cssUnit(element.offsetHeight)
       })
+    })
+
+    onBeforeUnmount(() => {
+      clear(header.value)
+      clear(footer.value)
     })
 
     return {
