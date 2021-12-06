@@ -28,11 +28,11 @@ html, body, #app {
     @apply absolute top-0 bottom-0 right-0 overflow-hidden;
     left: --var('side-width');
     >.body__header {
-      @apply absolute inset-x-0 p-4 border-b;
+      @apply absolute inset-x-0 overflow-hidden break-words border-b;
       top: calc(#{--var('header-height')} + #{--var('header-border-width')});
     }
     >.body__footer {
-      @apply absolute inset-x-0 bottom-0 p-4 border-t;
+      @apply absolute inset-x-0 bottom-0 overflow-hidden break-words border-t;
     }
     >.body__scroll {
       @apply absolute inset-0;
@@ -41,8 +41,6 @@ html, body, #app {
       }
       .scroll__inner {
         @apply relative overflow-hidden;
-        padding-top: 30px;
-        padding-bottom: 30px;
         margin-top: calc(#{--var('header-height')} + #{--var('header-border-width')});
         min-height: calc(100vh - (#{--var('header-height')} + #{--var('header-border-width')}));
         background-color: --var('color-bg-container');

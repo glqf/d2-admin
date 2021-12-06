@@ -57,7 +57,7 @@ export default defineComponent({
     const optionsDefault = computed(() => ({
       className: unref(osClassName),
       scrollbars: {
-        autoHide: 'scroll',
+        autoHide: 'leave',
         autoHideDelay: 300
       },
       callbacks: fromPairs(callbacks.map(name => {

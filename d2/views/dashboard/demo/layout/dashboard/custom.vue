@@ -1,15 +1,21 @@
 <route>
 {
   "meta": {
-    "d2admin.layout.dashboard.customBody": false
+    "d2admin.layout.dashboard.customBody": true
   }
 }
 </route>
 
 <template>
-  <div class="h-full w-full p-4">
-    <d2-flex class="h-full w-full rounded-lg border-4 border-indigo-500" center>
-      customBody
-    </d2-flex>
-  </div>
+  <d2-admin-layout-dashboard-container>
+    <template #header>
+      <template v-for="n in 30" :key="n">----------</template>
+    </template>
+    <template #footer>
+      <template v-for="n in 30" :key="n">----------</template>
+    </template>
+    <ul>
+      <li v-for="n in 100" :key="n">{{ n }}</li>
+    </ul>
+  </d2-admin-layout-dashboard-container>
 </template>

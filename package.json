@@ -19,6 +19,7 @@
     "nanoid": "^3.1.25",
     "overlayscrollbars": "^1.13.1",
     "pinia": "^2.0.0-rc.13",
+    "size-sensor": "^1.0.1",
     "vue": "^3.2.6",
     "vue-router": "^4.0.11"
   },
