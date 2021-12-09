@@ -20,7 +20,7 @@
 import { computed, onBeforeUnmount, onBeforeUpdate, onMounted, ref } from 'vue'
 import { bind, clear } from 'size-sensor'
 import { makeNameByUrl } from 'd2/utils/component.js'
-import { cssUnit, getStyle, getCssVar } from 'd2/utils/css.js'
+import { px, getStyle, getCssVar } from 'd2/utils/css.js'
 
 export default {
   name: makeNameByUrl(import.meta.url),
@@ -34,8 +34,8 @@ export default {
     const footerHeight = ref(0)
 
     const scrollInnerStyle = computed(() => ({
-      paddingTop: cssUnit(headerHeight.value),
-      paddingBottom: cssUnit(footerHeight.value)
+      paddingTop: px(headerHeight.value),
+      paddingBottom: px(footerHeight.value)
     }))
 
     onBeforeUpdate(() => {
@@ -53,13 +53,13 @@ export default {
         const scrollbarVertical = scrollbarElement.getElementsByClassName('os-scrollbar-vertical')[0]
         const scrollInner = document.getElementsByClassName('scroll__body')[0]
         let scrollInnerMarginTop = getStyle(scrollInner, 'marginTop')
-        scrollbarVertical.style.top = cssUnit(Number(scrollInnerMarginTop.replace('px', '')) + element.offsetHeight)
+        scrollbarVertical.style.top = px(Number(scrollInnerMarginTop.replace('px', '')) + element.offsetHeight)
       })
       bind(footer.value, element => {
         footerHeight.value = element.offsetHeight
         const scrollbarElement = scrollbar.value.$el
         const scrollbarVertical = scrollbarElement.getElementsByClassName('os-scrollbar-vertical')[0]        
-        scrollbarVertical.style.bottom = cssUnit(element.offsetHeight)
+        scrollbarVertical.style.bottom = px(element.offsetHeight)
       })
     })
 

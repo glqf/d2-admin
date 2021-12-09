@@ -3,7 +3,7 @@ import { defineComponent, unref, computed } from 'vue'
 import { omitBy, isEmpty } from 'lodash-es'
 import { useConfig } from 'd2/components/d2/config/use.js'
 import { makeName, makeClassName } from 'd2/utils/component.js'
-import { cssUnit } from 'd2/utils/css.js'
+import { px } from 'd2/utils/css.js'
 import { warn } from 'd2/utils/error.js'
 import { componentName as configComponentName } from 'd2/components/d2/config/index.jsx'
 
@@ -44,12 +44,10 @@ export default defineComponent({
     })
 
     const height = computed(() => {
-      const v = props.height || props.size
-      return v ? cssUnit(v) : ''
+      return px(props.height || props.size)
     })
     const width = computed(() => {
-      const v = props.width || props.size
-      return v ? cssUnit(v) : ''
+      return px(props.width || props.size)
     })
 
     const style = computed(() => omitBy({

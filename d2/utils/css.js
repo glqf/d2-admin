@@ -1,36 +1,22 @@
 import { unref } from 'vue'
-import { isNumber, isString } from 'lodash-es'
 
 /**
- * Adds CSS unit to the original value passed in
+ * Supplement px unit
  * @param {string|number} value original value
  * @param {string} unit css unit name
  * @returns {string} css value with unit
- * @example cssUnit(0) => '0px'
- * @example cssUnit(ref(0)) => '0px'
- * @example cssUnit('100%') => '100%'
- * @example cssUnit('50') => '50%'
- * @example cssUnit('2', 'em') => '2em'
+ * @example px(14) => '14px'
+ * @example px('14') => '14px'
  */
-export function cssUnit (value = 0, unit = 'px') {
-  const _value = unref(value)
-  if (isNumber(_value)) {
-    return _value + unit
-  }
-  if (isString(_value)) {
-    if (/^\d+(\D+)$/.test(_value)) {
-      return _value
-    }
-    return _value + unit
-  }
-  return ''
+export function px (value) {
+  return value ? `${parseFloat(unref(value))}px` : ''
 }
 
 /**
  * Get element style
- * @param {HTML element} element target element
+ * @param {HTMLElement} element target element
  * @param {string} styleName css prop name
- * @returns css value
+ * @returns {*}
  */
 export function getStyle (element, styleName) {
   if (window.getComputedStyle) {
@@ -43,8 +29,56 @@ export function getStyle (element, styleName) {
 /**
  * Return the value of the specified CSS variable's value
  * @param {string} name css var name
- * @returns css value
+ * @returns {*}
  */
 export function getCssVar (name) {
   return getComputedStyle(document.documentElement).getPropertyValue(name)
+}
+
+/**
+ * Convert CSS units into Number values
+ * @link https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units#numbers_lengths_and_percentages
+ * @link https://developer.mozilla.org/en-US/docs/Web/CSS/angle
+ * @param {string} cssValue
+ * @param {null|HTMLElement} target used for relative units.
+ * @return {*}
+ */
+export function convertCssUnit (cssValue, target) {
+  target = target || document.body
+  const supportedUnits = {
+    // Absolute sizes
+    'px': value => value,
+    'cm': value => value * 38,
+    'mm': value => value * 3.8,
+    'q': value => value * 0.95,
+    'in': value => value * 96,
+    'pc': value => value * 16,
+    'pt': value => value * 1.333333,
+    // Relative sizes
+    'rem': value => value * parseFloat(getComputedStyle(document.documentElement).fontSize),
+    'em': value => value * parseFloat(getComputedStyle(target).fontSize),
+    'vw': value => value / 100 * window.innerWidth,
+    'vh': value => value / 100 * window.innerHeight,
+    // Times
+    'ms': value => value,
+    's': value => value * 1000,
+    // Angles
+    'deg': value => value,
+    'rad': value => value * (180 / Math.PI),
+    'grad': value => value * (180 / 200),
+    'turn': value => value * 360
+  }
+  // Match positive and negative numbers including decimals with preceeding unit
+  const pattern = new RegExp(`^([\-\+]?(?:\\d+(?:\\.\\d+)?))(${ Object.keys(supportedUnits).join('|') })$`, 'i')
+  // If is a match, return example: [ '-2.75rem', '-2.75', 'rem' ]
+  const matches = String.prototype.toString.apply(cssValue).trim().match(pattern)
+  if (matches) {
+    const value = Number(matches[1])
+    const unit = matches[2].toLocaleLowerCase()
+    // Sanity check, make sure unit conversion function exists
+    if (unit in supportedUnits) {
+      return supportedUnits[unit](value)
+    }
+  }
+  return cssValue
 }
