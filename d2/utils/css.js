@@ -25,3 +25,26 @@ export function cssUnit (value = 0, unit = 'px') {
   }
   return ''
 }
+
+/**
+ * Get element style
+ * @param {HTML element} element target element
+ * @param {string} styleName css prop name
+ * @returns css value
+ */
+export function getStyle (element, styleName) {
+  if (window.getComputedStyle) {
+    return getComputedStyle(element, null)[styleName]
+  } else {
+    return element.currentStyle[styleName]
+  }
+}
+
+/**
+ * Return the value of the specified CSS variable's value
+ * @param {string} name css var name
+ * @returns css value
+ */
+export function getCssVar (name) {
+  return getComputedStyle(document.documentElement).getPropertyValue(name)
+}

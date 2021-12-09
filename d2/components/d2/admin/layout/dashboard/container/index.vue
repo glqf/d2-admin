@@ -20,7 +20,7 @@
 import { computed, onBeforeUnmount, onBeforeUpdate, onMounted, ref } from 'vue'
 import { bind, clear } from 'size-sensor'
 import { makeNameByUrl } from 'd2/utils/component.js'
-import { cssUnit } from 'd2/utils/css.js'
+import { cssUnit, getStyle, getCssVar } from 'd2/utils/css.js'
 
 export default {
   name: makeNameByUrl(import.meta.url),
@@ -43,6 +43,7 @@ export default {
     })
 
     onMounted(() => {
+      console.log(getCssVar('--d2-admin-layout-dashboard-body-padding'))
       console.log(slots.default)
       console.log(slots.header)
       console.log(slots.footer)
@@ -51,15 +52,7 @@ export default {
         const scrollbarElement = scrollbar.value.$el
         const scrollbarVertical = scrollbarElement.getElementsByClassName('os-scrollbar-vertical')[0]
         const scrollInner = document.getElementsByClassName('scroll__body')[0]
-        let scrollInnerMarginTop = 0
-
-
-        if (window.getComputedStyle) {
-          scrollInnerMarginTop = getComputedStyle(scrollInner, null).marginTop
-        } else {
-          scrollInnerMarginTop = scrollInner.currentStyle.marginTop // IE
-        }
-        
+        let scrollInnerMarginTop = getStyle(scrollInner, 'marginTop')
         scrollbarVertical.style.top = cssUnit(Number(scrollInnerMarginTop.replace('px', '')) + element.offsetHeight)
       })
       bind(footer.value, element => {
