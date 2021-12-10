@@ -45,7 +45,7 @@ export function getCssVar (name) {
  */
 export function convertCssUnit (cssValue, target) {
   target = target || document.body
-  const supportedUnits = {
+  const units = {
     // Absolute sizes
     'px': value => value,
     'cm': value => value * 38,
@@ -69,15 +69,15 @@ export function convertCssUnit (cssValue, target) {
     'turn': value => value * 360
   }
   // Match positive and negative numbers including decimals with preceeding unit
-  const pattern = new RegExp(`^([\-\+]?(?:\\d+(?:\\.\\d+)?))(${ Object.keys(supportedUnits).join('|') })$`, 'i')
+  const pattern = new RegExp(`^([\-\+]?(?:\\d+(?:\\.\\d+)?))(${ Object.keys(units).join('|') })$`, 'i')
   // If is a match, return example: [ '-2.75rem', '-2.75', 'rem' ]
   const matches = String.prototype.toString.apply(cssValue).trim().match(pattern)
   if (matches) {
     const value = Number(matches[1])
     const unit = matches[2].toLocaleLowerCase()
     // Sanity check, make sure unit conversion function exists
-    if (unit in supportedUnits) {
-      return supportedUnits[unit](value)
+    if (unit in units) {
+      return units[unit](value)
     }
   }
   return cssValue
