@@ -44,6 +44,14 @@ export const dashboardDemoComponentD2FlexMenus = new Menu('Flex')
     basePath: 'demo/component/d2-flex'
   }))
 
+export const dashboardDemoComponentD2SizeSensorMenus = new Menu('尺寸监视器')
+  .icon('icon-park-outline:selected')
+  .scope('/dashboard/demo/component/d2-size-sensor')
+  .add(routeMenus({
+    match: /^dashboard-demo-component-d2-size-sensor/,
+    basePath: 'demo/component/d2-size-sensor'
+  }))
+
 export const dashboardDemoComponentMenus = new Menu('组件')
   .icon('icon-park-outline:components')
   .add(new Menu('概览').url('/dashboard/demo/component').icon('icon-park-outline:handle-round').index())
@@ -52,6 +60,7 @@ export const dashboardDemoComponentMenus = new Menu('组件')
   .add(dashboardDemoComponentD2IconMenus)
   .add(dashboardDemoComponentD2BreakPointMenus)
   .add(dashboardDemoComponentD2FlexMenus)
+  .add(dashboardDemoComponentD2SizeSensorMenus)
 
 export const dashboardDemoLayoutDashboardMenus = new Menu('控制台布局')
   .icon('icon-park-outline:page')
