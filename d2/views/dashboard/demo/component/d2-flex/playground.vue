@@ -1,7 +1,7 @@
 <route>
 {
   "meta": {
-    "d2admin.menu.title": "试验台"
+    "d2admin.menu.title": "试验"
   }
 }
 </route>

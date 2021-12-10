@@ -15,15 +15,12 @@ export function px (value) {
 /**
  * Get element style
  * @param {HTMLElement} element target element
- * @param {string} styleName css prop name
+ * @param {string} name css prop name
  * @returns {*}
  */
-export function getStyle (element, styleName) {
-  if (window.getComputedStyle) {
-    return getComputedStyle(element, null)[styleName]
-  } else {
-    return element.currentStyle[styleName]
-  }
+export function getStyle (element, name) {
+  const style = window.getComputedStyle ? getComputedStyle(element, null) : element.currentStyle
+  return name ? style[name] : style
 }
 
 /**

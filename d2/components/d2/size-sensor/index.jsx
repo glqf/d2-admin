@@ -1,6 +1,7 @@
 import { defineComponent, getCurrentInstance, onBeforeUnmount, onMounted } from 'vue'
-import { bind, clear } from 'size-sensor'
+import { bind } from 'size-sensor'
 import { makeName } from 'd2/utils/component.js'
+import { getStyle, convertCssUnit } from 'd2/utils/css.js'
 
 const name = 'size-sensor'
 
@@ -11,18 +12,26 @@ export default defineComponent({
   props: {
     tag: { type: String, default: 'div' }
   },
-  setup () {
+  emits: [
+    'resize'
+  ],
+  setup (props, { emit }) {
     const { ctx } = getCurrentInstance()
+
+    let unbind = () => {}
 
     function init () {
       const targetElement = ctx.$el
-      bind(targetElement, element => {
-        console.log(element)
+      unbind = bind(targetElement, element => {
+        const style = getStyle(element)
+        const { height, width } = style
+        emit('resize', {
+          element,
+          style,
+          height: convertCssUnit(height),
+          width: convertCssUnit(width)
+        })
       })
-    }
-
-    function destroy () {
-      clear(ctx.$el)
     }
 
     onMounted(() => {
@@ -30,7 +39,7 @@ export default defineComponent({
     })
 
     onBeforeUnmount(() => {
-      destroy()
+      unbind()
     })
   },
   render () {
