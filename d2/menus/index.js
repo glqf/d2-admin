@@ -4,54 +4,54 @@ export const dashboardIndexMenu = new Menu('控制台').url('/dashboard').icon('
 
 export const indexMenu = new Menu('首页').url('/').icon('icon-park-outline:home')
 
-export const dashboardDemoComponentScrollMenus = new Menu('滚动')
+export const dashboardDemoComponentD2ScrollMenus = new Menu('滚动')
   .icon('icon-park-outline:move')
-  .scope('/dashboard/demo/component/scroll')
+  .scope('/dashboard/demo/component/d2-scroll')
   .add(routeMenus({
-    match: /^dashboard-demo-component-scroll/,
-    basePath: 'demo/component/scroll'
+    match: /^dashboard-demo-component-d2-scroll/,
+    basePath: 'demo/component/d2-scroll'
   }))
 
-export const dashboardDemoComponentSvgMenus = new Menu('SVG')
+export const dashboardDemoComponentD2SvgMenus = new Menu('SVG')
   .icon('icon-park-outline:pic-one')
-  .scope('/dashboard/demo/component/svg')
+  .scope('/dashboard/demo/component/d2-svg')
   .add(routeMenus({
-    match: /^dashboard-demo-component-svg/,
-    basePath: 'demo/component/svg'
+    match: /^dashboard-demo-component-d2-svg/,
+    basePath: 'demo/component/d2-svg'
   }))
 
-export const dashboardDemoComponentIconMenus = new Menu('图标')
+export const dashboardDemoComponentD2IconMenus = new Menu('图标')
   .icon('icon-park-outline:emotion-happy')
-  .scope('/dashboard/demo/component/icon')
+  .scope('/dashboard/demo/component/d2-icon')
   .add(routeMenus({
-    match: /^dashboard-demo-component-icon/,
-    basePath: 'demo/component/icon'
+    match: /^dashboard-demo-component-d2-icon/,
+    basePath: 'demo/component/d2-icon'
   }))
 
-export const dashboardDemoComponentBreakPointMenus = new Menu('断点')
+export const dashboardDemoComponentD2BreakPointMenus = new Menu('断点')
   .icon('icon-park-outline:distribute-horizontally')
-  .scope('/dashboard/demo/component/break-point')
+  .scope('/dashboard/demo/component/d2-break-point')
   .add(routeMenus({
-    match: /^dashboard-demo-component-break-point/,
-    basePath: 'demo/component/break-point'
+    match: /^dashboard-demo-component-d2-break-point/,
+    basePath: 'demo/component/d2-break-point'
   }))
 
-export const dashboardDemoComponentFlexMenus = new Menu('Flex')
+export const dashboardDemoComponentD2FlexMenus = new Menu('Flex')
   .icon('icon-park-outline:carousel')
-  .scope('/dashboard/demo/component/flex')
+  .scope('/dashboard/demo/component/d2-flex')
   .add(routeMenus({
-    match: /^dashboard-demo-component-flex/,
-    basePath: 'demo/component/flex'
+    match: /^dashboard-demo-component-d2-flex/,
+    basePath: 'demo/component/d2-flex'
   }))
 
 export const dashboardDemoComponentMenus = new Menu('组件')
   .icon('icon-park-outline:components')
   .add(new Menu('概览').url('/dashboard/demo/component').icon('icon-park-outline:handle-round').index())
-  .add(dashboardDemoComponentScrollMenus)
-  .add(dashboardDemoComponentSvgMenus)
-  .add(dashboardDemoComponentIconMenus)
-  .add(dashboardDemoComponentBreakPointMenus)
-  .add(dashboardDemoComponentFlexMenus)
+  .add(dashboardDemoComponentD2ScrollMenus)
+  .add(dashboardDemoComponentD2SvgMenus)
+  .add(dashboardDemoComponentD2IconMenus)
+  .add(dashboardDemoComponentD2BreakPointMenus)
+  .add(dashboardDemoComponentD2FlexMenus)
 
 export const dashboardDemoLayoutDashboardMenus = new Menu('控制台布局')
   .icon('icon-park-outline:page')
