@@ -1,4 +1,5 @@
-import { defineComponent } from 'vue'
+import { defineComponent, getCurrentInstance, onBeforeUnmount, onMounted } from 'vue'
+import { bind, clear } from 'size-sensor'
 import { makeName } from 'd2/utils/component.js'
 
 const name = 'size-sensor'
@@ -10,12 +11,30 @@ export default defineComponent({
   props: {
     tag: { type: String, default: 'div' }
   },
+  setup () {
+    const { ctx } = getCurrentInstance()
+
+    function init () {
+      const targetElement = ctx.$el
+      bind(targetElement, element => {
+        console.log(element)
+      })
+    }
+
+    function destroy () {
+      clear(ctx.$el)
+    }
+
+    onMounted(() => {
+      init()
+    })
+
+    onBeforeUnmount(() => {
+      destroy()
+    })
+  },
   render () {
     const Tag = this.tag
-    return (
-      <Tag>
-        { this.$slots?.default?.() }
-      </Tag>
-    )
+    return <Tag>{ this.$slots?.default?.() }</Tag>
   }
 })
