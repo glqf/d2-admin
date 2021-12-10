@@ -34,8 +34,8 @@ export default {
     const footerHeight = ref(0)
 
     const scrollInnerStyle = computed(() => ({
-      paddingTop: px(headerHeight.value),
-      paddingBottom: px(footerHeight.value)
+      paddingTop: px(headerHeight),
+      paddingBottom: px(footerHeight)
     }))
 
     onBeforeUpdate(() => {

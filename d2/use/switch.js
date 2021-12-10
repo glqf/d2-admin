@@ -1,8 +1,5 @@
 import { computed, ref, unref } from 'vue'
 
-/**
- * Returns the Boolean value of the response and the switching method
- */
 export function useSwitch (
   defaultValue = false,
   {
