@@ -8,10 +8,10 @@
 
 <template>
   <d2-admin-layout-dashboard-container>
-    <template v-if="headeractive" #header>
+    <template v-if="headerActive" #header>
       <a-button>Button</a-button>
     </template>
-    <template v-if="footeractive" #footer>
+    <template v-if="footerActive" #footer>
       <a-button>Button</a-button>
     </template>
     <section class="bg-gray-100 border border-gray-200 rounded p-4 mb-4">
@@ -25,24 +25,23 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { useBoolean } from 'd2/use/boolean.js'
 
 export default {
   setup () {
-    const headeractive = ref(true)
-    const footeractive = ref(true)
+    const {
+      value: headerActive,
+      toggle: headerToggle
+    } = useBoolean(true)
 
-    function headerToggle () {
-      headeractive.value = !headeractive.value
-    }
-
-    function footerToggle () {
-      footeractive.value = !footeractive.value
-    }
+    const {
+      value: footerActive,
+      toggle: footerToggle
+    } = useBoolean(true)
 
     return {
-      headeractive,
-      footeractive,
+      headerActive,
+      footerActive,
       headerToggle,
       footerToggle
     }

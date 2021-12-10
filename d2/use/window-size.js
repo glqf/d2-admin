@@ -5,8 +5,8 @@ import { onMounted, onUnmounted, onBeforeMount } from 'vue'
 /**
  * Get window size status
  * @param {Number} wait throttle wait
- * @returns {Object} status {String} height window height
- * @returns {Object} status {String} width window width
+ * @returns {object} status {string} height window height
+ * @returns {object} status {string} width window width
  */
 export function useWindowSize(wait = 30) {
 
