@@ -16,8 +16,8 @@
     </template>
     <section class="bg-gray-100 border border-gray-200 rounded p-4 mb-4">
       <a-space>
-        <a-button @click="headerToggle">切换 Header</a-button>
-        <a-button @click="footerToggle">切换 Footer</a-button>
+        <a-button @click="headerToggle">切换顶栏显示</a-button>
+        <a-button @click="footerToggle">切换底栏显示</a-button>
       </a-space>
     </section>
     <demo-markdown-article/>
@@ -25,24 +25,24 @@
 </template>
 
 <script>
-import { useBoolean } from 'd2/use/boolean.js'
+import { useSwitch } from 'd2/use/switch.js'
 
 export default {
   setup () {
     const {
       value: headerActive,
       toggle: headerToggle
-    } = useBoolean(true)
+    } = useSwitch(true)
 
     const {
       value: footerActive,
       toggle: footerToggle
-    } = useBoolean(true)
+    } = useSwitch(true)
 
     return {
       headerActive,
-      footerActive,
       headerToggle,
+      footerActive,
       footerToggle
     }
   }
