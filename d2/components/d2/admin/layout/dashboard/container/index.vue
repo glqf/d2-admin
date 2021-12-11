@@ -3,7 +3,7 @@
 </route>
 
 <template>
-  <d2-scroll ref="scrollbar" class="body__main">
+  <d2-scroll ref="scrollbar" :class="bodyClass">
     <div class="main__inner" :style="scrollInnerStyle">
       <slot/>
     </div>
@@ -18,31 +18,36 @@
 
 <script>
 import { computed, onMounted, onUpdated, ref, unref, watchPostEffect } from 'vue'
-import { makeNameByUrl } from 'd2/utils/component.js'
-import { px, getStyle, convertCssUnit } from 'd2/utils/css.js'
 import { useCssVar } from '@vueuse/core'
+import makeClassnames from 'classnames'
+import { makeNameByUrl } from 'd2/utils/component.js'
+import { px, convertCssUnit } from 'd2/utils/css.js'
 
 export default {
   name: makeNameByUrl(import.meta.url),
   setup (props, { slots }) {
     const cssVarHeaderHeight = computed(() => convertCssUnit(useCssVar('--d2-admin-layout-dashboard-header-height')))
     const cssVarHeaderBorderWidth = computed(() => convertCssUnit(useCssVar('--d2-admin-layout-dashboard-header-border-width')))
-    const cssVarBodyMainPaddingY = computed(() => convertCssUnit(useCssVar('--d2-admin-layout-dashboard-body-main-padding-y')))
 
     const scrollbar = ref(null)
-
-    const bodyHeaderHeight = ref(0)
-    const bodyFooterHeight = ref(0)
 
     const headerActive = ref(false)
     const footerActive = ref(false)
 
+    const bodyHeaderHeight = ref(0)
+    const bodyFooterHeight = ref(0)
+
     const bodyTopBase = computed(() => unref(cssVarHeaderHeight) + unref(cssVarHeaderBorderWidth))
-    const scrollbarVerticalTop = computed(() => px(unref(bodyTopBase) + unref(bodyHeaderHeight)))
+    const scrollbarVerticalTop = computed(() => unref(bodyTopBase) + unref(bodyHeaderHeight))
 
     const scrollInnerStyle = computed(() => ({
-      paddingTop: px(bodyHeaderHeight),
-      paddingBottom: px(bodyFooterHeight)
+      ...(unref(headerActive) ? { paddingTop: px(bodyHeaderHeight) } : {}),
+      ...(unref(footerActive) ? { paddingBottom: px(bodyFooterHeight) } : {})
+    }))
+
+    const bodyClass = computed(() => makeClassnames('body__main', {
+      'body__main--with-header': unref(headerActive),
+      'body__main--with-footer': unref(footerActive)
     }))
 
     function onHeaderResize (element) {
@@ -60,8 +65,12 @@ export default {
     function refreshSlotStatus () {
       headerActive.value = !!slots.header
       footerActive.value = !!slots.footer
-      bodyHeaderHeight.value = 0
-      bodyFooterHeight.value = 0
+      if (!unref(headerActive)) {
+        bodyHeaderHeight.value = 0
+      }
+      if (!unref(footerActive)) {
+        bodyFooterHeight.value = 0
+      }
     }
 
     refreshSlotStatus()
@@ -71,7 +80,7 @@ export default {
     
     onMounted(() => {
       watchPostEffect(() => {
-        getScrollbarVertical().style.top = unref(scrollbarVerticalTop)
+        getScrollbarVertical().style.top = px(scrollbarVerticalTop)
       })
       watchPostEffect(() => {
         getScrollbarVertical().style.bottom = px(bodyFooterHeight)
@@ -81,6 +90,7 @@ export default {
     return {
       scrollbar,
       scrollInnerStyle,
+      bodyClass,
       onHeaderResize,
       onFooterResize,
       headerActive,
