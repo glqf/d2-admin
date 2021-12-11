@@ -51,4 +51,13 @@ $color-bg-container: #FFFFFF;
   #{--key('footer-border-width')}: 1px;
   // body
   #{--key('body-padding')}: 16px;
+  #{--key('body-header-padding')}: --var('body-padding');
+  #{--key('body-header-padding-x')}: --var('body-header-padding');
+  #{--key('body-header-padding-y')}: --var('body-header-padding');
+  #{--key('body-footer-padding')}: --var('body-padding');
+  #{--key('body-footer-padding-x')}: --var('body-footer-padding');
+  #{--key('body-footer-padding-y')}: --var('body-footer-padding');
+  #{--key('body-main-padding')}: --var('body-padding');
+  #{--key('body-main-padding-x')}: --var('body-main-padding');
+  #{--key('body-main-padding-y')}: --var('body-main-padding');
 }

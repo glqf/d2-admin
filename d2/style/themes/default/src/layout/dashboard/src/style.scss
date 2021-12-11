@@ -30,23 +30,23 @@ html, body, #app {
     >.body__header {
       @apply absolute inset-x-0 overflow-hidden break-words border-b;
       top: calc(#{--var('header-height')} + #{--var('header-border-width')});
-      padding: --var('body-padding');
+      padding: --var('body-header-padding-y') --var('body-header-padding-x');
     }
     >.body__footer {
       @apply absolute inset-x-0 bottom-0 overflow-hidden break-words border-t;
-      padding: --var('body-padding');
+      padding: --var('body-footer-padding-y') --var('body-footer-padding-x');
     }
-    >.body__scroll {
+    >.body__main {
       @apply absolute inset-0;
       >.os-scrollbar-vertical {
         top: calc(#{--var('header-height')} + #{--var('header-border-width')});
       }
-      .scroll__body {
+      .main__inner {
         @apply relative overflow-hidden;
         margin-top: calc(#{--var('header-height')} + #{--var('header-border-width')});
         min-height: calc(100vh - (#{--var('header-height')} + #{--var('header-border-width')}));
         background-color: --var('color-bg-container');
-        padding: --var('body-padding');
+        padding: --var('body-main-padding-y') --var('body-main-padding-x');
       }
     }
   }

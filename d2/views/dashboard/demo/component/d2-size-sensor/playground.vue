@@ -37,10 +37,11 @@ export default {
 
     const history = ref([])
 
-    function onResize ({ height }) {
+    function onResize ({ style }) {
+      const { offsetHeight } = style
       history.value.unshift({
         id: id(),
-        text: `[size change] height: ${height}px`
+        text: `[size change] offsetHeight: ${offsetHeight}px`
       })
     }
 

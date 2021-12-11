@@ -1,7 +1,7 @@
 import { defineComponent, getCurrentInstance, onBeforeUnmount, onMounted } from 'vue'
 import { bind } from 'size-sensor'
 import { makeName } from 'd2/utils/component.js'
-import { getStyle, convertCssUnit } from 'd2/utils/css.js'
+import { getStyle } from 'd2/utils/css.js'
 
 const name = 'size-sensor'
 
@@ -24,12 +24,9 @@ export default defineComponent({
       const targetElement = ctx.$el
       unbind = bind(targetElement, element => {
         const style = getStyle(element)
-        const { height, width } = style
         emit('resize', {
           element,
-          style,
-          height: convertCssUnit(height),
-          width: convertCssUnit(width)
+          style
         })
       })
     }
