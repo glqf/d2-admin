@@ -41,6 +41,7 @@ export function getCssVar (name) {
  * @return {*}
  */
 export function convertCssUnit (cssValue, target) {
+  cssValue = unref(cssValue)
   target = target || document.body
   const units = {
     // Absolute sizes

@@ -38,6 +38,16 @@ html, body, #app {
     }
     >.body__main {
       @apply absolute inset-0;
+      &.body__main--with-header {
+        >.os-scrollbar-vertical {
+          padding-top: 0px;
+        }
+      }
+      &.body__main--with-footer {
+        >.os-scrollbar-vertical {
+          padding-bottom: 0px;
+        }
+      }
       >.os-scrollbar-vertical {
         top: calc(#{--var('header-height')} + #{--var('header-border-width')});
       }

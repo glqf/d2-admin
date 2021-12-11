@@ -8,91 +8,83 @@
       <slot/>
     </div>
   </d2-scroll>
-  <d2-size-sensor class="body__header container__blur" @resize="onHeaderResize">
-    {{ cssVar }}
+  <d2-size-sensor v-if="headerActive" class="body__header container__blur" @resize="onHeaderResize">
     <slot name="header"/>
   </d2-size-sensor>
-  <d2-size-sensor class="body__footer container__blur" @resize="onFooterResize">
+  <d2-size-sensor v-if="footerActive" class="body__footer container__blur" @resize="onFooterResize">
     <slot name="footer"/>
   </d2-size-sensor>
 </template>
 
 <script>
-import { computed, ref } from 'vue'
+import { computed, onMounted, onUpdated, ref, unref, watchPostEffect } from 'vue'
 import { makeNameByUrl } from 'd2/utils/component.js'
-import { px } from 'd2/utils/css.js'
-import { useCssVar } from 'd2/use/css-var.js'
+import { px, getStyle, convertCssUnit } from 'd2/utils/css.js'
+import { useCssVar } from '@vueuse/core'
 
 export default {
   name: makeNameByUrl(import.meta.url),
   setup (props, { slots }) {
+    const cssVarHeaderHeight = computed(() => convertCssUnit(useCssVar('--d2-admin-layout-dashboard-header-height')))
+    const cssVarHeaderBorderWidth = computed(() => convertCssUnit(useCssVar('--d2-admin-layout-dashboard-header-border-width')))
+    const cssVarBodyMainPaddingY = computed(() => convertCssUnit(useCssVar('--d2-admin-layout-dashboard-body-main-padding-y')))
+
     const scrollbar = ref(null)
 
-    const header = ref(null)
-    const footer = ref(null)
+    const bodyHeaderHeight = ref(0)
+    const bodyFooterHeight = ref(0)
 
-    const headerHeight = ref(0)
-    const footerHeight = ref(0)
+    const headerActive = ref(false)
+    const footerActive = ref(false)
 
-    const cssVar = useCssVar('--d2-admin-layout-dashboard-body-padding')
+    const bodyTopBase = computed(() => unref(cssVarHeaderHeight) + unref(cssVarHeaderBorderWidth))
+    const scrollbarVerticalTop = computed(() => px(unref(bodyTopBase) + unref(bodyHeaderHeight)))
 
     const scrollInnerStyle = computed(() => ({
-      paddingTop: px(headerHeight),
-      paddingBottom: px(footerHeight)
+      paddingTop: px(bodyHeaderHeight),
+      paddingBottom: px(bodyFooterHeight)
     }))
 
-    function onHeaderResize ({ style }) {
-      const { offsetHeight } = style
-      headerHeight.value = offsetHeight
+    function onHeaderResize (element) {
+      bodyHeaderHeight.value = element.offsetHeight
     }
 
-    function onFooterResize ({ style }) {
-      const { offsetHeight } = style
-      footerHeight.value = offsetHeight
+    function onFooterResize (element) {
+      bodyFooterHeight.value = element.offsetHeight
     }
 
     function getScrollbarVertical () {
       return scrollbar.value.$el.getElementsByClassName('os-scrollbar-vertical')[0]
     }
 
-    function updateScrollbarVerticalMarginTop () {
-      const scrollbarVertical = getScrollbarVertical()
-      scrollbarVertical.style.top = px(value)
+    function refreshSlotStatus () {
+      headerActive.value = !!slots.header
+      footerActive.value = !!slots.footer
+      bodyHeaderHeight.value = 0
+      bodyFooterHeight.value = 0
     }
 
-    function updateScrollbarVerticalMarginBottom () {
-      const scrollbarVertical = getScrollbarVertical()
-      scrollbarVertical.style.bottom = px(value)
-    }
-
-    // onMounted(() => {
-    //   console.log(slots.default)
-    //   console.log(slots.header)
-    //   console.log(slots.footer)
-    //   bind(header.value, element => {
-    //     headerHeight.value = element.offsetHeight
-    //     const scrollbarElement = scrollbar.value.$el
-    //     const scrollbarVertical = scrollbarElement.getElementsByClassName('os-scrollbar-vertical')[0]
-    //     const scrollInner = document.getElementsByClassName('main__inner')[0]
-    //     let scrollInnerMarginTop = getStyle(scrollInner, 'marginTop')
-    //     scrollbarVertical.style.top = px(Number(scrollInnerMarginTop.replace('px', '')) + element.offsetHeight)
-    //   })
-    //   bind(footer.value, element => {
-    //     footerHeight.value = element.offsetHeight
-    //     const scrollbarElement = scrollbar.value.$el
-    //     const scrollbarVertical = scrollbarElement.getElementsByClassName('os-scrollbar-vertical')[0]        
-    //     scrollbarVertical.style.bottom = px(element.offsetHeight)
-    //   })
-    // })
+    refreshSlotStatus()
+    onUpdated(() => {
+      refreshSlotStatus()
+    })
+    
+    onMounted(() => {
+      watchPostEffect(() => {
+        getScrollbarVertical().style.top = unref(scrollbarVerticalTop)
+      })
+      watchPostEffect(() => {
+        getScrollbarVertical().style.bottom = px(bodyFooterHeight)
+      })
+    })
 
     return {
-      cssVar,
       scrollbar,
-      header,
-      footer,
       scrollInnerStyle,
       onHeaderResize,
-      onFooterResize
+      onFooterResize,
+      headerActive,
+      footerActive
     }
   }
 }

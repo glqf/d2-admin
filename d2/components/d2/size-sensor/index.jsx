@@ -1,7 +1,6 @@
 import { defineComponent, getCurrentInstance, onBeforeUnmount, onMounted } from 'vue'
 import { bind } from 'size-sensor'
 import { makeName } from 'd2/utils/component.js'
-import { getStyle } from 'd2/utils/css.js'
 
 const name = 'size-sensor'
 
@@ -23,11 +22,7 @@ export default defineComponent({
     function init () {
       const targetElement = ctx.$el
       unbind = bind(targetElement, element => {
-        const style = getStyle(element)
-        emit('resize', {
-          element,
-          style
-        })
+        emit('resize', element)
       })
     }
 
