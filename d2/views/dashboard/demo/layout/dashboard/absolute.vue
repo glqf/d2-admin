@@ -1,5 +1,9 @@
 <route>
-{}
+{
+  "meta": {
+    "d2admin.menu.title": "绝对定位"
+  }
+}
 </route>
 
 <template>

@@ -1,7 +1,8 @@
 <route>
 {
   "meta": {
-    "d2admin.layout.dashboard.customBody": true
+    "d2admin.layout.dashboard.customBody": true,
+    "d2admin.menu.title": "自定义"
   }
 }
 </route>
@@ -9,10 +10,10 @@
 <template>
   <d2-admin-layout-dashboard-container>
     <template v-if="headerActive" #header>
-      <a-button>Button</a-button>
+      <h1 class="text-lg">Header</h1>
     </template>
     <template v-if="footerActive" #footer>
-      <a-button>Button</a-button>
+      <h1 class="text-lg">Footer</h1>
     </template>
     <section class="bg-gray-100 border border-gray-200 rounded p-4 mb-4">
       <a-space>

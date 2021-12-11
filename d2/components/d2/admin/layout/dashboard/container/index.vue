@@ -4,7 +4,7 @@
 
 <template>
   <d2-scroll ref="scrollbar" :class="bodyClass">
-    <div class="main__inner" :style="scrollInnerStyle">
+    <div class="main__inner" :style="mainInnerStyle">
       <slot/>
     </div>
   </d2-scroll>
@@ -26,9 +26,6 @@ import { px, convertCssUnit } from 'd2/utils/css.js'
 export default {
   name: makeNameByUrl(import.meta.url),
   setup (props, { slots }) {
-    const cssVarHeaderHeight = computed(() => convertCssUnit(useCssVar('--d2-admin-layout-dashboard-header-height')))
-    const cssVarHeaderBorderWidth = computed(() => convertCssUnit(useCssVar('--d2-admin-layout-dashboard-header-border-width')))
-
     const scrollbar = ref(null)
 
     const headerActive = ref(false)
@@ -37,10 +34,12 @@ export default {
     const bodyHeaderHeight = ref(0)
     const bodyFooterHeight = ref(0)
 
+    const cssVarHeaderHeight = computed(() => convertCssUnit(useCssVar('--d2-admin-layout-dashboard-header-height')))
+    const cssVarHeaderBorderWidth = computed(() => convertCssUnit(useCssVar('--d2-admin-layout-dashboard-header-border-width')))
     const bodyTopBase = computed(() => unref(cssVarHeaderHeight) + unref(cssVarHeaderBorderWidth))
     const scrollbarVerticalTop = computed(() => unref(bodyTopBase) + unref(bodyHeaderHeight))
 
-    const scrollInnerStyle = computed(() => ({
+    const mainInnerStyle = computed(() => ({
       ...(unref(headerActive) ? { paddingTop: px(bodyHeaderHeight) } : {}),
       ...(unref(footerActive) ? { paddingBottom: px(bodyFooterHeight) } : {})
     }))
@@ -89,7 +88,7 @@ export default {
 
     return {
       scrollbar,
-      scrollInnerStyle,
+      mainInnerStyle,
       bodyClass,
       onHeaderResize,
       onFooterResize,

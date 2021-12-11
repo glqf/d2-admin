@@ -1,5 +1,9 @@
 <route>
-{}
+{
+  "meta": {
+    "d2admin.menu.title": "完全填充"
+  }
+}
 </route>
 
 <template>

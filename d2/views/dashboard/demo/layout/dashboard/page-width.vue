@@ -1,5 +1,9 @@
 <route>
-{}
+{
+  "meta": {
+    "d2admin.menu.title": "内容宽度"
+  }
+}
 </route>
 
 <template>
