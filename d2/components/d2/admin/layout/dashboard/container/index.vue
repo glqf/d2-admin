@@ -8,10 +8,10 @@
       <slot/>
     </div>
   </d2-scroll>
-  <d2-size-sensor v-if="headerActive" class="body__header body__blur" @resize="onHeaderResize">
+  <d2-size-sensor v-if="headerActive" :class="headerClass" @resize="onHeaderResize">
     <slot name="header"/>
   </d2-size-sensor>
-  <d2-size-sensor v-if="footerActive" class="body__footer body__blur" @resize="onFooterResize">
+  <d2-size-sensor v-if="footerActive" :class="footerClass" @resize="onFooterResize">
     <slot name="footer"/>
   </d2-size-sensor>
 </template>
@@ -47,6 +47,16 @@ export default {
     const bodyClass = computed(() => makeClassnames('body__main', {
       'body__main--with-header': unref(headerActive),
       'body__main--with-footer': unref(footerActive)
+    }))
+
+    const headerClass = computed(() => makeClassnames('body__header', 'body__blur', {
+      'body__header--border': true,
+      'body__header--border-ghost': true
+    }))
+
+    const footerClass = computed(() => makeClassnames('body__footer', 'body__blur', {
+      'body__footer--border': true,
+      'body__footer--border-ghost': true
     }))
 
     function onHeaderResize (element) {
@@ -90,6 +100,8 @@ export default {
       scrollbar,
       mainInnerStyle,
       bodyClass,
+      headerClass,
+      footerClass,
       onHeaderResize,
       onFooterResize,
       headerActive,

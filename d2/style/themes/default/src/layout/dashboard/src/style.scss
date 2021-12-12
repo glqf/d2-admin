@@ -28,13 +28,25 @@ html, body, #app {
     @apply absolute top-0 bottom-0 right-0 overflow-hidden;
     left: --var('side-width');
     >.body__header {
-      @apply absolute inset-x-0 overflow-hidden break-words border-b;
+      @apply absolute inset-x-0 overflow-hidden break-words;
       top: calc(#{--var('header-height')} + #{--var('header-border-width')});
       padding: --var('body-header-padding-y') --var('body-header-padding-x');
+      &.body__header--border {
+        border-bottom-width: --var('body-header-border-width');
+        &.body__header--border-ghost {
+          border-color: --var('body-header-border-color-ghost');
+        }
+      }
     }
     >.body__footer {
-      @apply absolute inset-x-0 bottom-0 overflow-hidden break-words border-t;
+      @apply absolute inset-x-0 bottom-0 overflow-hidden break-words;
       padding: --var('body-footer-padding-y') --var('body-footer-padding-x');
+      &.body__footer--border {
+        border-top-width: --var('body-footer-border-width');
+        &.body__footer--border-ghost {
+          border-color: --var('body-header-border-color-ghost');
+        }
+      }
     }
     >.body__main {
       @apply absolute inset-0;
