@@ -42,6 +42,7 @@ $color-bg-container: #FFFFFF;
   // header
   #{--key('header-height')}: --var('item-height');
   #{--key('header-border-width')}: 1px;
+  #{--key('header-border-color')}: --var('color-bg-app');
   // side
   #{--key('side-width')}: 220px;
   #{--key('side-width-collapsed')}: --var('item-height');

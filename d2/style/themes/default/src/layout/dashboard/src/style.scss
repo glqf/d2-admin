@@ -69,8 +69,9 @@ html, body, #app {
 
   .layout__header-background {
     @apply box-content;
-    border-bottom-width: 1px;
+    border-bottom-width: --var('header-border-width');
     border-bottom-style: solid;
+    border-color: --var('header-border-color');
   }
   
   .layout__header {
@@ -132,7 +133,6 @@ html, body, #app {
   .container__blur {
     background-color: --var('color-bg-container-rgba-blur');
     backdrop-filter: blur(8px);
-    border-color: --var('color-bg-container');
   }
   @-moz-document url-prefix() {
     .container__blur {
@@ -143,7 +143,6 @@ html, body, #app {
   .app__blur {
     background-color: --var('color-bg-app-rgba-blur');
     backdrop-filter: blur(8px);
-    border-color: --var('color-bg-app');
   }
   @-moz-document url-prefix() {
     .app__blur {
