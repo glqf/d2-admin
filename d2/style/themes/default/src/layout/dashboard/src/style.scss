@@ -33,6 +33,7 @@ html, body, #app {
       padding: --var('body-header-padding-y') --var('body-header-padding-x');
       &.body__header--border {
         border-bottom-width: --var('body-header-border-width');
+        border-color: --var('body-header-border-color');
         &.body__header--border-ghost {
           border-color: --var('body-header-border-color-ghost');
         }
@@ -43,6 +44,7 @@ html, body, #app {
       padding: --var('body-footer-padding-y') --var('body-footer-padding-x');
       &.body__footer--border {
         border-top-width: --var('body-footer-border-width');
+        border-color: --var('body-footer-border-color');
         &.body__footer--border-ghost {
           border-color: --var('body-header-border-color-ghost');
         }

@@ -62,10 +62,13 @@ $color-bg-container: #FFFFFF;
   #{--key('body-header-padding-x')}: --var('body-header-padding');
   #{--key('body-header-padding-y')}: --var('body-header-padding');
   #{--key('body-header-border-width')}: 1px;
+  #{--key('body-header-border-color')}: --var('color-bg-app');
   #{--key('body-header-border-color-ghost')}: --var('body-main-bg-color');
   // body footer
   #{--key('body-footer-padding')}: --var('body-padding');
   #{--key('body-footer-padding-x')}: --var('body-footer-padding');
   #{--key('body-footer-padding-y')}: --var('body-footer-padding');
   #{--key('body-footer-border-width')}: 1px;
+  #{--key('body-footer-border-color')}: --var('color-bg-app');
+  #{--key('body-footer-border-color-ghost')}: --var('body-main-bg-color');
 }
