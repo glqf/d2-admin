@@ -31,33 +31,29 @@ html, body, #app {
       @apply absolute inset-x-0 overflow-hidden break-words;
       top: calc(#{--var('header-height')} + #{--var('header-border-width')});
       padding: --var('body-header-padding-y') --var('body-header-padding-x');
+      border-bottom-width: --var('body-header-border-width');
+      border-color: --var('body-header-border-color-ghost');
       &.body__header--border {
-        border-bottom-width: --var('body-header-border-width');
         border-color: --var('body-header-border-color');
-        &.body__header--border-ghost {
-          border-color: --var('body-header-border-color-ghost');
-        }
       }
     }
     >.body__footer {
       @apply absolute inset-x-0 bottom-0 overflow-hidden break-words;
       padding: --var('body-footer-padding-y') --var('body-footer-padding-x');
+      border-top-width: --var('body-footer-border-width');
+      border-color: --var('body-header-border-color-ghost');
       &.body__footer--border {
-        border-top-width: --var('body-footer-border-width');
         border-color: --var('body-footer-border-color');
-        &.body__footer--border-ghost {
-          border-color: --var('body-header-border-color-ghost');
-        }
       }
     }
     >.body__main {
       @apply absolute inset-0;
-      &.body__main--with-header {
+      &.body__main--with-header-ghost {
         >.os-scrollbar-vertical {
           padding-top: 0px;
         }
       }
-      &.body__main--with-footer {
+      &.body__main--with-footer-ghost {
         >.os-scrollbar-vertical {
           padding-bottom: 0px;
         }

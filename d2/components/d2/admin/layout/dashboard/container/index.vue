@@ -25,6 +25,10 @@ import { px, convertCssUnit } from 'd2/utils/css.js'
 
 export default {
   name: makeNameByUrl(import.meta.url),
+  props: {
+    headerBorder: { type: Boolean, default: false, required: false },
+    footerBorder: { type: Boolean, default: false, required: false }
+  },
   setup (props, { slots }) {
     const scrollbar = ref(null)
 
@@ -36,27 +40,30 @@ export default {
 
     const cssVarHeaderHeight = computed(() => convertCssUnit(useCssVar('--d2-admin-layout-dashboard-header-height')))
     const cssVarHeaderBorderWidth = computed(() => convertCssUnit(useCssVar('--d2-admin-layout-dashboard-header-border-width')))
+    const cssVarBodyPaddingY = computed(() => convertCssUnit(useCssVar('--d2-admin-layout-dashboard-body-main-padding-y')))
     const bodyTopBase = computed(() => unref(cssVarHeaderHeight) + unref(cssVarHeaderBorderWidth))
     const scrollbarVerticalTop = computed(() => unref(bodyTopBase) + unref(bodyHeaderHeight))
 
-    const mainInnerStyle = computed(() => ({
-      ...(unref(headerActive) ? { paddingTop: px(bodyHeaderHeight) } : {}),
-      ...(unref(footerActive) ? { paddingBottom: px(bodyFooterHeight) } : {})
-    }))
+    const mainInnerStyle = computed(() => {
+      const paddingTop = px(unref(bodyHeaderHeight) + (props.headerBorder ? unref(cssVarBodyPaddingY) : 0))
+      const paddingBottom = px(unref(bodyFooterHeight) + (props.footerBorder ? unref(cssVarBodyPaddingY) : 0))
+      return {
+        ...(unref(headerActive) ? { paddingTop } : {}),
+        ...(unref(footerActive) ? { paddingBottom } : {})
+      }
+    })
 
     const bodyClass = computed(() => makeClassnames('body__main', {
-      'body__main--with-header': unref(headerActive),
-      'body__main--with-footer': unref(footerActive)
+      'body__main--with-header-ghost': unref(headerActive) && !props.headerBorder,
+      'body__main--with-footer-ghost': unref(footerActive) && !props.footerBorder
     }))
 
     const headerClass = computed(() => makeClassnames('body__header', 'body__blur', {
-      'body__header--border': true,
-      'body__header--border-ghost': true
+      'body__header--border': props.headerBorder
     }))
 
     const footerClass = computed(() => makeClassnames('body__footer', 'body__blur', {
-      'body__footer--border': true,
-      'body__footer--border-ghost': true
+      'body__footer--border': props.footerBorder
     }))
 
     function onHeaderResize (element) {
