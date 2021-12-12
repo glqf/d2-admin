@@ -8,10 +8,10 @@
       <slot/>
     </div>
   </d2-scroll>
-  <d2-size-sensor v-if="headerActive" class="body__header container__blur" @resize="onHeaderResize">
+  <d2-size-sensor v-if="headerActive" class="body__header body__blur" @resize="onHeaderResize">
     <slot name="header"/>
   </d2-size-sensor>
-  <d2-size-sensor v-if="footerActive" class="body__footer container__blur" @resize="onFooterResize">
+  <d2-size-sensor v-if="footerActive" class="body__footer body__blur" @resize="onFooterResize">
     <slot name="footer"/>
   </d2-size-sensor>
 </template>

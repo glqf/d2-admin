@@ -55,7 +55,7 @@ html, body, #app {
         @apply relative overflow-hidden;
         margin-top: calc(#{--var('header-height')} + #{--var('header-border-width')});
         min-height: calc(100vh - (#{--var('header-height')} + #{--var('header-border-width')}));
-        background-color: --var('color-bg-container');
+        background-color: --var('body-main-bg-color');
         padding: --var('body-main-padding-y') --var('body-main-padding-x');
       }
     }
@@ -130,13 +130,13 @@ html, body, #app {
     border-top-width: --var('footer-border-width');
   }
   
-  .container__blur {
-    background-color: --var('color-bg-container-rgba-blur');
+  .body__blur {
+    background-color: --var('body-main-bg-color-rgba-blur');
     backdrop-filter: blur(8px);
   }
   @-moz-document url-prefix() {
-    .container__blur {
-      background-color: --var('color-bg-container-rgba-blur-moz');
+    .body__blur {
+      background-color: --var('body-main-bg-color-rgba-blur-moz');
     }
   }
 
