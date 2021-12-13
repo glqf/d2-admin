@@ -6,9 +6,15 @@
 }
 </route>
 
+<style lang="scss" scoped>
+.box {
+  @apply absolute w-12 h-12 text-gray-100 bg-gray-500 cursor-pointer select-none;
+}
+</style>
+
 <template>
-  <div class="absolute top-0 left-0 p-2 bg-gray-600 text-gray-50">LT</div>
-  <div class="absolute top-0 right-0 p-2 bg-gray-600 text-gray-50">RT</div>
-  <div class="absolute bottom-0 left-0 p-2 bg-gray-600 text-gray-50">LB</div>
-  <div class="absolute bottom-0 right-0 p-2 bg-gray-600 text-gray-50">RB</div>
+  <d2-flex class="box top-0 left-0" center>LT</d2-flex>
+  <d2-flex class="box top-0 right-0" center>RT</d2-flex>
+  <d2-flex class="box bottom-0 left-0" center>LB</d2-flex>
+  <d2-flex class="box bottom-0 right-0" center>RB</d2-flex>
 </template>

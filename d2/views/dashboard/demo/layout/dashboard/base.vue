@@ -7,5 +7,5 @@
 </route>
 
 <template>
-  page content  
+  <demo-markdown-article/>
 </template>
