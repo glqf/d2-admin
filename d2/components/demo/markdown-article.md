@@ -126,22 +126,6 @@ The following access addresses are built and deployed by the latest master branc
 | d2-admin-start-kit-plus | [Link](https://github.com/hank-cp/d2-admin-start-kit-plus) | [Link](https://github.com/hank-cp/d2-admin-start-kit-plus) | D2Admin Start kit modular version |
 | d2-ribbons | [Link](https://github.com/d2-projects/d2-ribbons) | [Link](https://github.com/d2-projects/d2-ribbons) | Open source project logo Library |
 
-## Badge
-
-If your open source project is based on D2Admin development, please add the following badge to your README:
-
-<a href="https://github.com/d2-projects/d2-admin" target="_blank">
-	<img src="https://raw.githubusercontent.com/FairyEver/d2-admin/master/docs/image/d2-admin@2x.png" width="200">
-</a>
-
-Copy the following code into the README to:
-
-``` html
-<a href="https://github.com/d2-projects/d2-admin" target="_blank"><img src="https://raw.githubusercontent.com/FairyEver/d2-admin/master/docs/image/d2-admin@2x.png" width="200"></a>
-```
-
-At the same time, you can report your project to us. We will place the excellent project in D2Admin and help you publicize it.
-
 ## Contributor
 
 * [@FairyEver](https://github.com/FairyEver)
