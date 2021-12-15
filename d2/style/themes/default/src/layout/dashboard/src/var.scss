@@ -20,7 +20,7 @@ $color-bg-container: #FFFFFF;
 :root {
   // color
   #{--key('color-bg-app')}: $color-bg-app;
-  #{--key('color-bg-app-rgba-blur')}: rgba($color-bg-app, 0.5);
+  #{--key('color-bg-app-rgba-blur')}: rgba($color-bg-app, 0.8);
   #{--key('color-bg-app-rgba-blur-moz')}: rgba($color-bg-app, 0.98);
 
   #{--key('color-bg-container')}: $color-bg-container;
@@ -55,7 +55,7 @@ $color-bg-container: #FFFFFF;
   #{--key('body-main-padding-x')}: --var('body-main-padding');
   #{--key('body-main-padding-y')}: --var('body-main-padding');
   #{--key('body-main-bg-color')}: --var('color-bg-container');
-  #{--key('body-main-bg-color-rgba-blur')}: rgba($color-bg-container, 0.5);
+  #{--key('body-main-bg-color-rgba-blur')}: rgba($color-bg-container, 0.8);
   #{--key('body-main-bg-color-rgba-blur-moz')}: rgba($color-bg-container, 0.98);
   // body header
   #{--key('body-header-padding')}: --var('body-padding');

@@ -142,7 +142,7 @@ html, body, #app {
   
   .body__blur {
     background-color: --var('body-main-bg-color-rgba-blur');
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(4px);
   }
   @-moz-document url-prefix() {
     .body__blur {
@@ -152,7 +152,7 @@ html, body, #app {
 
   .app__blur {
     background-color: --var('color-bg-app-rgba-blur');
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(4px);
   }
   @-moz-document url-prefix() {
     .app__blur {
