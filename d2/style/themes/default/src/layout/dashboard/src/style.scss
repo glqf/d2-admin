@@ -140,22 +140,21 @@ html, body, #app {
     border-top-width: --var('footer-border-width');
   }
   
-  .body__blur {
+  .layout-blur--body {
     background-color: --var('body-main-bg-color-rgba-blur');
     backdrop-filter: blur(4px);
   }
   @-moz-document url-prefix() {
-    .body__blur {
+    .layout-blur--body {
       background-color: --var('body-main-bg-color-rgba-blur-moz');
     }
   }
-
-  .app__blur {
+  .layout-blur--app {
     background-color: --var('color-bg-app-rgba-blur');
     backdrop-filter: blur(4px);
   }
   @-moz-document url-prefix() {
-    .app__blur {
+    .layout-blur--app {
       background-color: --var('color-bg-app-rgba-blur-moz');
     }
   }

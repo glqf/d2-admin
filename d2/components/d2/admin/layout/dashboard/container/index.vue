@@ -58,11 +58,11 @@ export default {
       'body__main--with-footer-ghost': unref(footerActive) && !props.footerBorder
     }))
 
-    const headerClass = computed(() => makeClassnames('body__header', 'body__blur', {
+    const headerClass = computed(() => makeClassnames('body__header', 'layout-blur--body', {
       'body__header--border': props.headerBorder
     }))
 
-    const footerClass = computed(() => makeClassnames('body__footer', 'body__blur', {
+    const footerClass = computed(() => makeClassnames('body__footer', 'layout-blur--body', {
       'body__footer--border': props.footerBorder
     }))
 
