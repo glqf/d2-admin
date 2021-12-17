@@ -3,22 +3,22 @@
 </route>
 
 <template>
-  <d2-scroll ref="scrollbar" :class="bodyClass">
+  <d2-scroll ref="scrollbarRef" :class="bodyClass">
     <div class="main__inner" :style="mainInnerStyle">
       <slot/>
     </div>
   </d2-scroll>
-  <d2-size-sensor v-if="headerActive" :class="headerClass" @resize="onHeaderResize">
+  <div v-if="headerActive" ref="headerRef" :class="headerClass">
     <slot name="header"/>
-  </d2-size-sensor>
-  <d2-size-sensor v-if="footerActive" :class="footerClass" @resize="onFooterResize">
+  </div>
+  <div v-if="footerActive" ref="footerRef" :class="footerClass">
     <slot name="footer"/>
-  </d2-size-sensor>
+  </div>
 </template>
 
 <script>
 import { computed, onMounted, onUpdated, ref, unref, watchPostEffect } from 'vue'
-import { useCssVar } from '@vueuse/core'
+import { useCssVar, useElementBounding } from '@vueuse/core'
 import makeClassnames from 'classnames'
 import { makeNameByUrl } from 'd2/utils/component.js'
 import { px, convertCssUnit } from 'd2/utils/css.js'
@@ -30,13 +30,15 @@ export default {
     footerBorder: { type: Boolean, default: false, required: false }
   },
   setup (props, { slots }) {
-    const scrollbar = ref(null)
+    const scrollbarRef = ref(null)
+    const headerRef = ref(null)
+    const footerRef = ref(null)
 
     const headerActive = ref(false)
     const footerActive = ref(false)
 
-    const bodyHeaderHeight = ref(0)
-    const bodyFooterHeight = ref(0)
+    const { height: bodyHeaderHeight } = useElementBounding(headerRef)
+    const { height: bodyFooterHeight } = useElementBounding(footerRef)
 
     const cssVarHeaderHeight = computed(() => convertCssUnit(useCssVar('--d2-admin-layout-dashboard-header-height')))
     const cssVarHeaderBorderWidth = computed(() => convertCssUnit(useCssVar('--d2-admin-layout-dashboard-header-border-width')))
@@ -66,16 +68,8 @@ export default {
       'body__footer--border': props.footerBorder
     }))
 
-    function onHeaderResize (element) {
-      bodyHeaderHeight.value = element.offsetHeight
-    }
-
-    function onFooterResize (element) {
-      bodyFooterHeight.value = element.offsetHeight
-    }
-
     function getScrollbarVertical () {
-      return scrollbar.value.$el.getElementsByClassName('os-scrollbar-vertical')[0]
+      return scrollbarRef.value.$el.getElementsByClassName('os-scrollbar-vertical')[0]
     }
 
     function refreshSlotStatus () {
@@ -104,13 +98,13 @@ export default {
     })
 
     return {
-      scrollbar,
+      scrollbarRef,
+      headerRef,
+      footerRef,
       mainInnerStyle,
       bodyClass,
       headerClass,
       footerClass,
-      onHeaderResize,
-      onFooterResize,
       headerActive,
       footerActive
     }

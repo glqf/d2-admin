@@ -1,6 +1,6 @@
 import { unref, computed } from 'vue'
-import { values, mapValues, invert, isEmpty } from 'lodash-es'
-import { useWindowSize } from 'd2/use/window-size.js'
+import { values, mapValues, invert } from 'lodash-es'
+import { useWindowSize } from '@vueuse/core'
 import { useConfig } from 'd2/components/d2/config/use.js'
 
 /**
