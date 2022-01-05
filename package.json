@@ -9,6 +9,7 @@
   "dependencies": {
     "@iconify/iconify": "^2.1.0",
     "@popperjs/core": "^2.11.0",
+    "@surely-vue/table": "^2.0.7",
     "@vue/shared": "^3.2.26",
     "@vueuse/core": "^7.4.0",
     "ant-design-vue": "^2.2.8",
