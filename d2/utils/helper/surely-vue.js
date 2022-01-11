@@ -14,11 +14,18 @@
 // 3. If you choose to use the method in this project to remove the watermark in the online project, you can only bear all the consequences
 // 4. D2Admin (https://github.com/d2-projects/d2-admin) does not use this method to hide watermarks in any production environment
 
-export function hideSurelyTableWatermark () {
-  if (import.meta.env.PROD) return
-  if (location.hostname !== 'localhost') return
-  document.querySelectorAll('div.surely-table > div.surely-table-body > div')
-    .forEach(e => e.innerHTML === 'Powered by Surely Vue' && (e.innerHTML = ''))
-  document.querySelectorAll('div.surely-table > div')
-    .forEach(e => ['Unlicensed Product', 'Invalid License'].includes(e.innerHTML) && (e.innerHTML = ''))
+export function hideSurelyVueTableWatermark () {
+  if (import.meta.env.PROD || location.hostname !== 'localhost') return
+  clean(
+    'div.surely-table > div',
+    ['Unlicensed Product', 'Invalid License']
+  )
+  clean(
+    'div.surely-table > div.surely-table-body > div',
+    ['Powered by Surely Vue']
+  )
+}
+
+function clean (selector, text) {
+  document.querySelectorAll(selector).forEach(e => text.includes(e.innerHTML) && (e.innerHTML = ''))
 }
