@@ -107,11 +107,11 @@ const routesFlat = flattenObjectArray(
   (item, _) => pick(item, ['name', 'path', 'meta'])
 )
 
-function routesFilter (rule) {
+function filterRoutes (rule) {
   return routesFlat.filter(route => rule.test(route.name))
 }
 
-function routeMenu (route, basePath) {
+function createRouteMenu (route, basePath) {
   const url = route.path.replace(RegExp(`^${basePath}`), '')
   const title = get(route.meta, 'd2admin.menu.title', url || '/')
   if (!url) {
@@ -120,6 +120,9 @@ function routeMenu (route, basePath) {
   return new Menu(title).url(url)
 }
 
-export function routeMenus ({ match = /.+/, basePath = '' } = {}) {
-  return routesFilter(match).map(route => routeMenu(route, basePath))
+export function routeMenus ({
+  match = /.+/,
+  basePath = ''
+} = {}) {
+  return filterRoutes(match).map(route => createRouteMenu(route, basePath))
 }

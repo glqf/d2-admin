@@ -44,6 +44,14 @@ export const dashboardDemoComponentD2FlexMenus = new Menu('Flex')
     basePath: 'demo/component/d2-flex'
   }))
 
+export const dashboardDemoComponentSTableMenus = new Menu('Surely Vue')
+  .icon('icon-park-outline:table-file')
+  .scope('/dashboard/demo/component/s-table')
+  .add(routeMenus({
+    match: /^dashboard-demo-component-s-table/,
+    basePath: 'demo/component/s-table'
+  }))
+
 export const dashboardDemoComponentMenus = new Menu('组件')
   .icon('icon-park-outline:components')
   .add(new Menu('概览').url('/dashboard/demo/component').icon('icon-park-outline:handle-round').index())
@@ -52,6 +60,7 @@ export const dashboardDemoComponentMenus = new Menu('组件')
   .add(dashboardDemoComponentD2IconMenus)
   .add(dashboardDemoComponentD2BreakPointMenus)
   .add(dashboardDemoComponentD2FlexMenus)
+  .add(dashboardDemoComponentSTableMenus)
 
 export const dashboardDemoLayoutDashboardMenus = new Menu('控制台布局')
   .icon('icon-park-outline:page')
