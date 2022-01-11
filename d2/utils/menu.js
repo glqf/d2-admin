@@ -111,18 +111,18 @@ function filterRoutes (rule) {
   return routesFlat.filter(route => rule.test(route.name))
 }
 
-function createRouteMenu (route, basePath) {
-  const url = route.path.replace(RegExp(`^${basePath}`), '')
-  const title = get(route.meta, 'd2admin.menu.title', url || '/')
+function createRouteMenu (route, baseUrl) {
+  const url = route.path.replace(new RegExp(`^${baseUrl}`), '')
+  const title = get(route.meta, 'd2admin.menu.title', url || '首页')
   if (!url) {
     return new Menu(title).index()
   }
   return new Menu(title).url(url)
 }
 
-export function routeMenus ({
-  match = /.+/,
-  basePath = ''
+export function createRouteMenus ({
+  routeNameExp = /.+/,
+  baseUrl = ''
 } = {}) {
-  return filterRoutes(match).map(route => createRouteMenu(route, basePath))
+  return filterRoutes(routeNameExp).map(route => createRouteMenu(route, baseUrl))
 }
