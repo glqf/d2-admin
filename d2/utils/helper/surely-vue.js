@@ -14,7 +14,7 @@
 // 3. If you choose to use the method in this project to remove the watermark in the online project, you can only bear all the consequences
 // 4. D2Admin (https://github.com/d2-projects/d2-admin) does not use this method to hide watermarks in any production environment
 
-export function hideSurelyVueTableWatermark () {
+export function hideSurelyVueTableWatermarkOnDev () {
   if (import.meta.env.PROD || location.hostname !== 'localhost') return
   clean(
     'div.surely-table > div',

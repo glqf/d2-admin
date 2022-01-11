@@ -10,7 +10,7 @@
 
 <script>
 import { defineComponent, ref, onMounted } from 'vue'
-import { hideSurelyVueTableWatermark } from 'd2/utils/helper/surely-vue.js'
+import { hideSurelyVueTableWatermarkOnDev } from 'd2/utils/helper/surely-vue.js'
 
 const columns = [
   { title: 'Full Name', dataIndex: 'name' },
@@ -35,7 +35,7 @@ export default defineComponent({
       })
     }
     onMounted(() => {
-      hideSurelyVueTableWatermark()
+      hideSurelyVueTableWatermarkOnDev()
     })
     return {
       stable,
