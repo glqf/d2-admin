@@ -113,11 +113,11 @@ function filterRoutes (rule) {
 
 function createRouteMenu (route, baseUrl) {
   const url = baseUrl + route.path
-  const title = get(route.meta, 'd2admin.menu.title', url || '首页')
-  if (!url) {
-    return new Menu(title).index()
-  }
-  return new Menu(title).url(url)
+  const index = get(route.meta, 'd2admin.menu.index', false)
+  const title = get(route.meta, 'd2admin.menu.title', index ? '首页' : route.path)
+  const menu = new Menu(title)
+  menu.url(url)
+  return menu
 }
 
 export function createRouteMenus ({
