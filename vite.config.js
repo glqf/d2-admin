@@ -40,7 +40,7 @@ import SvgIcons from 'vite-plugin-svg-icons'
 
 // Bundles only the icons you use
 // [website] https://github.com/antfu/purge-icons
-// [browser] https://icones.netlify.app/ or https://iconify.design/icon-sets/
+// [browser] https://icones.netlify.app
 // [example] <span class="iconify" data-icon="fa:home"/>
 import PurgeIcons from 'vite-plugin-purge-icons'
 
