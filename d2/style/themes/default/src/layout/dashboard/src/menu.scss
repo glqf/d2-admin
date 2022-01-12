@@ -476,6 +476,8 @@
   .ant-menu-vertical-left .ant-menu-submenu-title,
   .ant-menu-vertical-right .ant-menu-submenu-title,
   .ant-menu-inline .ant-menu-submenu-title {
+    // Items in the sidebar menu can hide the top margin, because the logo area is above the first menu item
+    // There is a border below the last menu item, so the menu item needs a bottom margin
     height: --var('item-line-height'); // height: 40px;
     margin-top: 0px; // margin-top: 4px;
     margin-bottom: --var('item-margin-y'); // margin-bottom: 4px;
@@ -499,6 +501,14 @@
   .ant-menu-inline .ant-menu-item:not(:last-child) {
     margin-bottom: --var('item-margin-y'); // margin-bottom: 8px;
   }
+  // ---- new ----
+  .ant-menu.ant-menu-submenu.ant-menu-submenu-popup {
+    .ant-menu.ant-menu-sub.ant-menu-vertical {
+      // Add margin top in the popup menu panel
+      padding-top: --var('item-margin-y');
+    }
+  }
+  // ---- new ----
   .ant-menu-vertical > .ant-menu-item,
   .ant-menu-vertical-left > .ant-menu-item,
   .ant-menu-vertical-right > .ant-menu-item,
