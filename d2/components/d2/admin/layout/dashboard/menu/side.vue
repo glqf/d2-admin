@@ -58,7 +58,7 @@ export default {
     const openKeys = computed(() => getMenuPids(selectedKey.value))
 
     const inlineIndent = computed(() => {
-      // padding: 0 calc((#{--var('item-line-height')} - #{--var('item-font-size')}) / 2);
+      // Keep the same calculation rules as in CSS
       const itemLineHeight = convertCssUnit(useCssVar('--d2-admin-layout-dashboard-item-line-height'))
       const itemFontSize = convertCssUnit(useCssVar('--d2-admin-layout-dashboard-item-font-size'))
       return (itemLineHeight - itemFontSize) / 2

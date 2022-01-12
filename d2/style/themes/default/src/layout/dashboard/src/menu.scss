@@ -477,7 +477,7 @@
   .ant-menu-vertical-right .ant-menu-submenu-title,
   .ant-menu-inline .ant-menu-submenu-title {
     height: --var('item-line-height'); // height: 40px;
-    margin-top: --var('item-margin-y'); // margin-top: 4px;
+    margin-top: 0px; // margin-top: 4px;
     margin-bottom: --var('item-margin-y'); // margin-bottom: 4px;
     margin-right: --var('item-margin-x'); // new
     margin-left: --var('item-margin-x'); // new
