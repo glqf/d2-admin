@@ -1,5 +1,7 @@
 <route>
-{}
+{
+  "meta": {}
+}
 </route>
 
 <template>

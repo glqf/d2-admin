@@ -15,7 +15,9 @@
 </style>
 
 <route>
-{}
+{
+  "meta": {}
+}
 </route>
 
 <template>
