@@ -7,7 +7,7 @@
     mode="inline"
     :selected-keys="selectedKeys"
     :open-keys="openKeys"
-    :inline-indent="16"
+    :inline-indent="inlineIndent"
     :inline-collapsed="collapsed"
     @select="onSelect"
   >
@@ -20,12 +20,14 @@
 </template>
 
 <script>
-import { makeNameByUrl } from 'd2/utils/component.js'
-import { useD2AdminMenuMainStore } from 'd2/store/menu-main.js'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { useCssVar } from '@vueuse/core'
 import { compact } from 'lodash-es'
 import { storeToRefs } from 'pinia'
+import { makeNameByUrl } from 'd2/utils/component.js'
+import { convertCssUnit } from 'd2/utils/css.js'
+import { useD2AdminMenuMainStore } from 'd2/store/menu-main.js'
 import { useMenu } from 'd2/use/menu.js'
 import { getMenuId } from 'd2/utils/menu.js'
 import { useD2AdminLayoutDashboardStore } from 'd2/components/d2/admin/layout/dashboard/store/index.js'
@@ -55,13 +57,21 @@ export default {
 
     const openKeys = computed(() => getMenuPids(selectedKey.value))
 
+    const inlineIndent = computed(() => {
+      // padding: 0 calc((#{--var('item-line-height')} - #{--var('item-font-size')}) / 2);
+      const itemLineHeight = convertCssUnit(useCssVar('--d2-admin-layout-dashboard-item-line-height'))
+      const itemFontSize = convertCssUnit(useCssVar('--d2-admin-layout-dashboard-item-font-size'))
+      return (itemLineHeight - itemFontSize) / 2
+    })
+
     return {
       menus,
       onSelect,
       selectedKeys,
       openKeys,
       getMenuId,
-      collapsed
+      collapsed,
+      inlineIndent
     }
   }
 }
