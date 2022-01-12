@@ -112,7 +112,7 @@ function filterRoutes (rule) {
 }
 
 function createRouteMenu (route, baseUrl) {
-  const url = route.path.replace(new RegExp(`^${baseUrl}`), '')
+  const url = baseUrl + route.path
   const title = get(route.meta, 'd2admin.menu.title', url || '首页')
   if (!url) {
     return new Menu(title).index()

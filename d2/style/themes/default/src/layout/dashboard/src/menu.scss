@@ -243,6 +243,13 @@
     // opacity: 1;
     // transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), margin 0.3s, color 0.3s;
   }
+  // ---- new ----
+  .ant-menu-horizontal .ant-menu-item .ant-menu-item-icon + span,
+  .ant-menu-horizontal .ant-menu-submenu-title .ant-menu-item-icon + span {
+    // set a smaller distance between icons and text in the header menu
+    margin-left: calc((#{--var('item-line-height')} - #{--var('item-font-size')}) / 2 / 2);
+  }
+  // ---- new end ----
   .ant-menu-item .ant-menu-item-icon.svg,
   .ant-menu-submenu-title .ant-menu-item-icon.svg {
     // vertical-align: -0.125em;
