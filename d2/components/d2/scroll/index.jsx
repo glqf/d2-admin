@@ -52,10 +52,8 @@ export default defineComponent({
 
     const isValid = () => os.valid(unref(instance))
 
-    const osClassName = computed(() => makeClassnames(`os-theme-${props.theme}`, attrs.class))
-
     const optionsDefault = computed(() => ({
-      className: unref(osClassName),
+      className: `os-theme-${props.theme}`,
       scrollbars: {
         autoHide: 'leave',
         autoHideDelay: 300
@@ -130,7 +128,7 @@ export default defineComponent({
     
     watch(options, reloadOptions)
     
-    const classnames = computed(() => makeClassnames(classname, {}))
+    const classnames = computed(() => makeClassnames(classname, attrs.class))
 
     return {
       target,
