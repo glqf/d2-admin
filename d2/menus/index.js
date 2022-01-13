@@ -57,7 +57,6 @@ export const dashboardDemoComponentSTableMenus = menus({
 
 export const dashboardDemoComponentMenus = new Menu('组件')
   .icon('icon-park-outline:components')
-  .add(new Menu('概览').url('/dashboard/demo/component').icon('icon-park-outline:handle-round').index())
   .add(dashboardDemoComponentD2ScrollMenus)
   .add(dashboardDemoComponentD2SvgMenus)
   .add(dashboardDemoComponentD2IconMenus)
@@ -73,7 +72,6 @@ export const dashboardDemoLayoutDashboardMenus = menus({
 
 export const dashboardDemoLayoutMenus = new Menu('布局')
   .icon('icon-park-outline:page')
-  .add(new Menu('概览').url('/dashboard/demo/layout').icon('icon-park-outline:handle-round').index())
   .add(dashboardDemoLayoutDashboardMenus)
 
 export const dashboardDocumentMenus = menus({

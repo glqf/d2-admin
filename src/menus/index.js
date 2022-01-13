@@ -7,10 +7,7 @@ import {
   dashboardDocumentMenus
 } from 'd2/menus/index.js'
 
-const startMenu = new Menu('第一个页面')
-  .url('/dashboard/hello-world')
-  .icon('icon-park-outline:file-code')
-  .value()
+const startMenu = new Menu('HelloWorld').url('/dashboard/hello-world').icon('icon-park-outline:file-code').value()
 
 export const menuMain = [
   indexMenu.value(),
@@ -23,7 +20,6 @@ export const menuMain = [
 
 export const menuSecondary = [
   dashboardDemoComponentMenus.value(),
+  dashboardDemoLayoutMenus.value(),
   dashboardDocumentMenus.value()
 ]
-
-console.log('menuMain', menuMain)
