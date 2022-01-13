@@ -1,3 +1,11 @@
+<route>
+{
+  "meta": {
+    "d2admin.menu.title": "-"
+  }
+}
+</route>
+
 <template>
   <s-table
     ref="stable"

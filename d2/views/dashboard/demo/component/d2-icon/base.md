@@ -1,3 +1,11 @@
+<route>
+{
+  "meta": {
+    "d2admin.menu.title": "-"
+  }
+}
+</route>
+
 ``` html
 <span class="d2-icon">
   <span class="iconify" data-icon="fa:square-o"/>

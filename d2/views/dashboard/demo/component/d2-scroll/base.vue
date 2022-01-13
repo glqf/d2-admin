@@ -3,9 +3,9 @@
   height: 200px;
   width: 200px;
   .row {
-    @apply cursor-pointer px-4 py-2 bg-gray-700 text-gray-100 border-b border-gray-800;
+    @apply px-4 py-2 text-gray-100 bg-gray-700 border-b border-gray-800 cursor-pointer;
     &:hover {
-      @apply bg-gray-800 text-gray-200;
+      @apply text-gray-200 bg-gray-800;
     }
     &:last-child {
       @apply border-b-0;
@@ -16,7 +16,9 @@
 
 <route>
 {
-  "meta": {}
+  "meta": {
+    "d2admin.menu.title": "-"
+  }
 }
 </route>
 

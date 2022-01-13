@@ -21,7 +21,9 @@
 ``` js
 <route>
 {
-  "meta": {}
+  "meta": {
+    "d2admin.menu.title": "Menu Title"
+  }
 }
 </route>
 ```
@@ -36,7 +38,6 @@
 
 | key | type |
 | --- | ---- |
-| d2admin.menu.index | boolean |
 | d2admin.menu.title | string |
 
 ### Syntax Highlighting `<route>`

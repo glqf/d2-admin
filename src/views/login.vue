@@ -1,6 +1,8 @@
 <route>
 {
-  "meta": {}
+  "meta": {
+    "d2admin.menu.title": "-"
+  }
 }
 </route>
 

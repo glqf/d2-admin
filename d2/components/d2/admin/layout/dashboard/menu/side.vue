@@ -1,9 +1,3 @@
-<route>
-{
-  "meta": {}
-}
-</route>
-
 <template>
   <a-menu
     mode="inline"

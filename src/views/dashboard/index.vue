@@ -1,7 +1,7 @@
 <route>
 {
   "meta": {
-    "d2admin.menu.index": true
+    "d2admin.menu.title": "-"
   }
 }
 </route>

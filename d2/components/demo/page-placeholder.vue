@@ -1,9 +1,3 @@
-<route>
-{
-  "meta": {}
-}
-</route>
-
 <template>
   <d2-flex class="absolute inset-0" center dir="top">
     <span class="mb-2 text-4xl text-gray-300">

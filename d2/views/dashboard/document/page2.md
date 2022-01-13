@@ -1,3 +1,11 @@
+<route>
+{
+  "meta": {
+    "d2admin.menu.title": "-"
+  }
+}
+</route>
+
 # github-markdown-css
 
 > The minimal amount of CSS to replicate the GitHub Markdown style

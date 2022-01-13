@@ -1,9 +1,3 @@
-<route>
-{
-  "meta": {}
-}
-</route>
-
 <template>
   <d2-scroll ref="scrollbarRef" :class="bodyClass">
     <div class="main__inner" :style="mainInnerStyle">

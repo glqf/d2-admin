@@ -1,9 +1,3 @@
-<route>
-{
-  "meta": {}
-}
-</route>
-
 <template>
   <a-sub-menu :key="getMenuId(menu)">
     <template #icon>

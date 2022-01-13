@@ -50,7 +50,6 @@ export class Menu {
       [_k_url]: '',
       [_k_children]: []
     }
-    this._isIndex = false
     this._scope = ''
     this._prefix = ''
   }
@@ -74,16 +73,6 @@ export class Menu {
     }
     this.data[_k_children].push(...(isArray(data) ? data : [data]))
     return this
-  }
-  index () {
-    this._isIndex = true
-    return this
-  }
-  findIndex () {
-    return this.data[_k_children].reduce((result, menu) => {
-      if (result) return result
-      if (menu instanceof Menu && menu._isIndex) return menu
-    }, undefined)
   }
   scope (value) {
     this._scope = value
@@ -113,8 +102,7 @@ function filterRoutes (rule) {
 
 function createRouteMenu (route, baseUrl) {
   const url = baseUrl + route.path
-  const index = get(route.meta, 'd2admin.menu.index', false)
-  const title = get(route.meta, 'd2admin.menu.title', index ? '首页' : route.path)
+  const title = get(route.meta, 'd2admin.menu.title', route.path)
   const menu = new Menu(title)
   menu.url(url)
   return menu

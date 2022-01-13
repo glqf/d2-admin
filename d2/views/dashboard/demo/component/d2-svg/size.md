@@ -1,3 +1,11 @@
+<route>
+{
+  "meta": {
+    "d2admin.menu.title": "-"
+  }
+}
+</route>
+
 ``` html
 <d2-svg dir="arrow" name="right" width="100"/>
 ```

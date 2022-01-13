@@ -1,9 +1,3 @@
-<route>
-{
-  "meta": {}
-}
-</route>
-
 <template>
   <!-- side -->
   <d2-flex class="layout__side" dir="top">
