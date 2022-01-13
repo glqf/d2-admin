@@ -16,6 +16,29 @@
 
 ## Tips
 
+### Route Meta
+
+``` js
+<route>
+{
+  "meta": {}
+}
+</route>
+```
+
+**layout**
+
+| key | type |
+| --- | ---- |
+| d2admin.layout.dashboard.customBody | boolean |
+
+**menu**
+
+| key | type |
+| --- | ---- |
+| d2admin.menu.index | boolean |
+| d2admin.menu.title | string |
+
 ### Syntax Highlighting `<route>`
 
 To enable syntax highlighting `<route>` in VS Code using [Vetur's Custom Code Blocks](https://vuejs.github.io/vetur/highlighting.html#custom-block) add the following snippet to your preferences...

@@ -1,4 +1,4 @@
-import { Menu } from 'd2/utils/menu.js'
+import { Menu } from 'd2/utils/framework/menu.js'
 import {
   indexMenu,
   dashboardIndexMenu,

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { makeNameByUrl } from 'd2/utils/component.js'
+import { makeNameByUrl } from 'd2/utils/framework/component.js'
 import { breakPointsName } from 'd2/utils/const/break-point.js'
 
 export default {

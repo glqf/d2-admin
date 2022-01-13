@@ -1,9 +1,9 @@
 import makeClassnames from 'classnames'
 import { defineComponent, ref, unref, computed, watch, onMounted, nextTick, onBeforeUpdate } from 'vue'
 import iconify from '@iconify/iconify'
-import { clearElement } from 'd2/utils/dom.js'
+import { clearElement } from 'd2/utils/browser/dom.js'
 import { useConfig } from 'd2/components/d2/config/use.js'
-import { makeName, makeClassName } from 'd2/utils/component.js'
+import { makeName, makeClassName } from 'd2/utils/framework/component.js'
 
 const name = 'icon'
 

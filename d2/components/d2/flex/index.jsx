@@ -1,8 +1,8 @@
 import makeClassnames from 'classnames'
 import { defineComponent, unref, computed } from 'vue'
 import { pickBy, isUndefined } from 'lodash-es'
-import { isNumberLike } from 'd2/utils/number.js'
-import { makeName, makeClassName } from 'd2/utils/component.js'
+import { isNumberLike } from 'd2/utils/lang/number.js'
+import { makeName, makeClassName } from 'd2/utils/framework/component.js'
 import { isFlexProp } from 'd2/utils/const/flex.js'
 
 const name = 'flex'

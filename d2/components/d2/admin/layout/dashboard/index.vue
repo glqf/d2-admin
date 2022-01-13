@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { makeNameByUrl, makeClassNameByUrl } from 'd2/utils/component.js'
+import { makeNameByUrl, makeClassNameByUrl } from 'd2/utils/framework/component.js'
 import { get } from 'lodash-es'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'

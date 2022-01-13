@@ -22,8 +22,8 @@
 import { computed, onMounted, onUpdated, ref, unref, watchPostEffect } from 'vue'
 import { useCssVar, useElementBounding } from '@vueuse/core'
 import makeClassnames from 'classnames'
-import { makeNameByUrl } from 'd2/utils/component.js'
-import { px, convertCssUnit } from 'd2/utils/css.js'
+import { makeNameByUrl } from 'd2/utils/framework/component.js'
+import { px, convertCssUnit } from 'd2/utils/browser/css.js'
 
 export default {
   name: makeNameByUrl(import.meta.url),

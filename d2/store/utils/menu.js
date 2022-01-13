@@ -1,6 +1,6 @@
 import { fromPairs } from 'lodash-es'
 import { defineStore } from 'pinia'
-import { flattenMenus, getMenuId, getMenuUrl, getMenuPidIndex } from 'd2/utils/menu.js'
+import { flattenMenus, getMenuId, getMenuUrl, getMenuPidIndex } from 'd2/utils/framework/menu.js'
 
 export function defineD2AdminMenuStore (namespace) {
   return defineStore(namespace, {

@@ -19,14 +19,14 @@
 </template>
 
 <script>
-import { makeNameByUrl } from 'd2/utils/component.js'
+import { makeNameByUrl } from 'd2/utils/framework/component.js'
 import { useD2AdminMenuSecondaryStore } from 'd2/store/menu-secondary.js'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { compact } from 'lodash-es'
 import { storeToRefs } from 'pinia'
 import { useMenu } from 'd2/use/menu.js'
-import { getMenuId } from 'd2/utils/menu.js'
+import { getMenuId } from 'd2/utils/framework/menu.js'
 
 export default {
   name: makeNameByUrl(import.meta.url),

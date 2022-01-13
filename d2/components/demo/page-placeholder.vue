@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { makeNameByUrl } from 'd2/utils/component.js'
+import { makeNameByUrl } from 'd2/utils/framework/component.js'
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 

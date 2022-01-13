@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid'
 import { isArray, cloneDeep, omit, get, pick } from 'lodash-es'
-import { flattenObjectArray } from 'd2/utils/array.js'
+import { flattenObjectArray } from 'd2/utils/lang/array.js'
 import routes from 'virtual:generated-pages'
 
 export const _k_id = '_id'

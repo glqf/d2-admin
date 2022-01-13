@@ -1,6 +1,6 @@
-import { id } from 'd2/utils/id.js'
+import { id } from 'd2/utils/helper/id.js'
 import { kebabCase } from 'lodash-es'
-import { pascalCase } from 'd2/utils/string.js'
+import { pascalCase } from 'd2/utils/lang/string.js'
 
 /**
  * Format component name

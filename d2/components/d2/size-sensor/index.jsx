@@ -1,6 +1,6 @@
 import { defineComponent, getCurrentInstance, onBeforeUnmount, onMounted } from 'vue'
 import { bind } from 'size-sensor'
-import { makeName } from 'd2/utils/component.js'
+import { makeName } from 'd2/utils/framework/component.js'
 
 const name = 'size-sensor'
 

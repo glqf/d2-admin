@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { makeNameByUrl } from 'd2/utils/component.js'
+import { makeNameByUrl } from 'd2/utils/framework/component.js'
 import { computed, unref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useD2AdminLayoutDashboardStore } from 'd2/components/d2/admin/layout/dashboard/store/index.js'

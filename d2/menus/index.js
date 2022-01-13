@@ -1,4 +1,4 @@
-import { Menu, createRouteMenus } from 'd2/utils/menu.js'
+import { Menu, createRouteMenus } from 'd2/utils/framework/menu.js'
 
 const menus = ({ title, icon, path }) => (
   new Menu(title)

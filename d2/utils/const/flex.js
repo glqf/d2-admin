@@ -1,4 +1,4 @@
-import { isEmptyString } from 'd2/utils/string.js'
+import { isEmptyString } from 'd2/utils/lang/string.js'
 
 export const flexProps = {
   dir: ['top', 'right', 'bottom', 'left'],

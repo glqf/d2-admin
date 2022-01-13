@@ -5,7 +5,7 @@
 <script>
 import { unref, reactive, defineComponent, computed } from 'vue'
 import { mapValues } from 'lodash-es'
-import { makeName } from 'd2/utils/component.js'
+import { makeName } from 'd2/utils/framework/component.js'
 import { useBreakPoint } from 'd2/use/break-point.js'
 import { useResponsive } from 'd2/use/responsive.js'
 
