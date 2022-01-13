@@ -96,11 +96,11 @@ const routesFlat = flattenObjectArray(
   (item, _) => pick(item, ['name', 'path', 'meta'])
 )
 
-function filterRoutes (rule) {
-  return routesFlat.filter(route => rule.test(route.name))
+export function filterRoutes (routeNameExp) {
+  return routesFlat.filter(route => routeNameExp.test(route.name))
 }
 
-function createRouteMenu (route, baseUrl) {
+export function createRouteMenu (route, baseUrl) {
   const url = baseUrl + route.path
   const title = get(route.meta, 'd2admin.menu.title', route.path)
   const menu = new Menu(title)

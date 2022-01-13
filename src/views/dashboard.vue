@@ -1,11 +1,3 @@
-<route>
-{
-  "meta": {
-    "d2admin.menu.title": "-"
-  }
-}
-</route>
-
 <template>
   <d2-admin-layout-dashboard>
     <template #footer>

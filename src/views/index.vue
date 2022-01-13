@@ -1,11 +1,3 @@
-<route>
-{
-  "meta": {
-    "d2admin.menu.title": "-"
-  }
-}
-</route>
-
 <template>
   <router-link to="/dashboard">
     <a-button type="link">控制台</a-button>

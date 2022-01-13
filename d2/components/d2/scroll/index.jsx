@@ -5,7 +5,7 @@ import { makeName, makeClassName } from 'd2/utils/framework/component.js'
 import os from 'overlayscrollbars'
 import 'overlayscrollbars/css/OverlayScrollbars.css'
 
-export const callbacks = [
+export const osCallbacks = [
   'onInitialized',
   'onInitializationWithdrawn',
   'onDestroyed',
@@ -20,7 +20,9 @@ export const callbacks = [
   'onUpdated'
 ]
 
-export const emits = callbacks.map(name => kebabCase(name.replace(/^on/, '')))
+const osCallbackToEmitName = name => kebabCase(name.replace(/^on/, ''))
+
+export const emits = osCallbacks.map(osCallbackToEmitName)
 
 const name = 'scroll'
 
@@ -46,7 +48,10 @@ export default defineComponent({
     'scroll-bottom'
   ],
   setup (props, { emit, attrs }) {
-    const target = ref(null)
+    const scrollbarTarget = ref(null)
+
+    const scrollbarVertical = ref(null)
+    const scrollbarHorizontal = ref(null)
 
     const instance = ref(null)
 
@@ -58,18 +63,18 @@ export default defineComponent({
         autoHide: 'leave',
         autoHideDelay: 300
       },
-      callbacks: fromPairs(callbacks.map(name => {
-        const emitName = kebabCase(name.replace(/^on/, ''))
+      callbacks: fromPairs(osCallbacks.map(name => {
+        const emitName = osCallbackToEmitName(name)
         let callback = () => {}
         switch (name) {
           case 'onScroll':
             callback = event => {
-              const information = unref(instance).scroll()
-              const ratioY = information.ratio.y
+              const info = unref(instance).scroll()
+              const ratioY = info.ratio.y
               emit(emitName, event)
-              const cordonY = information.max.y - information.position.y
-              const cordonX = information.max.x - information.position.x
-              if (cordonY <= -props.cordonY) emit('in-cordon-y', event)
+              const cordonY = info.max.y - info.position.y
+              const cordonX = info.max.x - info.position.x
+              if (cordonY <= props.cordonY) emit('in-cordon-y', event)
               if (cordonX <= props.cordonX) emit('in-cordon-x', event)
               if (ratioY === 0) emit('scroll-top', event)
               if (ratioY === 1) emit('scroll-bottom', event)
@@ -96,7 +101,7 @@ export default defineComponent({
             }
           }
         })
-      }``
+      }
     }
 
     const merge = options => mergeWith({}, unref(optionsDefault), options, customizer)
@@ -111,7 +116,7 @@ export default defineComponent({
 
     function init () {
       instance.value = os(
-        unref(target),
+        unref(scrollbarTarget),
         unref(options),
         props.extensions
       )
@@ -131,7 +136,9 @@ export default defineComponent({
     const classnames = computed(() => makeClassnames(classname, attrs.class))
 
     return {
-      target,
+      scrollbarTarget,
+      scrollbarVertical,
+      scrollbarHorizontal,
       classnames,
       instance
     }
@@ -141,7 +148,7 @@ export default defineComponent({
       classnames
     } = this
     return (
-      <div ref="target" class="os-host" class={ classnames }>
+      <div ref="scrollbarTarget" class="os-host" class={ classnames }>
         <div class="os-resize-observer-host"/>
         <div class="os-padding">
           <div class="os-viewport">
@@ -150,12 +157,12 @@ export default defineComponent({
             </div>
           </div>
         </div>
-        <div class="os-scrollbar os-scrollbar-horizontal">
+        <div ref="scrollbarHorizontal" class="os-scrollbar os-scrollbar-horizontal">
           <div class="os-scrollbar-track">
             <div class="os-scrollbar-handle"/>
           </div>
         </div>
-        <div class="os-scrollbar os-scrollbar-vertical">
+        <div ref="scrollbarVertical" class="os-scrollbar os-scrollbar-vertical">
           <div class="os-scrollbar-track">
             <div class="os-scrollbar-handle"/>
           </div>

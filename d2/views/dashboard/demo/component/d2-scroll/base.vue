@@ -1,15 +1,8 @@
 <style lang="scss" scoped>
 .d2-scroll--demo {
-  height: 200px;
-  width: 200px;
+  @apply border-2 border-gray-400 rounded bg-gray-50 w-60 h-60;
   .row {
-    @apply px-4 py-2 text-gray-100 bg-gray-700 border-b border-gray-800 cursor-pointer;
-    &:hover {
-      @apply text-gray-200 bg-gray-800;
-    }
-    &:last-child {
-      @apply border-b-0;
-    }
+    @apply px-1 py-1 text-gray-400 cursor-pointer;
   }
 }
 </style>
@@ -17,7 +10,7 @@
 <route>
 {
   "meta": {
-    "d2admin.menu.title": "-"
+    "d2admin.menu.title": "基础"
   }
 }
 </route>

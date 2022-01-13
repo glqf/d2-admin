@@ -1,7 +1,7 @@
 <route>
 {
   "meta": {
-    "d2admin.menu.title": "-"
+    "d2admin.menu.title": "第一个页面"
   }
 }
 </route>

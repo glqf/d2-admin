@@ -64,10 +64,6 @@ export default {
       'body__footer--border': props.footerBorder
     }))
 
-    function getScrollbarVertical () {
-      return scrollbarRef.value.$el.getElementsByClassName('os-scrollbar-vertical')[0]
-    }
-
     function refreshSlotStatus () {
       headerActive.value = !!slots.header
       footerActive.value = !!slots.footer
@@ -80,16 +76,17 @@ export default {
     }
 
     refreshSlotStatus()
+    
     onUpdated(() => {
       refreshSlotStatus()
     })
     
     onMounted(() => {
       watchPostEffect(() => {
-        getScrollbarVertical().style.top = px(scrollbarVerticalTop)
+        scrollbarRef.value.scrollbarVertical.style.top = px(scrollbarVerticalTop)
       })
       watchPostEffect(() => {
-        getScrollbarVertical().style.bottom = px(bodyFooterHeight)
+        scrollbarRef.value.scrollbarVertical.style.bottom = px(bodyFooterHeight)
       })
     })
 

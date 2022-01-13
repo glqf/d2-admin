@@ -1,7 +1,7 @@
 <route>
 {
   "meta": {
-    "d2admin.menu.title": "-"
+    "d2admin.menu.title": "绑定数据"
   }
 }
 </route>
