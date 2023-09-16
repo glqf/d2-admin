@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.27.0](https://github.com/d2-projects/d2-admin/compare/v1.26.0...v1.27.0) (2023-09-16)
+
+
+### Features
+
+* ${{ !contains(github.event.head_commit.message, '[skip ci]') }} ([40d1ed1](https://github.com/d2-projects/d2-admin/commit/40d1ed196dd858b1546100c63970c993fa0e96c2))
+* contains ([f0bf16e](https://github.com/d2-projects/d2-admin/commit/f0bf16e2f316feec5f40a5b27091a6b07cf0f290))
+* if ([dbd461f](https://github.com/d2-projects/d2-admin/commit/dbd461f2bdc5581796852eae3b1e8c57d68f7943))
+* if ([c1b220d](https://github.com/d2-projects/d2-admin/commit/c1b220d08cc5a76e3af36929ff2befe8c82d4047))
+* secrets.GITHUB_TOKEN ([ec74266](https://github.com/d2-projects/d2-admin/commit/ec742660bffe350113d5c7a4f3fae738a602f931))
+
+# [1.26.0](https://github.com/d2-projects/d2-admin/compare/v1.25.0...v1.26.0) (2023-09-13)
+
+
+### Features
+
+* update badges ([0575b8a](https://github.com/d2-projects/d2-admin/commit/0575b8a73cdb90dab383fbb16fc3da91f704b1f5))
+* update lock ([b386840](https://github.com/d2-projects/d2-admin/commit/b3868401d9d31d157ae960c7a8ec01a5867fbe3c))
+* update send bark message ([e644bfc](https://github.com/d2-projects/d2-admin/commit/e644bfc12922a9e9243c7af50d117b81e125999b))
+* 不再使用 action 部署 ([58e5cef](https://github.com/d2-projects/d2-admin/commit/58e5cef45b178bbe17977fc2bae14790aab286b7))
+* 更新文档 ([37cae60](https://github.com/d2-projects/d2-admin/commit/37cae6021796c8d261467326f9fd556ed5ff062e))
+* 更新链接地址 ([22b9be1](https://github.com/d2-projects/d2-admin/commit/22b9be11549036196e1c80fa9172d15556a651a4))
+
+# [1.25.0](https://github.com/d2-projects/d2-admin/compare/v1.24.3...v1.25.0) (2022-08-23)
+
+
+### Features
+
+* update packages minor ([85bdc01](https://github.com/d2-projects/d2-admin/commit/85bdc019ea5e2c7afde157fd278a98add7868c03))
+* update packages patch ([24a2f64](https://github.com/d2-projects/d2-admin/commit/24a2f64d275e7e5992588b305bafdf99be40b5c6))
+
+## [1.24.3](https://github.com/d2-projects/d2-admin/compare/v1.24.2...v1.24.3) (2022-08-23)
+
+
+### Bug Fixes
+
+* 🐛 注销用户清空vuex用户信息失效 ([a7784d4](https://github.com/d2-projects/d2-admin/commit/a7784d4a321138e712a0c2434e2c8a5334de359d))
+* remove never used code ([57534be](https://github.com/d2-projects/d2-admin/commit/57534be3fbec2796f998192e26aea3616be2b87c))
+* remove simplemde ([dd99b57](https://github.com/d2-projects/d2-admin/commit/dd99b57b6e1330c58c33c57da5785ae4e256847c))
+
 ## [1.24.2](https://github.com/d2-projects/d2-admin/compare/v1.24.1...v1.24.2) (2021-07-23)
 
 
